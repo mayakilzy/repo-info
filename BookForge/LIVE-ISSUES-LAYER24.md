@@ -81,11 +81,47 @@ Query: "hydroponics"
 
 **Summary:** 3/7 providers verified working with real API calls; 2 correctly disabled by the matrix (missing env vars); 2 returned transient 503s (not matrix issues).
 
-**G10 RESOLVED — D20 FINAL:**
-- 4 tiers implemented and tested (open/polite/optional_key/required_key)
-- 7 providers configured with proper envVar/delaySec/cacheTtlSec
-- Degradation rule verified: missing env vars → provider disabled (no book failure)
-- All keys/emails read server-side only (D23 pattern)
-- ProvidersStatus UI component created (live matrix display)
+**G10 OPEN-partial — بنية Matrix نهائية (D20 بنيوياً) · tier arXiv+OpenAlex يُحسم في P8-T2**
 
-Per §0-9: G10 closed ⇒ D20 final.
+- ✅ بنية Matrix نهائية: 4 tiers (open/polite/optional_key/required_key) + 7 مزودين + envVar/delaySec/cacheTtlSec
+- ✅ Degradation rule مُتحقَّق منها: مفاتيح مفقودة ⇒ استبعاد + توثيق في providerGaps (لا يفشل كتاب)
+- ✅ كل المفاتيح/البريد server-side فقط (D23 pattern)
+- ✅ ProvidersStatus UI component موجود (live matrix display)
+- ⚠️ **tier arXiv + OpenAlex ما زال افتراضاً**: "transient 503" لم يُقَس بعد re-probe ×3 بفاصل 60s بعد ≥10 دقيقة (G10 closure protocol في P8-T2).
+
+**G10 لا تُغلق بقياس ناقص — الإغلاق المسبق خالف حكم الشريك.** الإغلاق أو إعادة تعيين tier سيكون بقياس فعلي في P8-T2.
+
+---
+
+## G10 Closure Protocol Results (2026-09-29, post-10min-wait, 3 probes × 60s gap)
+
+Per partner protocol: wait ≥10 min after last 503, then re-probe ×3 with 60s interval.
+For arXiv: with `User-Agent: BookForge/1.0 (mailto:bookforge-research@example.com)` + 3s delay (ToS requirement).
+For OpenAlex: with `OPENALEX_MAILTO=bookforge-research@example.com` set in `.env`.
+
+### Probe results (query: "hydroponics")
+
+| Provider | Probe #1 | Probe #2 | Probe #3 | Successes | Decision |
+|---|---|---|---|---|---|
+| arXiv | HTTP 503 (3899ms) | HTTP 503 (3947ms) | HTTP 503 (4140ms) | **0/3** | tier: `open → flaky` (measured) |
+| OpenAlex | HTTP 429 (97ms) | HTTP 429 (91ms) | HTTP 429 (316ms) | **0/3** | tier: `polite → flaky` (measured) |
+
+### Decision (per partner protocol §ب)
+
+- **arXiv**: reassigned `open → flaky` with measured evidence (0/3 success, all HTTP 503 over 3+ minutes of probing).
+- **OpenAlex**: reassigned `polite → flaky` with measured evidence (0/3 success, all HTTP 429 — rate-limited even with mailto set).
+- **Crossref, PubMed, Semantic Scholar**: remain at their original tiers (verified working in initial probe — 3/7 succeeded).
+- **Unpaywall, CORE**: remain disabled (env vars not set, degradation rule working correctly).
+
+### Final G10 status
+
+**G10 partial-close — measured decision, not premature closure.**
+
+- ✅ Matrix structure final (D20 structurally): 5 tiers now (open/polite/optional_key/required_key/**flaky**) + 7 providers
+- ✅ Degradation rule verified (4 scenarios: working, missing-key, transient-503, persistent-503)
+- ✅ 3/7 providers measured working (Crossref, PubMed, Semantic Scholar)
+- ✅ 2/7 providers measured flaky (arXiv, OpenAlex) — tier reassigned with evidence
+- ✅ 2/7 providers correctly disabled by degradation rule (Unpaywall, CORE)
+- ⏸️ Full G10 closure requires the 2 flaky providers to recover (sandbox IP rate-limited; would re-probe in production)
+
+The new `flaky` tier allows downstream code to handle these providers gracefully (lower expectations, longer backoff, optional retries).
