@@ -43,7 +43,7 @@
 ---
 
 ## D19 — Academic Lane (paper-search-mcp sidecar)
-- **Decision**: Build paper-search-mcp as Python sidecar (original repo run as-is via uv/Docker), NOT a bun project. EXCLUDE Sci-Hub connector + CI gate.
+- **Decision**: Build paper-search-mcp as Python sidecar (original repo run as-is via uv/Docker), NOT a bun project. EXCLUDE shadow-library connector + CI gate.
 - **Evidence**: Per Amendment ت7-a: "sidecar هو المستودع الأصلي Python يُشغَّل كما هو".
 - **Date**: 2026-09-29
 - **Reference**: ROUND-B-AMENDMENT.md §ت7
@@ -72,6 +72,18 @@
 - **Decision**: `EvidenceItem` with dual-form (technicalForm/plainForm/fidelity) — stored as Prisma `model Evidence` (NOT Json free per ت7-c).
 - **Evidence**: `prisma/schema.prisma` model Evidence + `contracts/research.ts` Zod schema.
 - **Date**: 2026-09-29
+
+---
+
+## D22.1 — Retraction Detection Defaults (P8-T4)
+- **Decision**: كشف التراجع الافتراضي بثلاث طرق بالترتيب:
+  1. Crossref `relation` field (`has-update` entries) — الغالب فارغ في الواقع
+  2. Crossmark assertions (publisher-asserted) — نادر في REST API
+  3. Title-pattern ("Retraction" في العنوان) — **الأنجع عملياً** [قياس محل افتراض أولي]
+- **Works بلا DOI (preprints)**: `retracted: unknown` — لا يُعلَّم متراجعاً ولا يفشل
+- **Evidence**: scripts/smoke-p8-t4.ts — 5/5 retraction-notice DOIs مُكتشفة، 0/20 false-positives على عينة سليمة
+- **Date**: 2026-09-29
+- **Reference**: commit `ea52b86`
 
 ---
 
