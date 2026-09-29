@@ -125,3 +125,29 @@ For OpenAlex: with `OPENALEX_MAILTO=bookforge-research@example.com` set in `.env
 - ⏸️ Full G10 closure requires the 2 flaky providers to recover (sandbox IP rate-limited; would re-probe in production)
 
 The new `flaky` tier allows downstream code to handle these providers gracefully (lower expectations, longer backoff, optional retries).
+
+---
+
+## Live Issue #11 — CI gate was falsely passing (rg -E → --encoding) [GOVERNANCE LESSON]
+
+**Discovered:** 2026-09-29 (P8-T3 Python gate)
+
+**The bug:**
+`scripts/scihub-ci-gate.sh` used `rg -i -E "$PATTERNS"` — but `rg -E` in ripgrep means `--encoding`, NOT regex. So the pattern was silently interpreted as an encoding name, the `2>/dev/null` swallowed the error, and `|| true` made it return success. Result: matches=empty → CI gate falsely PASSED even when the sidecar source contained literal "sci-hub" references.
+
+**The fix:**
+- Changed `rg -i -E` → `rg -i -e` (correct flag for pattern matching in ripgrep)
+- After the fix, the gate correctly FAILED and found 19+ references to sci-hub in the sidecar source
+- Comprehensive cleanup: deleted `sci_hub.py` + test files, patched `server.py` to remove `download_scihub` function + all `use_scihub`/`scihub_base_url` parameters, cleaned all docstring/README references, replaced literal strings with "shadow library" across all files (including decisions.md and MCPKIT-CAPABILITY-REQUEST.md)
+- Final CI gate run: **PASSED** (0 matches across 4 directories)
+
+**Governance lesson (per partner):**
+> "القفل يُختبَر بقفلٍ زائف قبل الاعتماد عليه"
+
+This means: a security/CI gate must be tested with a KNOWN-FALSE input before being trusted. We discovered the gate was broken only because the partner's protocol demanded we verify the sidecar was clean — and the gate said "clean" while 19 references existed. The test itself was untested.
+
+**Future rule (Layer 24 extension):**
+Any new CI gate or validation check MUST be tested with a known-positive fixture (a file that SHOULD fail) before being relied upon. This is now issue #11 in the live issues registry.
+
+**Date:** 2026-09-29
+**Status:** FIXED in commit `ea52b86`
