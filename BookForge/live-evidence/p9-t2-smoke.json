@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-09-29T18:04:33.348Z",
+  "acceptance": {
+    "pass": true,
+    "totalContested": 3,
+    "layer1": 0,
+    "layer2Added": 3,
+    "criterion": "≥1"
+  },
+  "reconstructedStances": {
+    "supports": 17,
+    "contradicts": 4,
+    "qualifies": 5,
+    "unclear": 0
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "timestamp": "2026-09-29T18:04:33.320Z",
+  "acceptance": {
+    "pass": true,
+    "rulesCount": 3,
+    "rules": [
+      "BookForgeArabicStyle.Repetition",
+      "BookForgeArabicStyle.Glossary",
+      "BookForgeArabicStyle.WordCount"
+    ]
+  },
+  "report": {
+    "ok": true,
+    "errors": [],
+    "warnings": [
+      {
+        "level": "warning",
+        "rule": "BookForgeArabicStyle.Repetition",
+        "message": "تكرار لفظي مفرط: 'هذا'",
+        "line": 5,
+        "column": 1,
+        "match": "هذا هذا"
+      },
+      {
+        "level": "warning",
+        "rule": "BookForgeArabicStyle.Glossary",
+        "message": "استخدم 'هيدروبونيك' بدلاً من '' (توحيد مصطلحات الـ glossary)",
+        "line": 9,
+        "column": 1,
+        "match": "هيدروبونيك"
+      },
+      {
+        "level": "warning",
+        "rule": "BookForgeArabicStyle.WordCount",
+        "message": "كلمة مكررة أكثر من 3 مرات في الفصل",
+        "line": 9,
+        "column": 1,
+        "match": "هيدروبونيك"
+      },
+      {
+        "level": "warning",
+        "rule": "BookForgeArabicStyle.Repetition",
+        "message": "تكرار لفظي مفرط: 'هيدروبونيك'",
+        "line": 9,
+        "column": 1,
+        "match": "هيدروبونيك هيدروبونيك"
+      },
+      {
+        "level": "warning",
+        "rule": "BookForgeArabicStyle.Glossary",
+        "message": "استخدم 'هيدروبونيك' بدلاً من '' (توحيد مصطلحات الـ glossary)",
+        "line": 9,
+        "column": 12,
+        "match": "هيدروبونيك"
+      },
+      {
+        "level": "warning",
+        "rule": "BookForgeArabicStyle.Glossary",
+        "message": "استخدم 'هيدروبونيك' بدلاً من '' (توحيد مصطلحات الـ glossary)",
+        "line": 9,
+        "column": 23,
+        "match": "هيدروبونيك"
+      },
+      {
+        "level": "warning",
+        "rule": "BookForgeArabicStyle.Repetition",
+        "message": "تكرار لفظي مفرط: 'هيدروبونيك'",
+        "line": 9,
+        "column": 23,
+        "match": "هيدروبونيك هيدروبونيك"
+      },
+      {
+        "level": "warning",
+        "rule": "BookForgeArabicStyle.Glossary",
+        "message": "استخدم 'هيدروبونيك' بدلاً من '' (توحيد مصطلحات الـ glossary)",
+        "line": 9,
+        "column": 34,
+        "match": "هيدروبونيك"
+      },
+      {
+        "level": "warning",
+        "rule": "BookForgeArabicStyle.Glossary",
+        "message": "استخدم 'هيدروبونيك' بدلاً من '' (توحيد مصطلحات الـ glossary)",
+        "line": 9,
+        "column": 45,
+        "match": "هيدروبونيك"
+      }
+    ],
+    "suggestions": [],
+    "raw": {
+      "/tmp/vale-1790705073106-k3vgfi.md": [
+        {
+          "Action": {
+            "Name": "",
+            "Params": null
+          },
+          "Span": [
+            1,
+            7
+          ],
+          "Check": "BookForgeArabicStyle.Repetition",
+          "Description": "",
+          "Link": "",
+          "Message": "تكرار لفظي مفرط: 'هذا'",
+          "Severity": "warning",
+          "Match": "هذا هذا",
+          "Line": 5
+        },
+        {
+          "Action": {
+            "Name": "",
+            "Params": null
+          },
+          "Span": [
+            1,
+            10
+          ],
+          "Check": "BookForgeArabicStyle.Glossary",
+          "Description": "",
+          "Link": "",
+          "Message": "استخدم 'هيدروبونيك' بدلاً من '' (توحيد مصطلحات الـ glossary)",
+          "Severity": "warning",
+          "Match": "هيدروبونيك",
+          "Line": 9
+        },
+        {
+          "Action": {
+            "Name": "",
+            "Params": null
+          },
+          "Span": [
+            1,
+            10
+          ],
+          "Check": "BookForgeArabicStyle.WordCount",
+          "Description": "",
+          "Link": "",
+          "Message": "كلمة مكررة أكثر من 3 مرات في الفصل",
+          "Severity": "warning",
+          "Match": "هيدروبونيك",
+          "Line": 9
+        },
+        {
+          "Action": {
+            "Name": "",
+            "Params": null
+          },
+          "Span": [
+            1,
+            21
+          ],
+          "Check": "BookForgeArabicStyle.Repetition",
+          "Description": "",
+          "Link": "",
+          "Message": "تكرار لفظي مفرط: 'هيدروبونيك'",
+          "Severity": "warning",
+          "Match": "هيدروبونيك هيدروبونيك",
+          "Line": 9
+        },
+        {
+          "Action": {
+            "Name": "",
+            "Params": null
+          },
+          "Span": [
+            12,
+            21
+          ],
+          "Check": "BookForgeArabicStyle.Glossary",
+          "Description": "",
+          "Link": "",
+          "Message": "استخدم 'هيدروبونيك' بدلاً من '' (توحيد مصطلحات الـ glossary)",
+          "Severity": "warning",
+          "Match": "هيدروبونيك",
+          "Line": 9
+        },
+        {
+          "Action": {
+            "Name": "",
+            "Params": null
+          },
+          "Span": [
+            23,
+            32
+          ],
+          "Check": "BookForgeArabicStyle.Glossary",
+          "Description": "",
+          "Link": "",
+          "Message": "استخدم 'هيدروبونيك' بدلاً من '' (توحيد مصطلحات الـ glossary)",
+          "Severity": "warning",
+          "Match": "هيدروبونيك",
+          "Line": 9
+        },
+        {
+          "Action": {
+            "Name": "",
+            "Params": null
+          },
+          "Span": [
+            23,
+            43
+          ],
+          "Check": "BookForgeArabicStyle.Repetition",
+          "Description": "",
+          "Link": "",
+          "Message": "تكرار لفظي مفرط: 'هيدروبونيك'",
+          "Severity": "warning",
+          "Match": "هيدروبونيك هيدروبونيك",
+          "Line": 9
+        },
+        {
+          "Action": {
+            "Name": "",
+            "Params": null
+          },
+          "Span": [
+            34,
+            43
+          ],
+          "Check": "BookForgeArabicStyle.Glossary",
+          "Description": "",
+          "Link": "",
+          "Message": "استخدم 'هيدروبونيك' بدلاً من '' (توحيد مصطلحات الـ glossary)",
+          "Severity": "warning",
+          "Match": "هيدروبونيك",
+          "Line": 9
+        },
+        {
+          "Action": {
+            "Name": "",
+            "Params": null
+          },
+          "Span": [
+            45,
+            54
+          ],
+          "Check": "BookForgeArabicStyle.Glossary",
+          "Description": "",
+          "Link": "",
+          "Message": "استخدم 'هيدروبونيك' بدلاً من '' (توحيد مصطلحات الـ glossary)",
+          "Severity": "warning",
+          "Match": "هيدروبونيك",
+          "Line": 9
+        }
+      ]
+    }
+  }
+}
