@@ -30,9 +30,9 @@
 | G4 🖼️ RTL diagrams | OPEN | P11-T2 spike |
 | G5 📖 Docs site RTL | OPEN | P12-T0 spike |
 | G6 🎬 Promo video license | OPEN | P13-T4 (2h) |
-| **G7 🌊 STORM** | **OPEN — قابل للتنفيذ** | P8-T7 (A/B مقيس) |
-| **G8 🔍 Valsci** | **OPEN — قابل للتنفيذ** | P8-T8 (opt-in; كلفة > يوم ⇒ تأجيل v2) |
-| G9 📚 pyeuropepmc | **RESOLVED ✅** | manual client (30 LOC) — T2-live gate |
+| **G7 🌊 STORM** | **RESOLVED ✅ — DROP** | D28: B ≤ A by -20% على score=2 works/chapter (نطاق مضبوط: DROP كـمولّد أسئلة فوق اتحاد معجمي؛ Co-STORM خارج النطاق) |
+| **G8 🔍 Valsci** | **RESOLVED ✅ — DEFER v2** | D29-closure: كلفة الواجهة ~38h (~5 days) >> 1 day threshold ⇒ تأجيل v2 (GPLv3 isolation + S2ORC 1.6TB + adapter) |
+| G9 📚 pyeuropepmc | **RESOLVED ✅** | manual client (30 LOC adapter / 80 LOC total path per تأ-4) — T2-live gate |
 | **G10 📚 Provider tiers** | **PARTIAL-CLOSE ✅** | 2 flaky (arxiv+openalex, measured 0/3) + 4 working + 2 disabled |
 | G11 🧪 Fidelity thresholds | OPEN | P9-T3 (30-phrase sample) |
 | G12 📑 Slides in v1.5 | OPEN | P13 |
@@ -41,15 +41,37 @@
 
 ---
 
-## القرارات المثبتة D1–D24.1
+## القرارات المثبتة D1–D30
 
 انظر `src/book-forge/config/decisions.md` — المرجع الموحد لكل القرارات.
+
+### فهرس القرارات (محدَّث بعد P8 الإنهائية)
+
+- **D1**: zai mode = الإنتاج (G13 closure)
+- **D2**: temperatures 0.2 / 0.7
+- **D3**: context limits 24K/8K
+- **D9/D11/D12**: BM25/Prisma+SQLite/pandoc+WeasyPrint
+- **D14**: chapter floor 3 (D14 relaxed for live test, recommended default 10)
+- **D19**: paper-search-mcp sidecar (Python، مستبعد Sci-Hub + CI gate)
+- **D20**: provider tiers (5 tiers + 7 providers)
+- **D20.1**: flaky تشغيلياً (retry ×2/5s → providerGaps)
+- **D21**: simplification layer (Twins + Spine + Fidelity — P15)
+- **D22**: Evidence model (Prisma، not Json)
+- **D22.1**: retraction detection (3 طرق، title-pattern الأنجع)
+- **D23**: server-side agents
+- **D25**: P8-T6 mock-PASS
+- **D26**: type-clean policy (DEBT CLEANED — 0 errors، كامل النظافة الآن)
+- **D27**: P8-T6 LIVE closure (مُغلقة رسمياً)
+- **D28**: G7 STORM — DROP (نطاق مضبوط: كمولّد أسئلة فوق اتحاد معجمي)
+- **D29**: contested-topic verification (0 contested surfaced on pyramids — measured not failed)
+- **D29-closure**: G8 Valsci — DEFER v2 (~38h >> 1 day)
+- **D30**: contested-claims detection roadmap (Layer 1 current + Layer 2 P9-T2 n-gram + Layer 3 embeddings)
 
 ---
 
 ## المشاكل الحية (Layer 24 Registry)
 
-انظر `download/LIVE-ISSUES-LAYER24.md` — 11 مشكلة حية مرقّمة، كل واحدة مُصلَّحة ومُوثَّقة.
+انظر `download/LIVE-ISSUES-LAYER24.md` — 15 مشكلة حية مرقّمة (#1–#15)، كل واحدة مُصلَّحة ومُوثَّقة. آخرها: #14 (STORM torch install timeout — environmentally-qualified) + #15 (GLM Arabic question mark).
 
 ---
 

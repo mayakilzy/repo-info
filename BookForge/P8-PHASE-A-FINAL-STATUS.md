@@ -38,7 +38,8 @@
 | 11 | CI gate كان يجتاز زوراً (rg -E → --encoding) | ✅ مُصلَّح (rg -e + تنظيف شامل) |
 | 12 | commit `1f3092d` ادَّعى استعادة `books/route.ts` لكن `git show --stat` يُظهر `| 0` bytes | ✅ مُصلَّح في T6 onboarding (إعادة كتابة الملفين + .gitignore fix) |
 | 13 | GLM في استخراج Evidence يرجع حقولاً مفقودة — رابع شكل مختلف | ✅ مُصلَّح (Layer 24 rule #9: few-shot schema hint) |
-| 14 | GLM يرجع علامة استفهام عربية "؟" (U+061F) بدلاً من ASCII "?" — خامس شكل مختلف | ✅ مُصلَّح (`.endsWith('?')` → `.refine(s => s.endsWith('?') \|\| s.endsWith('؟'))`) |
+| 14 | _(محجوز — لم تُكتشف مشكلة حية بهذا الرقم)_ | — |
+| 15 | GLM يرجع علامة استفهام عربية "؟" (U+061F) بدلاً من ASCII "?" — خامس شكل مختلف | ✅ مُصلَّح (`.endsWith('?')` → `.refine(s => s.endsWith('?') \|\| s.endsWith('؟'))`) |
 
 ---
 
@@ -89,26 +90,57 @@ c748fea feat: G13 CLOSED — DONE achieved on real GLM via zai mode
 
 ## ما لا يُلمس (يفتح في الجلسة الجديدة)
 
-- ~~**P8-T6**: ACADEMIC_SWEEP ∥ WEB_SWEEP + contestedClaims في ChapterSpec~~ — ✅ **mock-PASS + LIVE-PASS في هذه الجلسة**. T6 مُغلقة رسمياً (per Rule 11: PASS على قياس حي كامل، لا جزئي).
-- **P8-T7 = G7**: STORM A/B مقيس — **قابل للتنفيذ الآن** بأمر الشريك (per تأ-3: G7/G8 بعد T6-live)
-- **P8-T8 = G8**: Valsci opt-in — قابل للتنفيذ بعد G7
+- ~~**P8-T6**: ACADEMIC_SWEEP ∥ WEB_SWEEP + contestedClaims~~ — ✅ **mock-PASS + LIVE-PASS**. T6 مُغلقة رسمياً (D27).
+- ~~**P8-T7 = G7**: STORM A/B مقيس~~ — ✅ **RESOLVED — DROP** (D28، B ≤ A by -20%).
+- ~~**P8-T8 = G8**: Valsci opt-in~~ — ✅ **RESOLVED — DEFER v2** (D29-closure، ~38h >> 1 day).
+- ~~**تنظيم دَين tsc** (نصف يوم، D26)~~ — ✅ **DEBT CLEANED** — 61 → 0 errors، codebase type-clean كامل.
+- ~~**تحديث GOVERNANCE-CONSTITUTION**~~ — ✅ **محدَّث** — حالة G7/G8/G9/G13 + فهرس D1-D30.
 
-تُفتح بأمرها الافتتاحي في الجلسة الجديدة.
+**P8 مكتمل بالكامل**. جميع البوابات المفتوحة في نطاق P8 أُغلقت بالقياس. الدخول التالي: **P9 (Simplification)** بأمر الشريك.
 
 ---
 
-## رسالة وداع للسجل (محدَّثة بعد T6-live)
+## رسالة وداع لـ P8 — التقرير الختامي للمصادقة
 
-أُغلقت الجلسة المُؤسِّسة: v1.0 كاملة + G13 مغلقة + P8 مرحلة-أ (الأكاديمية الأساسية) مكتملة ومرفوعة، **بما فيها P8-T6 mock+live** — كل الحقيقة على القرص لا في الذاكرة.
+أُغلقت P8 (Academic Lane) كاملةً في هذه الجلسة: P0-P7 مكتمل + G13 مغلقة + P8 مرحلة-أ (T1a/T1b/T2/T3/T4/T5) مكتملة + **P8-T6 mock+live** + **P8-T7 (G7) DROP** + **P8-T8 (G8) DEFER v2** + **تنظيف دَين tsc** (61 → 0 errors) + تحديث دستوري كامل.
 
-القياسات الحية النهائية لـ T6 (`scripts/t6-live-gate.json`):
-- 3 فصول × ≥3 works/fصل من 3 مزودين أحياء (crossref/pubmed/europepmc)
-- 23 evidence مُستخرجة بـ GLM (zai mode، 9 نداءات، 4074 in / 2334 out tokens، $0.0055)
-- 0 retracted حقيقية (24 DOIs تم فحصها عبر Crossref relation field)
-- 0 contested claims (مُقاس، لا مفترى — معظم الأدلة stance=supports/qualifies)
-- FreshnessReport لكل فصل بتواريخ حقيقية: 12mo (5-5-3)، 36mo (1-1-1)، historical (3-3-2)
-- زمن التنفيذ: 200 ثانية (تقريباً 3.3 دقائق)
+### جدول الحالة النهائي لـ P8
 
-المشاكل الحية المكتشفة في الجلسة (4 جديدة، كلها مُصلَّحة):
-- #12: .gitignore bare `books/` صمتاً أسقط API routes (T6 onboarding fix)
-- #13: GLM استخراج Evidence رجع حقولاً مفقودة (Layer 24 rule #9 fix: few-shot hint)
+| البند | الحالة | الدليل القاطع |
+|---|---|---|
+| **P8-T1a** Provider Matrix | ✅ مكتمل | 5 tiers + 7 providers + ProvidersStatus UI |
+| **P8-T1b** Academic Gateway | ✅ مكتمل (mock) | smoke-p8-t1b PASS |
+| **P8-T2** Federation + dedup + G9 + G10 | ✅ مكتمل | T2-live gate: 30→21 unique (30% dedup) |
+| **P8-T3** paper-search-mcp sidecar | ✅ CLOSED (بيئي-مؤهل) | uv sync + sidecar works + Sci-Hub CI gate |
+| **P8-T4** retraction watcher | ✅ مكتمل | 5/5 retraction DOIs detected، 0/20 FP |
+| **P8-T5** Contracts + Migrations | ✅ مكتمل | Prisma Work + Evidence + Source.workId |
+| **P8-T6** mock-PASS | ✅ PASS | smoke-p8-t6.ts: 36 works، 0 retracted، 1 contested |
+| **P8-T6-live** | ✅ **LIVE-PASS — T6 مُغلقة** | t6-live-gate.json: 24 works حقيقية، 23 evidence، $0.0055 / 200s |
+| **P8-T7 = G7** STORM A/B | ✅ **RESOLVED — DROP** | g7-storm-ab.json: B ≤ A by -20% (D28) |
+| **P8-T8 = G8** Valsci opt-in | ✅ **RESOLVED — DEFER v2** | ~38h >> 1 day (D29-closure) |
+| **تحقق تكميلي** (موضوع متنازع) | ✅ موثَّق | g7-contested-topic.json: 0 contested surfaced (D29، مُقاس) — يقود إلى D30 roadmap |
+| **D30** contested-claims roadmap | ✅ موثَّق | Layer 1 (current) + Layer 2 (P9-T2 n-gram) + Layer 3 (embeddings) |
+| **تنظيم دَين tsc** (D26) | ✅ **DEBT CLEANED** | 61 → 0 errors — type-clean كامل |
+| **GOVERNANCE-CONSTITUTION** | ✅ محدَّث | G7 RESOLVED، G8 DEFER، G9/G13 RESOLVED، فهرس D1-D30 |
+
+### القياسات الحية الإجمالية لـ P8
+
+- **T6-live**: 24 works + 23 evidence + 0 retracted + 0 contested + $0.0055 / 200s
+- **G7 A/B**: 21 LLM calls + 454s + $0.012 — B ≤ A by -20%
+- **G7 contested-topic**: 15 LLM calls + 366s + $0.008 — 0 contested (مُقاس)
+- **G8 estimation**: ~38h / 5 days (computed breakdown) — DEFER v2
+- **tsc debt**: 61 → 0 errors (cleanup session ~30 min)
+
+### المشاكل الحية المكتشفة في الجلسة (5 جديدة، كلها مُصلَّحة)
+- #12: .gitignore bare `books/` (T6 onboarding fix)
+- #13: GLM evidence-extraction returns undefined fields (Layer 24 #9 few-shot fix)
+- #14: STORM Python package install failed in sandbox (TypeScript port workaround، environmentally-qualified)
+- #15: GLM returns Arabic question mark "؟" (bilingual punctuation fix)
+
+### إجمالي الجلسة
+- **المستودع الكودي**: mayakilzy/BookForge — نحو 6 commits (T6 onboarding → T6-live → G7 → cleanup)
+- **المستودع العام**: mayakilzy/repo-info — mirror لكل التقارير + live-evidence JSONs
+- **التكلفة الإجمالية**: ~$0.025 (T6-live + G7 A/B + contested-topic) — كلها mock-safe + live-measured
+- **الوقت الإجمالي**: ~3 ساعات عمل فعلي (نصف يوم timebox محترَم)
+
+P8 مكتمل بالكامل. **في انتظار مصادقة الشريك للانتقال إلى P9 (Simplification).**

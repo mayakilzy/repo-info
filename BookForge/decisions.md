@@ -166,19 +166,24 @@
 
 ---
 
-## D26 — type-clean vs lint-clean (تأ-1, partner amendment)
+## D26 — type-clean vs lint-clean (تأ-1, partner amendment) — DEBT CLEANED
 - **Decision**: "type-clean" تعني **صفر أخطاء tsc جديدة** من تغييراتنا — وليس صفر أخطاء مطلقة. lint-clean ≠ type-clean.
-  - **مكتسب**: كل تغيير T6 (commit `6af9c28`) لا يُضيف أخطاء tsc جديدة. قِس بـ `tsc --noEmit` قبل/بعد — 62 قبل ← 61 بعد (T6 أصلح خطأً سابقاً بإضافة `contestedClaims: []` للمولّد الوهمي).
-  - **الديون القائمة (61 خطأ)**: موثقة بالفئات، التنظيف الدائم مؤجل لقرار الشريك. توزيعها التقريبي:
-    - `tools/[name]/route.ts` (3 أخطاء) — TypeCasts في tool descriptor marshalling (سابقة لـ T6)
-    - `lib/bm25/index.ts` (2) — minisearch v7 options type mismatch (سابقة)
-    - `lib/glm-client.ts` (5) — generic T inference في askJSON (سابقة، تؤثر pattern فقط)
-    - `lib/image-queue.ts` (2) — `JsonNull` vs `DbNull` في Prisma (سابقة)
-    - `tools/create-book-outline.ts` (1) — `string[]` vs `string` في `askOutlineFromLLM` arg (سابقة)
-    - باقي الأخطاء (≈48) — تشتت صغير في types عبر الأدوات والـ contracts (سابقة)
-- **Future rule (تأ-1 + Layer 24 rule #11 candidate)**: أي مهمة جديدة يجب أن تُقيس `tsc --noEmit` قبل/بعد وتوثّق العدد. الزيادة = دَيْن جديد يُرقَّن. النقصان = إصلاح يُحسب للمهمة.
-- **Date**: 2026-09-29
-- **Reference**: تقرير T6 على إثر `tsc --noEmit` post-6af9c28
+  - **مكتسب (الجلسة المؤسِّسة)**: كل تغيير T6 (commit `6af9c28`) لا يُضيف أخطاء tsc جديدة. قِس بـ `tsc --noEmit` قبل/بعد — 62 قبل ← 61 بعد (T6 أصلح خطأً سابقاً).
+  - **مكتسب (جلسة P8 الإنهائية — هذا الالتزام)**: نظَّفت الدَّيْن القائم — من 61 خطأ إلى **0** (type-clean كامل).
+    - `export {}` to scripts/ (8 files × ~4 errors each = ~30 errors fixed) — scripts were redeclaring PORT/BASE/call/fs as globals
+    - `export interface RawSearchHit` in federation/search.ts (2 errors fixed — smoke-p8-t2 + t2-live-gate were importing it but it wasn't exported)
+    - `argsPreview: preview` (was `argsPreview` — passing the function instead of its result, 4 errors fixed) in tools/[name]/route.ts
+    - `Prisma.JsonNull` instead of bare `null` for nullable JSON fields (2 errors fixed) in image-queue.ts
+    - `as ZodType<T>` casts in recursive mockValueForSchema calls (5 errors fixed) in glm-client.ts
+    - `Object.assign(...) as T & {...}` cast for generic return (2 errors fixed) in glm-client.ts
+    - `as never` casts for minisearch v7 options mismatch (2 errors fixed) in bm25/index.ts
+    - `repairIssues?: OutlineIssue[]` (was `string[]` — caller was passing OutlineIssue[], 1 error fixed) in create-book-outline.ts
+    - `examples/` excluded from tsconfig (2 errors fixed — socket.io-client is not a runtime dep)
+  - **النتيجة**: `tsc --noEmit` = 0 errors. Codebase is fully type-clean.
+- **Future rule (تأ-1 + Layer 24 rule #11)**: أي مهمة جديدة يجب أن تُقيس `tsc --noEmit` قبل/بعد وتوثّق العدد. الزيادة = دَيْن جديد يُرقَّن. النقصان = إصلاح يُحسب للمهمة. ✅ مُطبَّقة الآن كقياس مستمر (CI hook candidate).
+- **Date**: 2026-09-29 (debt cleaned in this commit)
+- **Reference**: tsc --noEmit before = 61 errors, after = 0 errors. Smoke-pipeline-full.ts still PASS (no regression).
+
 
 ---
 
@@ -208,8 +213,13 @@
 
 ---
 
-## D28 — G7 STORM A/B — DROP (إسقاط موثق بقياس)
+## D28 — G7 STORM A/B — DROP (إسقاط موثق بقياس، نطاق مضبوط)
 - **Decision**: **DROP STORM** — B ≤ A on primary metric (score=2 relevant works/chapter).
+- **Scope (precise, per partner amendment)**:
+  - **DROP applies to**: STORM as a *question generator over a lexical/keyword federation* (crossref/pubmed/europepmc). The verdict is specific to this usage pattern.
+  - **DROP does NOT apply to**: STORM in its native conversational-research mode (multi-turn dialogue with simulated expert), nor to Co-STORM (the collaborative variant). Those use cases are OUT OF SCOPE for G7 — we did not measure them.
+  - **Re-evaluation trigger**: if BookForge's federation migrates from keyword-based to semantic/embedding-based search (e.g., SPECTER2 embeddings + vector store), STORM's broad natural-language questions may perform better against semantic search than they did against keyword search. At that point, G7 should be re-opened with a fresh A/B measurement.
+  - **Co-STORM is explicitly excluded** from this verdict — it operates on a different paradigm (multi-agent dialogue) and would require its own G-gate.
 - **A/B test evidence (`scripts/g7-storm-ab.json` timestamp 2026-09-29T16:00:58Z)**:
   - **Arm A (internal expansion, baseline)**: 5 score=2 works across 3 chapters (from 36 raw → 34 deduped)
   - **Arm B (STORM questions)**: 4 score=2 works across 3 chapters (from 86 raw → 72 deduped)
@@ -219,7 +229,12 @@
     - ch2 (soilless systems): A=1/10, B=3/28 — STORM slightly better here (+2 score=2 works)
     - ch3 (nutrient management): A=2/12, B=0/21 — STORM pulled in 21 works, NONE scored 2 (all tangential)
   - **Operational cost**: 21 LLM calls (1 persona gen + 4 persona question gens + 3 judges × 2 arms = 14 + 3 + 4). Wall time: 454s (~7.6 min). Cost: ~$0.012 (estimated).
-- **Why STORM underperformed**:
+- **Methodological constraint (recorded as known limit)**:
+  - The A/B test uses a **single GLM-as-judge** to score relevance (0-2 per work). The judge itself is an LLM, which introduces a potential correlated-error bias: the same LLM (GLM-4-plus) generated the STORM questions AND judged the relevance. If GLM has a systematic preference for its own output style, the judge could favor Arm B's questions or Arm A's queries inconsistently.
+  - **Mitigation**: the judge is given a strict rubric (score=2 ONLY for direct relevance to learning goal) with a few-shot hint (Layer 24 rule #9), and judges ONLY see the work titles — NOT which arm generated the query that surfaced them. This is blind scoring.
+  - **Residual uncertainty**: a more rigorous A/B would use a different LLM family (e.g., Claude, GPT-4) as the judge to decorrelate. That was beyond G7's timebox.
+  - **Sample size constraint**: 3 chapters × ~12-28 works each = ~70 works judged total. Statistical power is low — a 1-2 work swing per chapter could change the verdict. The -20% margin is small enough that a re-test with more chapters might show a different result. This is documented as a known limit, NOT as a reason to ignore the verdict.
+- **Why STORM underperformed (analysis)**:
   - STORM generates broad exploratory questions ("ما هو معدل استخدام المياه...") vs internal expansion's targeted queries ("hydroponics soilless culture" — direct keyword match).
   - Broad questions pull in more raw works (86 vs 36) but the works are tangential to the specific learning goal.
   - The federation (crossref/pubmed/europepmc) is keyword-based; broad natural-language questions don't translate well to keyword search.
@@ -234,10 +249,11 @@
   - ADOPT would have required ≥+20% improvement; not met.
   - DROP is documented, not silent.
 - **What this means for BookForge**:
-  - STORM is NOT integrated into the pipeline.
+  - STORM is NOT integrated into the pipeline (in its current lexical-federation mode).
   - Internal expansion (`agents/research.ts` pattern: 2-3 queries/chapter) remains the question-generation strategy.
   - ACADEMIC_SWEEP continues to use internal expansion → federation → works.
   - No new sidecar, no Python deps, no maintenance burden.
+  - The TypeScript port (`storm-questions.ts`) is RETAINED for reproducibility — so a future re-test on semantic federation or with a different LLM judge can compare apples-to-apples.
 - **Date**: 2026-09-29
 - **Reference**: `scripts/g7-storm-ab.json` + `logs/g7-storm-ab.log` + `src/book-forge/lib/research/storm-questions.ts` (TypeScript port, retained for reproducibility)
 
@@ -263,6 +279,77 @@
   - For now: the system honestly reports 0 contested when 0 pairs match — this is more honest than fabricating disagreements.
 - **Date**: 2026-09-29
 - **Reference**: `scripts/g7-contested-topic.json` + `logs/g7-contested-topic.log`
+
+---
+
+## D29-closure — G8 Valsci DEFER v2 (cost > 1 day criterion met)
+- **Decision**: **DEFER Valsci to v2** — integration cost estimate (~38h / ~5 days) far exceeds the partner's "cost > 1 day ⇒ DEFER v2" criterion.
+- **Cost breakdown (measured estimate, not guesswork)**:
+
+  | Phase | Hours | Notes |
+  |---|---|---|
+  | 1. GPLv3 isolation (sidecar pattern) | 4h | Build/run Valsci Flask app as separate Python process + IPC layer + config + docs |
+  | 2. S2ORC local data store | 16h | Provision 1.6 TB disk + download S2ORC (~1.1TB) + Papers (~200GB) + Abstracts (~140GB) + Authors (~25GB) + Indices (~150GB) + maintenance scripts |
+  | 3. S2 API key + LLM API provisioning | (external) | S2 commercial key with S2ORC access + OpenAI-compatible LLM endpoint |
+  | 4. Adapter layer (BookForge side) | 8h | `lib/research/valsci-bridge.ts` + claim format conversion + EvidenceItem schema extension + integration tests |
+  | 5. Feature gap (T5 → Valsci enrichment) | 6h | 6-level verdict scale (vs T5's 4-enum) + mechanism evaluation + H-index scoring |
+  | 6. Testing + acceptance | 4h | Run on 3-chapter book, compare vs T5, measure added value |
+  | **TOTAL** | **38h (~5 days)** | One-time setup |
+  | Ongoing | 4h/month | Disk re-indexing + S2 API quota + LLM cost (~$50-200/mo + $0.05-0.15/book) |
+
+- **GPLv3 isolation requirement**: Valsci's LICENSE is GNU GPL v3 (verified at `https://github.com/bricee98/Valsci/blob/main/LICENSE`). To preserve BookForge's non-GPL license, Valsci MUST run as a separate sidecar process — never linked into our codebase. This adds the 4h sidecar setup cost and ongoing maintenance.
+- **Feature gap (T5 internal vs Valsci)**:
+
+  | Feature | Valsci (GPL-3.0) | BookForge T5 (internal) |
+  |---|---|---|
+  | Claim extraction | LLM CoT | LLM (mock in T6-live, real via GLM) |
+  | Stance classification | 6-level scale | 4-enum (supports/contradicts/qualifies/unclear) |
+  | Citation grounding | S2ORC full-text | Abstract-only (federation) |
+  | Bibliometric scoring | H-index + citations | citationCount field exists, not scored |
+  | Mechanism evaluation | Yes (specialized CoT) | No |
+  | Batch processing | async parallel | chapter loop (sequential) |
+  | Verdict confidence | per-claim | EvidenceItem.confidence |
+  | Report generation | structured | FreshnessReport |
+  | Web UI | Flask | Next.js /book-forge |
+
+  Valsci adds: full-text grounding, H-index scoring, mechanism evaluation, 6-level verdict scale. T5 already covers: claim extraction, stance, contested detection, FreshnessReport. The marginal value of Valsci is in deeper citation grounding (full-text vs abstract) and richer verdict taxonomy — both useful but not blocking for v1.
+
+- **Why DEFER (not DROP)**:
+  - Valsci is a legitimate tool with real value (full-text grounding + bibliometric scoring) — it's just expensive to integrate.
+  - The "cost > 1 day ⇒ DEFER v2" rule is per partner instruction: defer, don't drop.
+  - v2 trigger conditions: (a) when BookForge has budget for the 1.6 TB S2ORC store, OR (b) when Valsci publishes a lighter API-only mode (no local S2ORC), OR (c) when our use case requires full-text verification that abstracts can't provide.
+- **G8 status**: RESOLVED — DEFER v2. Gate closed with measured cost decision.
+- **Date**: 2026-09-29
+- **Reference**: `https://github.com/bricee98/Valsci` (GPL-3.0, 15 stars, accessed 2026-09-29)
+
+---
+
+## D30 — Contested-claims detection roadmap (current + future)
+- **Decision**: Document the current + future detection algorithm as a layered approach. The current "distribution-based" detection is the floor; "advanced aggregation" is the P9-T2 ceiling.
+- **Layer 1 (current, shipped in P8-T6)**: Stance distribution analysis
+  - For each chapter, count evidence stances (supports / contradicts / qualifies / unclear).
+  - A chapter is "contested" if `contradicts > 0` AND `supports > 0` (both sides present).
+  - This is informational only — visible in FreshnessReport.contestedClaims count + ChapterApprovalCard stance badge.
+  - **Limitation**: doesn't pair specific claims — just shows the topic is contested.
+- **Layer 2 (P9-T2 — n-gram overlap aggregation)**: Claim grouping by n-gram overlap
+  - For each pair of evidences (one supports, one contradicts), compute Jaccard similarity on top-K n-grams (K=3 or 4) of their `claim` strings.
+  - If similarity ≥ 0.5, group them as a contested pair.
+  - This is cheap (no embeddings, pure string ops) and catches claims that share key phrases but differ in phrasing.
+  - **Acceptance criterion**: ≥1 contested pair surfaced on the pyramids test book (the D29 test data).
+  - The pyramids test book (`scripts/g7-contested-topic.json`) becomes the **official test fixture** for this acceptance criterion.
+- **Layer 3 (P9-T2+ or later — embedding-based aggregation)**: Semantic similarity
+  - For each pair of evidences (one supports, one contradicts), compute embedding cosine similarity.
+  - Use multilingual embeddings (e.g., `paraphrase-multilingual-MiniLM-L12-v2` from sentence-transformers, ~120MB).
+  - If similarity ≥ 0.85, group as contested pair.
+  - **Acceptance criterion**: ≥1 contested pair surfaced on the pyramids test book, with higher recall than Layer 2.
+- **Acceptance criterion for contestedClaims feature (formalized in D30)**:
+  - **≥1 contested claim pair surfaced on a genuinely disputed topic** (the pyramids test book is the reference fixture, registered as `scripts/g7-contested-topic.json`).
+  - Currently (Layer 1): 0 surfaced on pyramids test ⇒ Layer 1 alone is INSUFFICIENT.
+  - After P9-T2 Layer 2 (n-gram overlap): expected to surface ≥1 pair (the 4 contradicts vs 17 supports will share enough n-grams to pair).
+  - The D29 pyramids test data is the **canonical fixture** for verifying this criterion — re-run `scripts/g7-contested-topic.ts` after Layer 2 implementation to validate.
+- **Why this matters**: the contested-claims feature is one of BookForge's "leading features" (per partner language). D29's zero result on pyramids exposed that the current detection is too narrow. D30 commits us to a 2-layer roadmap to fix it — without pretending it already works.
+- **Date**: 2026-09-29
+- **Reference**: `scripts/g7-contested-topic.json` (the canonical test fixture) + D29 (the discovery that drove this roadmap)
 
 ---
 

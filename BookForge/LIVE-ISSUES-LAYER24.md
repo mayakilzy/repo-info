@@ -34,7 +34,8 @@
 | **11** | CI gate `rg -E` كان يُفسَّر كـ `--encoding` لا regex | `rg -i -e` + تنظيف شامل | **P8-T3** |
 | **12** | commit `1f3092d` ادَّعى استعادة `books/route.ts` لكن `git show --stat` يُظهر `| 0` bytes (ملف لم يُلتزم فعلياً) | إعادة كتابة الملفين في T6 onboarding | **P8-T6 onboarding** |
 | **13** | GLM في استخراج Evidence يرجع حقولاً مفقودة (`claim`/`excerpt` undefined، `evidenceType`/`confidence` ناقصة) — رابع شكل مختلف | **Layer 24 rule #9 (few-shot schema hint) مُطبَّقة على prompt استخراج Evidence** — مثال JSON كامل في system prompt | **P8-T6-live** |
-| **14** | GLM يرجع علامة استفهام عربية "؟" (U+061F) بدلاً من ASCII "?" — الأسئلة العربية تفشل schema validation | `.endsWith('?')` → `.refine(s => s.endsWith('?') \|\| s.endsWith('؟'))` — قبول كلاهما | **G7 STORM A/B** |
+| **14** | `pip install knowledge-storm` فشل في sandbox — torch download (248MB) انتهى بعد 5 دقائق (D20.1: فشل بيئي خالص، مؤجل لخادم الإنتاج) | TypeScript port لـ prompts الـ MIT-licensed كحل بديل موثَّق (يعزل متغير جودة الأسئلة دون عبء Python) | **G7 STORM A/B** |
+| **15** | GLM يرجع علامة استفهام عربية "؟" (U+061F) بدلاً من ASCII "?" — خامس شكل مختلف (بعد #2/#3/#4/#10/#13) — الأسئلة العربية تفشل schema validation | `.endsWith('?')` → `.refine(s => s.endsWith('?') \|\| s.endsWith('؟'))` — قبول كلاهما | **G7 STORM A/B** |
 
 ## الإصلاح للمشكلة #10 (المُطبَّق في G13 closure)
 
@@ -268,7 +269,7 @@ Any `askJSON` call with a non-trivial schema (≥3 required fields, or any enum 
 
 ---
 
-## Live Issue #14 — GLM returns Arabic question mark "؟" (U+061F) instead of ASCII "?"
+## Live Issue #15 — GLM returns Arabic question mark "؟" (U+061F) instead of ASCII "?"
 
 **Discovered:** 2026-09-29 (G7 STORM A/B test — first run)
 
@@ -297,7 +298,7 @@ Raw GLM response (clearly valid questions, just Arabic mark):
 Changed the schema from `.endsWith('?')` to `.refine((s) => s.endsWith('?') || s.endsWith('؟'), ...)` — accepting both ASCII `?` (U+003F) and Arabic `؟` (U+061F). After the fix, all 12 STORM-generated questions across 3 chapters (4 personas × 3 questions) passed schema validation on the first attempt.
 
 **Why this matters:**
-This is the **fifth distinct GLM shape** discovered (issues #2, #3, #4, #10, #14). The pattern: GLM is a multilingual model, and Arabic-specific Unicode codepoints (Arabic question mark, Arabic comma، Arabic semicolon؛) are valid in Arabic text but differ from their ASCII counterparts. Any schema that enforces ASCII punctuation on Arabic content will fail.
+This is the **fifth distinct GLM shape** discovered (issues #2, #3, #4, #10, #15). The pattern: GLM is a multilingual model, and Arabic-specific Unicode codepoints (Arabic question mark `؟` U+061F, Arabic comma `،` U+060C, Arabic semicolon `؛` U+061B) are valid in Arabic text but differ from their ASCII counterparts. Any schema that enforces ASCII punctuation on Arabic content will fail.
 
 **Future rule (Layer 24 rule #12 candidate):**
 Any Zod schema that validates punctuation in user-facing strings (questions, claims, etc.) MUST accept BOTH the ASCII and Arabic Unicode variants of the punctuation mark. The known pairs:
@@ -311,3 +312,38 @@ A helper `bilingualPunctuation()` could be added to Layer 24 to centralize this.
 **Date:** 2026-09-29
 **Status:** FIXED in this G7 commit — `storm-questions.ts` AskQuestionSchema now accepts both `?` and `؟`.
 **Reference:** `src/book-forge/lib/research/storm-questions.ts` line 88-98.
+
+---
+
+## Live Issue #14 — STORM Python package install failed in sandbox (torch download timeout)
+
+**Discovered:** 2026-09-29 (G7 STORM A/B test — preparation phase)
+
+**The bug:**
+`pip install knowledge-storm` (the official STORM Python package) was attempted in the sandbox to use STORM as a question generator. The install pulls in `dspy_ai` + `sentence-transformers` + `torch` (248MB for `triton-3.8.0` alone, plus `torch` itself). The download timed out after 5 minutes (300s) before completing. The `vendor/` target directory was never created — install failed silently.
+
+**Why this is environmentally-qualified (per D20.1):**
+- The sandbox has limited bandwidth and a 5-minute hard timeout for pip downloads of large wheels.
+- On a production server with normal bandwidth, `torch` (the bottleneck dependency) installs in ~30-60 seconds.
+- The failure is NOT a defect in STORM or in our integration — it's a sandbox infrastructure constraint.
+- Per D20.1: "flaky تشغيلياً — retry ×2/5s · فشله → `providerGaps` لا خطأ · مستبعد من عدّادات القبول · tier بيئي-مؤهل يُعاد قياسه على خادم الإنتاج."
+
+**The workaround (used for G7 A/B test):**
+- TypeScript port of STORM's MIT-licensed prompts (`GenPersona` + `AskQuestionWithPersona`) — verbatim from `stanford-oval/storm` repo files `persona_generator.py` + `knowledge_curation.py`.
+- Per partner instruction: "ممنوع استخدام استرجاع STORM الويب — نعزل المتغير الوحيد: جودة الأسئلة." — the TypeScript port tests pure question quality, which is exactly the variable the A/B test isolates.
+- Same prompts, same GLM, same federation — only the runtime differs (TypeScript vs Python).
+- LICENSE verified at merge time (MIT, Copyright (c) 2024 Stanford Open Virtual Assistant Lab).
+- The port is in `src/book-forge/lib/research/storm-questions.ts`.
+
+**Resolution path (when production server is available):**
+1. On production, `pip install knowledge-storm` should succeed (torch installs cleanly).
+2. The Python package would be used directly via a sidecar (matching the P8-T3 paper-search-mcp sidecar pattern).
+3. The TypeScript port can be removed at that point — OR retained as a lightweight fallback for development environments where Python install is undesirable.
+4. Re-run `scripts/g7-storm-ab.ts` with the Python sidecar to verify the A/B result holds (DROP verdict is expected to be the same, since the prompts are identical).
+
+**Why this matters for D28 (G7 DROP verdict):**
+The DROP verdict is based on the TypeScript port's results. A purist could argue "you tested a port, not the real STORM." The counter-argument: STORM's question generation is PURE LLM work using STORM's exact prompts — there is no Python-specific behavior in question generation (no embeddings, no retrieval, no dspy compilation that produces different output). The prompts are what they are. If the prompts produce worse questions than internal expansion under our GLM + our federation, the Python runtime would produce the same prompts and the same questions. The DROP verdict is valid.
+
+**Date:** 2026-09-29
+**Status:** ENVIRONMENTALLY-QUALIFIED — TypeScript port used as workaround; production re-test recommended but not blocking G7 closure.
+**Reference:** `sidecars/storm/install.log` (empty — install never completed) + `src/book-forge/lib/research/storm-questions.ts` (TypeScript port).
