@@ -1,0 +1,64 @@
+{
+  "query": "hydroponics",
+  "liveProviders": [
+    "crossref",
+    "pubmed",
+    "semantic-scholar",
+    "europepmc"
+  ],
+  "flakyProvidersExcluded": [
+    "arxiv",
+    "openalex"
+  ],
+  "providerResults": [
+    {
+      "provider": "crossref",
+      "ok": true,
+      "count": 2455,
+      "latencyMs": 999
+    },
+    {
+      "provider": "pubmed",
+      "ok": true,
+      "count": 8209,
+      "latencyMs": 305
+    },
+    {
+      "provider": "semantic-scholar",
+      "ok": false,
+      "count": 0,
+      "latencyMs": 465,
+      "error": "HTTP 429"
+    },
+    {
+      "provider": "europepmc",
+      "ok": true,
+      "count": 7505,
+      "latencyMs": 3846
+    }
+  ],
+  "dedupStats": {
+    "rawCount": 30,
+    "afterDoi": 30,
+    "afterArxiv": 30,
+    "afterTitle": 21,
+    "finalCount": 21,
+    "duplicatesRemoved": 9
+  },
+  "dedupRate": "30.0%",
+  "acceptance": {
+    "worksRequired": 5,
+    "worksActual": 21,
+    "providersRequired": 2,
+    "providersActual": 3,
+    "pass": true
+  },
+  "g9Decision": {
+    "decision": "manual client (TypeScript)",
+    "reasoning": "pyeuropepmc requires a Python sidecar + IPC; the manual EuropePMC adapter is ~80 LOC pure TypeScript with no extra runtime. The integration cost exceeds the savings for our TypeScript-only stack.",
+    "manualLOC": 80,
+    "pyeuropepmcLOC": 0,
+    "savings": "N/A — pyeuropepmc would ADD cost, not save it",
+    "date": "2026-09-29"
+  }
+}
