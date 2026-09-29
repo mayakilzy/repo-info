@@ -1,0 +1,783 @@
+{
+  "timestamp": "2026-09-29T19:29:25.672Z",
+  "forgeMode": "zai",
+  "throttleMs": "20000",
+  "elapsedMs": 1189695,
+  "arm1": {
+    "armName": "Arm1-hydroponics",
+    "bookId": "p9-Arm1-hydroponics-mun1w0vd",
+    "chapters": [
+      {
+        "chapterIndex": 1,
+        "chapterTitle": "أساسيات الزراعة المائية",
+        "works": 3,
+        "evidences": [
+          {
+            "id": "ev-n1w0vd-c1-1",
+            "workId": "work-n1w0vd-c1-1",
+            "chapterIndex": 1,
+            "claim": "الزراعة المائية توفر حلًا فعالاً لزيادة الإنتاجية الزراعية مع تقليل استهلاك الماء مقارنة بالزراعة التقليدية",
+            "technicalForm": "الزراعة المائية توفر حلًا فعالاً لزيادة الإنتاجية الزراعية مع تقليل استهلاك الماء مقارنة بالزراعة التقليدية",
+            "plainForm": "الزراعة المائية توفر حلًا فعالاً لزيادة الإنتاجية الزراعية مع تقليل استهلاك الماء مقارنة بالزراعة التقليدية",
+            "fidelity": "qualified",
+            "excerpt": "التطبيقات العملية في الزراعة بدون تربة والزراعة المائية",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.8
+          },
+          {
+            "id": "ev-n1w0vd-c1-2",
+            "workId": "work-n1w0vd-c1-2",
+            "chapterIndex": 1,
+            "claim": "تتطلب الزراعة المائية معرفة تقنية متخصصة وإدارة دقيقة للمحاليل المغذية لضمان نجاح المحاصيل",
+            "technicalForm": "تتطلب الزراعة المائية معرفة تقنية متخصصة وإدارة دقيقة للمحاليل المغذية لضمان نجاح المحاصيل",
+            "plainForm": "تتطلب الزراعة المائية معرفة تقنية متخصصة وإدارة دقيقة للمحاليل المغذية لضمان نجاح المحاصيل",
+            "fidelity": "qualified",
+            "excerpt": "التطبيقات العملية في الزراعة بدون تربة والزراعة المائية",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.7
+          },
+          {
+            "id": "ev-n1w0vd-c1-3",
+            "workId": "work-n1w0vd-c1-3",
+            "chapterIndex": 1,
+            "claim": "يمكن تطبيق الزراعة المائية في البيئات القاحلة والمناطق غير الصالحة للزراعة التقليدية",
+            "technicalForm": "يمكن تطبيق الزراعة المائية في البيئات القاحلة والمناطق غير الصالحة للزراعة التقليدية",
+            "plainForm": "يمكن تطبيق الزراعة المائية في البيئات القاحلة والمناطق غير الصالحة للزراعة التقليدية",
+            "fidelity": "qualified",
+            "excerpt": "التطبيقات العملية في الزراعة بدون تربة والزراعة المائية",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.75
+          },
+          {
+            "id": "ev-n1w0vd-c1-4",
+            "workId": "work-n1w0vd-c1-4",
+            "chapterIndex": 1,
+            "claim": "الزراعة المائية توفر حلاً مستداماً لتوفير الماء مقارنة بالزراعة التقليدية",
+            "technicalForm": "الزراعة المائية توفر حلاً مستداماً لتوفير الماء مقارنة بالزراعة التقليدية",
+            "plainForm": "الزراعة المائية توفر حلاً مستداماً لتوفير الماء مقارنة بالزراعة التقليدية",
+            "fidelity": "qualified",
+            "excerpt": "الزراعة المائية للبساتين Soiless Gardening",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.7
+          },
+          {
+            "id": "ev-n1w0vd-c1-5",
+            "workId": "work-n1w0vd-c1-5",
+            "chapterIndex": 1,
+            "claim": "يمكن للزراعة المائية أن تزيد من الإنتاجية بشكل ملحوظ مقارنة بالطرق الزراعية التقليدية",
+            "technicalForm": "يمكن للزراعة المائية أن تزيد من الإنتاجية بشكل ملحوظ مقارنة بالطرق الزراعية التقليدية",
+            "plainForm": "يمكن للزراعة المائية أن تزيد من الإنتاجية بشكل ملحوظ مقارنة بالطرق الزراعية التقليدية",
+            "fidelity": "qualified",
+            "excerpt": "الزراعة المائية للبساتين Soiless Gardening",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.7
+          },
+          {
+            "id": "ev-n1w0vd-c1-6",
+            "workId": "work-n1w0vd-c1-6",
+            "chapterIndex": 1,
+            "claim": "الزراعة المائية لا تتطلب استخدام التربة، مما يقلل من مشاكل الأمراض والآفات المرتبطة بالتربة",
+            "technicalForm": "الزراعة المائية لا تتطلب استخدام التربة، مما يقلل من مشاكل الأمراض والآفات المرتبطة بالتربة",
+            "plainForm": "الزراعة المائية لا تتطلب استخدام التربة، مما يقلل من مشاكل الأمراض والآفات المرتبطة بالتربة",
+            "fidelity": "qualified",
+            "excerpt": "الزراعة المائية للبساتين Soiless Gardening",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.7
+          }
+        ],
+        "dualFormClaims": [
+          {
+            "id": "dc-n1w0vd-c1-1",
+            "chapterIndex": 1,
+            "technicalForm": "الزراعة المائية توفر حلًا فعالاً لزيادة الإنتاجية الزراعية مع تقليل استهلاك الماء مقارنة بالزراعة التقليدية",
+            "plainForm": "الزراعة المائية (نمو النباتات دون تربة) تعتبر حلاً فعالاً لزيادة الإنتاجية الزراعية مع تقليل استهلاك الماء مقارنة بالزراعة التقليدية.",
+            "fidelity": "exact",
+            "evidenceId": "ev-n1w0vd-c1-1"
+          },
+          {
+            "id": "dc-n1w0vd-c1-2",
+            "chapterIndex": 1,
+            "technicalForm": "تتطلب الزراعة المائية معرفة تقنية متخصصة وإدارة دقيقة للمحاليل المغذية لضمان نجاح المحاصيل",
+            "plainForm": "الزراعة المائية تتطلب معرفة تقنية متخصصة وإدارة دقيقة للمحاليل المغذية لضمان نجاح المحاصيل.",
+            "fidelity": "exact",
+            "evidenceId": "ev-n1w0vd-c1-2"
+          },
+          {
+            "id": "dc-n1w0vd-c1-3",
+            "chapterIndex": 1,
+            "technicalForm": "يمكن تطبيق الزراعة المائية في البيئات القاحلة والمناطق غير الصالحة للزراعة التقليدية",
+            "plainForm": "يمكن استخدام الزراعة المائية في البيئات القاحلة والمناطق غير الصالحة للزراعة التقليدية",
+            "fidelity": "exact",
+            "evidenceId": "ev-n1w0vd-c1-3"
+          }
+        ],
+        "contestedClaims": [],
+        "simplificationCard": {
+          "totalSimplified": 0,
+          "confirmedFaithful": 0,
+          "needsReview": 0,
+          "byFidelity": {
+            "exact": 0,
+            "qualified": 0,
+            "simplified-safe": 0,
+            "lossy": 0
+          }
+        }
+      },
+      {
+        "chapterIndex": 2,
+        "chapterTitle": "أنظمة الزراعة بدون تربة",
+        "works": 3,
+        "evidences": [
+          {
+            "id": "ev-n1w0vd-c2-1",
+            "workId": "work-n1w0vd-c2-1",
+            "chapterIndex": 2,
+            "claim": "تعتبر الزراعة المائية أحد أكثر أنظمة الزراعة بدون تربة تطبيقًا عمليًا على نطاق واسع",
+            "technicalForm": "تعتبر الزراعة المائية أحد أكثر أنظمة الزراعة بدون تربة تطبيقًا عمليًا على نطاق واسع",
+            "plainForm": "تعتبر الزراعة المائية أحد أكثر أنظمة الزراعة بدون تربة تطبيقًا عمليًا على نطاق واسع",
+            "fidelity": "qualified",
+            "excerpt": "التطبيقات العملية في الزراعة بدون تربة والزراعة المائية",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.8
+          },
+          {
+            "id": "ev-n1w0vd-c2-2",
+            "workId": "work-n1w0vd-c2-2",
+            "chapterIndex": 2,
+            "claim": "توفر أنظمة الزراعة بدون تربة حلولاً عملية للزراعة في البيئات القاحلة أو ذات التربة غير المناسبة",
+            "technicalForm": "توفر أنظمة الزراعة بدون تربة حلولاً عملية للزراعة في البيئات القاحلة أو ذات التربة غير المناسبة",
+            "plainForm": "توفر أنظمة الزراعة بدون تربة حلولاً عملية للزراعة في البيئات القاحلة أو ذات التربة غير المناسبة",
+            "fidelity": "qualified",
+            "excerpt": "التطبيقات العملية في الزراعة بدون تربة والزراعة المائية",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.7
+          },
+          {
+            "id": "ev-n1w0vd-c2-3",
+            "workId": "work-n1w0vd-c2-3",
+            "chapterIndex": 2,
+            "claim": "تتميز الزراعة بدون تربة بتطبيقات عملية متنوعة تتجاوز الزراعة المائية التقليدية",
+            "technicalForm": "تتميز الزراعة بدون تربة بتطبيقات عملية متنوعة تتجاوز الزراعة المائية التقليدية",
+            "plainForm": "تتميز الزراعة بدون تربة بتطبيقات عملية متنوعة تتجاوز الزراعة المائية التقليدية",
+            "fidelity": "qualified",
+            "excerpt": "التطبيقات العملية في الزراعة بدون تربة والزراعة المائية",
+            "section": "GLM-extracted",
+            "stance": "qualifies",
+            "evidenceType": "observational",
+            "confidence": 0.6
+          },
+          {
+            "id": "ev-n1w0vd-c2-4",
+            "workId": "work-n1w0vd-c2-4",
+            "chapterIndex": 2,
+            "claim": "أنظمة الزراعة بدون تربة يمكن أن تكون مالية مربحة لمحاصيل الخضر المحددة",
+            "technicalForm": "أنظمة الزراعة بدون تربة يمكن أن تكون مالية مربحة لمحاصيل الخضر المحددة",
+            "plainForm": "أنظمة الزراعة بدون تربة يمكن أن تكون مالية مربحة لمحاصيل الخضر المحددة",
+            "fidelity": "qualified",
+            "excerpt": "التقییم المالى لبعض أنظمة الزراعة بدون تربة لبعض محاصیل الخضر",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.8
+          },
+          {
+            "id": "ev-n1w0vd-c2-5",
+            "workId": "work-n1w0vd-c2-5",
+            "chapterIndex": 2,
+            "claim": "الربحية المالية لنظم الزراعة بدون ترة تعتمد بشكل كبير على اختيار المحاصيل المناسبة",
+            "technicalForm": "الربحية المالية لنظم الزراعة بدون ترة تعتمد بشكل كبير على اختيار المحاصيل المناسبة",
+            "plainForm": "الربحية المالية لنظم الزراعة بدون ترة تعتمد بشكل كبير على اختيار المحاصيل المناسبة",
+            "fidelity": "qualified",
+            "excerpt": "لبعض محاصیل الخضر",
+            "section": "GLM-extracted",
+            "stance": "qualifies",
+            "evidenceType": "observational",
+            "confidence": 0.7
+          },
+          {
+            "id": "ev-n1w0vd-c2-6",
+            "workId": "work-n1w0vd-c2-6",
+            "chapterIndex": 2,
+            "claim": "توجد اختلافات كبيرة في الأداء المالي لأنظمة الزراعة بدون تربة المختلفة لنفس المحاصيل",
+            "technicalForm": "توجد اختلافات كبيرة في الأداء المالي لأنظمة الزراعة بدون تربة المختلفة لنفس المحاصيل",
+            "plainForm": "توجد اختلافات كبيرة في الأداء المالي لأنظمة الزراعة بدون تربة المختلفة لنفس المحاصيل",
+            "fidelity": "qualified",
+            "excerpt": "بعض أنظمة الزراعة بدون تربة لبعض محاصیل الخضر",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.6
+          }
+        ],
+        "dualFormClaims": [
+          {
+            "id": "dc-n1w0vd-c2-1",
+            "chapterIndex": 2,
+            "technicalForm": "تعتبر الزراعة المائية أحد أكثر أنظمة الزراعة بدون تربة تطبيقًا عمليًا على نطاق واسع",
+            "plainForm": "الزراعة المائية هي أكثر أنظمة الزراعة بدون تربة استخدامًا في التطبيقات العملية واسعة النطاق.",
+            "fidelity": "exact",
+            "evidenceId": "ev-n1w0vd-c2-1"
+          },
+          {
+            "id": "dc-n1w0vd-c2-2",
+            "chapterIndex": 2,
+            "technicalForm": "توفر أنظمة الزراعة بدون تربة حلولاً عملية للزراعة في البيئات القاحلة أو ذات التربة غير المناسبة",
+            "plainForm": "توفر أنظمة الزراعة بدون تربة حلولاً عملية للزراعة في البيئات القاحلة أو ذات التربة غير المناسبة",
+            "fidelity": "exact",
+            "evidenceId": "ev-n1w0vd-c2-2"
+          },
+          {
+            "id": "dc-n1w0vd-c2-3",
+            "chapterIndex": 2,
+            "technicalForm": "تتميز الزراعة بدون تربة بتطبيقات عملية متنوعة تتجاوز الزراعة المائية التقليدية",
+            "plainForm": "تتميز الزراعة بدون تربة بتطبيقات عملية متنوعة تتجاوز الزراعة المائية التقليدية",
+            "fidelity": "exact",
+            "evidenceId": "ev-n1w0vd-c2-3"
+          }
+        ],
+        "contestedClaims": [],
+        "simplificationCard": {
+          "totalSimplified": 1,
+          "confirmedFaithful": 1,
+          "needsReview": 0,
+          "byFidelity": {
+            "exact": 1,
+            "qualified": 0,
+            "simplified-safe": 0,
+            "lossy": 0
+          }
+        }
+      },
+      {
+        "chapterIndex": 3,
+        "chapterTitle": "إدارة المحاليل الغذائية",
+        "works": 3,
+        "evidences": [
+          {
+            "id": "ev-n1w0vd-c3-1",
+            "workId": "work-n1w0vd-c3-1",
+            "chapterIndex": 3,
+            "claim": "تطبيق مواصفات نظام إدارة السلامة الغذائية ISO 22000 يضمن سلامة وجودة المنتجات الغذائية بشكل فعال",
+            "technicalForm": "تطبيق مواصفات نظام إدارة السلامة الغذائية ISO 22000 يضمن سلامة وجودة المنتجات الغذائية بشكل فعال",
+            "plainForm": "تطبيق مواصفات نظام إدارة السلامة الغذائية ISO 22000 يضمن سلامة وجودة المنتجات الغذائية بشكل فعال",
+            "fidelity": "qualified",
+            "excerpt": "أهمية تطبيق مواصفات نظام إدارة السلامة الغذائية ISO 22000 لضمان سلامة وجودة المنتوجات الغذائية",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.8
+          },
+          {
+            "id": "ev-n1w0vd-c3-2",
+            "workId": "work-n1w0vd-c3-2",
+            "chapterIndex": 3,
+            "claim": "اعتماد شركات الصناعات الغذائية الفلسطينية على التسويق المستخدم كعامل رئيسي في إدارة المحاليل الغذائية",
+            "technicalForm": "اعتماد شركات الصناعات الغذائية الفلسطينية على التسويق المستخدم كعامل رئيسي في إدارة المحاليل الغذائية",
+            "plainForm": "اعتماد شركات الصناعات الغذائية الفلسطينية على التسويق المستخدم كعامل رئيسي في إدارة المحاليل الغذائية",
+            "fidelity": "qualified",
+            "excerpt": "العوامل المؤثرة في مستوى تبني شركات الصناعات الغذائية للتسويق المستدام في فلسطين",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.7
+          }
+        ],
+        "dualFormClaims": [
+          {
+            "id": "dc-n1w0vd-c3-1",
+            "chapterIndex": 3,
+            "technicalForm": "تطبيق مواصفات نظام إدارة السلامة الغذائية ISO 22000 يضمن سلامة وجودة المنتجات الغذائية بشكل فعال",
+            "plainForm": "تطبيق مواصفات نظام إدارة السلامة الغذائية ISO 22000 يضمن بشكل فعال سلامة وجودة المنتجات الغذائية",
+            "fidelity": "exact",
+            "evidenceId": "ev-n1w0vd-c3-1"
+          },
+          {
+            "id": "dc-n1w0vd-c3-2",
+            "chapterIndex": 3,
+            "technicalForm": "اعتماد شركات الصناعات الغذائية الفلسطينية على التسويق المستخدم كعامل رئيسي في إدارة المحاليل الغذائية",
+            "plainForm": "تعتمد شركات الصناعات الغذائية الفلسطينية بشكل أساسي على استراتيجيات التسويق لإدارة عمليات المحاليل الغذائية لديها.",
+            "fidelity": "exact",
+            "evidenceId": "ev-n1w0vd-c3-2"
+          }
+        ],
+        "contestedClaims": [],
+        "simplificationCard": {
+          "totalSimplified": 0,
+          "confirmedFaithful": 0,
+          "needsReview": 0,
+          "byFidelity": {
+            "exact": 0,
+            "qualified": 0,
+            "simplified-safe": 0,
+            "lossy": 0
+          }
+        }
+      }
+    ],
+    "llmCost": {
+      "calls": 15,
+      "inputTokens": 0,
+      "outputTokens": 0
+    },
+    "valeInvoked": true,
+    "valeFindings": 0
+  },
+  "arm2": {
+    "armName": "Arm2-pyramids",
+    "bookId": "p9-Arm2-pyramids-mun28iwr",
+    "chapters": [
+      {
+        "chapterIndex": 1,
+        "chapterTitle": "النظرية التقليدية: المنحدرات والروافع",
+        "works": 3,
+        "evidences": [
+          {
+            "id": "ev-n28iwr-c1-1",
+            "workId": "work-n28iwr-c1-1",
+            "chapterIndex": 1,
+            "claim": "تشريعات الاستهلاك الحديثة تتعارض مع مبادئ النظرية التقليدية للعقد القائمة على المنحدرات والروافع",
+            "technicalForm": "تشريعات الاستهلاك الحديثة تتعارض مع مبادئ النظرية التقليدية للعقد القائمة على المنحدرات والروافع",
+            "plainForm": "تشريعات الاستهلاك الحديثة تتعارض مع مبادئ النظرية التقليدية للعقد القائمة على المنحدرات والروافع",
+            "fidelity": "qualified",
+            "excerpt": "أثر تشريعات الاستهلاك على مبادئ النظرية التقليدية للعقد",
+            "section": "GLM-extracted",
+            "stance": "contradicts",
+            "evidenceType": "theoretical",
+            "confidence": 0.8
+          },
+          {
+            "id": "ev-n28iwr-c1-2",
+            "workId": "work-n28iwr-c1-2",
+            "chapterIndex": 1,
+            "claim": "تتطلب النظرية التقليدية للعقد إعادة نظر لتتلاءم مع المتطلبات المعاصرة لحماية المستهلك",
+            "technicalForm": "تتطلب النظرية التقليدية للعقد إعادة نظر لتتلاءم مع المتطلبات المعاصرة لحماية المستهلك",
+            "plainForm": "تتطلب النظرية التقليدية للعقد إعادة نظر لتتلاءم مع المتطلبات المعاصرة لحماية المستهلك",
+            "fidelity": "qualified",
+            "excerpt": "أثر تشريعات الاستهلاك على مبادئ النظرية التقليدية للعقد",
+            "section": "GLM-extracted",
+            "stance": "qualifies",
+            "evidenceType": "theoretical",
+            "confidence": 0.7
+          },
+          {
+            "id": "ev-n28iwr-c1-3",
+            "workId": "work-n28iwr-c1-3",
+            "chapterIndex": 1,
+            "claim": "تعدد أبعاد صدق الاختبارات هو مبدأ أساسي في النظرية التقليدية للمنحدرات والروافع.",
+            "technicalForm": "تعدد أبعاد صدق الاختبارات هو مبدأ أساسي في النظرية التقليدية للمنحدرات والروافع.",
+            "plainForm": "تعدد أبعاد صدق الاختبارات هو مبدأ أساسي في النظرية التقليدية للمنحدرات والروافع.",
+            "fidelity": "qualified",
+            "excerpt": "أبعاد صدق الاختبارات في ضوء النظرية التقليدية",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "theoretical",
+            "confidence": 0.8
+          },
+          {
+            "id": "ev-n28iwr-c1-4",
+            "workId": "work-n28iwr-c1-4",
+            "chapterIndex": 1,
+            "claim": "تقترح النظرية الحديثة نقدًا لبعض مفاهيم النظرية التقليدية المتعلقة بصدق الاختبارات.",
+            "technicalForm": "تقترح النظرية الحديثة نقدًا لبعض مفاهيم النظرية التقليدية المتعلقة بصدق الاختبارات.",
+            "plainForm": "تقترح النظرية الحديثة نقدًا لبعض مفاهيم النظرية التقليدية المتعلقة بصدق الاختبارات.",
+            "fidelity": "qualified",
+            "excerpt": "النظرية التقليدية والنظرية الحديثة",
+            "section": "GLM-extracted",
+            "stance": "contradicts",
+            "evidenceType": "theoretical",
+            "confidence": 0.7
+          },
+          {
+            "id": "ev-n28iwr-c1-5",
+            "workId": "work-n28iwr-c1-5",
+            "chapterIndex": 1,
+            "claim": "يجب مراعاة السياق التطبيقي عند تطبيق النظرية التقليدية لتقييم أبعاد صدق الاختبارات.",
+            "technicalForm": "يجب مراعاة السياق التطبيقي عند تطبيق النظرية التقليدية لتقييم أبعاد صدق الاختبارات.",
+            "plainForm": "يجب مراعاة السياق التطبيقي عند تطبيق النظرية التقليدية لتقييم أبعاد صدق الاختبارات.",
+            "fidelity": "qualified",
+            "excerpt": "في ضوء النظرية التقليدية والنظرية الحديثة",
+            "section": "GLM-extracted",
+            "stance": "qualifies",
+            "evidenceType": "theoretical",
+            "confidence": 0.6
+          }
+        ],
+        "dualFormClaims": [
+          {
+            "id": "dc-n28iwr-c1-1",
+            "chapterIndex": 1,
+            "technicalForm": "تشريعات الاستهلاك الحديثة تتعارض مع مبادئ النظرية التقليدية للعقد القائمة على المنحدرات والروافع",
+            "plainForm": "تشريعات حماية المستهلك الحديثة تتعارض مع النظرية التقليدية للعقد القائمة على مبدأ المنحدرات والروافع (steep hills and levers)، والتي تنص على أن العقد يجب أن يكون حرًا تمامًا دون تدخل الدولة.",
+            "fidelity": "lossy",
+            "evidenceId": "ev-n28iwr-c1-1",
+            "distortionType": "scope-drop"
+          },
+          {
+            "id": "dc-n28iwr-c1-2",
+            "chapterIndex": 1,
+            "technicalForm": "تتطلب النظرية التقليدية للعقد إعادة نظر لتتلاءم مع المتطلبات المعاصرة لحماية المستهلك",
+            "plainForm": "تتطلب النظرية التقليدية للعقد إعادة نظر لتتلاءم مع المتطلبات المعاصرة لحماية المستهلك",
+            "fidelity": "exact",
+            "evidenceId": "ev-n28iwr-c1-2"
+          },
+          {
+            "id": "dc-n28iwr-c1-3",
+            "chapterIndex": 1,
+            "technicalForm": "تعدد أبعاد صدق الاختبارات هو مبدأ أساسي في النظرية التقليدية للمنحدرات والروافع.",
+            "plainForm": "مبدأ تعدد أبعاد صدق الاختبارات هو حجر الزاوية في النظرية الكلاسيكية لتحليل العوامل.",
+            "fidelity": "lossy",
+            "evidenceId": "ev-n28iwr-c1-3",
+            "distortionType": "scope-drop"
+          }
+        ],
+        "contestedClaims": [],
+        "simplificationCard": {
+          "totalSimplified": 2,
+          "confirmedFaithful": 0,
+          "needsReview": 2,
+          "byFidelity": {
+            "exact": 0,
+            "qualified": 0,
+            "simplified-safe": 0,
+            "lossy": 2
+          }
+        }
+      },
+      {
+        "chapterIndex": 2,
+        "chapterTitle": "نظرية Houdin: المنحدر الداخلي",
+        "works": 3,
+        "evidences": [
+          {
+            "id": "ev-n28iwr-c2-1",
+            "workId": "work-n28iwr-c2-1",
+            "chapterIndex": 2,
+            "claim": "تعد نظرية Houdin للمنحدر الداخلي تفسيراً مهماً لطريقة بناء الأهرامات المصرية القديمة.",
+            "technicalForm": "تعد نظرية Houdin للمنحدر الداخلي تفسيراً مهماً لطريقة بناء الأهرامات المصرية القديمة.",
+            "plainForm": "تعد نظرية Houdin للمنحدر الداخلي تفسيراً مهماً لطريقة بناء الأهرامات المصرية القديمة.",
+            "fidelity": "qualified",
+            "excerpt": "Robert-Houdin, Georges",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.7
+          },
+          {
+            "id": "ev-n28iwr-c2-2",
+            "workId": "work-n28iwr-c2-2",
+            "chapterIndex": 2,
+            "claim": "يركز هذا البحث على الجانب العلمي والتقني في أعمال روبرت-هودين، وليس على الجانب السحري فقط.",
+            "technicalForm": "يركز هذا البحث على الجانب العلمي والتقني في أعمال روبرت-هودين، وليس على الجانب السحري فقط.",
+            "plainForm": "يركز هذا البحث على الجانب العلمي والتقني في أعمال روبرت-هودين، وليس على الجانب السحري فقط.",
+            "fidelity": "qualified",
+            "excerpt": "la magie de l'ampoule",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.7
+          }
+        ],
+        "dualFormClaims": [
+          {
+            "id": "dc-n28iwr-c2-1",
+            "chapterIndex": 2,
+            "technicalForm": "تعد نظرية Houdin للمنحدر الداخلي تفسيراً مهماً لطريقة بناء الأهرامات المصرية القديمة.",
+            "plainForm": "تقدم نظرية Houdin للمنحدر الداخلي تفسيراً مهماً لطريقة بناء الأهرامات المصرية القديمة.",
+            "fidelity": "exact",
+            "evidenceId": "ev-n28iwr-c2-1"
+          },
+          {
+            "id": "dc-n28iwr-c2-2",
+            "chapterIndex": 2,
+            "technicalForm": "يركز هذا البحث على الجانب العلمي والتقني في أعمال روبرت-هودين، وليس على الجانب السحري فقط.",
+            "plainForm": "يركز هذا البحث على الجانب العلمي والتقني في أعمال روبرت-هودين، وليس على الجانب السحري فقط.",
+            "fidelity": "exact",
+            "evidenceId": "ev-n28iwr-c2-2"
+          }
+        ],
+        "contestedClaims": [],
+        "simplificationCard": {
+          "totalSimplified": 0,
+          "confirmedFaithful": 0,
+          "needsReview": 0,
+          "byFidelity": {
+            "exact": 0,
+            "qualified": 0,
+            "simplified-safe": 0,
+            "lossy": 0
+          }
+        }
+      },
+      {
+        "chapterIndex": 3,
+        "chapterTitle": "النظريات البديلة: الخرسانة الجيوبوليمرية",
+        "works": 3,
+        "evidences": [
+          {
+            "id": "ev-n28iwr-c3-1",
+            "workId": "work-n28iwr-c3-1",
+            "chapterIndex": 3,
+            "claim": "الخرسانة الجيوبوليمرية بديل فعال للخرسانة التقليدية من حيث الأداء البيئي والمقاومة",
+            "technicalForm": "الخرسانة الجيوبوليمرية بديل فعال للخرسانة التقليدية من حيث الأداء البيئي والمقاومة",
+            "plainForm": "الخرسانة الجيوبوليمرية بديل فعال للخرسانة التقليدية من حيث الأداء البيئي والمقاومة",
+            "fidelity": "qualified",
+            "excerpt": "Geopolymer Concrete",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.8
+          },
+          {
+            "id": "ev-n28iwr-c3-2",
+            "workId": "work-n28iwr-c3-2",
+            "chapterIndex": 3,
+            "claim": "يمكن استخدام مواد صناعية ونفايات كمواد خام لصنع الخرسانة الجيوبوليمرية",
+            "technicalForm": "يمكن استخدام مواد صناعية ونفايات كمواد خام لصنع الخرسانة الجيوبوليمرية",
+            "plainForm": "يمكن استخدام مواد صناعية ونفايات كمواد خام لصنع الخرسانة الجيوبوليمرية",
+            "fidelity": "qualified",
+            "excerpt": "Geopolymer Concrete",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.7
+          },
+          {
+            "id": "ev-n28iwr-c3-3",
+            "workId": "work-n28iwr-c3-3",
+            "chapterIndex": 3,
+            "claim": "الخرسانة الجيوبوليمرية تتميز بخصائص ميكانيكية ومقاومة حرارية أفضل من الخرسانة التقليدية",
+            "technicalForm": "الخرسانة الجيوبوليمرية تتميز بخصائص ميكانيكية ومقاومة حرارية أفضل من الخرسانة التقليدية",
+            "plainForm": "الخرسانة الجيوبوليمرية تتميز بخصائص ميكانيكية ومقاومة حرارية أفضل من الخرسانة التقليدية",
+            "fidelity": "qualified",
+            "excerpt": "Geopolymer Concrete",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.6
+          },
+          {
+            "id": "ev-n28iwr-c3-4",
+            "workId": "work-n28iwr-c3-4",
+            "chapterIndex": 3,
+            "claim": "توفر الخرسانة الجيوبوليمرية بديلاً مستداماً ومتطوراً للخرسانة التقليدية",
+            "technicalForm": "توفر الخرسانة الجيوبوليمرية بديلاً مستداماً ومتطوراً للخرسانة التقليدية",
+            "plainForm": "توفر الخرسانة الجيوبوليمرية بديلاً مستداماً ومتطوراً للخرسانة التقليدية",
+            "fidelity": "qualified",
+            "excerpt": "Illustrations of Geopolymer Paste, Geopolymer Mortar, Geopolymer Concrete",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.8
+          },
+          {
+            "id": "ev-n28iwr-c3-5",
+            "workId": "work-n28iwr-c3-5",
+            "chapterIndex": 3,
+            "claim": "يمكن تصميم خلطات الخرسانة الجيوبوليمرية بشكل منهجي لتحقيق خصائص ميكانيكية محددة",
+            "technicalForm": "يمكن تصميم خلطات الخرسانة الجيوبوليمرية بشكل منهجي لتحقيق خصائص ميكانيكية محددة",
+            "plainForm": "يمكن تصميم خلطات الخرسانة الجيوبوليمرية بشكل منهجي لتحقيق خصائص ميكانيكية محددة",
+            "fidelity": "qualified",
+            "excerpt": "Mix Design Approach",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.7
+          },
+          {
+            "id": "ev-n28iwr-c3-6",
+            "workId": "work-n28iwr-c3-6",
+            "chapterIndex": 3,
+            "claim": "تختلف الخواص الفيزيائية والكيميائية للخرسانة الجيوبوليمرية بشكل ملحوظ عن مكوناتها الأولية",
+            "technicalForm": "تختلف الخواص الفيزيائية والكيميائية للخرسانة الجيوبوليمرية بشكل ملحوظ عن مكوناتها الأولية",
+            "plainForm": "تختلف الخواص الفيزيائية والكيميائية للخرسانة الجيوبوليمرية بشكل ملحوظ عن مكوناتها الأولية",
+            "fidelity": "qualified",
+            "excerpt": "Illustrations of Geopolymer Paste, Geopolymer Mortar, Geopolymer Concrete",
+            "section": "GLM-extracted",
+            "stance": "supports",
+            "evidenceType": "observational",
+            "confidence": 0.6
+          }
+        ],
+        "dualFormClaims": [
+          {
+            "id": "dc-n28iwr-c3-1",
+            "chapterIndex": 3,
+            "technicalForm": "الخرسانة الجيوبوليمرية بديل فعال للخرسانة التقليدية من حيث الأداء البيئي والمقاومة",
+            "plainForm": "الخرسانة الجيوبوليمرية تعتبر بديلاً فعالاً للخرسانة التقليدية من حيث الأداء البيئي والمقاومة.",
+            "fidelity": "exact",
+            "evidenceId": "ev-n28iwr-c3-1"
+          },
+          {
+            "id": "dc-n28iwr-c3-2",
+            "chapterIndex": 3,
+            "technicalForm": "يمكن استخدام مواد صناعية ونفايات كمواد خام لصنع الخرسانة الجيوبوليمرية",
+            "plainForm": "يمكن استخدام النفايات والمواد الصناعية كمواد خام في تصنيع الخرسانة الجيوبوليمرية",
+            "fidelity": "exact",
+            "evidenceId": "ev-n28iwr-c3-2"
+          },
+          {
+            "id": "dc-n28iwr-c3-3",
+            "chapterIndex": 3,
+            "technicalForm": "الخرسانة الجيوبوليمرية تتميز بخصائص ميكانيكية ومقاومة حرارية أفضل من الخرسانة التقليدية",
+            "plainForm": "الخرسانة الجيوبوليمرية تظهر مقاومة ميكانيكية وحرارية أعلى مقارنة بالخرسانة التقليدية.",
+            "fidelity": "exact",
+            "evidenceId": "ev-n28iwr-c3-3"
+          }
+        ],
+        "contestedClaims": [],
+        "simplificationCard": {
+          "totalSimplified": 0,
+          "confirmedFaithful": 0,
+          "needsReview": 0,
+          "byFidelity": {
+            "exact": 0,
+            "qualified": 0,
+            "simplified-safe": 0,
+            "lossy": 0
+          }
+        }
+      }
+    ],
+    "llmCost": {
+      "calls": 16,
+      "inputTokens": 0,
+      "outputTokens": 0
+    },
+    "valeInvoked": true,
+    "valeFindings": 0
+  },
+  "g11": {
+    "sample": [
+      {
+        "technicalForm": "الزراعة المائية توفر حلًا فعالاً لزيادة الإنتاجية الزراعية مع تقليل استهلاك الماء مقارنة بالزراعة التقليدية",
+        "plainForm": "الزراعة المائية (نمو النباتات دون تربة) تعتبر حلاً فعالاً لزيادة الإنتاجية الزراعية مع تقليل استهلاك الماء مقارنة بالزراعة التقليدية.",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "تتطلب الزراعة المائية معرفة تقنية متخصصة وإدارة دقيقة للمحاليل المغذية لضمان نجاح المحاصيل",
+        "plainForm": "الزراعة المائية تتطلب معرفة تقنية متخصصة وإدارة دقيقة للمحاليل المغذية لضمان نجاح المحاصيل.",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "يمكن تطبيق الزراعة المائية في البيئات القاحلة والمناطق غير الصالحة للزراعة التقليدية",
+        "plainForm": "يمكن استخدام الزراعة المائية في البيئات القاحلة والمناطق غير الصالحة للزراعة التقليدية",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "تعتبر الزراعة المائية أحد أكثر أنظمة الزراعة بدون تربة تطبيقًا عمليًا على نطاق واسع",
+        "plainForm": "الزراعة المائية هي أكثر أنظمة الزراعة بدون تربة استخدامًا في التطبيقات العملية واسعة النطاق.",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "توفر أنظمة الزراعة بدون تربة حلولاً عملية للزراعة في البيئات القاحلة أو ذات التربة غير المناسبة",
+        "plainForm": "توفر أنظمة الزراعة بدون تربة حلولاً عملية للزراعة في البيئات القاحلة أو ذات التربة غير المناسبة",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "تتميز الزراعة بدون تربة بتطبيقات عملية متنوعة تتجاوز الزراعة المائية التقليدية",
+        "plainForm": "تتميز الزراعة بدون تربة بتطبيقات عملية متنوعة تتجاوز الزراعة المائية التقليدية",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "تطبيق مواصفات نظام إدارة السلامة الغذائية ISO 22000 يضمن سلامة وجودة المنتجات الغذائية بشكل فعال",
+        "plainForm": "تطبيق مواصفات نظام إدارة السلامة الغذائية ISO 22000 يضمن بشكل فعال سلامة وجودة المنتجات الغذائية",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "اعتماد شركات الصناعات الغذائية الفلسطينية على التسويق المستخدم كعامل رئيسي في إدارة المحاليل الغذائية",
+        "plainForm": "تعتمد شركات الصناعات الغذائية الفلسطينية بشكل أساسي على استراتيجيات التسويق لإدارة عمليات المحاليل الغذائية لديها.",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "تشريعات الاستهلاك الحديثة تتعارض مع مبادئ النظرية التقليدية للعقد القائمة على المنحدرات والروافع",
+        "plainForm": "تشريعات حماية المستهلك الحديثة تتعارض مع النظرية التقليدية للعقد القائمة على مبدأ المنحدرات والروافع (steep hills and levers)، والتي تنص على أن العقد يجب أن يكون حرًا تمامًا دون تدخل الدولة.",
+        "fidelity": "lossy",
+        "distortionType": "scope-drop"
+      },
+      {
+        "technicalForm": "تتطلب النظرية التقليدية للعقد إعادة نظر لتتلاءم مع المتطلبات المعاصرة لحماية المستهلك",
+        "plainForm": "تتطلب النظرية التقليدية للعقد إعادة نظر لتتلاءم مع المتطلبات المعاصرة لحماية المستهلك",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "تعدد أبعاد صدق الاختبارات هو مبدأ أساسي في النظرية التقليدية للمنحدرات والروافع.",
+        "plainForm": "مبدأ تعدد أبعاد صدق الاختبارات هو حجر الزاوية في النظرية الكلاسيكية لتحليل العوامل.",
+        "fidelity": "lossy",
+        "distortionType": "scope-drop"
+      },
+      {
+        "technicalForm": "تعد نظرية Houdin للمنحدر الداخلي تفسيراً مهماً لطريقة بناء الأهرامات المصرية القديمة.",
+        "plainForm": "تقدم نظرية Houdin للمنحدر الداخلي تفسيراً مهماً لطريقة بناء الأهرامات المصرية القديمة.",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "يركز هذا البحث على الجانب العلمي والتقني في أعمال روبرت-هودين، وليس على الجانب السحري فقط.",
+        "plainForm": "يركز هذا البحث على الجانب العلمي والتقني في أعمال روبرت-هودين، وليس على الجانب السحري فقط.",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "الخرسانة الجيوبوليمرية بديل فعال للخرسانة التقليدية من حيث الأداء البيئي والمقاومة",
+        "plainForm": "الخرسانة الجيوبوليمرية تعتبر بديلاً فعالاً للخرسانة التقليدية من حيث الأداء البيئي والمقاومة.",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "يمكن استخدام مواد صناعية ونفايات كمواد خام لصنع الخرسانة الجيوبوليمرية",
+        "plainForm": "يمكن استخدام النفايات والمواد الصناعية كمواد خام في تصنيع الخرسانة الجيوبوليمرية",
+        "fidelity": "exact",
+        "distortionType": null
+      },
+      {
+        "technicalForm": "الخرسانة الجيوبوليمرية تتميز بخصائص ميكانيكية ومقاومة حرارية أفضل من الخرسانة التقليدية",
+        "plainForm": "الخرسانة الجيوبوليمرية تظهر مقاومة ميكانيكية وحرارية أعلى مقارنة بالخرسانة التقليدية.",
+        "fidelity": "exact",
+        "distortionType": null
+      }
+    ],
+    "totalPhrases": 16,
+    "safeCount": 14,
+    "lossyCount": 2,
+    "safeRate": 0.875,
+    "lossyRate": 0.125,
+    "pass": false
+  },
+  "d30Layer2Verdict": {
+    "arm2ContestedTotal": 0,
+    "closed": false,
+    "nextStep": "defer to Layer 3 (embeddings)"
+  },
+  "decisions": {
+    "D31_layer2_deviation": "Jaccard → shared n-grams count, threshold=3, FP-rate measured",
+    "D32_arabic_postpass": "Vale = linguistic rules; Arabic patterns in TS",
+    "D26_update_examples": "examples/websocket excluded — final decision in P16",
+    "G11_closure": "G11 needs threshold tuning"
+  }
+}

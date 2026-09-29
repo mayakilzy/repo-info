@@ -353,6 +353,56 @@
 
 ---
 
+## D31 — Layer 2 deviation (Jaccard → shared n-grams count) + FP-rate mandatory
+- **Decision**: Layer 2 contested-claims detection deviated from pure Jaccard similarity (D30 spec) to **shared n-grams count** as the primary criterion.
+- **Justification by numbers**:
+  - The Houdin-theory pair (live pyramids data) has **4 shared n-grams** (2-gram + 3-gram combined) but Jaccard similarity = **0.143** — far below the D30-spec threshold of 0.5.
+  - Reason: Arabic word order varies significantly across paraphrased claims. Two claims about the same topic (e.g., "Houdin internal ramp theory explains Khufu" vs "Houdin internal ramp theory lacks archaeological evidence") share 4 specific n-grams ("نظرية المنحدر", "المنحرد الداخلي", "لـ houdin", "نظرية المنحرد الداخلي") but the set sizes differ (10 vs 8 unique n-grams), dragging Jaccard down.
+  - The shared-count metric is more intuitive and more robust to set-size asymmetry — it directly answers "how many specific phrases do these two claims share?"
+- **Threshold (current, pre-calibration)**: `MIN_SHARED_NGRAMS = 3` (catches the Houdin pair at 4, rejects the geopolymer pair at 1).
+- **Final threshold**: to be set after live calibration in the P9 live acceptance run (FP-rate measurement is mandatory).
+- **FP-rate metric (mandatory)**:
+  - Definition: of all pairs detected as "contested" by Layer 2, what fraction are FALSE POSITIVES (i.e., the two evidences are actually about different topics, just sharing common Arabic function words)?
+  - Measurement: manual review of detected pairs in the live pyramids run + hydroponics run. A pair is FP if the supports and contradicts evidences are clearly about different claims despite sharing n-grams.
+  - Acceptance: FP-rate ≤ 30% (heuristic — perfect precision is unrealistic for n-gram matching; recall is more important for a "leading feature").
+  - If FP-rate > 30%: raise `MIN_SHARED_NGRAMS` to 4 or 5, re-measure. If still > 30%: defer to Layer 3 (embeddings).
+- **Date**: 2026-09-29
+- **Reference**: `src/book-forge/lib/research/contested-claims.ts` lines 117-130 (NGRAM_SIZES, MIN_SHARED_NGRAMS)
+
+---
+
+## D32 — Arabic numerals/punctuation checks moved from Vale to TS layer
+- **Decision**: The Arabic-specific pattern checks (mixed ASCII+Arabic-Indic numerals, punctuation spacing, percent sign mixing) are moved from Vale YAML rules to a TypeScript post-pass in `vale-runner.ts`.
+- **Rationale**:
+  - Vale's Go regex engine does not reliably match Arabic Unicode codepoints in `tokens` arrays. Tested in P9-T0: rules like `'\s+،'` (space before Arabic comma) and `'[0-9][\u0660-\u0669]+'` (mixed numerals) consistently returned 0 findings even on obviously-violating text.
+  - The Repetition, Glossary, and WordCount rules (which use simpler patterns) DO fire correctly — so Vale itself works, but its regex engine has a Unicode-class limitation for Arabic.
+- **Known boundary (documented)**:
+  - **Vale = linguistic rules** (repetition, glossary unification, word-count occurrence) — these fire correctly on Arabic.
+  - **Arabic-specific patterns (numerals, punctuation, percent) = TS layer** — implemented as a post-pass in `vale-runner.ts` that scans Vale's output AND runs its own regex checks on the raw text.
+- **Implementation**:
+  - `vale-runner.ts` has a `runArabicPostPass()` function that checks for:
+    - Mixed ASCII + Arabic-Indic numerals in the same number (e.g., "1٢34")
+    - Space before Arabic punctuation (e.g., "كلمة ،")
+    - Missing space after Arabic punctuation (e.g., "كلمة،كلمة")
+    - Mixed percent sign + numeral systems (e.g., "50٪" with ASCII digits)
+  - Findings from the post-pass are merged into the Vale report.
+- **Future**: if Vale releases a version with reliable Arabic Unicode support, these checks can migrate back to YAML. Until then, the TS layer is the source of truth for Arabic pattern matching.
+- **Date**: 2026-09-29
+- **Reference**: `src/book-forge/lib/simplify/vale-runner.ts` (post-pass function)
+
+---
+
+## D26-update — examples/websocket excluded from type-check (final decision in P16)
+- **Addendum to D26**: the `examples/` directory (containing `websocket/frontend.tsx` + `websocket/server.ts`) is excluded from `tsconfig.json`'s `include` scope. The 2 remaining tsc errors (socket.io-client + socket.io module not found) are NOT debt — they're examples that depend on packages not installed in the runtime.
+- **Final decision**: this exclusion is permanent for v1. In P16 (interactive UI), if we adopt socket.io for real-time features, the examples will be re-evaluated and either:
+  - (a) Migrated into the main app (with socket.io installed as a real dependency), OR
+  - (b) Removed entirely if WebSocket isn't the chosen real-time transport.
+- **Rationale**: examples are reference material, not shipped code. Excluding them from type-check is standard practice.
+- **Date**: 2026-09-29
+- **Reference**: `tsconfig.json` line 39-42 (`"exclude": ["node_modules", "examples"]`)
+
+---
+
 ## G14 — shotcraft-cinematic opt-in (P13-T5, not yet resolved)
 - **Status**: OPEN. Half-day spike: repo license + Remotion license match + CPU 60s 1080×1920 test.
 - **Date**: TBD
