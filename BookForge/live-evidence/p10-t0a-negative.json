@@ -1,0 +1,80 @@
+{
+  "task": "P10-T0a",
+  "title": "Live Issue #16 final fix — distortionType absorption (negative test evidence)",
+  "date": "2026-09-29",
+  "agent": "عصر الصوت (وكيل التنفيذ الجديد)",
+  "warmup_source": "تمهيد الجلسة BookForge.md (imported by partner, deleted for security)",
+  "context": {
+    "issue_number": 16,
+    "issue_description": "GLM simplifier/fidelity-gate يرجع distortionType كـ non-string type (number/object/array/boolean) — schema يفشل parse → repair-loop يُفعّل → SchemaValidationError بعد المحاولة الثانية. الإصلاحان الجزئيان السابقان فشلا.",
+    "previous_fixes": [
+      {"commit": "8e03dce", "schema": "z.string().nullable()", "outcome": "explodes on number/object/array"},
+      {"commit": "490ad30", "schema": "z.string().nullable() (unchanged)", "post_parse": "enum check added", "outcome": "repair-loop still fires on non-string types — wasted GLM call"}
+    ]
+  },
+  "fix": {
+    "schema": "z.unknown()",
+    "post_parse": "normalizeDistortionType() — shared normalizer in lib/simplify/distortion-normalize.ts",
+    "separation_of_concerns": "schema accepts anything (no repair-loop trigger on this field alone); normalizer coerces to DistortionType | null downstream"
+  },
+  "files_changed": [
+    {"path": "src/book-forge/lib/simplify/distortion-normalize.ts", "change": "NEW (116 LOC) — shared normalizer + VALID_DISTORTIONS + alias map"},
+    {"path": "src/book-forge/agents/simplifier.ts", "change": "MODIFIED — z.unknown schema, SIMPLIFIER_BATCH_SIZE=4 Promise.all batching, normalizeDistortionType post-parse, SimplifierResult.distortionType: DistortionType | null"},
+    {"path": "src/book-forge/lib/simplify/fidelity-gate.ts", "change": "MODIFIED — z.unknown schema, normalizeDistortionType post-parse, FidelityJudgeSchema exported for testing"},
+    {"path": "src/book-forge/lib/glm-client.ts", "change": "MODIFIED — persistCost mutes Prisma P2003 (FK on Book.id) silently; other errors still log"},
+    {"path": "scripts/smoke-t0a-negative.ts", "change": "NEW (220 LOC) — 73-case negative test, no GLM call, no DB"}
+  ],
+  "acceptance_criteria": {
+    "negative_test": "PASS — weird values (null, undefined, '', 'weird', 'n/a', 'none', 123, true, {}, [], Date, Infinity, NaN) absorbed to null without explosion",
+    "canonical_preservation": "PASS — 'scope-drop', 'Scope-Drop', 'CAUSALITY-LIFT', '  hedge-drop  ', aliases ('causality', 'scope', 'hedge', 'strength', 'conflict') all preserve/normalize correctly",
+    "schema_absorption": "PASS — SimplifierOutputSchema + FidelityJudgeSchema both parse 20 weird inputs without throwing",
+    "regression": "PASS — smoke-pipeline-full.ts: EPUB 14031 bytes / PDF 52662 bytes / DOCX 12565 bytes / final state DONE",
+    "type_clean": "PASS — tsc --noEmit: 0 new errors (baseline was 0 per D26)"
+  },
+  "test_results": {
+    "smoke_t0a_negative": {
+      "command": "bun run scripts/smoke-t0a-negative.ts",
+      "total_cases": 73,
+      "passed": 73,
+      "failed": 0,
+      "exit_code": 0,
+      "breakdown": {
+        "weird_must_absorb_to_null": {"cases": 20, "passed": 20},
+        "canonical_must_preserve": {"cases": 13, "passed": 13},
+        "simplifier_schema_parse_20_weird": {"cases": 20, "passed": 20},
+        "fidelity_judge_schema_parse_20_weird": {"cases": 20, "passed": 20}
+      }
+    },
+    "smoke_pipeline_full": {
+      "command": "bun run scripts/smoke-pipeline-full.ts",
+      "result": "PASS",
+      "epub_bytes": 14031,
+      "pdf_bytes": 52662,
+      "docx_bytes": 12565,
+      "final_state": "DONE",
+      "regression_check": "no regression vs baseline (14031 / 52664 / 12565 baseline ↔ 14031 / 52662 / 12565 after T0a)"
+    },
+    "tsc_noEmit": {
+      "command": "bunx tsc --noEmit",
+      "errors_before": 0,
+      "errors_after": 0,
+      "debt_clean": true
+    }
+  },
+  "side_effects": {
+    "batch_simplifier": {
+      "constant": "SIMPLIFIER_BATCH_SIZE = 4",
+      "rationale": "Per warmup: 'خفض كلفة التبسيط ~4×'. Sequential calls paid GLM_THROTTLE_MS (5s) per claim; batches of 4 fire in parallel sharing one throttle window. Per-claim try/catch preserved (Rule 11: one bad claim does not fail the chapter)."
+    },
+    "persist_cost_mute": {
+      "mechanism": "Prisma error code P2003 (foreign-key constraint on CostEntry.bookId → Book.id) silently swallowed; all other Prisma codes (P2002, P2004, ...) and non-Prisma errors still log via console.error",
+      "chosen_branch": "كتم (mute) — not stub. Stub alternative (db.book.findUnique before every create) would double cost-entry query volume; mute is cheaper and equally correct because the next persistCost for the same real bookId will succeed."
+    }
+  },
+  "constitution_amendments": {
+    "layer_24_rule_11": "z.unknown() + post-parse normalize — when GLM is observed to return non-canonical/non-string types for a field with a known enum, accept z.unknown() at parse time (no repair-loop trigger on this field alone) and normalize post-parse to canonical | null. Required for: distortionType, and any future field where GLM has been observed to vary type."
+  },
+  "live_issue_16_status": "CLOSED ✅ (final fix)",
+  "next_step": "T0b (G1 voice gate) — by partner command only, after T0a approval",
+  "partner_approval_status": "PENDING — awaiting partner review of this closure report"
+}

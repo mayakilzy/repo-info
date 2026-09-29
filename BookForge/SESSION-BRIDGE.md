@@ -40,9 +40,9 @@
 
 ### المفتوح للمستقبل (افتتاحية الجلسة القادمة)
 
-1. **Live Issue #16 إصلاح نهائي** — GLM simplifier يرجع distortionType كـ non-string type أحياناً (number/object). الإصلاح الجزئي الحالي: `z.string().nullable()` + post-parse normalization. الإصلاح النهائي: قبول `unknown` + coercion إلى `string|null`.
+1. ~~**Live Issue #16 إصلاح نهائي**~~ — ✅ **CLOSED (P10-T0a, 2026-09-29)** — `z.unknown()` + `normalizeDistortionType()` مشترك في `lib/simplify/distortion-normalize.ts` + تفعيل الدفعات (SIMPLIFIER_BATCH_SIZE=4) + كتم P2003 في persistCost. اختبار سلبي: 73/73 PASSED. اختبار الانحدار: smoke-pipeline-full PASS. type-clean: 0 جديد. في انتظار مصادقة الشريك.
 
-2. **مناورة G1 (Piper × Habibi-MSA)** — بوابة TTS. P10-T0 (72h spike). هذا أول مناورة حقيقية للنظام — الكتاب يصبح صوتاً.
+2. **مناورة G1 (Piper × Habibi-MSA)** — بوابة TTS. P10-T0b (بعد مصادقة الشريك على T0a). أول مناورة حقيقية للنظام — الكتاب يصبح صوتاً.
 
 ### المعلَّق على المالك (مفاتيح خارجية)
 - `UNPAYWALL_EMAIL` + `S2_API_KEY` + `CORE_API_KEY` — تفتح 3 مزودين إضافيين

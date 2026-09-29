@@ -16,6 +16,7 @@
 | 8 | تطبيع enums عبر خريطة | ✅ مُطبَّق |
 | 9 | few-shot schema hint للنداءات الحُكمية (review-chapter, Fidelity Gate قادم) | ✅ مُطبَّق (G13 PASS 3/3) |
 | 10 | التحقق من البايتات الملتزمة في كل commit يدَّعي الإضافة/الاستعادة | ✅ مُطبَّق (T6 onboarding — issue #12) |
+| 11 | `z.unknown()` + post-parse normalize — للحقول التي يرجعها GLM بـ non-canonical/non-string type (مثل distortionType في #16) | ✅ مُطبَّق (P10-T0a — issue #16 final fix) |
 
 ## المشاكل الحية (Live Issues)
 
@@ -36,6 +37,7 @@
 | **13** | GLM في استخراج Evidence يرجع حقولاً مفقودة (`claim`/`excerpt` undefined، `evidenceType`/`confidence` ناقصة) — رابع شكل مختلف | **Layer 24 rule #9 (few-shot schema hint) مُطبَّقة على prompt استخراج Evidence** — مثال JSON كامل في system prompt | **P8-T6-live** |
 | **14** | `pip install knowledge-storm` فشل في sandbox — torch download (248MB) انتهى بعد 5 دقائق (D20.1: فشل بيئي خالص، مؤجل لخادم الإنتاج) | TypeScript port لـ prompts الـ MIT-licensed كحل بديل موثَّق (يعزل متغير جودة الأسئلة دون عبء Python) | **G7 STORM A/B** |
 | **15** | GLM يرجع علامة استفهام عربية "؟" (U+061F) بدلاً من ASCII "?" — خامس شكل مختلف (بعد #2/#3/#4/#10/#13) — الأسئلة العربية تفشل schema validation | `.endsWith('?')` → `.refine(s => s.endsWith('?') \|\| s.endsWith('؟'))` — قبول كلاهما | **G7 STORM A/B** |
+| **16** | GLM في simplifier + fidelity-gate يرجع `distortionType` كـ non-canonical value ("weird", "n/a", `123`, `{}`, `[]`, `true`, `null`) — سادس شكل مختلف — الإصلاحان الجزئيان السابقان (8e03dce + 490ad30) فشلا لأن `z.string()` يرفض non-string ويفعّل repair-loop | **`z.unknown()` + `normalizeDistortionType()` مشترك في `lib/simplify/distortion-normalize.ts`** — فصل المسؤوليات: الـ schema يقبل أي شيء (لا explosion)، الـ normalizer يُطبّع لـ `DistortionType \| null` | **P10-T0a (final fix)** |
 
 ## الإصلاح للمشكلة #10 (المُطبَّق في G13 closure)
 
@@ -347,3 +349,50 @@ The DROP verdict is based on the TypeScript port's results. A purist could argue
 **Date:** 2026-09-29
 **Status:** ENVIRONMENTALLY-QUALIFIED — TypeScript port used as workaround; production re-test recommended but not blocking G7 closure.
 **Reference:** `sidecars/storm/install.log` (empty — install never completed) + `src/book-forge/lib/research/storm-questions.ts` (TypeScript port).
+
+---
+
+## Live Issue #16 — GLM distortionType non-canonical/non-string type (final fix — P10-T0a)
+
+**Discovered:** 2026-09-29 (documented at P9-live closure as "partial fix" — became final-fix-required at P10-T0a)
+
+**The bug:**
+
+GLM, when asked to classify distortion type on a lossy simplification, sometimes returns values outside the canonical enum. The two partial fixes failed:
+
+1. **`8e03dce` (partial fix #1)** — Schema changed from `z.enum([...]).nullable()` to `z.string().nullable()`. This *narrowed* the explosion scope but didn't eliminate it: when GLM returns `123` (number) or `{}` (object) or `[]` (array), `z.string()` rejects the type → triggers the JSON repair loop → second GLM call → if the second call also returns a non-string, `SchemaValidationError` is thrown → entire simplification aborts.
+
+2. **`490ad30` (partial fix #2)** — Added a post-parse enum check (`VALID_DISTORTIONS.includes(rest.distortionType)`). But the *schema* remained `z.string().nullable()`, so the repair-loop still fired on non-string inputs — the post-parse check never ran because parse failed first. The fix was conceptually right but operationally inert for the non-string cases.
+
+**The final fix (P10-T0a):**
+
+Separation of concerns — schema accepts anything, normalizer coerces to canonical | null:
+
+1. **Schema:** `distortionType: z.unknown()` in both `SimplifierOutputSchema` (agents/simplifier.ts) and `FidelityJudgeSchema` (lib/simplify/fidelity-gate.ts). `z.unknown()` never rejects a value at parse time — the repair-loop is never triggered by this field alone.
+
+2. **Normalizer (new shared file):** `src/book-forge/lib/simplify/distortion-normalize.ts` exports `normalizeDistortionType(input: unknown): DistortionType | null`. It handles every observed shape:
+   - `null` / `undefined` → `null`
+   - `""` / whitespace → `null`
+   - non-canonical string ("weird", "n/a", "none", "null" as string, Arabic text) → `null`
+   - canonical string ("scope-drop") → `"scope-drop"` (case-insensitive match, trimmed)
+   - aliases ("causality" → "causality-lift", "scope" → "scope-drop", etc.) → canonical
+   - non-string types (number, boolean, object, array, Date, NaN, Infinity) → `null`
+
+3. **Batch activation (side effect):** `simplifyClaimsForChapter` switched from sequential `for` loop to `Promise.all` batches of `SIMPLIFIER_BATCH_SIZE = 4`. The throttle (5s sequential gap) is shared per batch, so 4 parallel calls cost ~5s instead of ~20s — ~4× cost reduction. Per-claim try/catch preserved (Rule 11).
+
+4. **`persistCost` noise mute (side effect):** `db.costEntry.create` throws Prisma P2003 (FK on `Book.id`) for every GLM call with a stub/smoke bookId. The fix mutes P2003 specifically (silent swallow); all other Prisma codes + non-Prisma errors still log. Chosen branch: "كتم" (mute) — the "stub" alternative (db.book.findUnique before every create) would double cost-entry query volume.
+
+**Test evidence (`scripts/smoke-t0a-negative.ts` — 73 cases, no GLM call):**
+- WEIRD absorb → null: 20/20 ✓ (null, undefined, "", "   ", "weird", "n/a", "none", "null" string, Arabic text, 123, 0, NaN, true, false, {}, {type:"scope-drop"}, [], ["scope-drop"], Date, Infinity)
+- CANONICAL preserve: 13/13 ✓ (5 canonical + 4 case-variants + 5 aliases)
+- SimplifierOutputSchema parse on 20 weird: 20/20 ✓ (z.unknown() absorbs all)
+- FidelityJudgeSchema parse on 20 weird: 20/20 ✓ (z.unknown() absorbs all)
+- TOTAL: 73/73 PASS
+
+**Regression check:** `bun run scripts/smoke-pipeline-full.ts` → PASS (EPUB 14031 / PDF 52662 / DOCX 12565 / final state DONE).
+
+**Type-clean check:** `bunx tsc --noEmit` → 0 new errors (baseline was 0 per D26).
+
+**Date:** 2026-09-29 (P10-T0a)
+**Status:** CLOSED ✅ — final fix shipped. Awaiting partner approval.
+**Reference:** `P10-T0a-CLOSURE.md` + `live-evidence/p10-t0a-negative.json` + `src/book-forge/lib/simplify/distortion-normalize.ts`
