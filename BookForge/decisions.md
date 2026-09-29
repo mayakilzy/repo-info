@@ -132,9 +132,13 @@
 
 ---
 
-## G11 — Fidelity Thresholds (P9-T3, not yet resolved)
-- **Status**: OPEN. Decision pending measurement: "عينة 30 عبارة: دقة/إزعاج/خيانة".
-- **Date**: TBD
+## G11 — Fidelity Thresholds (P9-T3, RESOLVED ✅ — CLOSED per partner protocol)
+- **Status**: CLOSED. Resolved in P9 live acceptance run + G11 re-measurement session.
+- **Decision**: G11 closed per partner protocol — diagnosis displayed, tuning applied (temp 0.4 → 0.3 + "no invention" + "no domain shift" prompt rules), one measurement round attempted. Residual lossy rate is a monitored quality indicator, not a blocking gate (per partner: "المتبقي مؤشر جودة مراقَب، ليس بوابة").
+- **Live evidence**: 2 lossy cases diagnosed as REAL scope-drop distortion (not false positives). Fix applied to simplifier (not gate). D21 behavior proven: lossy claims → "for students" box.
+- **Note**: أثر إصلاح G11 (temp 0.3 + no-invention) على معدل lossy لم يقس نهائياً (انقطاع التشغيل) — مؤشر مراقَب، يُقاس تلقائياً في أول كتاب حي P10.
+- **Date**: 2026-09-29
+- **Reference**: `scripts/p9-g11-remeasure.json` + `scripts/p9-live-acceptance.json`
 
 ---
 
