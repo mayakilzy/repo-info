@@ -24,20 +24,21 @@
 
 | البوابة | الحالة |
 |---|---|
-| G9 (pyeuropepmc vs manual) | ✅ RESOLVED — manual client (30 LOC) بقياس |
+| G9 (pyeuropepmc vs manual) | ✅ RESOLVED — manual client (30 LOC adapter / 80 LOC total path per تأ-4) بقياس |
 | G10 (Provider tiers) | ✅ PARTIAL-CLOSE — 2 flaky موثقين بقياس 0/3، 4 working، 2 disabled بـ degradation rule |
 | G13 (Live Gate) | ✅ CLOSED — zai mode → DONE ($0.0402، 19820/20204 tok، PDF Arabic verified: 774 chars / 0 tofu) |
-| G7 (STORM A/B) | OPEN — قابل للتنفيذ (P8-T7) |
-| G8 (Valsci opt-in) | OPEN — قابل للتنفيذ (P8-T8) |
+| G7 (STORM A/B) | ✅ RESOLVED — **DROP** (D28: B ≤ A by -20% on score=2 works/chapter) |
+| G8 (Valsci opt-in) | OPEN — قابل للتنفيذ بأمر الشريك التالي |
 
 ### مشاكل حية مكتشفة في هذه الجلسة
 
 | # | المشكلة | الحالة |
 |---|---|---|
 | 10 | GLM يرجع `{chapters:[...]}` مباشرة (شكل ثالث) | ✅ مُصلَّح (normalizeOutlineShape موسَّع) |
-| 11 | CI gate كان يجتاز زوراً (rg -E → --encoding) | ✅ مُصلَّح (rg -e + تنظيف شامل) — درس حاكمي: القفل يُختبَر بقفلٍ زائف قبل الاعتماد عليه |
-| 12 | commit `1f3092d` ادَّعى استعادة `books/route.ts` لكن `git show --stat` يُظهر `| 0` bytes (ملف لم يُلتزم فعلياً) | ✅ مُصلَّح في T6 onboarding (إعادة كتابة الملفين بكامل محتواهما + إصلاح .gitignore bare `books/` → `/books/`) — درس حاكمي: التزام يدَّعي إضافة/استعادة يجب التحقق منه بـ `git show --stat <commit> -- <path>` |
-| 13 | GLM في استخراج Evidence يرجع حقولاً مفقودة (claim/excerpt undefined، evidenceType/confidence ناقصة) — رابع شكل مختلف | ✅ مُصلَّح (Layer 24 rule #9: few-shot schema hint في الـ system prompt — مثل مراجعة الفصل في P8-PRE-T3) |
+| 11 | CI gate كان يجتاز زوراً (rg -E → --encoding) | ✅ مُصلَّح (rg -e + تنظيف شامل) |
+| 12 | commit `1f3092d` ادَّعى استعادة `books/route.ts` لكن `git show --stat` يُظهر `| 0` bytes | ✅ مُصلَّح في T6 onboarding (إعادة كتابة الملفين + .gitignore fix) |
+| 13 | GLM في استخراج Evidence يرجع حقولاً مفقودة — رابع شكل مختلف | ✅ مُصلَّح (Layer 24 rule #9: few-shot schema hint) |
+| 14 | GLM يرجع علامة استفهام عربية "؟" (U+061F) بدلاً من ASCII "?" — خامس شكل مختلف | ✅ مُصلَّح (`.endsWith('?')` → `.refine(s => s.endsWith('?') \|\| s.endsWith('؟'))`) |
 
 ---
 
@@ -45,13 +46,15 @@
 
 | الفحص | النتيجة |
 |---|---|
-| `git status` نظيف | ✅ (فقط ملفات محدّثة موثقة) |
-| `smoke-pipeline-full.ts` من الشجرة الملتزمة | ✅ PASS (6 فصول، EPUB 14KB + PDF 53KB + DOCX 12KB، DONE) |
-| `smoke-p8-t6.ts` (T6 mock acceptance) | ✅ PASS (36 works، 0 retracted stored، 1 contestedClaim injected + visible) |
-| `scripts/t6-live-gate.ts` (T6-live acceptance) | ✅ **PASS** (3 فصول، 24 works حقيقية من 3 مزودين، 23 evidence، 0 retracted حقيقية، 0 contested مُقاس، $0.0055 / 200s) |
-| `scihub-ci-gate.sh` آخر تشغيل | ✅ PASSED (0 matches عبر 4 مجلدات) |
-| `tsc --noEmit` (أخطاء T6/T6-live الجديدة) | ✅ 0 أخطاء جديدة (62 قبل ← 61 بعد T6 — أصلح خطأً سابقاً بإضافة `contestedClaims: []`) |
-| `.gitignore audit` (تأ-2) | ✅ مُدقَّق: 18 hit نظري، 0 ضرر فعلي — قرار الشريك معلَّق بين re-anchor vs rule-based mitigation |
+| `git status` نظيف | ✅ |
+| `smoke-pipeline-full.ts` (mock regression) | ✅ PASS |
+| `smoke-p8-t6.ts` (T6 mock acceptance) | ✅ PASS |
+| `scripts/t6-live-gate.ts` (T6-live) | ✅ PASS — T6 مُغلقة |
+| `scripts/g7-storm-ab.ts` (G7 A/B) | ✅ COMPLETED — **DROP STORM** (D28: B ≤ A by -20%) |
+| `scripts/g7-contested-topic.ts` (complementary) | ✅ COMPLETED — 0 contested claims surfaced (D29: measured, not failed) |
+| `scihub-ci-gate.sh` | ✅ PASSED |
+| `tsc --noEmit` (debt) | 0 أخطاء جديدة من G7 (61 سابقة موثَّقة في D26) |
+| `.gitignore audit` (تأ-2) | ✅ 18 hit نظري / 0 ضرر فعلي |
 
 ---
 

@@ -208,6 +208,64 @@
 
 ---
 
+## D28 — G7 STORM A/B — DROP (إسقاط موثق بقياس)
+- **Decision**: **DROP STORM** — B ≤ A on primary metric (score=2 relevant works/chapter).
+- **A/B test evidence (`scripts/g7-storm-ab.json` timestamp 2026-09-29T16:00:58Z)**:
+  - **Arm A (internal expansion, baseline)**: 5 score=2 works across 3 chapters (from 36 raw → 34 deduped)
+  - **Arm B (STORM questions)**: 4 score=2 works across 3 chapters (from 86 raw → 72 deduped)
+  - **Improvement**: **-20.0%** (B is WORSE than A, not better; threshold was ≥+20% for ADOPT)
+  - **Per-chapter breakdown**:
+    - ch1 (hydroponics basics): A=2/12, B=1/23 — STORM pulled in more raw works but fewer relevant ones
+    - ch2 (soilless systems): A=1/10, B=3/28 — STORM slightly better here (+2 score=2 works)
+    - ch3 (nutrient management): A=2/12, B=0/21 — STORM pulled in 21 works, NONE scored 2 (all tangential)
+  - **Operational cost**: 21 LLM calls (1 persona gen + 4 persona question gens + 3 judges × 2 arms = 14 + 3 + 4). Wall time: 454s (~7.6 min). Cost: ~$0.012 (estimated).
+- **Why STORM underperformed**:
+  - STORM generates broad exploratory questions ("ما هو معدل استخدام المياه...") vs internal expansion's targeted queries ("hydroponics soilless culture" — direct keyword match).
+  - Broad questions pull in more raw works (86 vs 36) but the works are tangential to the specific learning goal.
+  - The federation (crossref/pubmed/europepmc) is keyword-based; broad natural-language questions don't translate well to keyword search.
+  - STORM's value is in CONVERSATIONAL research (multi-turn dialogue with expert) — not single-shot keyword queries. Using it as a query generator misuses its strength.
+- **Methodology note (transparency)**:
+  - STORM Python package (`knowledge-storm`) install failed in sandbox — torch download timed out after 5 min (Live Issue #14, environmentally-qualified deferral per D20.1).
+  - Test executed via TypeScript port of STORM's MIT-licensed prompts (GenPersona + AskQuestionWithPersona) — verbatim from `stanford-oval/storm` repo, files `persona_generator.py` + `knowledge_curation.py`.
+  - This isolates the single variable per partner instruction: question quality. The prompts are STORM's exact prompts; only the runtime is TypeScript.
+  - On production (where torch installs cleanly), the Python package would be used directly. The methodology evaluation is valid either way — same prompts, same GLM, same federation.
+- **Per D28 rule (partner-defined)**:
+  - B ≤ A, or tie, or surplus <20% ⇒ DROP STORM — **this case (-20%, B worse than A)**
+  - ADOPT would have required ≥+20% improvement; not met.
+  - DROP is documented, not silent.
+- **What this means for BookForge**:
+  - STORM is NOT integrated into the pipeline.
+  - Internal expansion (`agents/research.ts` pattern: 2-3 queries/chapter) remains the question-generation strategy.
+  - ACADEMIC_SWEEP continues to use internal expansion → federation → works.
+  - No new sidecar, no Python deps, no maintenance burden.
+- **Date**: 2026-09-29
+- **Reference**: `scripts/g7-storm-ab.json` + `logs/g7-storm-ab.log` + `src/book-forge/lib/research/storm-questions.ts` (TypeScript port, retained for reproducibility)
+
+---
+
+## D29 — Contested-topic verification (pyramids construction hypotheses)
+- **Decision**: contestedClaims path tested on a genuinely disputed topic — **NO contested claims surfaced** (0 detected). This is a measured result, not a failure.
+- **Test evidence (`scripts/g7-contested-topic.json` timestamp 2026-09-29T16:07:09Z)**:
+  - **Trial book**: "فرضيات بناء الأهرامات المصرية" — 3 chapters covering traditional ramp theory, Houdin's internal ramp theory, and alternative theories (geopolymer concrete, water shaft).
+  - **Works**: 15 real works across 3 chapters (5 each)
+  - **Evidences**: 26 extracted via GLM (zai mode)
+  - **Stance distribution**: supports=17, contradicts=4, qualifies=5, unclear=0
+  - **Contested claims detected**: **0** (no claim had both a supports AND a contradicts evidence with the same normalized text)
+- **Why zero contested claims** (analysis):
+  - The `detectContestedClaims` function groups evidences by normalized `claim` string. For a contested pair to surface, two evidences must share the SAME claim string but have opposing stances.
+  - GLM extracted 26 different claim strings (each evidence has a unique claim). The 4 "contradicts" stances were on different claim strings than the 17 "supports" stances — they didn't pair up.
+  - This is a limitation of the current detection approach: it requires GLM to extract the SAME claim from different papers with opposing stances. In practice, GLM generates unique claim phrasings per paper.
+  - The contested nature of the topic IS visible in the stance distribution (4 contradicts out of 26 = 15% of evidences take a contrary position) — but the current `detectContestedClaims` doesn't aggregate by topic, only by exact claim string.
+- **Implications for the system**:
+  - The contested-claims feature is structurally sound (the contract, the detection logic, the UI display all work — proven in mock with 1 contested).
+  - In live use, contested claims will be RARE unless the detection algorithm is enhanced to group by topic similarity (not exact claim string match).
+  - **Future enhancement (deferred to P9-T2 or later)**: enhance `detectContestedClaims` to use embedding-based similarity (≥0.85) instead of exact string match. This would surface the 4 contradicts stances as contested pairs with the 17 supports stances on related claims.
+  - For now: the system honestly reports 0 contested when 0 pairs match — this is more honest than fabricating disagreements.
+- **Date**: 2026-09-29
+- **Reference**: `scripts/g7-contested-topic.json` + `logs/g7-contested-topic.log`
+
+---
+
 ## G14 — shotcraft-cinematic opt-in (P13-T5, not yet resolved)
 - **Status**: OPEN. Half-day spike: repo license + Remotion license match + CPU 60s 1080×1920 test.
 - **Date**: TBD

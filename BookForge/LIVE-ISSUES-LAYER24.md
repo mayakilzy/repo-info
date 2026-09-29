@@ -34,6 +34,7 @@
 | **11** | CI gate `rg -E` كان يُفسَّر كـ `--encoding` لا regex | `rg -i -e` + تنظيف شامل | **P8-T3** |
 | **12** | commit `1f3092d` ادَّعى استعادة `books/route.ts` لكن `git show --stat` يُظهر `| 0` bytes (ملف لم يُلتزم فعلياً) | إعادة كتابة الملفين في T6 onboarding | **P8-T6 onboarding** |
 | **13** | GLM في استخراج Evidence يرجع حقولاً مفقودة (`claim`/`excerpt` undefined، `evidenceType`/`confidence` ناقصة) — رابع شكل مختلف | **Layer 24 rule #9 (few-shot schema hint) مُطبَّقة على prompt استخراج Evidence** — مثال JSON كامل في system prompt | **P8-T6-live** |
+| **14** | GLM يرجع علامة استفهام عربية "؟" (U+061F) بدلاً من ASCII "?" — الأسئلة العربية تفشل schema validation | `.endsWith('?')` → `.refine(s => s.endsWith('?') \|\| s.endsWith('؟'))` — قبول كلاهما | **G7 STORM A/B** |
 
 ## الإصلاح للمشكلة #10 (المُطبَّق في G13 closure)
 
@@ -264,3 +265,49 @@ Any `askJSON` call with a non-trivial schema (≥3 required fields, or any enum 
 **Date:** 2026-09-29
 **Status:** FIXED in this T6-live commit (added few-shot example to extractEvidenceViaGLM system prompt).
 **Reference:** `scripts/t6-live-gate.ts` — extractEvidenceViaGLM system prompt now ~50 lines including the example.
+
+---
+
+## Live Issue #14 — GLM returns Arabic question mark "؟" (U+061F) instead of ASCII "?"
+
+**Discovered:** 2026-09-29 (G7 STORM A/B test — first run)
+
+**The bug:**
+In `src/book-forge/lib/research/storm-questions.ts`, the `AskQuestionSchema` used `.endsWith('?')` (ASCII question mark, U+003F) to validate that GLM's generated questions end with a question mark. However, when GLM generates Arabic questions, it naturally uses the Arabic question mark "؟" (U+061F) — a different Unicode codepoint. All Arabic questions failed schema validation, the repair loop (1 retry) also failed (GLM persisted with Arabic mark), and `askJSON` threw `SchemaValidationError`, crashing the A/B test silently.
+
+Schema-validation errors (first run):
+```
+[{"path":"questions.0","message":"Invalid string: must end with \"?\""},
+ {"path":"questions.1","message":"Invalid string: must end with \"?\""},
+ {"path":"questions.2","message":"Invalid string: must end with \"?\""}]
+```
+
+Raw GLM response (clearly valid questions, just Arabic mark):
+```
+{
+  "questions": [
+    "ما هو معدل استخدام المياه في أنظمة الزراعة المائية مقارنة بالزراعة التقليدية في المناطق القاحلة؟",
+    "كيف تساهم الزراعة المائية في الحفاظ على التنوع البيولوجي مقارنة بالزراعة التقليدية؟",
+    "ما هي التأثيرات البيئية الإيجابية لنظم الزراعة المائية على النظم البيئية المائية المحلية؟"
+  ]
+}
+```
+
+**The fix:**
+Changed the schema from `.endsWith('?')` to `.refine((s) => s.endsWith('?') || s.endsWith('؟'), ...)` — accepting both ASCII `?` (U+003F) and Arabic `؟` (U+061F). After the fix, all 12 STORM-generated questions across 3 chapters (4 personas × 3 questions) passed schema validation on the first attempt.
+
+**Why this matters:**
+This is the **fifth distinct GLM shape** discovered (issues #2, #3, #4, #10, #14). The pattern: GLM is a multilingual model, and Arabic-specific Unicode codepoints (Arabic question mark, Arabic comma، Arabic semicolon؛) are valid in Arabic text but differ from their ASCII counterparts. Any schema that enforces ASCII punctuation on Arabic content will fail.
+
+**Future rule (Layer 24 rule #12 candidate):**
+Any Zod schema that validates punctuation in user-facing strings (questions, claims, etc.) MUST accept BOTH the ASCII and Arabic Unicode variants of the punctuation mark. The known pairs:
+- `?` (U+003F) ↔ `؟` (U+061F) — question mark
+- `,` (U+002C) ↔ `،` (U+060C) — comma
+- `;` (U+003B) ↔ `؛` (U+061B) — semicolon
+- `%` (U+0025) ↔ `٪` (U+066A) — percent sign
+
+A helper `bilingualPunctuation()` could be added to Layer 24 to centralize this.
+
+**Date:** 2026-09-29
+**Status:** FIXED in this G7 commit — `storm-questions.ts` AskQuestionSchema now accepts both `?` and `؟`.
+**Reference:** `src/book-forge/lib/research/storm-questions.ts` line 88-98.

@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-09-29T16:07:09.789Z",
+  "forgeMode": "zai",
+  "trialBook": "فرضيات بناء الأهرامات المصرية — اختبار الخلافات العلمية",
+  "question": "هل تظهر خلافات حقيقية برأيين موثقين؟",
+  "answer": "NO",
+  "bookId": "g7-contested-mumv5kkb",
+  "elapsedMs": 365698,
+  "chapters": [
+    {
+      "chapterIndex": 1,
+      "chapterTitle": "النظرية التقليدية: المنحدرات والروافع",
+      "works": 5,
+      "evidences": 10,
+      "contestedClaims": [],
+      "stances": {
+        "supports": 5,
+        "contradicts": 3,
+        "qualifies": 2,
+        "unclear": 0
+      }
+    },
+    {
+      "chapterIndex": 2,
+      "chapterTitle": "نظرية Jean-Pierre Houdin: المنحدر الداخلي",
+      "works": 5,
+      "evidences": 9,
+      "contestedClaims": [],
+      "stances": {
+        "supports": 7,
+        "contradicts": 0,
+        "qualifies": 2,
+        "unclear": 0
+      }
+    },
+    {
+      "chapterIndex": 3,
+      "chapterTitle": "النظريات البديلة: الخرسانة الجيوبوليمرية والمنحدرات المائية",
+      "works": 5,
+      "evidences": 7,
+      "contestedClaims": [],
+      "stances": {
+        "supports": 5,
+        "contradicts": 1,
+        "qualifies": 1,
+        "unclear": 0
+      }
+    }
+  ],
+  "totals": {
+    "chapters": 3,
+    "works": 15,
+    "evidences": 26,
+    "contestedClaims": 0,
+    "stances": {
+      "supports": 17,
+      "contradicts": 4,
+      "qualifies": 5,
+      "unclear": 0
+    }
+  },
+  "contestedClaims": []
+}
