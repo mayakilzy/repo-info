@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-09-29T19:56:49.127Z",
+  "forgeMode": "zai",
+  "bookId": "p9-layer3-mun3jvp8",
+  "fixture": "scripts/p9-live-acceptance.json (Arm 2 — live pyramids)",
+  "totalEvidences": 13,
+  "perChapter": [
+    {
+      "chapterIndex": 1,
+      "chapterTitle": "النظرية التقليدية: المنحدرات والروافع",
+      "detected": 2,
+      "valid": 2,
+      "fpFiltered": 0,
+      "fpRate": 0,
+      "contestedClaims": [
+        {
+          "id": "cc-n3jvp8-c1-1",
+          "topic": "مبدأ تعدد أبعاد صدق الاختبارات في النظرية التقليدية للمنحدرات والروافع",
+          "supports": {
+            "evidenceId": "ev-n28iwr-c1-3",
+            "workId": "work-n28iwr-c1-3",
+            "excerpt": "أبعاد صدق الاختبارات في ضوء النظرية التقليدية",
+            "confidence": 0.8
+          },
+          "contradicts": {
+            "evidenceId": "ev-n28iwr-c1-4",
+            "workId": "work-n28iwr-c1-4",
+            "excerpt": "النظرية التقليدية والنظرية الحديثة",
+            "confidence": 0.7
+          },
+          "editorsNote": "خلاف علمي (Layer 3: GLM-clustering) — الادعاء الأول يؤكد أن تعدد الأبعاد هو مبدأ أساسي بينما الثاني ينقد هذه المفاهيم التقليدية."
+        },
+        {
+          "id": "cc-n3jvp8-c1-2",
+          "topic": "تطبيق النظرية التقليدية لتقييم أبعاد صدق الاختبارات",
+          "supports": {
+            "evidenceId": "ev-n28iwr-c1-3",
+            "workId": "work-n28iwr-c1-3",
+            "excerpt": "أبعاد صدق الاختبارات في ضوء النظرية التقليدية",
+            "confidence": 0.8
+          },
+          "contradicts": {
+            "evidenceId": "ev-n28iwr-c1-5",
+            "workId": "work-n28iwr-c1-5",
+            "excerpt": "في ضوء النظرية التقليدية والنظرية الحديثة",
+            "confidence": 0.6
+          },
+          "editorsNote": "خلاف علمي (Layer 3: GLM-clustering) — الادعاء الأول يؤكد تعدد أبعاد الصدق كأساس بينما الثاني يطبيق هذا المبدأ مع اعتبار السياق التطبيقي."
+        }
+      ]
+    },
+    {
+      "chapterIndex": 2,
+      "chapterTitle": "نظرية Houdin: المنحدر الداخلي",
+      "detected": 0,
+      "valid": 0,
+      "fpFiltered": 0,
+      "fpRate": 0,
+      "contestedClaims": []
+    },
+    {
+      "chapterIndex": 3,
+      "chapterTitle": "النظريات البديلة: الخرسانة الجيوبوليمرية",
+      "detected": 0,
+      "valid": 0,
+      "fpFiltered": 0,
+      "fpRate": 0,
+      "contestedClaims": []
+    }
+  ],
+  "totals": {
+    "detected": 2,
+    "valid": 2,
+    "fpFiltered": 0,
+    "fpRate": 0
+  },
+  "verdict": "D30 Layer 3 CLOSED",
+  "pass": true
+}
