@@ -1,0 +1,63 @@
+# 🏛️ BookForge — Governance Constitution
+
+> الدستور الحاكم لمشروع BookForge. كل حقيقة على القرص لا في الذاكرة.
+> المرجع الموحد لقواعد التنفيذ (§0) + البوابات (G1–G14) + القرارات (D1–D24).
+
+---
+
+## §0 قواعد التنفيذ الإلزامية (Execution Contract v2)
+
+1. **ممنوع التخمين**: أي قيمة تؤخذ من `config/` أو من الوثيقة. ما ليس في أحدهما → توقف واسأل.
+2. **المهام متسلسلة**: `P{n}-T{m}` لا تبدأ قبل اجتياز قبول سابقتها باختبار فعلي.
+3. **FORGE_MODE للنظام كله**: كل pipeline يعمل mock بلا مفاتيح قبل live.
+4. **الحالة في DB لا في الذاكرة** (مثبت عملياً — G13 + G10 closure).
+5. **الأرقام في config فقط** — لا أرقام سحرية في الكود المنطقي.
+6. **كل JSON من LLM يمر بالطبقة 24** (التطبيع ثم Zod ثم حلقة إصلاح واحدة).
+7. **البناء فوق القائم لا داخله**: لا تعديل P0–P7 إلا إصلاح موثق.
+8. **⚖️ الطبقة 24 — LLM Normalization Layer**: كل نداء GLM يمر بالقواعد التسع المستمدة من Live Run (غير قابلة للتخطي) + القاعدة العاشرة (few-shot schema hint للنداءات الحُكمية).
+9. **🚪 البوابات تشريعية**: مهمة تحوي بوابة لا تبدأ قبلاً؛ ناتجها يُثبَّت كقرار D جديد؛ فشلها يفعّل المسار البديل المعلن لا يعطّل التطبيق.
+10. **📸 بروتوكول البصمة**: أي وصف للحالة القائمة يُكتب من الكود؛ ما لا يتحقق منه يُعلَّم "غير متحقق منه" — ممنوع التوصيف من الذاكرة.
+
+---
+
+## البوابات التشريعية G1–G14
+
+| البوابة | الحالة | القرار |
+|---|---|---|
+| G1 🎙️ TTS (Piper/Habibi) | OPEN | P10-T0 (72h spike) |
+| G2 ⚖️ TTS License | OPEN | ضمن G1 |
+| G3 🔧 Piper fork activity | OPEN | ضمن G1 |
+| G4 🖼️ RTL diagrams | OPEN | P11-T2 spike |
+| G5 📖 Docs site RTL | OPEN | P12-T0 spike |
+| G6 🎬 Promo video license | OPEN | P13-T4 (2h) |
+| **G7 🌊 STORM** | **OPEN — قابل للتنفيذ** | P8-T7 (A/B مقيس) |
+| **G8 🔍 Valsci** | **OPEN — قابل للتنفيذ** | P8-T8 (opt-in; كلفة > يوم ⇒ تأجيل v2) |
+| G9 📚 pyeuropepmc | **RESOLVED ✅** | manual client (30 LOC) — T2-live gate |
+| **G10 📚 Provider tiers** | **PARTIAL-CLOSE ✅** | 2 flaky (arxiv+openalex, measured 0/3) + 4 working + 2 disabled |
+| G11 🧪 Fidelity thresholds | OPEN | P9-T3 (30-phrase sample) |
+| G12 📑 Slides in v1.5 | OPEN | P13 |
+| **G13 🚦 Live Gate** | **CLOSED ✅** | zai mode → DONE, $0.0402, 19820/20204 tok |
+| G14 🎬 shotcraft-cinematic | OPEN | P13-T5 (half-day spike) |
+
+---
+
+## القرارات المثبتة D1–D24.1
+
+انظر `src/book-forge/config/decisions.md` — المرجع الموحد لكل القرارات.
+
+---
+
+## المشاكل الحية (Layer 24 Registry)
+
+انظر `download/LIVE-ISSUES-LAYER24.md` — 11 مشكلة حية مرقّمة، كل واحدة مُصلَّحة ومُوثَّقة.
+
+---
+
+## مبدأ الحقيقة على القرص
+
+> "كل حقيقة على القرص لا في الذاكرة"
+
+- الكود في `mayakilzy/BookForge` — مصدر الحقيقة للتنفيذ
+- التقارير في `mayakilzy/repo-info/BookForge/` — مصدر الحقيقة للقرارات والقياسات
+- الخطة في `ROUND-B-FINAL-SPEC.md` + `ROUND-B-AMENDMENT.md`
+- الدستور في هذا الملف (`GOVERNANCE-CONSTITUTION.md`)
