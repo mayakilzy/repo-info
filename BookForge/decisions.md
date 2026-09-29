@@ -142,6 +142,27 @@
 
 ---
 
+## D25 — P8-T6 Academic Lane Pipeline Integration (mock-PASS — pending live)
+- **Decision**: `ACADEMIC_SWEEP ∥ WEB_SWEEP` runs inside `RESEARCH_RUNNING` via `Promise.all`. After both complete:
+  - Works + Evidence persisted per `contracts/research.ts` (Prisma models, not Json free per ت7-ج).
+  - `retraction-watcher` invoked **before** storage via `searchPapersWithRetractionCheck` (D22.1: title-pattern الأنجع عملياً).
+  - `contestedClaims` detected (Evidence with stance=supports + stance=contradicts on same normalized claim) and injected into `ChapterSpec.contestedClaims` (new Zod field, default []).
+  - `FreshnessReport` built per chapter with contestedCount.
+  - `ChapterApprovalCard` displays contestedClaims with two documented viewpoints (green = supports, red = contradicts).
+- **Acceptance (per ROUND-B-FINAL-SPEC §7 P8-T6)**: كتاب تجريبي 3 فصول — ≥3 works محكّمة/فصل + FreshnessReport لكل فصل + صفر retracted stored + contestedClaims مرئية في ChapterApprovalCard.
+- **Mock-PASS evidence (2026-09-29)**: `bun run scripts/smoke-p8-t6.ts` PASS
+  - 6 chapters (Architect produced 6 from chapterCountHint=3; D14 floor=3 still met)
+  - 36 works total (6/chapter — well above ≥3 floor)
+  - 0 retracted works stored (required ✓)
+  - 1 contestedClaim detected and injected into outline.chapters[1].contestedClaims (mock evidence stance rotation produced exactly one supports+contradicts pair)
+  - FreshnessReport per chapter: totalSources, last12mo, last36mo, historical, contestedClaims, retractedFound, providerGaps
+- **Pre-existing T6 onboarding fix**: Live Issue #12 — restored `src/app/api/book-forge/books/route.ts` + `src/app/api/book-forge/books/[id]/route.ts` (commit `1f3092d` claimed restoration but committed 0-byte files; smoke-pipeline-full.ts 404'd without them).
+- **Status**: mock-PASS opens G7 (next per work order). T6 itself does NOT close until a live run produces the same metrics on real providers (per constitution rule #1 "mock-PASS يفتح المهمة التالية ولا يغلق الحالية").
+- **Date**: 2026-09-29
+- **Reference**: this commit + scripts/smoke-p8-t6.ts
+
+---
+
 ## G14 — shotcraft-cinematic opt-in (P13-T5, not yet resolved)
 - **Status**: OPEN. Half-day spike: repo license + Remotion license match + CPU 60s 1080×1920 test.
 - **Date**: TBD
@@ -152,4 +173,13 @@
 - **Issue**: GLM returns `{chapters: [...]}` directly (without `outline` key) — third distinct shape.
 - **Fix**: `normalizeOutlineShape` extended to accept `r.outline` OR `r.chapters`.
 - **Date**: 2026-09-29 (G13 closure run)
+- **Reference**: LIVE-ISSUES-LAYER24.md
+
+---
+
+## Live Issue #12 (Layer 24) — T6 onboarding
+- **Issue**: Commit `1f3092d` claimed to restore `books/route.ts` + `books/[id]/route.ts` but committed 0-byte files only. Smoke-pipeline-full.ts 404'd on POST /api/book-forge/books in fresh clone.
+- **Fix**: Re-wrote both files with full POST/GET handlers in this T6 onboarding commit. Smoke-pipeline-full.ts now PASSES on fresh clone.
+- **Governance lesson**: A commit message that claims to add/restore a file MUST be verified post-commit by checking `git show --stat <commit> -- <path>` shows non-zero LOC delta. This is now Layer 24 rule #10.
+- **Date**: 2026-09-29
 - **Reference**: LIVE-ISSUES-LAYER24.md

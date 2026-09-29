@@ -1,11 +1,12 @@
 # 📋 P8 — المرحلة-أ (Academic Lane الأساسية) — التقرير النهائي للحالة
 
-**التاريخ:** 2026-09-29
-**آخر التزام:** `b90ff43` على `mayakilzy/BookForge`
+**التاريخ:** 2026-09-29 (محدَّث بعد P8-T6 mock-PASS)
+**آخر التزام:** `90ab74e` على `mayakilzy/BookForge` (شجرة ما قبل T6)
+**الالتزام الحالي:** T6 onboarding (هذا الالتزام) — يضيف تكامل pipeline + يصلح Live Issue #12
 
 ---
 
-## قائمة القبول — P8 مرحلة-أ (T1a..T5 + البوابات)
+## قائمة القبول — P8 مرحلة-أ (T1a..T6 + البوابات)
 
 | المهمة | الحالة | الدليل |
 |---|---|---|
@@ -15,6 +16,7 @@
 | **P8-T3** paper-search-mcp sidecar | ✅ **CLOSED (بيئي-مؤهل per D20.1)** — MCP handshake عبر SDK مؤجل لخادم الإنتاج (موثق) | uv sync نجح + sidecar يعمل (uvicorn on 8765) + Sci-Hub CI gate PASSED (bug مُصلَّح: rg -E→-e) + McpKit request جاهز |
 | **P8-T4** Retraction watcher | ✅ **مكتمل** — 5/5 DOIs متراجعة مُكتشفة، 0/20 false-positives | `lib/research/retraction-watcher.ts` + smoke-p8-t4 PASS |
 | **P8-T5** Contracts + Migrations | ✅ **مكتمل** — `model Work` + `model Evidence` + `Source.workId` (Prisma، ليس Json) | `contracts/research.ts` + `prisma/schema.prisma` + `db:push` نجح |
+| **P8-T6** Academic Lane في pipeline | ✅ **mock-PASS** — يفتح G7، لا يُغلق حتى live | `ACADEMIC_SWEEP ∥ WEB_SWEEP` عبر `Promise.all` + retraction pre-check (D22.1) + contestedClaims injection + ChapterApprovalCard display + smoke-p8-t6.ts PASS (36 works، 0 retracted، 1 contested) |
 
 ### البوابات
 
@@ -32,6 +34,7 @@
 |---|---|---|
 | 10 | GLM يرجع `{chapters:[...]}` مباشرة (شكل ثالث) | ✅ مُصلَّح (normalizeOutlineShape موسَّع) |
 | 11 | CI gate كان يجتاز زوراً (rg -E → --encoding) | ✅ مُصلَّح (rg -e + تنظيف شامل) — درس حاكمي: القفل يُختبَر بقفلٍ زائف قبل الاعتماد عليه |
+| 12 | commit `1f3092d` ادَّعى استعادة `books/route.ts` لكن `git show --stat` يُظهر `| 0` bytes (ملف لم يُلتزم فعلياً) | ✅ مُصلَّح في T6 onboarding (إعادة كتابة الملفين بكامل محتواهما) — درس حاكمي: التزام يدَّعي إضافة/استعادة يجب التحقق منه بـ `git show --stat <commit> -- <path>` |
 
 ---
 
@@ -41,7 +44,9 @@
 |---|---|
 | `git status` نظيف | ✅ (فقط ملفات محدّثة موثقة) |
 | `smoke-pipeline-full.ts` من الشجرة الملتزمة | ✅ PASS (6 فصول، EPUB 14KB + PDF 53KB + DOCX 12KB، DONE) |
+| `smoke-p8-t6.ts` (T6 acceptance) | ✅ mock-PASS (36 works، 0 retracted stored، 1 contestedClaim injected + visible) |
 | `scihub-ci-gate.sh` آخر تشغيل | ✅ PASSED (0 matches عبر 4 مجلدات) |
+| `tsc --noEmit` (أخطاء T6 الجديدة) | ✅ 0 أخطاء جديدة (62 قبل ← 61 بعد — T6 أصلح خطأً سابقاً بإضافة `contestedClaims: []` للمولّد الوهمي) |
 
 ---
 
@@ -76,9 +81,9 @@ c748fea feat: G13 CLOSED — DONE achieved on real GLM via zai mode
 
 ## ما لا يُلمس (يفتح في الجلسة الجديدة)
 
-- **P8-T6**: ACADEMIC_SWEEP ∥ WEB_SWEEP + contestedClaims في ChapterSpec
-- **P8-T7 = G7**: STORM A/B مقيس
-- **P8-T8 = G8**: Valsci opt-in
+- ~~**P8-T6**: ACADEMIC_SWEEP ∥ WEB_SWEEP + contestedClaims في ChapterSpec~~ — ✅ **mock-PASS في T6 onboarding** (هذا الالتزام). يفتح G7. لا يُغلق T6 حتى live run.
+- **P8-T7 = G7**: STORM A/B مقيس — قابل للتنفيذ الآن
+- **P8-T8 = G8**: Valsci opt-in — قابل للتنفيذ بعد G7
 
 تُفتح بأمرها الافتتاحي في الجلسة الجديدة.
 

@@ -15,6 +15,7 @@
 | 7 | قصّ إجباري للحقول المحدودة *بعد* كل تحديث | ✅ مُطبَّق |
 | 8 | تطبيع enums عبر خريطة | ✅ مُطبَّق |
 | 9 | few-shot schema hint للنداءات الحُكمية (review-chapter, Fidelity Gate قادم) | ✅ مُطبَّق (G13 PASS 3/3) |
+| 10 | التحقق من البايتات الملتزمة في كل commit يدَّعي الإضافة/الاستعادة | ✅ مُطبَّق (T6 onboarding — issue #12) |
 
 ## المشاكل الحية (Live Issues)
 
@@ -30,6 +31,8 @@
 | 8 | GLM يرجع enum values غير دقيقة ("third person" بدلاً من "third") | `z.preprocess` normalizes enum-adjacent strings | run #3 |
 | 9 | GLM يقطع استجابة الفصل عند `maxOutputTokens=4096` (يقطع JSON) | رفع `maxOutputTokens` 4096 → 8192 | run #3 (P8-PRE-T6) |
 | **10** | **GLM يرجع `{chapters: [...]}` مباشرة (بلا مفتاح `outline`)** — الشكل الثالث المختلف | **`normalizeOutlineShape` موسَّع ليتعامل مع `r.outline` OR `r.chapters`** | **G13 closure run** |
+| **11** | CI gate `rg -E` كان يُفسَّر كـ `--encoding` لا regex | `rg -i -e` + تنظيف شامل | **P8-T3** |
+| **12** | commit `1f3092d` ادَّعى استعادة `books/route.ts` لكن `git show --stat` يُظهر `| 0` bytes (ملف لم يُلتزم فعلياً) | إعادة كتابة الملفين في T6 onboarding | **P8-T6 onboarding** |
 
 ## الإصلاح للمشكلة #10 (المُطبَّق في G13 closure)
 
@@ -151,3 +154,40 @@ Any new CI gate or validation check MUST be tested with a known-positive fixture
 
 **Date:** 2026-09-29
 **Status:** FIXED in commit `ea52b86`
+
+---
+
+## Live Issue #12 — Commit 1f3092d claimed route restoration but committed 0-byte files [GOVERNANCE LESSON]
+
+**Discovered:** 2026-09-29 (P8-T6 onboarding — fresh sandbox, fresh clone)
+
+**The bug:**
+Commit `1f3092d` ("fix(critical): restore missing /api/book-forge/books routes") claims in its message to restore `src/app/api/book-forge/books/route.ts` and `src/app/api/book-forge/books/[id]/route.ts`. Inspection of `git show 1f3092d --stat` reveals that **every** changed file in that commit shows `| 0` bytes — i.e., the commit only included empty mode-only entries (likely from `git add` on touched-but-not-modified files), and **the books routes were never actually written to disk in the committed tree**.
+
+**Root cause (deeper than first thought):**
+`.gitignore` line 63 had the bare pattern `books/` (intended to ignore the generated `/books/<slug>/` output directory). However, a bare `books/` pattern matches *any* directory named `books/` anywhere in the tree — including `src/app/api/book-forge/books/`. So when the developer ran `git add src/app/api/book-forge/books/route.ts`, git silently skipped it because of the .gitignore rule. The commit then ended up with 0-byte placeholder entries because the file was *touched* in the index but its content could not be staged.
+
+**The symptom:**
+- `BriefForm.tsx` POSTs to `/api/book-forge/books` → 404 in fresh clone.
+- `smoke-pipeline-full.ts` failed immediately at `bookId = (await call('/api/book-forge/books', ...)).json.bookId` because `json` was `null` (the 404 response was non-JSON).
+- The previous "P8-A closure" passed only because `.next/dev` cache held compiled routes from a working-tree version that was never committed.
+
+**The fix (in this commit, T6 onboarding):**
+- Re-anchored the .gitignore pattern from `books/` → `/books/` so it only matches the repo-root generated output directory, not nested `books/` directories like the API route folder.
+- Re-created `src/app/api/book-forge/books/route.ts` with full POST + GET handlers (no longer ignored by .gitignore).
+- Re-created `src/app/api/book-forge/books/[id]/route.ts` with full GET handler (no longer ignored by .gitignore).
+- Both files now have non-zero byte counts; `git status --porcelain` shows them as untracked `??` rather than silently ignored.
+- `smoke-pipeline-full.ts` PASSES on a fresh clone (6 chapters → DONE, EPUB 14KB + PDF 53KB + DOCX 12KB).
+
+**Governance lesson (per partner, restating Rule #10):**
+> "أي وصف للحالة القائمة يُكتب من الكود؛ ما لا يتحقق منه يُعلَّم 'غير متحقق منه' — ممنوع التوصيف من الذاكرة."
+
+This applies to *commits themselves*, not just status reports. A commit message that says "restored X" must be verified by inspecting `git show --stat <commit> -- <path>` — if the byte delta is 0, the restoration did NOT happen. The P8-A closure report accepted the commit message at face value, exactly the same way the CI gate in issue #11 was accepted at face value. The pattern is the same: trust without verification.
+
+**Future rule (Layer 24 extension, now rule #10):**
+1. Any commit message that claims to add or restore a file MUST be verified post-commit by checking `git show --stat <commit> -- <path>` shows non-zero LOC delta. A 0-byte delta means the file was *touched* in the index but its content was not committed.
+2. Any `.gitignore` pattern that uses a bare directory name (e.g., `books/`) MUST be audited for unintended matches against source paths. The safer form is `/books/` (anchored to repo root). Run `git check-ignore -v <path>` on any new source path before assuming it is tracked.
+
+**Date:** 2026-09-29
+**Status:** FIXED in T6 onboarding commit (this one) — both root cause (.gitignore) and symptom (route files) addressed.
+**Reference:** discovered while running `smoke-pipeline-full.ts` per "أول أفعالك قبل T6 — أعد تشغيل smoke-pipeline-full.ts"

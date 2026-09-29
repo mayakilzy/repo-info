@@ -1,0 +1,7 @@
+# Local extractions of imported archives — never commit (may contain secrets)
+newT_extracted/
+newT.zip
+
+# Misc
+.DS_Store
+*.log
