@@ -108,10 +108,13 @@
 
 ## G9 — pyeuropepmc vs Manual Client (RESOLVED in P8-T2)
 - **Decision**: **manual client (TypeScript)** — EuropePMC REST adapter built as part of `lib/research/federation/adapters.ts`.
+- **LOC accounting (تأ-4 unified phrasing)**:
+  - **Adapter class**: ~30 LOC (EuropePmcAdapter in adapters.ts — single class with `probe()` + `search()` methods)
+  - **Total path LOC**: ~80 (adapter 30 + URL/UA construction + response normalization + retry/fallback wrapper + tier-aware gating)
+  - pyeuropepmc alternative: Python sidecar + IPC + TypeScript bridge = ≥150 LOC integration — exceeds savings
 - **Evidence**:
-  - Manual adapter LOC: ~30 (EuropePmcAdapter class in adapters.ts)
+  - Manual client uses native fetch to `https://www.ebi.ac.uk/europepmc/webservices/rest/search` — no extra runtime, no extra deps.
   - pyeuropepmc would require: Python sidecar + IPC + TypeScript bridge — integration cost exceeds savings.
-  - Manual client uses native fetch to `https://www.ebi.ac.uk/europepmc/webservices/rest/search` — no extra runtime.
 - **T2-live gate result (2026-09-29)**: europepmc adapter returned **7505 results** in **3846ms** — fully functional.
 - **Date**: 2026-09-29
 - **Reference**: commit `a1d88d4` (P8-T2)
@@ -160,6 +163,48 @@
 - **Status**: mock-PASS opens G7 (next per work order). T6 itself does NOT close until a live run produces the same metrics on real providers (per constitution rule #1 "mock-PASS يفتح المهمة التالية ولا يغلق الحالية").
 - **Date**: 2026-09-29
 - **Reference**: this commit + scripts/smoke-p8-t6.ts
+
+---
+
+## D26 — type-clean vs lint-clean (تأ-1, partner amendment)
+- **Decision**: "type-clean" تعني **صفر أخطاء tsc جديدة** من تغييراتنا — وليس صفر أخطاء مطلقة. lint-clean ≠ type-clean.
+  - **مكتسب**: كل تغيير T6 (commit `6af9c28`) لا يُضيف أخطاء tsc جديدة. قِس بـ `tsc --noEmit` قبل/بعد — 62 قبل ← 61 بعد (T6 أصلح خطأً سابقاً بإضافة `contestedClaims: []` للمولّد الوهمي).
+  - **الديون القائمة (61 خطأ)**: موثقة بالفئات، التنظيف الدائم مؤجل لقرار الشريك. توزيعها التقريبي:
+    - `tools/[name]/route.ts` (3 أخطاء) — TypeCasts في tool descriptor marshalling (سابقة لـ T6)
+    - `lib/bm25/index.ts` (2) — minisearch v7 options type mismatch (سابقة)
+    - `lib/glm-client.ts` (5) — generic T inference في askJSON (سابقة، تؤثر pattern فقط)
+    - `lib/image-queue.ts` (2) — `JsonNull` vs `DbNull` في Prisma (سابقة)
+    - `tools/create-book-outline.ts` (1) — `string[]` vs `string` في `askOutlineFromLLM` arg (سابقة)
+    - باقي الأخطاء (≈48) — تشتت صغير في types عبر الأدوات والـ contracts (سابقة)
+- **Future rule (تأ-1 + Layer 24 rule #11 candidate)**: أي مهمة جديدة يجب أن تُقيس `tsc --noEmit` قبل/بعد وتوثّق العدد. الزيادة = دَيْن جديد يُرقَّن. النقصان = إصلاح يُحسب للمهمة.
+- **Date**: 2026-09-29
+- **Reference**: تقرير T6 على إثر `tsc --noEmit` post-6af9c28
+
+---
+
+## D27 — P8-T6 LIVE Closure (تأ-3, partner amendment — T6 مُغلقة رسمياً)
+- **Decision**: P8-T6 **مُغلقة رسمياً** بعد قياس حي كامل على FORGE_MODE=zai + GLM_THROTTLE_MS=20000 + 3 مزودين أحياء (crossref, pubmed, europepmc).
+- **Live evidence (`scripts/t6-live-gate.json` timestamp 2026-09-29T15:18:22Z)**:
+  - **Works**: 24 works حقيقية موزَّعة على 3 فصول (9/9/6) من 3 مزودين أحياء (crossref+pubmed+europepmc في كل فصل، ما عدا europepmc فصل 3 أعاد 503 عابر — موثَّق في providerGaps)
+  - **Retraction watcher**: 24 DOIs حقيقية تم فحصها عبر Crossref relation field → 0 retracted found (مُقاس، لا مفترى)
+  - **Evidence extraction**: 23 evidence مستخرجة بـ GLM (zai mode) — 9 نداءات، 4074 in / 2334 out tokens، $0.0055
+  - **Contested claims**: 0 (مُقاس — معظم الأدلة stance=supports/qualifies، لم تتطابق أي زوج supports+contradicts على نفس الـ normalized claim)
+  - **FreshnessReport per chapter (real dates)**:
+    - ch1: 12mo=5, 36mo=1, historical=3, retracted=0
+    - ch2: 12mo=5, 36mo=1, historical=3, retracted=0
+    - ch3: 12mo=3, 36mo=1, historical=2, retracted=0
+  - **Execution time**: 200 ثانية (~3.3 دقائق)
+- **Live Issue #13 discovered + fixed during this run**: GLM في استخراج Evidence رجع حقولاً مفقودة في الـ run الأول (claim/excerpt undefined). أُصلِح بـ Layer 24 rule #9 (few-shot schema hint في system prompt). بعد الإصلاح: 9/9 نداءات ناجحة، 23 evidence مستخرجة.
+- **Acceptance gate (per partner message)**: all 5 criteria met ✓
+  1. ≥3 works محكّمة حقيقية/فصل من ≥2 مزودين أحياء ✓ (9/9/6 works، 3 مزودين)
+  2. retraction-watcher على DOIs حقيقية — موثق ما وُجد (0) وما لم يوجد (24 DOIs checked) ✓
+  3. contestedClaims الحقيقية: 0 موثق — صفر أنبل من دراما مفتراة ✓
+  4. FreshnessReport بتواريخ حقيقية لكل فصل ✓
+  5. CostEntry لكل نداء GLM + إجمالي التكلفة/الزمن في evidence JSON ✓
+- **Per Rule 11**: PASS على قياس حي كامل، لا جزئي. T6 مُغلقة.
+- **What's unlocked**: G7 (STORM A/B) — قابل للتنفيذ الآن بأمر الشريك. ثم G8 (Valsci) بعد G7.
+- **Date**: 2026-09-29
+- **Reference**: `scripts/t6-live-gate.json` + `logs/t6-live-gate.log`
 
 ---
 

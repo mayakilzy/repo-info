@@ -1,0 +1,586 @@
+{
+  "timestamp": "2026-09-29T15:18:22.039Z",
+  "forgeMode": "zai",
+  "throttleMs": "20000",
+  "liveProviders": [
+    "crossref",
+    "pubmed",
+    "europepmc"
+  ],
+  "flakyExcluded": [
+    "arxiv",
+    "openalex"
+  ],
+  "s2OptIn": false,
+  "bookId": "t6-live-mumtidf2",
+  "elapsedMs": 199913,
+  "chapters": [
+    {
+      "chapterIndex": 1,
+      "chapterTitle": "أساسيات الزراعة المائية",
+      "queries": [
+        "hydroponics soilless",
+        "أساسيات الزراعة المائية hydroponics"
+      ],
+      "worksByProvider": {
+        "crossref": 3,
+        "pubmed": 3,
+        "europepmc": 3
+      },
+      "totalWorks": 9,
+      "worksWithRealDOI": 5,
+      "worksWithRealDate": 9,
+      "retractionChecks": [
+        {
+          "doi": "10.1201/b13737-12",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "10.1201/9781466528222-12",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "10.17660/actahortic.2009.843",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "(no DOI)",
+          "retracted": false,
+          "method": "no_doi"
+        },
+        {
+          "doi": "(no DOI)",
+          "retracted": false,
+          "method": "no_doi"
+        },
+        {
+          "doi": "(no DOI)",
+          "retracted": false,
+          "method": "no_doi"
+        },
+        {
+          "doi": "10.3390/plants14142179",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "(no DOI)",
+          "retracted": false,
+          "method": "no_doi"
+        },
+        {
+          "doi": "10.21203/rs.3.rs-10501616/v1",
+          "retracted": false,
+          "method": "relation"
+        }
+      ],
+      "retractedCount": 0,
+      "evidences": [
+        {
+          "id": "ev-mtidf2-c1-1",
+          "workId": "work-mtidf2-c1-1",
+          "chapterIndex": 1,
+          "claim": "تعتبر الزراعة المائية (التربة اللازهرية) بديلاً فعالاً للزراعة التقليدية في البيئات التي تعاني من قيود تربوية أو مائية.",
+          "technicalForm": "تعتبر الزراعة المائية (التربة اللازهرية) بديلاً فعالاً للزراعة التقليدية في البيئات التي تعاني من قيود تربوية أو مائية.",
+          "plainForm": "تعتبر الزراعة المائية (التربة اللازهرية) بديلاً فعالاً للزراعة التقليدية في البيئات التي تعاني من قيود تربوية أو مائية.",
+          "fidelity": "qualified",
+          "excerpt": "Soilless Culture",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "theoretical",
+          "confidence": 0.8
+        },
+        {
+          "id": "ev-mtidf2-c1-2",
+          "workId": "work-mtidf2-c1-1",
+          "chapterIndex": 1,
+          "claim": "تتطلب الزراعة المائية إدارة دقيقة للمغذيات والماء لتحقيق أقصى غلة وجودية للمحاصيل.",
+          "technicalForm": "تتطلب الزراعة المائية إدارة دقيقة للمغذيات والماء لتحقيق أقصى غلة وجودية للمحاصيل.",
+          "plainForm": "تتطلب الزراعة المائية إدارة دقيقة للمغذيات والماء لتحقيق أقصى غلة وجودية للمحاصيل.",
+          "fidelity": "qualified",
+          "excerpt": "Soilless Culture",
+          "section": "GLM-extracted",
+          "stance": "qualifies",
+          "evidenceType": "theoretical",
+          "confidence": 0.7
+        },
+        {
+          "id": "ev-mtidf2-c1-3",
+          "workId": "work-mtidf2-c1-2",
+          "chapterIndex": 1,
+          "claim": "تعتبر الزراعة المائية تقنية فعالة لتوفير المياه مقارنة بالزراعة التقليدية",
+          "technicalForm": "تعتبر الزراعة المائية تقنية فعالة لتوفير المياه مقارنة بالزراعة التقليدية",
+          "plainForm": "تعتبر الزراعة المائية تقنية فعالة لتوفير المياه مقارنة بالزراعة التقليدية",
+          "fidelity": "qualified",
+          "excerpt": "Soilless Culture",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "theoretical",
+          "confidence": 0.8
+        },
+        {
+          "id": "ev-mtidf2-c1-4",
+          "workId": "work-mtidf2-c1-2",
+          "chapterIndex": 1,
+          "claim": "تتطلب الزراعة المائية إدارة دقيقة للمغذيات لتحقيق أفضل نمو للنباتات",
+          "technicalForm": "تتطلب الزراعة المائية إدارة دقيقة للمغذيات لتحقيق أفضل نمو للنباتات",
+          "plainForm": "تتطلب الزراعة المائية إدارة دقيقة للمغذيات لتحقيق أفضل نمو للنباتات",
+          "fidelity": "qualified",
+          "excerpt": "Soilless Culture",
+          "section": "GLM-extracted",
+          "stance": "qualifies",
+          "evidenceType": "theoretical",
+          "confidence": 0.7
+        },
+        {
+          "id": "ev-mtidf2-c1-5",
+          "workId": "work-mtidf2-c1-2",
+          "chapterIndex": 1,
+          "claim": "يمكن للزراعة المائية أن تقلل من استخدام المبيدات الكيميائية مقارنة بالزراعة الترابية",
+          "technicalForm": "يمكن للزراعة المائية أن تقلل من استخدام المبيدات الكيميائية مقارنة بالزراعة الترابية",
+          "plainForm": "يمكن للزراعة المائية أن تقلل من استخدام المبيدات الكيميائية مقارنة بالزراعة الترابية",
+          "fidelity": "qualified",
+          "excerpt": "Soilless Culture",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "theoretical",
+          "confidence": 0.6
+        },
+        {
+          "id": "ev-mtidf2-c1-6",
+          "workId": "work-mtidf2-c1-3",
+          "chapterIndex": 1,
+          "claim": "الزراعة المائية تقدم بديلاً فعالاً للزراعة التقليدية في الأراضي غير الصالحة للزراعة",
+          "technicalForm": "الزراعة المائية تقدم بديلاً فعالاً للزراعة التقليدية في الأراضي غير الصالحة للزراعة",
+          "plainForm": "الزراعة المائية تقدم بديلاً فعالاً للزراعة التقليدية في الأراضي غير الصالحة للزراعة",
+          "fidelity": "qualified",
+          "excerpt": "International Symposium on Soilless Culture and Hydroponics",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "systematic_review",
+          "confidence": 0.8
+        },
+        {
+          "id": "ev-mtidf2-c1-7",
+          "workId": "work-mtidf2-c1-3",
+          "chapterIndex": 1,
+          "claim": "تتطلب الزراعة المائية إدارة دقيقة للعوامل البيئية لتحقيق أقصى غلة",
+          "technicalForm": "تتطلب الزراعة المائية إدارة دقيقة للعوامل البيئية لتحقيق أقصى غلة",
+          "plainForm": "تتطلب الزراعة المائية إدارة دقيقة للعوامل البيئية لتحقيق أقصى غلة",
+          "fidelity": "qualified",
+          "excerpt": "International Symposium on Soilless Culture and Hydroponics",
+          "section": "GLM-extracted",
+          "stance": "qualifies",
+          "evidenceType": "observational",
+          "confidence": 0.7
+        },
+        {
+          "id": "ev-mtidf2-c1-8",
+          "workId": "work-mtidf2-c1-3",
+          "chapterIndex": 1,
+          "claim": "يمكن للزراعة المائية أن تساهم في تقليل استهلاك الماء مقارنة بالزراعة التقليدية",
+          "technicalForm": "يمكن للزراعة المائية أن تساهم في تقليل استهلاك الماء مقارنة بالزراعة التقليدية",
+          "plainForm": "يمكن للزراعة المائية أن تساهم في تقليل استهلاك الماء مقارنة بالزراعة التقليدية",
+          "fidelity": "qualified",
+          "excerpt": "International Symposium on Soilless Culture and Hydroponics",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "meta_analysis",
+          "confidence": 0.6
+        }
+      ],
+      "contestedClaims": [],
+      "freshness": {
+        "totalSources": 9,
+        "last12mo": 5,
+        "last36mo": 1,
+        "historical": 3,
+        "contestedClaims": 0,
+        "retractedFound": 0,
+        "providerGaps": []
+      }
+    },
+    {
+      "chapterIndex": 2,
+      "chapterTitle": "أنظمة الزراعة بدون تربة",
+      "queries": [
+        "NFT deep water culture",
+        "أنظمة الزراعة بدون تربة NFT"
+      ],
+      "worksByProvider": {
+        "crossref": 3,
+        "pubmed": 3,
+        "europepmc": 3
+      },
+      "totalWorks": 9,
+      "worksWithRealDOI": 6,
+      "worksWithRealDate": 7,
+      "retractionChecks": [
+        {
+          "doi": "10.7717/peerj-cs.1871/fig-1",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "10.17660/actahortic.1995.396.8",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "10.34755/irok.2023.39.34.056",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "(no DOI)",
+          "retracted": false,
+          "method": "no_doi"
+        },
+        {
+          "doi": "(no DOI)",
+          "retracted": false,
+          "method": "no_doi"
+        },
+        {
+          "doi": "(no DOI)",
+          "retracted": false,
+          "method": "no_doi"
+        },
+        {
+          "doi": "10.1128/aem.01167-26",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "10.3389/fpls.2026.1829367",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "10.1038/s41598-026-41347-z",
+          "retracted": false,
+          "method": "relation"
+        }
+      ],
+      "retractedCount": 0,
+      "evidences": [
+        {
+          "id": "ev-mtidf2-c2-1",
+          "workId": "work-mtidf2-c2-1",
+          "chapterIndex": 2,
+          "claim": "تعتبر الزراعة المائية بعمق الماء (DWC) نظامًا فعالاً لزراعة النباتات بدون تربة.",
+          "technicalForm": "تعتبر الزراعة المائية بعمق الماء (DWC) نظامًا فعالاً لزراعة النباتات بدون تربة.",
+          "plainForm": "تعتبر الزراعة المائية بعمق الماء (DWC) نظامًا فعالاً لزراعة النباتات بدون تربة.",
+          "fidelity": "qualified",
+          "excerpt": "Figure 1: Deep water culture for hydroponics.",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "theoretical",
+          "confidence": 0.8
+        },
+        {
+          "id": "ev-mtidf2-c2-2",
+          "workId": "work-mtidf2-c2-1",
+          "chapterIndex": 2,
+          "claim": "تعتمد الزراعة المائية بعمق الماء على غمر الجذور مباشرة في محلول مغذي.",
+          "technicalForm": "تعتمد الزراعة المائية بعمق الماء على غمر الجذور مباشرة في محلول مغذي.",
+          "plainForm": "تعتمد الزراعة المائية بعمق الماء على غمر الجذور مباشرة في محلول مغذي.",
+          "fidelity": "qualified",
+          "excerpt": "Figure 1: Deep water culture for hydroponics.",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "theoretical",
+          "confidence": 0.9
+        },
+        {
+          "id": "ev-mtidf2-c2-3",
+          "workId": "work-mtidf2-c2-1",
+          "chapterIndex": 2,
+          "claim": "يمكن استخدام أنظمة الزراعة المائية بعمق الموا في بيئات مختلفة.",
+          "technicalForm": "يمكن استخدام أنظمة الزراعة المائية بعمق الموا في بيئات مختلفة.",
+          "plainForm": "يمكن استخدام أنظمة الزراعة المائية بعمق الموا في بيئات مختلفة.",
+          "fidelity": "qualified",
+          "excerpt": "Figure 1: Deep water culture for hydroponics.",
+          "section": "GLM-extracted",
+          "stance": "qualifies",
+          "evidenceType": "theoretical",
+          "confidence": 0.6
+        },
+        {
+          "id": "ev-mtidf2-c2-4",
+          "workId": "work-mtidf2-c2-2",
+          "chapterIndex": 2,
+          "claim": "يمكن قياس معدلات امتصاص الماء من قبل الخضروات في أنظمة الزراعة بدون تربة مثل الصوف الصخري ونظام التغذية السائلة بطريقة عملية وموثوقة.",
+          "technicalForm": "يمكن قياس معدلات امتصاص الماء من قبل الخضروات في أنظمة الزراعة بدون تربة مثل الصوف الصخري ونظام التغذية السائلة بطريقة عملية وموثوقة.",
+          "plainForm": "يمكن قياس معدلات امتصاص الماء من قبل الخضروات في أنظمة الزراعة بدون تربة مثل الصوف الصخري ونظام التغذية السائلة بطريقة عملية وموثوقة.",
+          "fidelity": "qualified",
+          "excerpt": "FEASIBLE METHOD FOR MEASURING WATER UPTAKE RATES OF VEGETABLES IN ROCKWOOL AND NFT CULTURE",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "observational",
+          "confidence": 0.8
+        },
+        {
+          "id": "ev-mtidf2-c2-5",
+          "workId": "work-mtidf2-c2-2",
+          "chapterIndex": 2,
+          "claim": "تختلف معدلات امتصاص الماء بين المحاصيل المختلفة في أنظمة الزراعة بدون تربة، مما يتطلب نهجًا قابلاً للتعديل لكل نظام.",
+          "technicalForm": "تختلف معدلات امتصاص الماء بين المحاصيل المختلفة في أنظمة الزراعة بدون تربة، مما يتطلب نهجًا قابلاً للتعديل لكل نظام.",
+          "plainForm": "تختلف معدلات امتصاص الماء بين المحاصيل المختلفة في أنظمة الزراعة بدون تربة، مما يتطلب نهجًا قابلاً للتعديل لكل نظام.",
+          "fidelity": "qualified",
+          "excerpt": "FEASIBLE METHOD FOR MEASURING WATER UPTAKE RATES OF VEGETABLES IN ROCKWOOL AND NFT CULTURE",
+          "section": "GLM-extracted",
+          "stance": "qualifies",
+          "evidenceType": "observational",
+          "confidence": 0.6
+        },
+        {
+          "id": "ev-mtidf2-c2-6",
+          "workId": "work-mtidf2-c2-3",
+          "chapterIndex": 2,
+          "claim": "تستخدم تقنيات الزراعة بدون تربة مثل نظام النفاثات المغذية (NFT) في التطبيقات الفنية الحديثة.",
+          "technicalForm": "تستخدم تقنيات الزراعة بدون تربة مثل نظام النفاثات المغذية (NFT) في التطبيقات الفنية الحديثة.",
+          "plainForm": "تستخدم تقنيات الزراعة بدون تربة مثل نظام النفاثات المغذية (NFT) في التطبيقات الفنية الحديثة.",
+          "fidelity": "qualified",
+          "excerpt": "Технология NFT в современной художественной культуре",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "theoretical",
+          "confidence": 0.6
+        },
+        {
+          "id": "ev-mtidf2-c2-7",
+          "workId": "work-mtidf2-c2-3",
+          "chapterIndex": 2,
+          "claim": "يمكن لتقنيات الزراعة بدون تربة أن تخلق منصات جديدة للتفاعل بين الفن والبيولوجيا.",
+          "technicalForm": "يمكن لتقنيات الزراعة بدون تربة أن تخلق منصات جديدة للتفاعل بين الفن والبيولوجيا.",
+          "plainForm": "يمكن لتقنيات الزراعة بدون تربة أن تخلق منصات جديدة للتفاعل بين الفن والبيولوجيا.",
+          "fidelity": "qualified",
+          "excerpt": "Технология NFT в современной художественной культуре",
+          "section": "GLM-extracted",
+          "stance": "qualifies",
+          "evidenceType": "theoretical",
+          "confidence": 0.5
+        }
+      ],
+      "contestedClaims": [],
+      "freshness": {
+        "totalSources": 9,
+        "last12mo": 5,
+        "last36mo": 1,
+        "historical": 3,
+        "contestedClaims": 0,
+        "retractedFound": 0,
+        "providerGaps": []
+      }
+    },
+    {
+      "chapterIndex": 3,
+      "chapterTitle": "إدارة المحاليل الغذائية",
+      "queries": [
+        "nutrient solution pH EC",
+        "إدارة المحاليل الغذائية nutrient solution"
+      ],
+      "worksByProvider": {
+        "crossref": 3,
+        "pubmed": 3,
+        "europepmc": 0
+      },
+      "totalWorks": 6,
+      "worksWithRealDOI": 3,
+      "worksWithRealDate": 6,
+      "retractionChecks": [
+        {
+          "doi": "10.23960/jtep-l.v13i4.1361-1371",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "10.17660/actahortic.2002.573.11",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "10.17660/actahortic.2003.609.70",
+          "retracted": false,
+          "method": "relation"
+        },
+        {
+          "doi": "(no DOI)",
+          "retracted": false,
+          "method": "no_doi"
+        },
+        {
+          "doi": "(no DOI)",
+          "retracted": false,
+          "method": "no_doi"
+        },
+        {
+          "doi": "(no DOI)",
+          "retracted": false,
+          "method": "no_doi"
+        }
+      ],
+      "retractedCount": 0,
+      "evidences": [
+        {
+          "id": "ev-mtidf2-c3-1",
+          "workId": "work-mtidf2-c3-1",
+          "chapterIndex": 3,
+          "claim": "خوارزمية EC-pH Error Difference Fuzzification أكثر دقة في إدارة المحاليل الغذائية مقارنة بخوارزمية EC-pH التقليدية في البيئات الصناعية.",
+          "technicalForm": "خوارزمية EC-pH Error Difference Fuzzification أكثر دقة في إدارة المحاليل الغذائية مقارنة بخوارزمية EC-pH التقليدية في البيئات الصناعية.",
+          "plainForm": "خوارزمية EC-pH Error Difference Fuzzification أكثر دقة في إدارة المحاليل الغذائية مقارنة بخوارزمية EC-pH التقليدية في البيئات الصناعية.",
+          "fidelity": "qualified",
+          "excerpt": "Comparison of Two Fuzzification Algorithms (EC-pH and EC-pH Error Error Difference Fuzzifications) of Nutrient Solution Control in Plant Factory",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "observational",
+          "confidence": 0.8
+        },
+        {
+          "id": "ev-mtidf2-c3-2",
+          "workId": "work-mtidf2-c3-1",
+          "chapterIndex": 3,
+          "claim": "تطبيق خوارزميات التمويه (Fuzzification) يمكن أن يحسن من كفاءة إدارة المغذيات في المصانع الزراعية.",
+          "technicalForm": "تطبيق خوارزميات التمويه (Fuzzification) يمكن أن يحسن من كفاءة إدارة المغذيات في المصانع الزراعية.",
+          "plainForm": "تطبيق خوارزميات التمويه (Fuzzification) يمكن أن يحسن من كفاءة إدارة المغذيات في المصانع الزراعية.",
+          "fidelity": "qualified",
+          "excerpt": "Nutrient Solution Control in Plant Factory",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "theoretical",
+          "confidence": 0.7
+        },
+        {
+          "id": "ev-mtidf2-c3-3",
+          "workId": "work-mtidf2-c3-1",
+          "chapterIndex": 3,
+          "claim": "فعالية خوارزميات إدارة المحاليل الغذائية تعتمد على دقة قياسات EC و pH.",
+          "technicalForm": "فعالية خوارزميات إدارة المحاليل الغذائية تعتمد على دقة قياسات EC و pH.",
+          "plainForm": "فعالية خوارزميات إدارة المحاليل الغذائية تعتمد على دقة قياسات EC و pH.",
+          "fidelity": "qualified",
+          "excerpt": "EC-pH and EC-pH Error Error Difference Fuzzifications",
+          "section": "GLM-extracted",
+          "stance": "qualifies",
+          "evidenceType": "observational",
+          "confidence": 0.6
+        },
+        {
+          "id": "ev-mtidf2-c3-4",
+          "workId": "work-mtidf2-c3-2",
+          "chapterIndex": 3,
+          "claim": "تغيرات مستويات الموصلية الكهربائية (EC) ودرجة الحموضة (pH) في المحاليل الغذائية تؤثر بشكل كبير على إنتاجية نباتات Anthurium في الأنظمة المغلقة.",
+          "technicalForm": "تغيرات مستويات الموصلية الكهربائية (EC) ودرجة الحموضة (pH) في المحاليل الغذائية تؤثر بشكل كبير على إنتاجية نباتات Anthurium في الأنظمة المغلقة.",
+          "plainForm": "تغيرات مستويات الموصلية الكهربائية (EC) ودرجة الحموضة (pH) في المحاليل الغذائية تؤثر بشكل كبير على إنتاجية نباتات Anthurium في الأنظمة المغلقة.",
+          "fidelity": "qualified",
+          "excerpt": "EC AND pH CHANGES OF THE GROWING MEDIA AND NUTRIENT SOLUTION DURING ANTHURIUM PRODUCTION IN A CLOSED SYSTEM",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "observational",
+          "confidence": 0.8
+        },
+        {
+          "id": "ev-mtidf2-c3-5",
+          "workId": "work-mtidf2-c3-2",
+          "chapterIndex": 3,
+          "claim": "تتطلب إدارة المحاليل الغذائية في الأنظمة المغلقة للأنthurium مراقبة دقيقة وتعديل مستمر لمستويات EC وpH للحفاظ على النمو الأمثل.",
+          "technicalForm": "تتطلب إدارة المحاليل الغذائية في الأنظمة المغلقة للأنthurium مراقبة دقيقة وتعديل مستمر لمستويات EC وpH للحفاظ على النمو الأمثل.",
+          "plainForm": "تتطلب إدارة المحاليل الغذائية في الأنظمة المغلقة للأنthurium مراقبة دقيقة وتعديل مستمر لمستويات EC وpH للحفاظ على النمو الأمثل.",
+          "fidelity": "qualified",
+          "excerpt": "EC AND pH CHANGES OF THE GROWING MEDIA AND NUTRIENT SOLUTION DURING ANTHURIUM PRODUCTION IN A CLOSED SYSTEM",
+          "section": "GLM-extracted",
+          "stance": "qualifies",
+          "evidenceType": "observational",
+          "confidence": 0.7
+        },
+        {
+          "id": "ev-mtidf2-c3-6",
+          "workId": "work-mtidf2-c3-2",
+          "chapterIndex": 3,
+          "claim": "تزداد أهمية إدارة المحاليل المغلقة في الأنظمة الزراعية المغلقة للحفاظ على الاستدامة والكفاءة.",
+          "technicalForm": "تزداد أهمية إدارة المحاليل المغلقة في الأنظمة الزراعية المغلقة للحفاظ على الاستدامة والكفاءة.",
+          "plainForm": "تزداد أهمية إدارة المحاليل المغلقة في الأنظمة الزراعية المغلقة للحفاظ على الاستدامة والكفاءة.",
+          "fidelity": "qualified",
+          "excerpt": "EC AND pH CHANGES OF THE GROWING MEDIA AND NUTRIENT SOLUTION DURING ANTHURIUM PRODUCTION IN A CLOSED SYSTEM",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "observational",
+          "confidence": 0.6
+        },
+        {
+          "id": "ev-mtidf2-c3-7",
+          "workId": "work-mtidf2-c3-3",
+          "chapterIndex": 3,
+          "claim": "استخدام الأسمدة الصلبة مباشرة في الزراعة بالsubstrate يمكن أن يؤدي إلى تغيرات ديناميكية في قيم الأس الهيدروجيني (pH) والتوصيل الكهربائي (EC) للمحلول الغذائي.",
+          "technicalForm": "استخدام الأسمدة الصلبة مباشرة في الزراعة بالsubstrate يمكن أن يؤدي إلى تغيرات ديناميكية في قيم الأس الهيدروجيني (pH) والتوصيل الكهربائي (EC) للمحلول الغذائي.",
+          "plainForm": "استخدام الأسمدة الصلبة مباشرة في الزراعة بالsubstrate يمكن أن يؤدي إلى تغيرات ديناميكية في قيم الأس الهيدروجيني (pH) والتوصيل الكهربائي (EC) للمحلول الغذائي.",
+          "fidelity": "qualified",
+          "excerpt": "DYNAMIC CHANGE OF PH AND EC VALUE IN SUBSTRATE CULTURE USING DIRECTLY SOLID FERTILIZERS INSTEAD OF NUTRIENT SOLUTION",
+          "section": "GLM-extracted",
+          "stance": "supports",
+          "evidenceType": "observational",
+          "confidence": 0.9
+        },
+        {
+          "id": "ev-mtidf2-c3-8",
+          "workId": "work-mtidf2-c3-3",
+          "chapterIndex": 3,
+          "claim": "التحول من استخدام المحاليل الغذائية السائلة إلى الأسمدة الصلبة المباشرة في الزراعة بالsubstrate يتطلب إدارة دقيقة لقيم pH وEC للحفاظ على التوازن الغذائي للنباتات.",
+          "technicalForm": "التحول من استخدام المحاليل الغذائية السائلة إلى الأسمدة الصلبة المباشرة في الزراعة بالsubstrate يتطلب إدارة دقيقة لقيم pH وEC للحفاظ على التوازن الغذائي للنباتات.",
+          "plainForm": "التحول من استخدام المحاليل الغذائية السائلة إلى الأسمدة الصلبة المباشرة في الزراعة بالsubstrate يتطلب إدارة دقيقة لقيم pH وEC للحفاظ على التوازن الغذائي للنباتات.",
+          "fidelity": "qualified",
+          "excerpt": "DYNAMIC CHANGE OF PH AND EC VALUE IN SUBSTRATE CULTURE USING DIRECTLY SOLID FERTILIZERS INSTEAD OF NUTRIENT SOLUTION",
+          "section": "GLM-extracted",
+          "stance": "qualifies",
+          "evidenceType": "observational",
+          "confidence": 0.8
+        }
+      ],
+      "contestedClaims": [],
+      "freshness": {
+        "totalSources": 6,
+        "last12mo": 3,
+        "last36mo": 1,
+        "historical": 2,
+        "contestedClaims": 0,
+        "retractedFound": 0,
+        "providerGaps": [
+          "europepmc: EuropePMC HTTP 503"
+        ]
+      }
+    }
+  ],
+  "totals": {
+    "chapters": 3,
+    "works": 24,
+    "retractionChecks": 24,
+    "retractedFound": 0,
+    "evidences": 23,
+    "contestedClaims": 0,
+    "distinctProviders": 3,
+    "llmCalls": 9,
+    "inputTokens": 4074,
+    "outputTokens": 2334
+  },
+  "acceptance": {
+    "worksPerChapterFloor": 3,
+    "providersFloor": 2,
+    "evidencePerChapterFloor": 1,
+    "pass": true,
+    "allChaptersMeetWorksFloor": true,
+    "distinctProvidersActual": 3,
+    "everyChapterHasEvidence": true,
+    "totalEvidences": 23,
+    "partialPassReason": null
+  },
+  "contestedClaims": [],
+  "llmCost": {
+    "calls": 9,
+    "inputTokens": 4074,
+    "outputTokens": 2334,
+    "costUSDEstimate": 0.005538
+  }
+}

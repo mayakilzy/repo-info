@@ -1,12 +1,13 @@
 # 📋 P8 — المرحلة-أ (Academic Lane الأساسية) — التقرير النهائي للحالة
 
-**التاريخ:** 2026-09-29 (محدَّث بعد P8-T6 mock-PASS)
-**آخر التزام:** `90ab74e` على `mayakilzy/BookForge` (شجرة ما قبل T6)
-**الالتزام الحالي:** T6 onboarding (هذا الالتزام) — يضيف تكامل pipeline + يصلح Live Issue #12
+**التاريخ:** 2026-09-29 (محدَّث بعد P8-T6 live-PASS)
+**آخر التزام شجرة ما قبل T6:** `90ab74e` على `mayakilzy/BookForge`
+**آخر التزام T6 mock-PASS:** `6af9c28` (commit قبل هذا التقرير)
+**الالتزام الحالي:** T6-live (هذا الالتزام) — يُغلق T6 رسمياً بعد قياس حي
 
 ---
 
-## قائمة القبول — P8 مرحلة-أ (T1a..T6 + البوابات)
+## قائمة القبول — P8 مرحلة-أ (T1a..T6-live + البوابات)
 
 | المهمة | الحالة | الدليل |
 |---|---|---|
@@ -16,7 +17,8 @@
 | **P8-T3** paper-search-mcp sidecar | ✅ **CLOSED (بيئي-مؤهل per D20.1)** — MCP handshake عبر SDK مؤجل لخادم الإنتاج (موثق) | uv sync نجح + sidecar يعمل (uvicorn on 8765) + Sci-Hub CI gate PASSED (bug مُصلَّح: rg -E→-e) + McpKit request جاهز |
 | **P8-T4** Retraction watcher | ✅ **مكتمل** — 5/5 DOIs متراجعة مُكتشفة، 0/20 false-positives | `lib/research/retraction-watcher.ts` + smoke-p8-t4 PASS |
 | **P8-T5** Contracts + Migrations | ✅ **مكتمل** — `model Work` + `model Evidence` + `Source.workId` (Prisma، ليس Json) | `contracts/research.ts` + `prisma/schema.prisma` + `db:push` نجح |
-| **P8-T6** Academic Lane في pipeline | ✅ **mock-PASS** — يفتح G7، لا يُغلق حتى live | `ACADEMIC_SWEEP ∥ WEB_SWEEP` عبر `Promise.all` + retraction pre-check (D22.1) + contestedClaims injection + ChapterApprovalCard display + smoke-p8-t6.ts PASS (36 works، 0 retracted، 1 contested) |
+| **P8-T6** Academic Lane في pipeline (mock-PASS) | ✅ **mock-PASS** — فتح live-gate | `smoke-p8-t6.ts` PASS (36 works / 6 فصول، 0 retracted، 1 contested) |
+| **P8-T6-live** Academic Lane على خط حي | ✅ **LIVE-PASS — T6 مُغلقة رسمياً** | `scripts/t6-live-gate.json`: 3 فصول × ≥3 works/fصل من 3 مزودين أحياء (crossref/pubmed/europepmc) + 23 evidence مستخرجة بـ GLM (zai mode) + 0 retracted حقيقية + 0 contested (مُقاس لا مفترى) + FreshnessReport بتواريخ حقيقية + $0.0055 / 200s |
 
 ### البوابات
 
@@ -34,7 +36,8 @@
 |---|---|---|
 | 10 | GLM يرجع `{chapters:[...]}` مباشرة (شكل ثالث) | ✅ مُصلَّح (normalizeOutlineShape موسَّع) |
 | 11 | CI gate كان يجتاز زوراً (rg -E → --encoding) | ✅ مُصلَّح (rg -e + تنظيف شامل) — درس حاكمي: القفل يُختبَر بقفلٍ زائف قبل الاعتماد عليه |
-| 12 | commit `1f3092d` ادَّعى استعادة `books/route.ts` لكن `git show --stat` يُظهر `| 0` bytes (ملف لم يُلتزم فعلياً) | ✅ مُصلَّح في T6 onboarding (إعادة كتابة الملفين بكامل محتواهما) — درس حاكمي: التزام يدَّعي إضافة/استعادة يجب التحقق منه بـ `git show --stat <commit> -- <path>` |
+| 12 | commit `1f3092d` ادَّعى استعادة `books/route.ts` لكن `git show --stat` يُظهر `| 0` bytes (ملف لم يُلتزم فعلياً) | ✅ مُصلَّح في T6 onboarding (إعادة كتابة الملفين بكامل محتواهما + إصلاح .gitignore bare `books/` → `/books/`) — درس حاكمي: التزام يدَّعي إضافة/استعادة يجب التحقق منه بـ `git show --stat <commit> -- <path>` |
+| 13 | GLM في استخراج Evidence يرجع حقولاً مفقودة (claim/excerpt undefined، evidenceType/confidence ناقصة) — رابع شكل مختلف | ✅ مُصلَّح (Layer 24 rule #9: few-shot schema hint في الـ system prompt — مثل مراجعة الفصل في P8-PRE-T3) |
 
 ---
 
@@ -44,9 +47,11 @@
 |---|---|
 | `git status` نظيف | ✅ (فقط ملفات محدّثة موثقة) |
 | `smoke-pipeline-full.ts` من الشجرة الملتزمة | ✅ PASS (6 فصول، EPUB 14KB + PDF 53KB + DOCX 12KB، DONE) |
-| `smoke-p8-t6.ts` (T6 acceptance) | ✅ mock-PASS (36 works، 0 retracted stored، 1 contestedClaim injected + visible) |
+| `smoke-p8-t6.ts` (T6 mock acceptance) | ✅ PASS (36 works، 0 retracted stored، 1 contestedClaim injected + visible) |
+| `scripts/t6-live-gate.ts` (T6-live acceptance) | ✅ **PASS** (3 فصول، 24 works حقيقية من 3 مزودين، 23 evidence، 0 retracted حقيقية، 0 contested مُقاس، $0.0055 / 200s) |
 | `scihub-ci-gate.sh` آخر تشغيل | ✅ PASSED (0 matches عبر 4 مجلدات) |
-| `tsc --noEmit` (أخطاء T6 الجديدة) | ✅ 0 أخطاء جديدة (62 قبل ← 61 بعد — T6 أصلح خطأً سابقاً بإضافة `contestedClaims: []` للمولّد الوهمي) |
+| `tsc --noEmit` (أخطاء T6/T6-live الجديدة) | ✅ 0 أخطاء جديدة (62 قبل ← 61 بعد T6 — أصلح خطأً سابقاً بإضافة `contestedClaims: []`) |
+| `.gitignore audit` (تأ-2) | ✅ مُدقَّق: 18 hit نظري، 0 ضرر فعلي — قرار الشريك معلَّق بين re-anchor vs rule-based mitigation |
 
 ---
 
@@ -81,14 +86,26 @@ c748fea feat: G13 CLOSED — DONE achieved on real GLM via zai mode
 
 ## ما لا يُلمس (يفتح في الجلسة الجديدة)
 
-- ~~**P8-T6**: ACADEMIC_SWEEP ∥ WEB_SWEEP + contestedClaims في ChapterSpec~~ — ✅ **mock-PASS في T6 onboarding** (هذا الالتزام). يفتح G7. لا يُغلق T6 حتى live run.
-- **P8-T7 = G7**: STORM A/B مقيس — قابل للتنفيذ الآن
+- ~~**P8-T6**: ACADEMIC_SWEEP ∥ WEB_SWEEP + contestedClaims في ChapterSpec~~ — ✅ **mock-PASS + LIVE-PASS في هذه الجلسة**. T6 مُغلقة رسمياً (per Rule 11: PASS على قياس حي كامل، لا جزئي).
+- **P8-T7 = G7**: STORM A/B مقيس — **قابل للتنفيذ الآن** بأمر الشريك (per تأ-3: G7/G8 بعد T6-live)
 - **P8-T8 = G8**: Valsci opt-in — قابل للتنفيذ بعد G7
 
 تُفتح بأمرها الافتتاحي في الجلسة الجديدة.
 
 ---
 
-## رسالة وداع للسجل
+## رسالة وداع للسجل (محدَّثة بعد T6-live)
 
-أُغلقت الجلسة المؤسِّسة: v1.0 كاملة + G13 مغلقة + P8 مرحلة-أ (الأكاديمية الأساسية) مكتملة ومرفوعة — الدستور في GOVERNANCE-CONSTITUTION.md والخطة في ROUND-B-* — كل الحقيقة على القرص لا في الذاكرة.
+أُغلقت الجلسة المُؤسِّسة: v1.0 كاملة + G13 مغلقة + P8 مرحلة-أ (الأكاديمية الأساسية) مكتملة ومرفوعة، **بما فيها P8-T6 mock+live** — كل الحقيقة على القرص لا في الذاكرة.
+
+القياسات الحية النهائية لـ T6 (`scripts/t6-live-gate.json`):
+- 3 فصول × ≥3 works/fصل من 3 مزودين أحياء (crossref/pubmed/europepmc)
+- 23 evidence مُستخرجة بـ GLM (zai mode، 9 نداءات، 4074 in / 2334 out tokens، $0.0055)
+- 0 retracted حقيقية (24 DOIs تم فحصها عبر Crossref relation field)
+- 0 contested claims (مُقاس، لا مفترى — معظم الأدلة stance=supports/qualifies)
+- FreshnessReport لكل فصل بتواريخ حقيقية: 12mo (5-5-3)، 36mo (1-1-1)، historical (3-3-2)
+- زمن التنفيذ: 200 ثانية (تقريباً 3.3 دقائق)
+
+المشاكل الحية المكتشفة في الجلسة (4 جديدة، كلها مُصلَّحة):
+- #12: .gitignore bare `books/` صمتاً أسقط API routes (T6 onboarding fix)
+- #13: GLM استخراج Evidence رجع حقولاً مفقودة (Layer 24 rule #9 fix: few-shot hint)

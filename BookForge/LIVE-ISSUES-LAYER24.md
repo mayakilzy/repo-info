@@ -33,6 +33,7 @@
 | **10** | **GLM يرجع `{chapters: [...]}` مباشرة (بلا مفتاح `outline`)** — الشكل الثالث المختلف | **`normalizeOutlineShape` موسَّع ليتعامل مع `r.outline` OR `r.chapters`** | **G13 closure run** |
 | **11** | CI gate `rg -E` كان يُفسَّر كـ `--encoding` لا regex | `rg -i -e` + تنظيف شامل | **P8-T3** |
 | **12** | commit `1f3092d` ادَّعى استعادة `books/route.ts` لكن `git show --stat` يُظهر `| 0` bytes (ملف لم يُلتزم فعلياً) | إعادة كتابة الملفين في T6 onboarding | **P8-T6 onboarding** |
+| **13** | GLM في استخراج Evidence يرجع حقولاً مفقودة (`claim`/`excerpt` undefined، `evidenceType`/`confidence` ناقصة) — رابع شكل مختلف | **Layer 24 rule #9 (few-shot schema hint) مُطبَّقة على prompt استخراج Evidence** — مثال JSON كامل في system prompt | **P8-T6-live** |
 
 ## الإصلاح للمشكلة #10 (المُطبَّق في G13 closure)
 
@@ -191,3 +192,75 @@ This applies to *commits themselves*, not just status reports. A commit message 
 **Date:** 2026-09-29
 **Status:** FIXED in T6 onboarding commit (this one) — both root cause (.gitignore) and symptom (route files) addressed.
 **Reference:** discovered while running `smoke-pipeline-full.ts` per "أول أفعالك قبل T6 — أعد تشغيل smoke-pipeline-full.ts"
+
+---
+
+## تأ-2 Audit — Full .gitignore bare-pattern scan (2026-09-29)
+
+**Triggered by:** partner amendment تأ-2 ("مسح شامل: git check-ignore لكل الأنماط المجرّدة في .gitignore ضد شجرة المصدر").
+
+**Method:** `/home/z/my-project/scripts/gitignore-audit.sh` extracts all bare (un-anchored, non-wildcard, non-negation) patterns from `.gitignore` and runs `git check-ignore -v` on a hypothetical `src/<pattern>/foo.ts` candidate for each, then lists hits.
+
+**Result (32 bare patterns scanned, 18 hypothetical matches, 0 actual source-tree damage):**
+
+| # | Pattern | Hypothetical match (`src/<pattern>/…`) | Real source path at risk? |
+|---|---|---|---|
+| 1 | `dev.log` | `src/dev.log/test.ts` | ❌ no `src/dev.log/` dir exists |
+| 2 | `dev.out.log` | `src/dev.out.log/test.ts` | ❌ no such dir |
+| 3 | `test` | `src/test/test.ts` | ❌ no `src/test/` dir — `tests/` (plural) exists but is NOT matched (different name) |
+| 4 | `prompt` | `src/prompt/test.ts` | ❌ no `src/prompt/` dir — `prompts/` (plural) exists but is NOT matched |
+| 5 | `server.log` | `src/server.log/test.ts` | ❌ no such dir |
+| 6 | `db/` | `src/db//foo.ts` | ❌ no `src/db/` dir (the SQLite db lives at repo-root `/db/` per env, or `prisma/dev.db`) |
+| 7 | `logs/` | `src/logs//foo.ts` | ❌ no `src/logs/` dir (audit trail logs at repo-root `/logs/`) |
+| 8 | `.secrets/` | `src/.secrets//foo.ts` | ❌ no such dir (repo-root `/secrets/` only) |
+| 9 | `repo-info/` | `src/repo-info//foo.ts` | ❌ no such dir |
+| 10 | `.zscripts/` | `src/.zscripts/…` | ❌ no such dir |
+| 11–18 | (sub-patterns of above) | — | ❌ all clear |
+
+**Audit verdict:** zero current damage. All 18 hits are *theoretical* — there is no actual source-tree directory named `test`, `prompt`, `db`, `logs`, `repo-info`, `.secrets`, `.zscripts`, `dev.log`, or `server.log` under `src/`, `scripts/`, `app/`, `lib/`, or `components/`. The `tests/` directory at repo root (with the `s`) is correctly tracked because the bare pattern is `test` (singular, no `s`) — lucky accident.
+
+**Risk posture:** this is **structural fragility, not active damage**. The same kind of "lucky accident" produced Live Issue #12 (the bare `books/` pattern that DID match `src/app/api/book-forge/books/` and silently dropped the API routes). The fix that closed #12 (anchor `books/` → `/books/`) addressed one instance but left the others. Any future contributor who adds a `src/test/` directory for unit tests, or a `src/prompt/` directory for LLM prompt templates, will silently find their files untracked — exactly the trap that caught commit `1f3092d`.
+
+**Recommendation (deferred to partner per تأ-1 spirit — "التنظيم الدائم مؤجل لقرار الشريك"):**
+- Option A (defensive): re-anchor ALL bare directory patterns to `/name/` — e.g., `test` → `/test/`, `db/` → `/db/`, `logs/` → `/logs/`, `repo-info/` → `/repo-info/`, `.secrets/` → `/.secrets/`, `.zscripts/` → `/.zscripts/`. This is a one-time 7-line edit and closes the trap permanently.
+- Option B (accept risk): leave as-is, add Layer 24 rule #11: "before adding a new `src/<name>/` directory, run `git check-ignore -v src/<name>/foo.ts` to confirm the name is not already shadowed by a bare .gitignore pattern."
+
+**Decision pending partner:** A or B. Either is legitimate. Until then, the audit stands as a documented snapshot — no silent assumption.
+
+**Future rule (Layer 24 rule #11 candidate, per تأ-1 + تأ-2):** Any new `.gitignore` pattern that uses a bare name (no leading `/`, no wildcard) MUST be accompanied by `git check-ignore -v src/<name>/foo.ts` showing zero unintended matches before the pattern is committed. This generalizes Live Issue #12's fix to all bare patterns.
+
+**Audit script:** `/home/z/my-project/scripts/gitignore-audit.sh` (committed in this commit for repeatability).
+**Date:** 2026-09-29
+**Status:** AUDITED — 18 hypothetical / 0 actual — partner decision pending on re-anchoring vs rule-based mitigation.
+
+---
+
+## Live Issue #13 — GLM evidence-extraction returns undefined fields (fourth shape)
+
+**Discovered:** 2026-09-29 (P8-T6-live first run)
+
+**The bug:**
+The T6-live gate's `extractEvidenceViaGLM()` calls GLM via `askJSON` with a Zod schema requiring `{ claims: [{ claim: string, excerpt: string, stance: enum, evidenceType: enum, confidence: number }] }`. The initial system prompt was concise ("Reply ONLY with JSON matching the schema"). GLM-4-plus returned valid JSON but with multiple fields missing per claim — `claim` was sometimes omitted, `excerpt` was undefined, `evidenceType` was a non-enum string, `confidence` was missing entirely.
+
+Schema-validation errors (first run):
+```
+[{"path":"claims.0.excerpt","message":"Invalid input: expected string, received undefined"},
+ {"path":"claims.0.evidenceType","message":"Invalid option: expected one of \"systematic_review\"|..."},
+ {"path":"claims.0.confidence","message":"Invalid input: expected number, received undefined"},
+ ...]
+```
+
+The `askJSON` repair loop tried once (re-prompting GLM with the schema errors), but GLM persisted in returning partial objects. All 9 GLM calls failed schema validation → 0 evidences extracted → 0 contested claims → gate would have falsely "PASS"ed on works alone while the contested-claims path was untested.
+
+**The fix (per Layer 24 rule #9 — few-shot schema hint for judgment calls):**
+Added a concrete JSON example to the system prompt (same pattern that fixed `review-chapter` in P8-PRE-T3). The example shows the exact expected shape with all 5 fields filled, plus an explicit "RULES" section emphasizing that no field may be omitted or null. This brought the second run from 0/9 successful extractions to 9/9 — 23 evidences extracted (some calls returned 2-3 claims per paper).
+
+**Why this matters:**
+The first run produced a T6-live-gate.json that superficially showed `pass: true` (3 chapters × ≥3 works × 3 providers). Without the Rule 11 fix to the acceptance gate (requiring `evidenceExtractionOK`), the gate would have falsely closed T6 on partial measurement. The lesson: any gate that includes LLM-derived data (evidences, contestedClaims) must verify the LLM path actually produced data, not just that the upstream providers did.
+
+**Future rule (Layer 24 rule #9 reinforcement):**
+Any `askJSON` call with a non-trivial schema (≥3 required fields, or any enum field) MUST include a concrete JSON example in the system prompt showing the full expected shape. Bare "reply ONLY with JSON matching the schema" is insufficient — GLM needs to see the shape, not infer it from a schema description.
+
+**Date:** 2026-09-29
+**Status:** FIXED in this T6-live commit (added few-shot example to extractEvidenceViaGLM system prompt).
+**Reference:** `scripts/t6-live-gate.ts` — extractEvidenceViaGLM system prompt now ~50 lines including the example.
