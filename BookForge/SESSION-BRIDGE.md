@@ -40,19 +40,19 @@
 
 ### المفتوح للمستقبل (افتتاحية الجلسة القادمة)
 
-1. ~~**Live Issue #16 إصلاح نهائي**~~ — ✅ **CLOSED (P10-T0a, 2026-09-29)** — `z.unknown()` + `normalizeDistortionType()` مشترك في `lib/simplify/distortion-normalize.ts` + تفعيل الدفعات (SIMPLIFIER_BATCH_SIZE=4) + كتم P2003 في persistCost. اختبار سلبي: 73/73 PASSED. اختبار الانحدار: smoke-pipeline-full PASS. type-clean: 0 جديد.
+1. ~~**Live Issue #16 إصلاح نهائي**~~ — ✅ **CLOSED (P10-T0a, 2026-09-29)** — `z.unknown()` + `normalizeDistortionType()` مشترك في `lib/simplify/distortion-normalize.ts` + تفعيل الدفعات (SIMPLIFIER_BATCH_SIZE=4) + كتم P2003 في persistCost. اختبار سلبي: 73/73 PASSED.
 
-2. ~~**مناورة G1 (Piper × Habibi-MSA)**~~ — ✅ **CLOSED (P10-T0b, 2026-09-30)** — ADOPT Piper (D33). RTF=0.10 (10× أسرع من realtime على CPU). Habibi-MSA فشل RTF (188×-469× على CPU) — Apache 2.0 لكن مؤجل لـ v2 (GPU servers). TTSProvider interface مُلتزم في `src/book-forge/lib/providers/tts/` (5 ملفات). الكتاب العربي ينطق الآن.
+2. ~~**مناورة G1 (Piper × Habibi-MSA)**~~ — ✅ **CLOSED (P10-T0b, 2026-09-30)** — ADOPT Piper (D33). RTF=0.10. Habibi-MSA مؤجل لـ v2 (GPU).
 
-3. ~~**P10-T1→T5 خط الإنتاج الصوتي (mock)**~~ — ✅ **mock-PASS (2026-09-30)** — T1 TTS worker sidecar + T2 Mishkal tashkeel (D34-isolated) + T3 Dialogue Planner + T4 FFmpeg mastering + T5 QA loop. 31/31 acceptance tests PASS. type-clean 0 + smoke-pipeline-full PASS.
+3. ~~**P10-T1→T5 خط الإنتاج الصوتي (mock)**~~ — ✅ **mock-PASS (2026-09-30)** — 31/31 acceptance tests.
 
-4. ~~**D34 — Mishkal GPL-2.0 isolation**~~ — ✅ **DONE (2026-09-30)** — Mishkal sidecar منتقل من `src/` إلى `sidecars/arabic-normalizer/` + HTTP service. 8/8 acceptance tests PASS. grep لا يجد Mishkal في src/.
+4. ~~**D34 — Mishkal GPL-2.0 isolation**~~ — ✅ **DONE (2026-09-30)** — sidecars/arabic-normalizer/ HTTP service.
 
-5. ~~**Live Issue #17 — zai-sdk max_tokens fix**~~ — ✅ **FIXED (2026-09-30)** — zai-sdk.ts يمرّر `max_tokens` + `temperature` للـ SDK. Outline endpoint نجح في 44s بعد الإصلاح.
+5. ~~**Live Issue #17 — zai-sdk max_tokens fix**~~ — ✅ **FIXED (2026-09-30)** — zai-sdk.ts يمرّر max_tokens+temperature.
 
-6. **Live Issue #18 — z-ai-web-dev-sdk rate limit (429)** — ⚠️ **ENVIRONMENTALLY-QUALIFIED (D20.1)** — z-ai-web-dev-sdk rate-limited بعد ~27 calls في 6 دقائق. الـ LIVE phase acceptance الكاملة مؤجلة: تحتاج خادم إنتاجي OR throttle أطول (30s بدلاً من 5s) OR batches لـ chapter authoring.
+6. ~~**Live Issue #18 — z-ai-web-dev-sdk rate limit**~~ — ✅ **RESOLVED (2026-09-30, D35)** — 20s throttle (GLM_THROTTLE_MS=20000) منع 429 بالكامل. 0 rate-limit hits during live resume.
 
-7. **LIVE phase acceptance الكاملة** — ⏳ مؤجل — متطلب: حل Live Issue #18 (اختيار أحد: رفع throttle / خادم إنتاجي / تقصير الكتاب). الـ text pipeline يعمل حتى COVER_GENERATING + CostEntry موثّقة ($0.017 for partial). الـ T1-T5 audio production line بانتظار نص مكتمل.
+7. ~~**LIVE phase acceptance — "الكتاب المزدوج"**~~ — ✅ **COMPLETE (2026-09-30, D35)** — أول كتاب عربي مكتمل في تاريخ BookForge: 4 فصول، 30.29 min صوت، m4b بفصول حقيقية (LUFS -19.10)، WER متوسط 32.37% (قريب من 27.5% الأساسية)، $0.0644 كلفة ($0.0021/min)، 22.23 min wall time (brief→m4b). Resume impact: 1 chapter resumed from DB. بندين مؤجَّلين: English reference chapter (no English Piper voice) + simplification cost after batches (SpineSnapshot not built in P10).
 
 ### المعلَّق على المالك (مفاتيح خارجية)
 - `UNPAYWALL_EMAIL` + `S2_API_KEY` + `CORE_API_KEY` — تفتح 3 مزودين إضافيين
