@@ -40,9 +40,9 @@
 
 ### المفتوح للمستقبل (افتتاحية الجلسة القادمة)
 
-1. ~~**Live Issue #16 إصلاح نهائي**~~ — ✅ **CLOSED (P10-T0a, 2026-09-29)** — `z.unknown()` + `normalizeDistortionType()` مشترك في `lib/simplify/distortion-normalize.ts` + تفعيل الدفعات (SIMPLIFIER_BATCH_SIZE=4) + كتم P2003 في persistCost. اختبار سلبي: 73/73 PASSED. اختبار الانحدار: smoke-pipeline-full PASS. type-clean: 0 جديد. في انتظار مصادقة الشريك.
+1. ~~**Live Issue #16 إصلاح نهائي**~~ — ✅ **CLOSED (P10-T0a, 2026-09-29)** — `z.unknown()` + `normalizeDistortionType()` مشترك في `lib/simplify/distortion-normalize.ts` + تفعيل الدفعات (SIMPLIFIER_BATCH_SIZE=4) + كتم P2003 في persistCost. اختبار سلبي: 73/73 PASSED. اختبار الانحدار: smoke-pipeline-full PASS. type-clean: 0 جديد.
 
-2. **مناورة G1 (Piper × Habibi-MSA)** — بوابة TTS. P10-T0b (بعد مصادقة الشريك على T0a). أول مناورة حقيقية للنظام — الكتاب يصبح صوتاً.
+2. ~~**مناورة G1 (Piper × Habibi-MSA)**~~ — ✅ **CLOSED (P10-T0b, 2026-09-30)** — ADOPT Piper (D33). RTF=0.10 (10× أسرع من realtime على CPU). Habibi-MSA فشل RTF (188×-469× على CPU) — Apache 2.0 لكن مؤجل لـ v2 (GPU servers). TTSProvider interface مُلتزم في `src/book-forge/lib/providers/tts/` (5 ملفات). الكتاب العربي ينطق الآن.
 
 ### المعلَّق على المالك (مفاتيح خارجية)
 - `UNPAYWALL_EMAIL` + `S2_API_KEY` + `CORE_API_KEY` — تفتح 3 مزودين إضافيين

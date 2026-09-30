@@ -1,0 +1,143 @@
+{
+  "provider": "piper",
+  "name": "Piper (ar_JO-kareem-medium)",
+  "startedAt": "2026-09-29T23:24:08Z",
+  "cases": [
+    {
+      "caseId": "plain-1",
+      "category": "plain",
+      "status": "ok",
+      "synthesisMsMedian": 5662.9,
+      "synthesisMsRuns": [
+        4020.5,
+        5972.4,
+        5662.9
+      ],
+      "durationMs": 37549.0,
+      "durationMsFfprobe": 37548.98,
+      "rtf": 0.1508136035580175,
+      "sampleRate": 22050,
+      "bitsPerSample": 16,
+      "warnings": [],
+      "audioPath": "/home/z/my-project/g1-workspace/audio/piper/plain-1-run2.wav"
+    },
+    {
+      "caseId": "plain-2",
+      "category": "plain",
+      "status": "ok",
+      "synthesisMsMedian": 3628.1,
+      "synthesisMsRuns": [
+        3872.5,
+        3628.1,
+        2715.0
+      ],
+      "durationMs": 28378.5,
+      "durationMsFfprobe": 28378.458,
+      "rtf": 0.12784678541853867,
+      "sampleRate": 22050,
+      "bitsPerSample": 16,
+      "warnings": [],
+      "audioPath": "/home/z/my-project/g1-workspace/audio/piper/plain-2-run1.wav"
+    },
+    {
+      "caseId": "voweled-1",
+      "category": "voweled",
+      "status": "ok",
+      "synthesisMsMedian": 2400.2,
+      "synthesisMsRuns": [
+        2373.0,
+        2400.2,
+        2415.6
+      ],
+      "durationMs": 23238.2,
+      "durationMsFfprobe": 23238.231,
+      "rtf": 0.10328682944462135,
+      "sampleRate": 22050,
+      "bitsPerSample": 16,
+      "warnings": [],
+      "audioPath": "/home/z/my-project/g1-workspace/audio/piper/voweled-1-run1.wav"
+    },
+    {
+      "caseId": "numbers-1",
+      "category": "numbers",
+      "status": "ok",
+      "synthesisMsMedian": 3239.7,
+      "synthesisMsRuns": [
+        3217.5,
+        3254.3,
+        3239.7
+      ],
+      "durationMs": 31702.6,
+      "durationMsFfprobe": 31702.629999999997,
+      "rtf": 0.10219035662690126,
+      "sampleRate": 22050,
+      "bitsPerSample": 16,
+      "warnings": [],
+      "audioPath": "/home/z/my-project/g1-workspace/audio/piper/numbers-1-run2.wav"
+    },
+    {
+      "caseId": "dates-1",
+      "category": "dates",
+      "status": "ok",
+      "synthesisMsMedian": 2565.3,
+      "synthesisMsRuns": [
+        2599.1,
+        2549.6,
+        2565.3
+      ],
+      "durationMs": 25804.1,
+      "durationMsFfprobe": 25804.082000000002,
+      "rtf": 0.09941443414031105,
+      "sampleRate": 22050,
+      "bitsPerSample": 16,
+      "warnings": [],
+      "audioPath": "/home/z/my-project/g1-workspace/audio/piper/dates-1-run2.wav"
+    },
+    {
+      "caseId": "names-1",
+      "category": "names",
+      "status": "ok",
+      "synthesisMsMedian": 2921.8,
+      "synthesisMsRuns": [
+        2907.6,
+        2921.8,
+        2933.7
+      ],
+      "durationMs": 28817.4,
+      "durationMsFfprobe": 28817.415,
+      "rtf": 0.10139013235059374,
+      "sampleRate": 22050,
+      "bitsPerSample": 16,
+      "warnings": [],
+      "audioPath": "/home/z/my-project/g1-workspace/audio/piper/names-1-run1.wav"
+    },
+    {
+      "caseId": "dialogue-500",
+      "category": "dialogue",
+      "status": "ok",
+      "synthesisMsMedian": 20472.5,
+      "synthesisMsRuns": [
+        20567.4,
+        20461.6,
+        20472.5
+      ],
+      "durationMs": 212575.5,
+      "durationMsFfprobe": 212575.465,
+      "rtf": 0.09630695917450506,
+      "sampleRate": 22050,
+      "bitsPerSample": 16,
+      "warnings": [],
+      "audioPath": "/home/z/my-project/g1-workspace/audio/piper/dialogue-500-run2.wav"
+    }
+  ],
+  "completedCaseIds": [
+    "plain-1",
+    "plain-2",
+    "voweled-1",
+    "numbers-1",
+    "dates-1",
+    "names-1",
+    "dialogue-500"
+  ],
+  "finishedAt": "2026-09-29T23:26:57Z"
+}

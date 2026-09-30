@@ -427,3 +427,40 @@
 - **Governance lesson**: A commit message that claims to add/restore a file MUST be verified post-commit by checking `git show --stat <commit> -- <path>` shows non-zero LOC delta. This is now Layer 24 rule #10.
 - **Date**: 2026-09-29
 - **Reference**: LIVE-ISSUES-LAYER24.md
+
+---
+
+## D33 — G1 Voice Gate: ADOPT Piper (ar_JO-kareem-medium)
+
+- **Decision**: G1 closed — Piper is the production TTS engine for BookForge. Pin to:
+  - Engine: piper-onnx (sherpa-onnx runtime, Apache 2.0)
+  - Voice: ar_JO-kareem-medium (60 MB ONNX)
+  - Pinned version: upstream=2023.11.14-2 (last release before archive), voice=ar_JO-kareem-medium, onnx format
+  - License: MIT (per upstream rhasspy/piper LICENSE.md, verified by direct content fetch)
+  - Commercial use: permitted
+
+- **Competitor B (Habibi-MSA)**: deferred to v2 (GPU servers).
+  - License: Apache 2.0 (per top-level README.md INSIDE the artifact repo — the MSA specialized model is Apache 2.0; the cc-by-nc-sa-4.0 metadata applies only to Unified/SAU/UAE models)
+  - RTF on CPU: 188× to 469× SLOWER than realtime — F5-TTS architecture not viable on CPU
+  - Adapter (habibi.ts) shipped behind TTSProvider interface — drop-in addition for future GPU deployment, no pipeline change
+
+- **Evidence** (measured, not assumed):
+  - Piper RTF (median of 3 runs × 7 cases): plain-1=0.15, plain-2=0.13, voweled-1=0.10, numbers-1=0.10, dates-1=0.10, names-1=0.10, dialogue-500=0.0963. ALL < 1.0. Headline case (≥500 words): RTF=0.0963 (10× faster than realtime).
+  - Piper WER (faster-whisper small, 7 cases, Arabic-normalized): mean 50.91% across 7 cases. voweled-1 raw WER=100% → normalized=27.5% (confirms Piper renders diacritics; whisper can't transcribe them back).
+  - Habibi-MSA RTF (2 samples on CPU): smoke (4 words) = 188.7×, warmup (1 word) = 468.9×. Both FAIL RTF<1.0 by 188×-469×.
+  - Per partner: "أرقام كهذه لا تنعكس" — class-level pattern (engine architecture not designed for CPU). Full 7-case Habibi matrix not run (infeasible within 72h timebox given each call takes 3-52 min on CPU).
+
+- **Verdict per protocol**: "أدنى WER بين من اجتاز (ترخيص+RTF)" — only Piper passed RTF<1.0 → Piper wins by default. WER tiebreaker not needed.
+
+- **Failure ladder**: NOT ACTIVATED — Piper passed; no need for text podcast + cloud TTS opt-in + English voice fallback.
+
+- **Arabic gap status**: CLOSED for MSA on CPU (Piper covers it). Regional dialects (EGY/SAU/UAE/etc.) available in Habibi but require GPU — deferred to v2.
+
+- **TTSProvider interface**: 5 new files in src/book-forge/lib/providers/tts/ (provider.ts + config.ts + piper.ts + habibi.ts + index.ts). Pipeline never imports piper/habibi directly. Same sidecar pattern as P8-T3 (paper-search-mcp).
+
+- **G2 (TTS License)**: RESOLVED — both licenses verified from inside the artifacts per protocol. Piper MIT, Habibi-MSA Apache 2.0.
+
+- **G3 (Piper fork activity)**: RESOLVED — no active fork within 90 days (minaiml/piper on 2026-09-18 was metadata-only, not substantive code change). Per protocol: pin to latest release.
+
+- **Date**: 2026-09-30
+- **Reference**: `live-evidence/g1-decision.json` + `live-evidence/g1-matrix-piper.json` + `live-evidence/g1-wer-piper.json` + `G1-CLOSURE-STATUS.md` + `src/book-forge/lib/providers/tts/` (5 files)

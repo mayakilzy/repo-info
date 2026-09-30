@@ -24,9 +24,9 @@
 
 | البوابة | الحالة | القرار |
 |---|---|---|
-| G1 🎙️ TTS (Piper/Habibi) | OPEN | P10-T0 (72h spike) |
-| G2 ⚖️ TTS License | OPEN | ضمن G1 |
-| G3 🔧 Piper fork activity | OPEN | ضمن G1 |
+| **G1 🎙️ TTS (Piper/Habibi)** | **RESOLVED ✅ — ADOPT Piper** | D33: Piper ar_JO-kareem-medium (MIT, RTF 0.10, 7-10× faster than realtime on CPU). Habibi-MSA fails RTF<1.0 on CPU (188×-469×), Apache 2.0 — deferred to v2 GPU servers. |
+| G2 ⚖️ TTS License | **RESOLVED ✅** | Within G1: Piper MIT (upstream LICENSE.md verified); Habibi-MSA Apache 2.0 (per top-level README.md INSIDE the artifact — cc-by-nc-sa-4.0 metadata applies only to Unified/SAU/UAE) |
+| G3 🔧 Piper fork activity | **RESOLVED ✅** | Within G1: No active fork within 90 days (only metadata-only commit in minaiml/piper). Per protocol: pin to latest release (2023.11.14-2). |
 | G4 🖼️ RTL diagrams | OPEN | P11-T2 spike |
 | G5 📖 Docs site RTL | OPEN | P12-T0 spike |
 | G6 🎬 Promo video license | OPEN | P13-T4 (2h) |
