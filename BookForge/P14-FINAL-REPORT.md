@@ -85,3 +85,32 @@ BookForge/Spine (Arabic)
 **P15 (التوائم + التزايدي) بأمر الشريك** — ثم **P16 (القشرة الحوارية)**.
 
 P14 أنتجت أول "منتج عالمي" (EN) من كتاب عربي — وبالمسرد المقفل والمراجعة المستقلة. كل شيء يمضي كما خططنا من البداية 🎯🚀📚
+
+---
+
+## ✅ تأ-P14 — Live Translation Measurement (P15-T0 closure)
+
+**Date:** 2026-09-30 (P15-T0)
+**FORGE_MODE:** zai (real GLM via z-ai-web-dev-sdk)
+
+### Measurement
+
+| Metric | Value |
+|---|---|
+| Chapter | أساسيات الزراعة المائية → "Fundamentals of Hydroponics" |
+| Sections translated | 3/3 (full chapter in one batch) |
+| Glossary terms | 7 locked — ALL CONSISTENT ✓ |
+| sourceRefs preserved | ✓ (D30 across languages — every claim keeps its original sourceId) |
+| d30Compliant | ✓ |
+| Independent review | ✓ PASS — 0 issues |
+| Reviewer notes | "The translation is accurate and maintains consistency with the glossary terms. The English reads naturally and captures the meaning of the original Arabic text effectively." |
+| Wall time | 8.6s (2 GLM calls: translate + review) |
+| Tokens | translate: in=801 out=551 · review: in=792 out=51 |
+
+### Acceptance (تأ-P14)
+- ✅ Full chapter translated (3/3 sections)
+- ✅ Glossary locked (7/7 terms consistent)
+- ✅ sourceRefs preserved (D30 across languages)
+- ✅ Independent review documented (twin pattern — pass with 0 issues)
+
+**P14 officially CLOSED.**

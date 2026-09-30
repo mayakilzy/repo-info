@@ -1,0 +1,32 @@
+{
+  "task": "P15-T0 (تأ-P14)",
+  "timestamp": "2026-09-30T13:08:02.424Z",
+  "wallSec": 8.578,
+  "chapter": "أساسيات الزراعة المائية",
+  "glossaryLocked": true,
+  "sourceRefsPreserved": true,
+  "d30Compliant": true,
+  "reviewPassed": true,
+  "reviewIssues": 0,
+  "translation": {
+    "titleEn": "Fundamentals of Hydroponics",
+    "sectionsCount": 3,
+    "glossaryCount": 7,
+    "inputTokens": 801,
+    "outputTokens": 551
+  },
+  "review": {
+    "passed": true,
+    "issues": [],
+    "notes": "The translation is accurate and maintains consistency with the glossary terms. The English reads naturally and captures the meaning of the original Arabic text effectively.",
+    "inputTokens": 792,
+    "outputTokens": 51
+  },
+  "acceptance": {
+    "fullChapterTranslated": true,
+    "glossaryLocked": true,
+    "sourceRefsPreserved": true,
+    "d30AcrossLanguages": true,
+    "independentReviewDocumented": true
+  }
+}
