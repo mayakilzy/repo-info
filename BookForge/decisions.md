@@ -734,3 +734,24 @@ Running Remotion/Chromium in sandbox would replay the G7 torch-timeout scenario 
 - **Live Issue**: #19 (pandoc accepts broken input — RT-7 FAIL) needs a separate fix (input validation in pandoc wrapper).
 - **Date**: 2026-09-30 (RT Gauntlet)
 - **Reference**: `live-evidence/RT-MATRIX.json` — RT-1 row
+
+---
+
+## D40 — RT-3 FAIL: outline truncation at 14 chapters — split into 2 batches
+
+- **Discovered**: RT-3-live (Red Team Gauntlet) — GLM response for 14-chapter outline truncates (same Live Issue #17 pattern: JSON parse failed after timeout). The max_tokens fix (#17) raised the limit from ~1871 to 4096, but 14 chapters × 6 sections × keyPoints exceeds even 4096 tokens.
+
+- **Root cause**: The architect agent requests maxOutputTokens=4096 (from `create-book-outline.ts` line 262). For 3-6 chapters this is sufficient. For 14 chapters, the JSON output exceeds 4096 tokens → truncation → "JSON parse failed".
+
+- **Decision**: Split the outline generation into 2 batches:
+  1. **Batch 1 (structure)**: generate 14 chapter titles + summaries + learningGoals only (no sections) — small output, fits in 4096 tokens
+  2. **Batch 2 (detail)**: for each chapter, generate its sections (3-6 per chapter) — one askJSON per chapter, or batched 3-4 chapters per call
+
+  The split is documented in the architect's outline generation flow — `create-book-outline.ts` checks `chapterCountHint > 8` and uses the 2-batch path.
+
+- **Per partner protocol**: "إن قُطع: الحل المعتمد هو التقسيم (outline في دفعتين: هيكل أولاً ثم تفصيل) — قرار D مرقم"
+
+- **Threshold**: chapterCountHint > 8 → use 2-batch path. ≤8 → single-batch (current behavior, proven at 3-6 chapters).
+
+- **Date**: 2026-09-30 (RT-3-live FAIL → D40)
+- **Reference**: `live-evidence/RT-MATRIX.json` — RT-3 row (v2 update pending)
