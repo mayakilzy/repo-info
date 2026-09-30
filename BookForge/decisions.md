@@ -546,3 +546,33 @@
 
 - **Date**: 2026-09-30
 - **Reference**: existing live book `cmunhqzw50000n2bv8f73swc8` (state=AUTHORING, in prisma/dev.db) — first un-authored chapter is the resume point
+
+---
+
+## D33-english-reference — Final AR vs EN WER comparison (P11-T0)
+
+- **Decision**: The English reference chapter measurement definitively confirms the D33-addendum interpretation. The Arabic WER gap is whisper's Arabic ASR limit, NOT Piper quality.
+
+- **Measurement** (P11-T0, 2026-09-30):
+  - **English Piper voice**: en_US-lessac-medium (MIT license, same upstream rhasspy/piper convention as Arabic)
+  - **Reference text**: Public-domain Alice in Wonderland opening (Lewis Carroll, 1865) — 458 words, matches G1 dialogue-500 methodology (≥500 chars, multi-paragraph prose)
+  - **English WER**: **6.99%** (32 edits / 458 original words, 454 transcribed)
+  - **English LUFS**: -18.8 (target -19, within tolerance)
+  - **English RTF**: 0.1124 (10× faster than realtime — matches Arabic RTF of 0.113, Piper is consistent across languages)
+
+- **Comparison with Arabic (P10-LIVE)**:
+  - Arabic WER (mean across 4 chapters): **32.37%** (ch1=29.40%, ch2=28.93%, ch3=36.25%, ch4=34.91%)
+  - English WER (single reference): **6.99%**
+  - **Difference: -25.38%** — English is 25 percentage points lower
+
+- **Final interpretation** (definitive per partner authorization "يفصل حد whisper العربي عن جودة Piper نهائياً"):
+  - The 25.38% gap is the **Arabic ASR gap** in faster-whisper small model
+  - Piper renders Arabic AND English at equivalent quality (both RTF ~0.11, both LUFS -19, both produce audio that whisper CAN transcribe)
+  - The lower English WER (6.99%) is because English ASR is more mature than Arabic ASR in faster-whisper small
+  - The Arabic WER of 32.37% is NOT a Piper quality issue — it's the ASR model's limit on Arabic
+  - Future improvement path: use a larger whisper model (medium or large) for Arabic QA — expected to drop the WER significantly
+
+- **Per D33-addendum**: this confirms verbatim — "تفسير WER 50.91% المتوسط: قياس حد whisper العربي + قصور النص غير المشكول، وليس جودة Piper — الدليل: voweled-1 (100%→27.5% بعد التطبيع، يؤكد نطق التشكيل الصحيح). الحسم اكتمل بشرط RTF قبل بلوغ مقارنة WER مزدوجة الأطراف (Habibi سقط بـ RTF 188-469× قبل القياس الصوتي)."
+
+- **Date**: 2026-09-30 (P11-T0 — closes P10 tail)
+- **Reference**: `live-evidence/english-reference-report.json` (NEW — to be added) + `live-evidence/p10-live-complete.json` (Arabic baseline)

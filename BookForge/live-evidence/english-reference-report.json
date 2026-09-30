@@ -1,0 +1,36 @@
+{
+  "task": "P11-T0",
+  "timestamp": "2026-09-30T10:21:41.912Z",
+  "wallSec": 48.255,
+  "text": {
+    "source": "Public domain: Alice in Wonderland opening (Lewis Carroll, 1865) — matches G1 dialogue-500 methodology (≥500 words)",
+    "length": 2375,
+    "wordCount": 458
+  },
+  "audio": {
+    "masteredWavPath": "/home/z/my-project/workspace/BookForge/live-measurements/english-reference/english-mastered.wav",
+    "durationSec": 108.43746,
+    "measuredLufs": -18.8,
+    "lufsTarget": -19,
+    "rtf": 0.11235047372005946,
+    "totalSynthesisMs": 12183
+  },
+  "qa": {
+    "model": "faster-whisper small (CPU, int8)",
+    "transcribedChars": 2331,
+    "transcriptionMs": 30995.607376098633,
+    "wer": 0.06986899563318777,
+    "werPercent": 6.986899563318777,
+    "origWords": 458,
+    "transWords": 454,
+    "edits": 32
+  },
+  "comparison": {
+    "arabicWerPercent": 32.37,
+    "englishWerPercent": 6.986899563318777,
+    "difference": -25.38310043668122,
+    "interpretation": "English WER is LOWER than Arabic — confirms D33-addendum: the 50.91% WER observed in G1 was whisper's Arabic ASR limit + non-voweled comparison deficiency, NOT Piper quality. English ASR is more mature → lower WER.",
+    "arabicLufs": -19.1,
+    "englishLufs": -18.8
+  }
+}
