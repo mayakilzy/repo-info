@@ -29,7 +29,7 @@
 | G3 🔧 Piper fork activity | **RESOLVED ✅** | Within G1: No active fork within 90 days (only metadata-only commit in minaiml/piper). Per protocol: pin to latest release (2023.11.14-2). |
 | G4 🖼️ RTL diagrams | OPEN | P11-T2 spike |
 | G5 📖 Docs site RTL | OPEN | P12-T0 spike |
-| G6 🎬 Promo video license | OPEN | P13-T4 (2h) |
+| **G6 🎬 Promo video license** | **RESOLVED ✅ — MIT (clean)** | D38: MoneyPrinterTurbo MIT verified from inside repo. 127K stars, active. Commercial OK. |
 | **G7 🌊 STORM** | **RESOLVED ✅ — DROP** | D28: B ≤ A by -20% على score=2 works/chapter (نطاق مضبوط: DROP كـمولّد أسئلة فوق اتحاد معجمي؛ Co-STORM خارج النطاق) |
 | **G8 🔍 Valsci** | **RESOLVED ✅ — DEFER v2** | D29-closure: كلفة الواجهة ~38h (~5 days) >> 1 day threshold ⇒ تأجيل v2 (GPLv3 isolation + S2ORC 1.6TB + adapter) |
 | G9 📚 pyeuropepmc | **RESOLVED ✅** | manual client (30 LOC adapter / 80 LOC total path per تأ-4) — T2-live gate |
