@@ -38,6 +38,8 @@
 | **14** | `pip install knowledge-storm` فشل في sandbox — torch download (248MB) انتهى بعد 5 دقائق (D20.1: فشل بيئي خالص، مؤجل لخادم الإنتاج) | TypeScript port لـ prompts الـ MIT-licensed كحل بديل موثَّق (يعزل متغير جودة الأسئلة دون عبء Python) | **G7 STORM A/B** |
 | **15** | GLM يرجع علامة استفهام عربية "؟" (U+061F) بدلاً من ASCII "?" — خامس شكل مختلف (بعد #2/#3/#4/#10/#13) — الأسئلة العربية تفشل schema validation | `.endsWith('?')` → `.refine(s => s.endsWith('?') \|\| s.endsWith('؟'))` — قبول كلاهما | **G7 STORM A/B** |
 | **16** | GLM في simplifier + fidelity-gate يرجع `distortionType` كـ non-canonical value ("weird", "n/a", `123`, `{}`, `[]`, `true`, `null`) — سادس شكل مختلف — الإصلاحان الجزئيان السابقان (8e03dce + 490ad30) فشلا لأن `z.string()` يرفض non-string ويفعّل repair-loop | **`z.unknown()` + `normalizeDistortionType()` مشترك في `lib/simplify/distortion-normalize.ts`** — فصل المسؤوليات: الـ schema يقبل أي شيء (لا explosion)، الـ normalizer يُطبّع لـ `DistortionType \| null` | **P10-T0a (final fix)** |
+| **17** | z-ai-web-dev-sdk adapter لم يمرّر `max_tokens` للـ SDK — GLM يقطع الاستجابة عند ~1871 tokens (default SDK limit)، outline endpoint 500 "JSON parse failed" بعد 89s | **zai-sdk.ts يبني request body مع `max_tokens` + `temperature` عند توفرهما** — outline نجح في 44s بعد الإصلاح | **P10-T1 prep (LIVE)** |
+| **18** | z-ai-web-dev-sdk rate limit (429 Too many requests) بعد ~27 calls في 6 دقائق — chapter authoring يستدعي GLM عدة مرات لكل فصل (research + write-section × N + review) | **environmental (D20.1 pattern)** — tier بيئي-مؤهل. الحلول: (a) رفع `GLM_THROTTLE_MS` لـ 30s، (b) تفعيل batches لـ chapter authoring، (c) إعادة القياس على خادم إنتاجي | **P10-LIVE (partial)** | ("weird", "n/a", `123`, `{}`, `[]`, `true`, `null`) — سادس شكل مختلف — الإصلاحان الجزئيان السابقان (8e03dce + 490ad30) فشلا لأن `z.string()` يرفض non-string ويفعّل repair-loop | **`z.unknown()` + `normalizeDistortionType()` مشترك في `lib/simplify/distortion-normalize.ts`** — فصل المسؤوليات: الـ schema يقبل أي شيء (لا explosion)، الـ normalizer يُطبّع لـ `DistortionType \| null` | **P10-T0a (final fix)** |
 
 ## الإصلاح للمشكلة #10 (المُطبَّق في G13 closure)
 
@@ -396,3 +398,76 @@ Separation of concerns — schema accepts anything, normalizer coerces to canoni
 **Date:** 2026-09-29 (P10-T0a)
 **Status:** CLOSED ✅ — final fix shipped. Awaiting partner approval.
 **Reference:** `P10-T0a-CLOSURE.md` + `live-evidence/p10-t0a-negative.json` + `src/book-forge/lib/simplify/distortion-normalize.ts`
+
+
+---
+
+## Live Issue #17 — z-ai-web-dev-sdk adapter missing max_tokens (LIVE run prep)
+
+**Discovered:** 2026-09-30 (LIVE integrated run prep — "The Twin Book")
+
+**The bug:** The `callZaiSdkGLM` adapter in `src/book-forge/lib/providers/llm/zai-sdk.ts` built the request body as:
+```ts
+{
+  messages: sdkMessages,
+  thinking: { type: 'disabled' },
+}
+```
+— no `max_tokens`, no `temperature`. The z-ai-web-dev-sdk has a default max_tokens (looks like ~1871 tokens) that's much lower than BookForge's `LLM_CONFIG.maxOutputTokensPerCall` (8000). GLM honored the SDK default and truncated responses when they exceeded it.
+
+**Symptom:** outline endpoint returned 500 with "Schema validation failed: JSON parse failed" after 89s. The outline JSON was cut off mid-word and couldn't be parsed.
+
+**Reproduction:** Direct `zai.chat.completions.create()` call WITHOUT max_tokens produced a 1871-token response that ended mid-word. WITH `max_tokens: 4000`, the response completed normally (928 tokens, proper ending).
+
+**The fix:** The adapter now builds the request body with `max_tokens` and `temperature` when provided:
+```ts
+const requestBody: Record<string, unknown> = {
+  messages: sdkMessages,
+  thinking: { type: 'disabled' },
+};
+if (opts.maxOutputTokens) {
+  requestBody.max_tokens = opts.maxOutputTokens;
+}
+if (opts.temperature !== undefined) {
+  requestBody.temperature = opts.temperature;
+}
+```
+
+**Live run impact:**
+- Outline endpoint: was 500 after 89s → now 200 after 44s ✓
+- Research + cover generation: succeeded ✓
+- Chapter 1 authoring: succeeded for sections, failed on review-chapter call (Live Issue #18 — 429 rate limit, separate environmental issue)
+
+**Date:** 2026-09-30
+**Status:** FIXED — committed in `c774c01`
+**Reference:** `src/book-forge/lib/providers/llm/zai-sdk.ts` (commit c774c01 on mayakilzy/BookForge)
+
+---
+
+## Live Issue #18 — z-ai-web-dev-sdk rate limit (429 Too many requests)
+
+**Discovered:** 2026-09-30 (LIVE integrated run — chapter 1 authoring)
+
+**The bug:** After ~27 GLM calls over 6 minutes, the z-ai-web-dev-sdk endpoint started returning HTTP 429 "Too many requests, please try again later". BookForge's retry logic (`withRetry` with 5 attempts, exponential backoff 15s → 60s for 429s) exhausted all 5 retries and threw `LlmCallError: GLM call exhausted retries`.
+
+**Symptom:** Chapter 1 authoring failed with HTTP 500 after 3.6 minutes. Dev server log shows:
+```
+[glm-client] retry attempt 1/5 in 15000ms (rateLimited=true)
+[glm-client] retry attempt 2/5 in 30000ms (rateLimited=true)
+[glm-client] retry attempt 3/5 in 60000ms (rateLimited=true)
+[glm-client] retry attempt 4/5 in 60000ms (rateLimited=true)
+GLM call exhausted retries
+```
+
+**Diagnosis (per D20.1 pattern):** This is an environmental qualification — the sandbox's z-ai-web-dev-sdk endpoint has a rate limit per IP/session. The 5s default throttle (`GLM_THROTTLE_MS`) is too aggressive for the sandbox environment.
+
+**Resolution paths:**
+1. **Raise throttle**: `GLM_THROTTLE_MS=30000` (30s between calls) — reduces call rate by 6×, may stay under limit. Slower (30-60 min for full book instead of 6 min).
+2. **Batch processing**: chapter author makes sequential calls per section; batches could parallelize (similar to T2 simplifier batches).
+3. **Production server**: on a server with different IP or higher z-ai-web-dev-sdk quota, the rate limit is unlikely.
+
+**Per D20.1:** "tier بيئي-مؤهل يُعاد قياسه على خادم الإنتاج" — environmental qualification, re-test on production.
+
+**Date:** 2026-09-30
+**Status:** ENVIRONMENTALLY-QUALIFIED — re-test on production with raised throttle
+**Reference:** Live run log at `/home/z/my-project/workspace/BookForge/logs/live-run/text.log` + dev server log at `/home/z/my-project/workspace/BookForge/logs/dev-zai3.log`

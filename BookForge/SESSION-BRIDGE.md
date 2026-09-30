@@ -44,7 +44,15 @@
 
 2. ~~**مناورة G1 (Piper × Habibi-MSA)**~~ — ✅ **CLOSED (P10-T0b, 2026-09-30)** — ADOPT Piper (D33). RTF=0.10 (10× أسرع من realtime على CPU). Habibi-MSA فشل RTF (188×-469× على CPU) — Apache 2.0 لكن مؤجل لـ v2 (GPU servers). TTSProvider interface مُلتزم في `src/book-forge/lib/providers/tts/` (5 ملفات). الكتاب العربي ينطق الآن.
 
-3. **P10-T1→T5 خط الإنتاج الصوتي** — ✅ **mock-PASS (2026-09-30)** — T1 TTS worker sidecar (HTTP persistent) + T2 خط التطبيع العربي (Mishkal tashkeel + arabic_reshaper + pyarabic.number Rule 13) + T3 Dialogue Planner (askJSON(DialogueScript) من Spine + sourceRefs + Layer 24 #9 few-shot) + T4 FFmpeg mastering (loudnorm -16/-19 LUFS + silenceremove + m4b بفصول) + T5 حلقة QA الصوتية (faster-whisper round-trip + WER/مقطع + 2-round regeneration). 5 acceptance tests: 31/31 PASS. type-clean 0 + smoke-pipeline-full PASS. **LIVE phase acceptance مؤجل** — يتطلب FORGE_MODE=zai + live Piper worker + كتاب كامل.
+3. ~~**P10-T1→T5 خط الإنتاج الصوتي (mock)**~~ — ✅ **mock-PASS (2026-09-30)** — T1 TTS worker sidecar + T2 Mishkal tashkeel (D34-isolated) + T3 Dialogue Planner + T4 FFmpeg mastering + T5 QA loop. 31/31 acceptance tests PASS. type-clean 0 + smoke-pipeline-full PASS.
+
+4. ~~**D34 — Mishkal GPL-2.0 isolation**~~ — ✅ **DONE (2026-09-30)** — Mishkal sidecar منتقل من `src/` إلى `sidecars/arabic-normalizer/` + HTTP service. 8/8 acceptance tests PASS. grep لا يجد Mishkal في src/.
+
+5. ~~**Live Issue #17 — zai-sdk max_tokens fix**~~ — ✅ **FIXED (2026-09-30)** — zai-sdk.ts يمرّر `max_tokens` + `temperature` للـ SDK. Outline endpoint نجح في 44s بعد الإصلاح.
+
+6. **Live Issue #18 — z-ai-web-dev-sdk rate limit (429)** — ⚠️ **ENVIRONMENTALLY-QUALIFIED (D20.1)** — z-ai-web-dev-sdk rate-limited بعد ~27 calls في 6 دقائق. الـ LIVE phase acceptance الكاملة مؤجلة: تحتاج خادم إنتاجي OR throttle أطول (30s بدلاً من 5s) OR batches لـ chapter authoring.
+
+7. **LIVE phase acceptance الكاملة** — ⏳ مؤجل — متطلب: حل Live Issue #18 (اختيار أحد: رفع throttle / خادم إنتاجي / تقصير الكتاب). الـ text pipeline يعمل حتى COVER_GENERATING + CostEntry موثّقة ($0.017 for partial). الـ T1-T5 audio production line بانتظار نص مكتمل.
 
 ### المعلَّق على المالك (مفاتيح خارجية)
 - `UNPAYWALL_EMAIL` + `S2_API_KEY` + `CORE_API_KEY` — تفتح 3 مزودين إضافيين
