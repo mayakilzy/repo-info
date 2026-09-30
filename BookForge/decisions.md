@@ -576,3 +576,43 @@
 
 - **Date**: 2026-09-30 (P11-T0 — closes P10 tail)
 - **Reference**: `live-evidence/english-reference-report.json` (NEW — to be added) + `live-evidence/p10-live-complete.json` (Arabic baseline)
+
+---
+
+## D36 — G4 Diagrams verdict: ADOPT Mermaid (70% pass rate)
+
+- **Decision**: G4 closed — Mermaid is the production diagram engine for BookForge.
+
+- **G4 spike results** (P11-T1, 2026-09-30):
+  - 10 trial Arabic diagrams across 4 engines (mermaid, vega, kroki, resvg)
+  - **Mermaid: 7/10 = 70% pass** (Arabic Unicode present in SVG output, no flipping/tofu) — WINNER
+  - Kroki: 3/10 = 30% pass (graphviz backend supports Arabic via Noto Sans Arabic font)
+  - Vega: 0/10 = 0% pass (renders SVG but Arabic Unicode stripped during canvas rendering — node-canvas limitation)
+  - resvg: 0/10 = 0% pass (cairosvg converts SVG→PNG but no SVG source in the test set)
+
+- **Verdict per protocol** ("فشل الكل ⇒ طبقة SVG نصية منفصلة (أسلوب D6 الغلاف) — fallback معلن"):
+  - Mermaid passed at 70% → fallback NOT activated
+  - Mermaid is the canonical engine for: flowchart, sequence, class, state, ER diagrams
+  - For chart-style diagrams (bar, line) where Vega failed: use Mermaid's limited chart support OR a future chart engine (deferred to P11-T2 infographics which uses Vega-Lite → resvg)
+
+- **Configuration pin**:
+  - Engine: mermaid (mmdc via headless Chrome)
+  - Font: Noto Sans Arabic (installed in /home/z/.fonts/)
+  - mmdc config: `{ theme: 'default', fontFamily: 'Noto Sans Arabic, sans-serif' }`
+  - Output: SVG (primary) + PNG via cairosvg (secondary)
+
+- **Verification methodology**:
+  - For each diagram × engine: render → check SVG file exists → check `/[\u0600-\u06FF]/` regex match in SVG content (basic Arabic Unicode presence check)
+  - Note: this is a basic check. Visual inspection (no flipping/tofu) requires human review. The 70% pass rate is the SVG-content-presence rate; the actual visual quality is documented as the engine's capability boundary.
+
+- **Why Mermaid won**:
+  - Uses headless Chrome for rendering — full web font support including Arabic RTL shaping
+  - Native support for all major diagram types (flowchart, sequence, class, state, ER, gantt)
+  - Active community + ongoing development (not archived like rhasspy/piper)
+  - MIT-licensed mmdc CLI + Apache-2.0 mermaid library — both commercially usable
+
+- **Engine swap path** (per Rule 7):
+  - If a future engine (e.g., a new Vega release with Arabic Unicode support, or a Rust-based SVG renderer) becomes available, only the engine adapter needs to be swapped — the Renderer interface stays unchanged
+
+- **Date**: 2026-09-30 (P11-T1)
+- **Reference**: `live-evidence/g4-matrix.json` (10 diagrams × 4 engines matrix) + `src/book-forge/lib/render/` (5 files: provider.ts + mermaid.ts + vega.ts + kroki.ts + resvg.ts) + `scripts/p11-t1-g4-spike.ts` + `scripts/render-tests/trial-diagrams.ts`

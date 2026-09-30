@@ -1,0 +1,423 @@
+{
+  "matrix": [
+    {
+      "diagramId": "flow-1",
+      "format": "flowchart",
+      "results": {
+        "mermaid": {
+          "rendered": true,
+          "arabicLabelsValid": true,
+          "renderMs": 1528,
+          "warnings": [],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/flow-1/flow-1-mermaid.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/flow-1/flow-1-mermaid.png"
+        },
+        "vega": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'vega' doesn't support format 'flowchart' for this diagram"
+          ]
+        },
+        "kroki": {
+          "rendered": true,
+          "arabicLabelsValid": true,
+          "renderMs": 273,
+          "warnings": [],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/flow-1/flow-1-kroki.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/flow-1/flow-1-kroki.png"
+        },
+        "resvg": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'resvg' doesn't support format 'flowchart' for this diagram"
+          ]
+        }
+      }
+    },
+    {
+      "diagramId": "flow-2",
+      "format": "flowchart",
+      "results": {
+        "mermaid": {
+          "rendered": true,
+          "arabicLabelsValid": true,
+          "renderMs": 788,
+          "warnings": [],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/flow-2/flow-2-mermaid.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/flow-2/flow-2-mermaid.png"
+        },
+        "vega": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'vega' doesn't support format 'flowchart' for this diagram"
+          ]
+        },
+        "kroki": {
+          "rendered": true,
+          "arabicLabelsValid": true,
+          "renderMs": 271,
+          "warnings": [],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/flow-2/flow-2-kroki.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/flow-2/flow-2-kroki.png"
+        },
+        "resvg": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'resvg' doesn't support format 'flowchart' for this diagram"
+          ]
+        }
+      }
+    },
+    {
+      "diagramId": "flow-3",
+      "format": "flowchart",
+      "results": {
+        "mermaid": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 666,
+          "warnings": [],
+          "error": "mmdc failed (exit 1): Page.js:462:20)\n    at async renderMermaid (file:///home/z/.npm-global/lib/node_modules/@mermaid-js/mermaid-cli/src/index.js:480:22)\n    at fromText (https://mermaid-cli-intercept.invalid/home/z/.npm-global/lib/node_modules/@mermaid-js/mermaid-cli/node_modules/mermaid/dist/mermaid.esm.mjs:1327:17)\n\n",
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/flow-3/flow-3-mermaid.svg"
+        },
+        "vega": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'vega' doesn't support format 'flowchart' for this diagram"
+          ]
+        },
+        "kroki": {
+          "rendered": true,
+          "arabicLabelsValid": true,
+          "renderMs": 276,
+          "warnings": [],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/flow-3/flow-3-kroki.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/flow-3/flow-3-kroki.png"
+        },
+        "resvg": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'resvg' doesn't support format 'flowchart' for this diagram"
+          ]
+        }
+      }
+    },
+    {
+      "diagramId": "seq-1",
+      "format": "sequence",
+      "results": {
+        "mermaid": {
+          "rendered": true,
+          "arabicLabelsValid": true,
+          "renderMs": 706,
+          "warnings": [],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/seq-1/seq-1-mermaid.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/seq-1/seq-1-mermaid.png"
+        },
+        "vega": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'vega' doesn't support format 'sequence' for this diagram"
+          ]
+        },
+        "kroki": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'kroki' doesn't support format 'sequence' for this diagram"
+          ]
+        },
+        "resvg": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'resvg' doesn't support format 'sequence' for this diagram"
+          ]
+        }
+      }
+    },
+    {
+      "diagramId": "seq-2",
+      "format": "sequence",
+      "results": {
+        "mermaid": {
+          "rendered": true,
+          "arabicLabelsValid": true,
+          "renderMs": 734,
+          "warnings": [],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/seq-2/seq-2-mermaid.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/seq-2/seq-2-mermaid.png"
+        },
+        "vega": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'vega' doesn't support format 'sequence' for this diagram"
+          ]
+        },
+        "kroki": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'kroki' doesn't support format 'sequence' for this diagram"
+          ]
+        },
+        "resvg": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'resvg' doesn't support format 'sequence' for this diagram"
+          ]
+        }
+      }
+    },
+    {
+      "diagramId": "class-1",
+      "format": "class",
+      "results": {
+        "mermaid": {
+          "rendered": true,
+          "arabicLabelsValid": true,
+          "renderMs": 767,
+          "warnings": [],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/class-1/class-1-mermaid.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/class-1/class-1-mermaid.png"
+        },
+        "vega": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'vega' doesn't support format 'class' for this diagram"
+          ]
+        },
+        "kroki": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'kroki' doesn't support format 'class' for this diagram"
+          ]
+        },
+        "resvg": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'resvg' doesn't support format 'class' for this diagram"
+          ]
+        }
+      }
+    },
+    {
+      "diagramId": "state-1",
+      "format": "state",
+      "results": {
+        "mermaid": {
+          "rendered": true,
+          "arabicLabelsValid": true,
+          "renderMs": 732,
+          "warnings": [],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/state-1/state-1-mermaid.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/state-1/state-1-mermaid.png"
+        },
+        "vega": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'vega' doesn't support format 'state' for this diagram"
+          ]
+        },
+        "kroki": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'kroki' doesn't support format 'state' for this diagram"
+          ]
+        },
+        "resvg": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'resvg' doesn't support format 'state' for this diagram"
+          ]
+        }
+      }
+    },
+    {
+      "diagramId": "er-1",
+      "format": "er",
+      "results": {
+        "mermaid": {
+          "rendered": true,
+          "arabicLabelsValid": true,
+          "renderMs": 731,
+          "warnings": [],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/er-1/er-1-mermaid.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/er-1/er-1-mermaid.png"
+        },
+        "vega": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'vega' doesn't support format 'er' for this diagram"
+          ]
+        },
+        "kroki": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'kroki' doesn't support format 'er' for this diagram"
+          ]
+        },
+        "resvg": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'resvg' doesn't support format 'er' for this diagram"
+          ]
+        }
+      }
+    },
+    {
+      "diagramId": "chart-1",
+      "format": "chart",
+      "results": {
+        "mermaid": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'mermaid' doesn't support format 'chart' for this diagram"
+          ]
+        },
+        "vega": {
+          "rendered": true,
+          "arabicLabelsValid": false,
+          "renderMs": 298,
+          "warnings": [
+            "SVG does not contain Arabic Unicode (labels may have been stripped or not rendered)"
+          ],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/chart-1/chart-1-vega.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/chart-1/chart-1-vega.png"
+        },
+        "kroki": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'kroki' doesn't support format 'chart' for this diagram"
+          ]
+        },
+        "resvg": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'resvg' doesn't support format 'chart' for this diagram"
+          ]
+        }
+      }
+    },
+    {
+      "diagramId": "chart-2",
+      "format": "chart",
+      "results": {
+        "mermaid": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'mermaid' doesn't support format 'chart' for this diagram"
+          ]
+        },
+        "vega": {
+          "rendered": true,
+          "arabicLabelsValid": false,
+          "renderMs": 264,
+          "warnings": [
+            "SVG does not contain Arabic Unicode (labels may have been stripped or not rendered)"
+          ],
+          "svgPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/chart-2/chart-2-vega.svg",
+          "pngPath": "/home/z/my-project/workspace/BookForge/live-measurements/diagrams/chart-2/chart-2-vega.png"
+        },
+        "kroki": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'kroki' doesn't support format 'chart' for this diagram"
+          ]
+        },
+        "resvg": {
+          "rendered": false,
+          "arabicLabelsValid": false,
+          "renderMs": 0,
+          "warnings": [
+            "engine 'resvg' doesn't support format 'chart' for this diagram"
+          ]
+        }
+      }
+    }
+  ],
+  "verdict": {
+    "date": "2026-09-30T10:49:21.371Z",
+    "totalDiagrams": 10,
+    "engineResults": {
+      "mermaid": {
+        "passCount": 7,
+        "failCount": 3,
+        "passRate": 0.7
+      },
+      "vega": {
+        "passCount": 0,
+        "failCount": 10,
+        "passRate": 0
+      },
+      "kroki": {
+        "passCount": 3,
+        "failCount": 7,
+        "passRate": 0.3
+      },
+      "resvg": {
+        "passCount": 0,
+        "failCount": 10,
+        "passRate": 0
+      }
+    },
+    "winner": "mermaid",
+    "fallbackActivated": false,
+    "decision": "ADOPT mermaid (pass rate 70.0%)"
+  },
+  "engineAvailability": {
+    "mermaid": true,
+    "vega": true,
+    "kroki": true,
+    "resvg": true
+  }
+}
