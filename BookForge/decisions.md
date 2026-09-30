@@ -616,3 +616,34 @@
 
 - **Date**: 2026-09-30 (P11-T1)
 - **Reference**: `live-evidence/g4-matrix.json` (10 diagrams × 4 engines matrix) + `src/book-forge/lib/render/` (5 files: provider.ts + mermaid.ts + vega.ts + kroki.ts + resvg.ts) + `scripts/p11-t1-g4-spike.ts` + `scripts/render-tests/trial-diagrams.ts`
+
+---
+
+## D36-addendum — Partner note on resvg failure + T2 hybrid path (P11-T2 prep)
+
+> "فشل resvg في المصفوفة كان مقياس نقطة الإدخال (node-canvas strips Arabic في مسار Vega) لا محرك التصيير — T2 يُعتمد عبر مسار headless-Chrome المثبت (7/10) مع SVG وسيط من Vega-Lite؛ fallback طبقة نصية (نمط D6) جاهز إن فشل."
+
+**Context (partner-supplied clarification, inserted verbatim above):**
+- The resvg (cairosvg) failure in the G4 matrix was a measurement of the INPUT POINT, not the rendering engine itself. cairosvg converts SVG → PNG correctly when the SVG contains Arabic Unicode — proven by the Mermaid test (7/10 pass, where Mermaid SVGs contain Arabic and cairosvg rendered them to PNG).
+- The actual failure was in the Vega path: node-canvas (used by vg2svg internally) strips Arabic Unicode during SVG generation. So the SVG output from vg2svg has NO Arabic to render — cairosvg receives an Arabic-less SVG and produces an Arabic-less PNG.
+- T2 is adopted via the PROVEN headless-Chrome path (Mermaid's 7/10 pass) with SVG as an intermediary from Vega-Lite:
+  1. Vega-Lite spec → vg2svg → SVG (may lack Arabic Unicode)
+  2. If SVG has Arabic: render via headless-Chrome → PNG (same engine that made Mermaid pass)
+  3. If SVG lacks Arabic: D6 fallback — text as a layer over the shape (render chart with placeholder labels, overlay Arabic text in a separate SVG layer)
+- The text-layer fallback (D6 style) is ready if the hybrid path fails.
+
+**T2 modified path (approved per partner):**
+- Source: claims.hasNumbers=true exclusively (every number shown with sourceId)
+- Path: Vega-Lite spec → SVG → headless-Chrome render → PNG
+- If Arabic fails in SVG itself ⇒ text as layer over the shape (D6)
+- Acceptance: 3 valid Arabic infographics + FP-zero (no numbers without source)
+
+**G4 failure lessons (permanent gain from failure — rules for the style package):**
+1. **Vega failure (0/10)**: node-canvas strips Arabic Unicode during SVG generation. Rule: never use node-canvas-based SVG generators for Arabic content. Use headless-Chrome-based renderers (Mermaid, Puppeteer) instead.
+2. **resvg failure (0/10)**: cairosvg is a CONVERTER not a GENERATOR. It renders Arabic correctly when the input SVG contains Arabic Unicode. Rule: always verify the INPUT SVG has Arabic before blaming the converter.
+3. **Kroki failure (7/10 → 3/10 effective)**: only the graphviz backend supports Arabic (via Pango + Noto Sans Arabic). Other Kroki backends (plantuml, mermaid via kroki) may strip Arabic. Rule: for Kroki, use the graphviz backend explicitly; install Noto Sans Arabic on the Kroki server for production.
+
+These rules generalize — they're added to the render style package as permanent engineering lessons.
+
+**Date**: 2026-09-30 (partner insertion at P11-T2 prep)
+**Author**: Partner (الشريك) — inserted verbatim per protocol
