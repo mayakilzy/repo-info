@@ -703,3 +703,24 @@ These rules generalize — they're added to the render style package as permanen
 
 - **Date**: 2026-09-30 (P13-G6)
 - **Reference**: https://github.com/harry0703/MoneyPrinterTurbo/blob/main/LICENSE (verified by direct content fetch from GitHub API)
+
+---
+
+## D38-addendum — G14 half-resolved: licenses ✓, CPU measurement pending production
+
+Per partner authorization (P13-T5 correction):
+  'G14 يُحسم كالتالي: (أ) التراخيص الثلاث موثّقة الآن ✓ (نصف الحكم مُنجز) ·
+   (ب) نصف الحكم الثاني (قياس CPU لـShort 60s) لا يُنفَّذ في الجلسات المتبقية
+   — يُحجز كأول مهمة عند الترحيل لخادم الإنتاج (وهو أمر المالك وحده)، لأن
+   تشغيل Remotion/Chromium في ساندبوكس سيعيد لنا مشهد G7 (torch timeout)
+   وهو إهدار وقت. النتيجة: G14 تُعلن "نصف-محسومة — التراخيص ✓، الأداء معلق
+   بقياس الإنتاج" في الدستور، لا "مفتوحة" ولا "مغلقة" — وهو وضع تشغيلي رابع
+   نقي (نمط D20.1 لعائلة البوابات).'
+
+G14 status: HALF-RESOLVED (licenses verified, CPU measurement deferred to production server).
+This is a fourth operational state (per D20.1 pattern) — not OPEN, not CLOSED, not RESOLVED.
+The CPU measurement will be the first task upon production server migration (owner's authority only).
+Running Remotion/Chromium in sandbox would replay the G7 torch-timeout scenario — wasted time.
+
+**Date**: 2026-09-30 (partner correction at P13 closure)
+**Author**: Partner (الشريك)
