@@ -724,3 +724,13 @@ Running Remotion/Chromium in sandbox would replay the G7 torch-timeout scenario 
 
 **Date**: 2026-09-30 (partner correction at P13 closure)
 **Author**: Partner (الشريك)
+
+---
+
+## D39 — RT-1 double-approve behavior: should return 409 Conflict (not 500)
+
+- **Discovered**: RT-1 (Red Team Gauntlet) — double-click on outline approve → second call gets HTTP 500 (Internal Server Error) instead of clean 409 Conflict.
+- **Decision**: Double-approve (and any double-action on the same halt point) MUST return 409 Conflict with a clear error message ("state already transitioned"). The current 500 is undefined behavior — this decision defines it.
+- **Live Issue**: #19 (pandoc accepts broken input — RT-7 FAIL) needs a separate fix (input validation in pandoc wrapper).
+- **Date**: 2026-09-30 (RT Gauntlet)
+- **Reference**: `live-evidence/RT-MATRIX.json` — RT-1 row

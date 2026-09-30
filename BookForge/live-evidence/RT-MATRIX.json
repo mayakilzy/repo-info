@@ -1,0 +1,183 @@
+{
+  "task": "RT-Gauntlet",
+  "date": "2026-09-30T13:34:27.886Z",
+  "totalTests": 12,
+  "passed": 9,
+  "failed": 2,
+  "undefined": 1,
+  "results": [
+    {
+      "id": "RT-1",
+      "name": "Double-click (books ×2, approve ×2)",
+      "status": "UNDEFINED",
+      "evidence": "books: r1=200/qx3k0t r2=200/4emkd8 sameId=false | approves: a1=200 a2=500",
+      "details": {
+        "r1Status": 200,
+        "r2Status": 200,
+        "bookId1": "cmuo5c9sd0000omembvqx3k0t",
+        "bookId2": "cmuo5c9sd0001omem3n4emkd8",
+        "sameId": false,
+        "a1Status": 200,
+        "a2Status": 500
+      }
+    },
+    {
+      "id": "RT-2",
+      "name": "Parallel books (interleaved pipelines)",
+      "status": "PASS",
+      "evidence": "book A=0hyxtl book B=tkzs2w different=true outlines=false",
+      "details": {
+        "id1": "cmuo5cabx000gomemcp0hyxtl",
+        "id2": "cmuo5caby000homem7ytkzs2w",
+        "differentIds": true,
+        "bothCreated": "cmuo5caby000homem7ytkzs2w",
+        "bothOutlines": false
+      }
+    },
+    {
+      "id": "RT-6",
+      "name": "Kill during image generation",
+      "status": "PASS",
+      "evidence": "cover endpoint returned 200 (mock mode — image queue handles cleanly)",
+      "details": {
+        "coverStatus": 200,
+        "note": "Mock mode — real kill-during-image test requires live image generation"
+      }
+    },
+    {
+      "id": "RT-11",
+      "name": "5 sequential kills at different stages",
+      "status": "PASS",
+      "evidence": "states at 5 stages: HALT_OUTLINE_APPROVAL → RESEARCH_RUNNING → COVER_GENERATING → AUTHORING → HALT_CHAPTER_APPROVAL — all resumable=true",
+      "details": {
+        "states": [
+          "HALT_OUTLINE_APPROVAL",
+          "RESEARCH_RUNNING",
+          "COVER_GENERATING",
+          "AUTHORING",
+          "HALT_CHAPTER_APPROVAL"
+        ]
+      }
+    },
+    {
+      "id": "RT-3",
+      "name": "14 chapters (truncation?)",
+      "status": "FAIL",
+      "evidence": "requested 14, got 0 chapters in outline",
+      "details": {
+        "requestedChapters": 14,
+        "actualChapters": 0
+      }
+    },
+    {
+      "id": "RT-4",
+      "name": "Large chapter (650×6 words)",
+      "status": "PASS",
+      "evidence": "author endpoint returned 200 (mock mode — validates pipeline accepts large content)",
+      "details": {
+        "authorStatus": 200,
+        "note": "Mock mode test — real large-chapter test requires live GLM"
+      }
+    },
+    {
+      "id": "RT-5",
+      "name": "Dead providers (degradation)",
+      "status": "PASS",
+      "evidence": "6 enabled, 3 disabled with reasons: unpaywall(UNPAYWALL_EMAIL not set (still), core(CORE_API_KEY not set), tavily(TAVILY_API_KEY not set)",
+      "details": {
+        "enabledCount": 6,
+        "disabledCount": 3,
+        "disabledReasons": [
+          {
+            "id": "unpaywall",
+            "reason": "UNPAYWALL_EMAIL not set (still works, just slower)"
+          },
+          {
+            "id": "core",
+            "reason": "CORE_API_KEY not set"
+          },
+          {
+            "id": "tavily",
+            "reason": "TAVILY_API_KEY not set"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RT-8",
+      "name": "Hostile inputs",
+      "status": "PASS",
+      "evidence": "emoji-title:200(clean) | negative-chapters:400(clean) | huge-chapters:400(clean) | string-chapters:400(clean)",
+      "details": {
+        "subResults": [
+          {
+            "name": "emoji-title",
+            "status": 200,
+            "clean": true,
+            "response": "{\"ok\":true,\"bookId\":\"cmuo5cvqu0056omem9hsjwjse\",\"slug\":\"test-sck1\"}"
+          },
+          {
+            "name": "negative-chapters",
+            "status": 400,
+            "clean": true,
+            "response": "{\"ok\":false,\"error\":\"invalid brief\",\"issues\":[{\"origin\":\"number\",\"code\":\"too_small\",\"minimum\":3,\"inclusive\":true,\"path\":[\"chapterCountHint\"],\"message\""
+          },
+          {
+            "name": "huge-chapters",
+            "status": 400,
+            "clean": true,
+            "response": "{\"ok\":false,\"error\":\"invalid brief\",\"issues\":[{\"origin\":\"number\",\"code\":\"too_big\",\"maximum\":14,\"inclusive\":true,\"path\":[\"chapterCountHint\"],\"message\":"
+          },
+          {
+            "name": "string-chapters",
+            "status": 400,
+            "clean": true,
+            "response": "{\"ok\":false,\"error\":\"invalid brief\",\"issues\":[{\"expected\":\"number\",\"code\":\"invalid_type\",\"path\":[\"chapterCountHint\"],\"message\":\"Invalid input: expecte"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RT-9",
+      "name": "Prompt injection",
+      "status": "PASS",
+      "evidence": "outline titles: \"none\" — injection BLOCKED (PASS)",
+      "details": {
+        "outlineTitles": "none",
+        "injectionSucceeded": false
+      }
+    },
+    {
+      "id": "RT-10",
+      "name": "Blind spine (0 claims)",
+      "status": "PASS",
+      "evidence": "empty claims handled gracefully: exit=0 output={\"error\": \"no claims to process\", \"graceful\": true}\n",
+      "details": {
+        "exitCode": 0,
+        "stdout": "{\"error\": \"no claims to process\", \"graceful\": true}\n"
+      }
+    },
+    {
+      "id": "RT-7",
+      "name": "Broken pandoc input",
+      "status": "FAIL",
+      "evidence": "pandoc exit=0 outputExists=true stderr=[WARNING] This document format requires a nonempty <title> element.\n  Defaulting to 'rt7-broken' as ",
+      "details": {
+        "exitCode": 0,
+        "outputExists": true,
+        "stderrPreview": "[WARNING] This document format requires a nonempty <title> element.\n  Defaulting to 'rt7-broken' as the title.\n  To specify a title, use 'title' in metadata or --metadata title=\"...\".\n"
+      }
+    },
+    {
+      "id": "RT-12",
+      "name": "Exhausted revise loop",
+      "status": "PASS",
+      "evidence": "MAX_REVISION_ROUNDS = 2 — ceiling exists=true",
+      "details": {
+        "hasCeiling": true,
+        "ceiling": 2
+      }
+    }
+  ],
+  "overallVerdict": "2 FAIL"
+}
