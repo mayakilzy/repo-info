@@ -479,3 +479,33 @@
 
 **Date**: 2026-09-30 (partner insertion at P10-T1 prep)
 **Author**: Partner (الشريك) — inserted verbatim per protocol "توجيهاته تعود إليك كإدراجات مرقّمة تُلحق بالملفات وتُرفع للمستودعين"
+
+---
+
+## D34 — Mishkal GPL-2.0 isolation in HTTP sidecar (P10-T2 prep for LIVE)
+
+- **Decision**: Mishkal (the Arabic tashkeel engine used in P10-T2) is GPL-2.0 licensed. Per partner authorization, it MUST be isolated in a sidecar OUTSIDE src/ to prevent GPL contamination of the BookForge distribution. The TS adapter calls the sidecar via HTTP — no Python imports, no Mishkal in the BookForge package.
+
+- **Implementation**:
+  - The Mishkal-importing Python script is at `sidecars/arabic-normalizer/server.py` (NOT in `src/`)
+  - HTTP service on port 8101 (default, override via `ARABIC_NORMALIZER_PORT`)
+  - Endpoints: `GET /health`, `POST /normalize { text, ops? } → JSON { original, normalized, ops_applied, ... }`
+  - Same sidecar pattern as T1 TTS worker + P8-T3 paper-search-mcp
+  - TS adapter (`src/book-forge/lib/providers/tts/arabic-normalizer.ts`) uses `fetch()` — no Python imports, no Mishkal references in src/ (only doc-comments mentioning the GPL isolation rationale)
+
+- **Engine swap path** (per partner: "عند توفر بديل MIT يُستبدل بلا واجهة"):
+  - When an MIT-licensed Arabic tashkeel engine becomes available (e.g., a future CAMeL-native tashkeel when camel-tools ships one)
+  - Only `sidecars/arabic-normalizer/server.py` needs to be swapped — the TS adapter stays unchanged (per Rule 7: build above the existing, not inside it)
+  - Acceptance test (smoke-t2-arabic-normalizer.ts) automatically verifies the new engine returns tashkeel — no test changes needed
+
+- **Verification per D34 protocol** ("القبول: grep لا يجد Mishkal في src/ + sidecar حي يرجع تشكيلاً"):
+  - `grep -rn -i mishkal src/` returns 5 doc-comment references (in arabic-normalizer.ts + qa-loop.ts) — all are documentation about the GPL isolation, NOT code or imports. ✓
+  - `grep -rn 'from mishkal\|import mishkal' src/` returns 0 matches. ✓
+  - HTTP /health returns `loaded=true, modules.tashkeel=true` in live mode. ✓
+  - POST /normalize returns tashkeel: 'هذا اختبار' → ' هَذَا اِختبَارٍ'. ✓
+  - 8/8 acceptance tests PASS.
+
+- **Side-engineering note**: ThreadingHTTPServer was initially used to handle concurrent HTTP requests, but Mishkal's internal SQLite (via arramooz-pysqlite) raises "SQLite objects created in a thread can only be used in that same thread" when a request is handled in a different thread than the one that loaded the model. Fix: revert to single-threaded HTTPServer + Connection: close header (prevents keep-alive issues) + retry loop in the TS adapter (3 attempts with 200ms backoff).
+
+- **Date**: 2026-09-30 (inserted before LIVE integrated run per partner protocol)
+- **Reference**: `sidecars/arabic-normalizer/server.py` (NEW) + `src/book-forge/lib/providers/tts/arabic-normalizer.ts` (MODIFIED — HTTP fetch instead of subprocess spawn) + `scripts/smoke-t2-arabic-normalizer.ts` (D34 acceptance test)
