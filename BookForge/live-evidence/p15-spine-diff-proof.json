@@ -1,0 +1,446 @@
+{
+  "task": "تأ-P15",
+  "timestamp": "2026-09-30T13:18:00.928Z",
+  "wallSec": 15.817,
+  "spineDiffProof": {
+    "modification1": {
+      "chapter": 2,
+      "claimId": "src-hydro-003",
+      "before": "نظام NFT مناسب للمساحات المتوسطة.",
+      "after": "نظام NFT مناسب للمساحات المتوسطة والصغيرة معاً.",
+      "regenerated": [
+        {
+          "id": "infographic-1-cost-by-system",
+          "type": "infographic",
+          "dependsOn": [
+            "src-hydro-001",
+            "src-hydro-002",
+            "src-hydro-003",
+            "src-hydro-004"
+          ]
+        },
+        {
+          "id": "flashcard-5-systems",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-hydro-003"
+          ]
+        },
+        {
+          "id": "translation-ch2",
+          "type": "translation",
+          "dependsOn": [
+            "src-hydro-003",
+            "src-ph-001"
+          ]
+        },
+        {
+          "id": "audio-ch2",
+          "type": "audio",
+          "dependsOn": [
+            "src-hydro-003",
+            "src-ph-001"
+          ]
+        }
+      ],
+      "untouched": [
+        {
+          "id": "infographic-2-growth-by-week",
+          "type": "infographic",
+          "dependsOn": [
+            "src-growth-001",
+            "src-growth-002",
+            "src-growth-003",
+            "src-growth-004",
+            "src-growth-005",
+            "src-growth-006"
+          ]
+        },
+        {
+          "id": "infographic-3-ph-range",
+          "type": "infographic",
+          "dependsOn": [
+            "src-ph-001",
+            "src-ph-002",
+            "src-ph-003",
+            "src-ph-004",
+            "src-ph-005"
+          ]
+        },
+        {
+          "id": "flashcard-1-hydro-definition",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-hydro-001"
+          ]
+        },
+        {
+          "id": "flashcard-2-dwc",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-hydro-002"
+          ]
+        },
+        {
+          "id": "flashcard-3-ph",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-ph-001"
+          ]
+        },
+        {
+          "id": "flashcard-4-ec",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-ec-001"
+          ]
+        },
+        {
+          "id": "flashcard-6-equipment",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-equip-001"
+          ]
+        },
+        {
+          "id": "flashcard-7-light",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-light-001"
+          ]
+        },
+        {
+          "id": "flashcard-8-temperature",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-temp-001"
+          ]
+        },
+        {
+          "id": "translation-ch1",
+          "type": "translation",
+          "dependsOn": [
+            "src-hydro-001",
+            "src-hydro-002",
+            "src-equip-001"
+          ]
+        },
+        {
+          "id": "translation-ch3",
+          "type": "translation",
+          "dependsOn": [
+            "src-equip-001",
+            "src-light-001"
+          ]
+        },
+        {
+          "id": "translation-ch4",
+          "type": "translation",
+          "dependsOn": [
+            "src-ph-001",
+            "src-ec-001",
+            "src-temp-001"
+          ]
+        },
+        {
+          "id": "audio-ch1",
+          "type": "audio",
+          "dependsOn": [
+            "src-hydro-001",
+            "src-hydro-002"
+          ]
+        },
+        {
+          "id": "audio-ch3",
+          "type": "audio",
+          "dependsOn": [
+            "src-equip-001"
+          ]
+        },
+        {
+          "id": "audio-ch4",
+          "type": "audio",
+          "dependsOn": [
+            "src-ph-001",
+            "src-ec-001",
+            "src-temp-001",
+            "src-light-001"
+          ]
+        },
+        {
+          "id": "concept-map",
+          "type": "concept-map",
+          "dependsOn": [
+            "src-hydro-001",
+            "src-hydro-002",
+            "src-hydro-003",
+            "src-ph-001",
+            "src-equip-001"
+          ]
+        },
+        {
+          "id": "workbook",
+          "type": "workbook",
+          "dependsOn": [
+            "src-hydro-001",
+            "src-hydro-002",
+            "src-ph-001",
+            "src-ec-001",
+            "src-equip-001"
+          ]
+        }
+      ],
+      "efficiency": "4/21 = 19.0%",
+      "verdict": "PASS"
+    },
+    "modification2": {
+      "chapter": 4,
+      "claimId": "src-temp-001",
+      "before": "ما درجة الحرارة المثلى للمحلول المغذي؟",
+      "after": "ما درجة الحرارة المثلى للمحلول المغذي في الصيف؟",
+      "regenerated": [
+        {
+          "id": "flashcard-8-temperature",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-temp-001"
+          ]
+        },
+        {
+          "id": "translation-ch4",
+          "type": "translation",
+          "dependsOn": [
+            "src-ph-001",
+            "src-ec-001",
+            "src-temp-001"
+          ]
+        },
+        {
+          "id": "audio-ch4",
+          "type": "audio",
+          "dependsOn": [
+            "src-ph-001",
+            "src-ec-001",
+            "src-temp-001",
+            "src-light-001"
+          ]
+        }
+      ],
+      "untouched": [
+        {
+          "id": "infographic-1-cost-by-system",
+          "type": "infographic",
+          "dependsOn": [
+            "src-hydro-001",
+            "src-hydro-002",
+            "src-hydro-003",
+            "src-hydro-004"
+          ]
+        },
+        {
+          "id": "infographic-2-growth-by-week",
+          "type": "infographic",
+          "dependsOn": [
+            "src-growth-001",
+            "src-growth-002",
+            "src-growth-003",
+            "src-growth-004",
+            "src-growth-005",
+            "src-growth-006"
+          ]
+        },
+        {
+          "id": "infographic-3-ph-range",
+          "type": "infographic",
+          "dependsOn": [
+            "src-ph-001",
+            "src-ph-002",
+            "src-ph-003",
+            "src-ph-004",
+            "src-ph-005"
+          ]
+        },
+        {
+          "id": "flashcard-1-hydro-definition",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-hydro-001"
+          ]
+        },
+        {
+          "id": "flashcard-2-dwc",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-hydro-002"
+          ]
+        },
+        {
+          "id": "flashcard-3-ph",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-ph-001"
+          ]
+        },
+        {
+          "id": "flashcard-4-ec",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-ec-001"
+          ]
+        },
+        {
+          "id": "flashcard-5-systems",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-hydro-003"
+          ]
+        },
+        {
+          "id": "flashcard-6-equipment",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-equip-001"
+          ]
+        },
+        {
+          "id": "flashcard-7-light",
+          "type": "flashcard",
+          "dependsOn": [
+            "src-light-001"
+          ]
+        },
+        {
+          "id": "translation-ch1",
+          "type": "translation",
+          "dependsOn": [
+            "src-hydro-001",
+            "src-hydro-002",
+            "src-equip-001"
+          ]
+        },
+        {
+          "id": "translation-ch2",
+          "type": "translation",
+          "dependsOn": [
+            "src-hydro-003",
+            "src-ph-001"
+          ]
+        },
+        {
+          "id": "translation-ch3",
+          "type": "translation",
+          "dependsOn": [
+            "src-equip-001",
+            "src-light-001"
+          ]
+        },
+        {
+          "id": "audio-ch1",
+          "type": "audio",
+          "dependsOn": [
+            "src-hydro-001",
+            "src-hydro-002"
+          ]
+        },
+        {
+          "id": "audio-ch2",
+          "type": "audio",
+          "dependsOn": [
+            "src-hydro-003",
+            "src-ph-001"
+          ]
+        },
+        {
+          "id": "audio-ch3",
+          "type": "audio",
+          "dependsOn": [
+            "src-equip-001"
+          ]
+        },
+        {
+          "id": "concept-map",
+          "type": "concept-map",
+          "dependsOn": [
+            "src-hydro-001",
+            "src-hydro-002",
+            "src-hydro-003",
+            "src-ph-001",
+            "src-equip-001"
+          ]
+        },
+        {
+          "id": "workbook",
+          "type": "workbook",
+          "dependsOn": [
+            "src-hydro-001",
+            "src-hydro-002",
+            "src-ph-001",
+            "src-ec-001",
+            "src-equip-001"
+          ]
+        }
+      ],
+      "efficiency": "3/21 = 14.3%",
+      "verdict": "PASS"
+    },
+    "crossVerification": {
+      "chaptersUntouchedInBoth": [
+        1,
+        3
+      ],
+      "result": "PASS"
+    },
+    "totalArtifacts": 21,
+    "overallVerdict": "PASS"
+  },
+  "twinNotes": {
+    "chapterRead": "الفصل 1: أساسيات الزراعة المائية",
+    "reports": [
+      {
+        "personaId": "rushed-beginner",
+        "personaName": "المبتدئ المتعجل",
+        "boredAt": "هناك عدة أنواع من أنظمة الزراعة المائية. نظام DWC هو الأبسط للمبتدئين. نظام NFT مناسب للمساحات المتوسطة. نظام الرذاذ يوفر أعلى نمو لكنه يتطلب صيانة دقيقة.",
+        "wouldStopAt": "هناك عدة أنواع من أنظمة الزراعة المائية.",
+        "didntUnderstand": "ما هي أنظمة DWC و NFT والرذاذ بالضبط؟ وكيف أختار المناسب لي؟",
+        "overallImpression": "الفصل يعطي فكرة عامة لكنه يفتقر للخطوات العملية المباشرة للبدء.",
+        "tokens": {
+          "in": 355,
+          "out": 195
+        }
+      },
+      {
+        "personaId": "skeptical-critic",
+        "personaName": "الناقد المتشكك",
+        "boredAt": "هناك عدة أنواع من أنظمة الزراعة المائية. نظام DWC هو الأبسط للمبتدئين. نظام NFT مناسب للمساحات المتوسطة. نظام الرذاذ يوفر أعلى نمو لكنه يتطلب صيانة دقيقة.",
+        "wouldStopAt": "نظام DWC هو الأبسط للمبتدئين. نظام NFT مناسب للمساحات المتوسطة. نظام الرذاذ يوفر أعلى نمو لكنه يتطلب صيانة دقيقة.",
+        "didntUnderstand": "ما هي الاختصارات DWC و NFT التي ذكرت دون شرح؟ ما هي العناصر الغذائية الدقيقة التي يحتاجها النبات؟ ما هي درجة الحموضة والناقلية الكهربائية الملائمة؟",
+        "overallImpression": "مقدمة عامة سطحية تفتقر إلى التفاصيل العلمية والشرح الواضح للمصطلحات الفنية المهمة.",
+        "tokens": {
+          "in": 351,
+          "out": 261
+        }
+      },
+      {
+        "personaId": "busy-reader",
+        "personaName": "القارئ المشغول",
+        "boredAt": "هناك عدة أنواع من أنظمة الزراعة المائية. نظام DWC هو الأبسط للمبتدئين. نظام NFT مناسب للمساحات المتوسطة. نظام الرذاذ يوفر أعلى نمو لكنه يتطلب صيانة دقيقة.",
+        "wouldStopAt": "الحاوية الرئيسية، نظام الإضاءة، مضخات الهواء والمياه، جهاز قياس درجة الحموضة والناقلية الكهربائية لا غنى عنها لمراقبة المحلول المغذي.",
+        "didntUnderstand": "لم يتم توضيح ما هي أنظمة DWC و NFT والرذاذ بالتفصيل.",
+        "overallImpression": "مقدمة جيدة للموضوع لكنها تحتاج إلى مزيد من التفاصيل العملية.",
+        "tokens": {
+          "in": 347,
+          "out": 224
+        }
+      }
+    ],
+    "objectionCount": 3,
+    "measurement": "3 objections → simplification has improvement opportunities"
+  },
+  "acceptance": {
+    "spineDiffLiveProof": true,
+    "listsByNames": true,
+    "efficiencyMeasured": true,
+    "bothDirections": true,
+    "twinNotesDocumented": true
+  }
+}
