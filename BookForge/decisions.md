@@ -680,3 +680,26 @@ These rules generalize — they're added to the render style package as permanen
 
 - **Date**: 2026-09-30 (P12-T0)
 - **Reference**: G5 spike test sites at `/home/z/my-project/g5-spike/{docusaurus-test,starlight-test}/`
+
+---
+
+## D38 — G6 MoneyPrinterTurbo license: RESOLVED — MIT (clean)
+
+- **Decision**: G6 closed — MoneyPrinterTurbo is MIT-licensed. Commercial use permitted. The tool can be used for BookForge's Shorts production (P13-T2).
+
+- **G6 protocol** (per partner): "G6 (ساعتان: LICENSE لـ MoneyPrinterTurbo من المصدر — إن غير نظيف: إغلاق نهائي)"
+
+- **Verification** (per G2 protocol — read from inside the artifact):
+  - Repo: harry0703/MoneyPrinterTurbo (127,257 stars)
+  - LICENSE file (1061 bytes): full MIT License text, Copyright (c) 2024 Harry
+  - GitHub metadata: license.spdx_id = "MIT", license.name = "MIT License"
+  - Archived: False (active, pushed 2026-09-30)
+  - Default branch: main
+  - Commercial use: explicitly permitted by MIT ("use, copy, modify, merge, publish, distribute, sublicense, and/or sell")
+
+- **MoneyPrinterTurbo purpose**: "Generate HD short videos from a topic or keyword with an automated AI workflow." — Takes text + audio + images → produces 1080×1920 vertical short videos. Perfect for BookForge's Shorts (P13-T2).
+
+- **Per G6 protocol**: license is clean → G6 passes. No fallback needed. The tool is adopted for Shorts production.
+
+- **Date**: 2026-09-30 (P13-G6)
+- **Reference**: https://github.com/harry0703/MoneyPrinterTurbo/blob/main/LICENSE (verified by direct content fetch from GitHub API)
