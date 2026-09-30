@@ -1,0 +1,176 @@
+{
+  "task": "P13-T2",
+  "title": "Shorts — 4 Arabic + 1 English reference",
+  "date": "2026-09-30",
+  "book": "الزراعة المائية للمبتدئين",
+
+  "timing_approach": {
+    "method": "approximate declared (per partner hint)",
+    "description": "تقسيم زمني متساوٍ موثق — كل ادعاء يحصل على حصة متساوية من مدة الصوت. ممنوع الاصطفاف لمزامنة كلمة بكلمة. المزامنة الدقيقة باب تحسين لاحق (وسيقيسها whisper العكسي مجاناً)",
+    "partner_guidance": "السماح في T2 بالترجمة 'تقريبية مُعلنة' (تقسيم زمني متساوٍ موثق) في الإصدار الأول",
+    "formula": "duration_sec = total_audio_sec / (hook + 3_claims + cta) → each segment = total / 5"
+  },
+
+  "shorts": [
+    {
+      "id": "short-ar-1-intro",
+      "language": "ar",
+      "title": "مقدمة في الزراعة المائية",
+      "hook": "هل تعلم أنك تستطيع زراعة نباتات بدون تربة؟",
+      "claims": [
+        {
+          "text": "الزراعة المائية تستخدم محلولاً مائياً مغذياً بدلاً من التربة.",
+          "sourceId": "src-hydro-001",
+          "stance": "supports"
+        },
+        {
+          "text": "درجة الحموضة المثلى بين 5.5 و 6.5.",
+          "sourceId": "src-ph-001",
+          "stance": "supports"
+        },
+        {
+          "text": "تكلفة النظام تبدأ من 300 ريال فقط.",
+          "sourceId": "src-hydro-001",
+          "stance": "supports"
+        }
+      ],
+      "cta": "اقرأ الكتاب كاملاً — متاح الآن!",
+      "graphics": ["infographic-1-cost-by-system.png", "concept-map.png"],
+      "audio": {
+        "engine": "Piper (ar_JO-kareem-medium, MIT)",
+        "approach": "synth hook + claims + cta → concat → mastered WAV"
+      },
+      "subtitles": {
+        "approach": "equal time partition (per partner hint)",
+        "segments": 5,
+        "note": "كل من الـ5 مقاطع (hook + 3 claims + cta) يحصل على 1/5 من مدة الصوت"
+      }
+    },
+    {
+      "id": "short-ar-2-ph",
+      "language": "ar",
+      "title": "درجة الحموضة في الزراعة المائية",
+      "hook": "رقم واحد يحدد نجاح أو فشل زراعتك المائية!",
+      "claims": [
+        {
+          "text": "درجة الحموضة المثلى بين 5.5 و 6.5.",
+          "sourceId": "src-ph-001",
+          "stance": "supports"
+        },
+        {
+          "text": "جهاز قياس pH لا غنى عنه لمراقبة المحلول.",
+          "sourceId": "src-equip-001",
+          "stance": "supports"
+        },
+        {
+          "text": "كل نبات له نطاق حموضة مثالي خاص به.",
+          "sourceId": "src-ph-001",
+          "stance": "qualifies"
+        }
+      ],
+      "cta": "تعلم المزيد في كتاب الزراعة المائية للمبتدئين",
+      "graphics": ["infographic-3-ph-range.png"],
+      "audio": { "engine": "Piper (ar_JO-kareem-medium)", "approach": "synth + concat + master" },
+      "subtitles": { "approach": "equal time partition", "segments": 5 }
+    },
+    {
+      "id": "short-ar-3-systems",
+      "language": "ar",
+      "title": "أنظمة الزراعة المائية",
+      "hook": "DWC أم NFT أم Aeroponics؟ أي نظام يناسبك؟",
+      "claims": [
+        {
+          "text": "نظام DWC هو الأبسط للمبتدئين.",
+          "sourceId": "src-hydro-002",
+          "stance": "supports"
+        },
+        {
+          "text": "نظام NFT مناسب للمساحات المتوسطة.",
+          "sourceId": "src-hydro-003",
+          "stance": "supports"
+        },
+        {
+          "text": "نظام الرذاذ يوفر أعلى نمو لكنه يتطلب صيانة دقيقة.",
+          "sourceId": "src-hydro-003",
+          "stance": "qualifies"
+        }
+      ],
+      "cta": "اختر نظامك في كتاب الزراعة المائية للمبتدئين",
+      "graphics": ["infographic-1-cost-by-system.png"],
+      "audio": { "engine": "Piper (ar_JO-kareem-medium)", "approach": "synth + concat + master" },
+      "subtitles": { "approach": "equal time partition", "segments": 5 }
+    },
+    {
+      "id": "short-ar-4-growth",
+      "language": "ar",
+      "title": "نمو النبات عبر الأسابيع",
+      "hook": "شاهد كيف تنمو نباتاتك أسبوعاً بعد أسبوع!",
+      "claims": [
+        {
+          "text": "النبات يصل إلى 60 سم في 6 أسابيع.",
+          "sourceId": "src-growth-006",
+          "stance": "supports"
+        },
+        {
+          "text": "النمو يبدأ بطيئاً ثم يتسارع في الأسبوع الثالث.",
+          "sourceId": "src-growth-003",
+          "stance": "supports"
+        },
+        {
+          "text": "الإضاءة 12 ساعة يومياً ضرورية للنمو.",
+          "sourceId": "src-light-001",
+          "stance": "supports"
+        }
+      ],
+      "cta": "زرع نباتك الأول هذا الأسبوع — دليل كامل في الكتاب",
+      "graphics": ["infographic-2-growth-by-week.png"],
+      "audio": { "engine": "Piper (ar_JO-kareem-medium)", "approach": "synth + concat + master" },
+      "subtitles": { "approach": "equal time partition", "segments": 5 }
+    },
+    {
+      "id": "short-en-ref",
+      "language": "en",
+      "title": "Hydroponics for Beginners (English Reference)",
+      "hook": "Can you grow plants without soil? Here's how.",
+      "claims": [
+        {
+          "text": "Hydroponics uses nutrient-rich water instead of soil.",
+          "sourceId": "src-hydro-001",
+          "stance": "supports"
+        },
+        {
+          "text": "The optimal pH range is 5.5 to 6.5.",
+          "sourceId": "src-ph-001",
+          "stance": "supports"
+        },
+        {
+          "text": "A DWC system costs as little as $80 to set up.",
+          "sourceId": "src-hydro-001",
+          "stance": "supports"
+        }
+      ],
+      "cta": "Read the full guide — available now in Arabic and English!",
+      "graphics": ["infographic-1-cost-by-system.png"],
+      "audio": { "engine": "Piper (en_US-lessac-medium, MIT)", "approach": "synth + concat + master" },
+      "subtitles": { "approach": "equal time partition", "segments": 5 },
+      "note": "English reference per partner: 'الإنجليزية مفترض أعلى جودة — وثق الفرق كبيان مرجعي'"
+    }
+  ],
+
+  "d30_gate": {
+    "shortsChecked": 5,
+    "shortsWithSourceIds": 5,
+    "claimsWithoutSource": 0,
+    "verdict": "FP-zero — كل ادعاء في كل short يحمل sourceId من الـspine"
+  },
+
+  "acceptance": {
+    "shorts_count": "4 Arabic + 1 English reference = 5 total",
+    "hook_per_short": "✅ كل short له hook + 3 claims + cta",
+    "sourceIds": "✅ كل claim له sourceId (D30 gate FP-zero)",
+    "graphics": "✅ كل short مرتبط بإنفوغرافيك أو خريطة مفاهيم من P11",
+    "audio": "Piper (ar + en) — نفس TTSProvider من D33",
+    "subtitles": "ترجمة تقريبية مُعلنة (تقسيم زمني متساوٍ موثق) per partner hint",
+    "moneyprinterturbo": "G6 MIT verified (D38) — tool available for video assembly"
+  }
+}
