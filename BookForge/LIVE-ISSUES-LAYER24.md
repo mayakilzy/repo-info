@@ -471,3 +471,28 @@ GLM call exhausted retries
 **Date:** 2026-09-30
 **Status:** ENVIRONMENTALLY-QUALIFIED — re-test on production with raised throttle
 **Reference:** Live run log at `/home/z/my-project/workspace/BookForge/logs/live-run/text.log` + dev server log at `/home/z/my-project/workspace/BookForge/logs/dev-zai3.log`
+
+---
+
+## Live Issue #20 — Preview proxy returns 404 (first real user click)
+
+**Discovered:** 2026-09-30 (Live Demo Session — first real user click)
+
+**The bug:** The owner (first real user) opened the preview URL `https://preview-zai-web.space-z.ai/book-forge/studio` and got a bare "404 page not found" — not a Next.js styled 404 page, but a plain text 404 from the proxy server itself.
+
+**Root cause:** The preview proxy (preview-zai-web.space-z.ai) recognizes the bot-id (confirmed by `Abc: preview-zai-web` response header) but does NOT route to localhost:3000 where the dev server is running and serving HTTP 200. The proxy layer was never tested in the RT Gauntlet — it's a layer we didn't control.
+
+**Diagnosis:**
+- localhost:3000/book-forge/studio → HTTP 200 ✓ (dev server works)
+- preview-zai-web.space-z.ai/ → HTTP 404 ✗ (proxy doesn't route)
+- preview-zai-web.space-z.ai/book-forge/studio → HTTP 404 ✗
+- Production build completed ✓ (next build succeeded, /book-forge/studio is static)
+- Complete tool called twice ✓ (proxy should have refreshed)
+- Process on port 3000 confirmed alive ✓
+
+**Lesson:** "طبقة النشر/المعاينة لم تُختبر أبداً كمسار مستخدم — تُضاف لفحوص ما قبل التسليم" — the preview/proxy layer was never tested as a user path. This is added to the pre-launch checklist for future versions.
+
+**Status:** UNRESOLVED — the proxy routing configuration is outside the agent's control (system infrastructure). The dev server works locally; the proxy needs system-level configuration to route to it.
+
+**Date:** 2026-09-30
+**Reference:** live-demo-session.md + this file
