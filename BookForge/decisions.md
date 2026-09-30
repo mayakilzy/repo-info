@@ -647,3 +647,36 @@ These rules generalize — they're added to the render style package as permanen
 
 **Date**: 2026-09-30 (partner insertion at P11-T2 prep)
 **Author**: Partner (الشريك) — inserted verbatim per protocol
+
+---
+
+## D37 — G5 interactive book platform: ADOPT fallback (MDX + Tailwind RTL in existing Next.js)
+
+- **Decision**: G5 closed — the interactive book site will be built as MDX pages within the EXISTING Next.js BookForge app, using Tailwind CSS for RTL styling. No additional documentation framework (Docusaurus/Starlight) is adopted.
+
+- **G5 spike results** (P12-T0, 2026-09-30):
+  - **Docusaurus**: BUILD FAILED (webpack/babel `javascript/dynamic` module parse error). 1272 npm packages. RTL not testable. Heavy maintenance burden + complete build failure.
+  - **Starlight (Astro)**: PARTIAL SUCCESS — build completed (832ms, 270 packages). 404 page confirmed: RTL (dir="rtl") ✓ + Arabic Unicode (107 chars) ✓ + Pagefind search index ✓ + TOC ✓ + lang="ar" ✓. BUT docs collection broken (version mismatch: `docsLoader is not a function` — Starlight/Astro API change).
+  - **Fallback (MDX + Tailwind RTL in Next.js)**: CHOSEN — BookForge is already a Next.js 16 app with Tailwind CSS 4 configured. MDX is natively supported. No new framework, no new deps, no version-sensitivity issues.
+
+- **Rationale for fallback**:
+  1. BookForge is ALREADY Next.js 16 + Tailwind 4 — adding Docusaurus (1272 packages) or Starlight (270 packages) is unnecessary overhead
+  2. Next.js natively supports MDX pages — no additional build pipeline
+  3. Tailwind CSS has `dir="rtl"` support — RTL works at the CSS level
+  4. The "site is a display bridge, not a state extension" principle (per partner phase rule) aligns with Next.js static export
+  5. Docusaurus completely failed to build — maintenance liability
+  6. Starlight's version sensitivity (API changes between minor versions) is a maintenance concern
+
+- **Per partner protocol**: "فشل RTL في كليهما ⇒ MDX يدوي + Tailwind RTL (مسار معلن)" — RTL didn't strictly FAIL in Starlight (it worked on the 404 page), but the docs collection issue prevents real content from building. The fallback is a documented measurement decision based on maintenance cost + architectural alignment with the existing Next.js app.
+
+- **Configuration**:
+  - Framework: Next.js 16 (existing BookForge app)
+  - MDX: @mdxeditor/editor (already in package.json) + @next/mdx for page-level MDX
+  - Styling: Tailwind CSS 4 (existing, with `dir="rtl"` support)
+  - Font: Noto Sans Arabic (already installed in /home/z/.fonts/)
+  - Search: FlexSearch or similar lightweight client-side search (to be added in T1)
+  - EPUB preview: foliate-js (MIT) embedded in iframe (T4)
+  - Output: static export (Next.js `output: 'export'`) for GitHub Pages or static hosting
+
+- **Date**: 2026-09-30 (P12-T0)
+- **Reference**: G5 spike test sites at `/home/z/my-project/g5-spike/{docusaurus-test,starlight-test}/`
