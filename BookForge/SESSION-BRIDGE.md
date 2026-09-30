@@ -44,6 +44,8 @@
 
 2. ~~**مناورة G1 (Piper × Habibi-MSA)**~~ — ✅ **CLOSED (P10-T0b, 2026-09-30)** — ADOPT Piper (D33). RTF=0.10 (10× أسرع من realtime على CPU). Habibi-MSA فشل RTF (188×-469× على CPU) — Apache 2.0 لكن مؤجل لـ v2 (GPU servers). TTSProvider interface مُلتزم في `src/book-forge/lib/providers/tts/` (5 ملفات). الكتاب العربي ينطق الآن.
 
+3. **P10-T1→T5 خط الإنتاج الصوتي** — ✅ **mock-PASS (2026-09-30)** — T1 TTS worker sidecar (HTTP persistent) + T2 خط التطبيع العربي (Mishkal tashkeel + arabic_reshaper + pyarabic.number Rule 13) + T3 Dialogue Planner (askJSON(DialogueScript) من Spine + sourceRefs + Layer 24 #9 few-shot) + T4 FFmpeg mastering (loudnorm -16/-19 LUFS + silenceremove + m4b بفصول) + T5 حلقة QA الصوتية (faster-whisper round-trip + WER/مقطع + 2-round regeneration). 5 acceptance tests: 31/31 PASS. type-clean 0 + smoke-pipeline-full PASS. **LIVE phase acceptance مؤجل** — يتطلب FORGE_MODE=zai + live Piper worker + كتاب كامل.
+
 ### المعلَّق على المالك (مفاتيح خارجية)
 - `UNPAYWALL_EMAIL` + `S2_API_KEY` + `CORE_API_KEY` — تفتح 3 مزودين إضافيين
 - GitHub PAT (fine-grained، محدود النطاق) — للرفع الآمن
