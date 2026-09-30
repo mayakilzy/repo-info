@@ -464,3 +464,18 @@
 
 - **Date**: 2026-09-30
 - **Reference**: `live-evidence/g1-decision.json` + `live-evidence/g1-matrix-piper.json` + `live-evidence/g1-wer-piper.json` + `G1-CLOSURE-STATUS.md` + `src/book-forge/lib/providers/tts/` (5 files)
+
+---
+
+## D33-addendum — Partner annotation on WER interpretation (P10-T1 prep)
+
+> تفسير WER 50.91% المتوسط: قياس حد whisper العربي + قصور النص غير المشكول، وليس جودة Piper — الدليل: voweled-1 (100%→27.5% بعد التطبيع، يؤكد نطق التشكيل الصحيح). الحسم اكتمل بشرط RTF قبل بلوغ مقارنة WER مزدوجة الأطراف (Habibi سقط بـ RTF 188-469× قبل القياس الصوتي).
+
+**Context (partner-supplied clarification, inserted verbatim above):**
+- The 50.91% mean WER is a measurement of faster-whisper small's Arabic ASR limit + the deficiency of comparing non-voweled text to whisper's non-voweled transcription — NOT a measure of Piper's output quality.
+- Proof: voweled-1 case raw WER=100% (whisper couldn't match voweled input to its non-voweled transcription) → normalized WER=27.5% after stripping diacritics (confirms Piper renders diacritics correctly, the gap is in the comparison metric not the synthesis).
+- The G1 resolution completed at the RTF gate (Piper PASS RTF<1.0; Habibi FAIL RTF=188-469× on CPU) — before reaching bilateral WER comparison. Habibi's audio was never measured for WER because it failed RTF decisively first.
+- This addendum is the partner's official interpretation inserted into D33 to clarify the WER number for downstream P10-T2 (CAMeL tashkeel will produce voweled text → expected WER improvement confirms the interpretation).
+
+**Date**: 2026-09-30 (partner insertion at P10-T1 prep)
+**Author**: Partner (الشريك) — inserted verbatim per protocol "توجيهاته تعود إليك كإدراجات مرقّمة تُلحق بالملفات وتُرفع للمستودعين"
