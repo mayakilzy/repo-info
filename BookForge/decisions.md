@@ -509,3 +509,40 @@
 
 - **Date**: 2026-09-30 (inserted before LIVE integrated run per partner protocol)
 - **Reference**: `sidecars/arabic-normalizer/server.py` (NEW) + `src/book-forge/lib/providers/tts/arabic-normalizer.ts` (MODIFIED — HTTP fetch instead of subprocess spawn) + `scripts/smoke-t2-arabic-normalizer.ts` (D34 acceptance test)
+
+---
+
+## D35 — LIVE integrated run: hybrid path (4 chapters + 20s throttle + resume existing book)
+
+- **Decision**: Per partner authorization, adopt the hybrid path for completing the LIVE phase acceptance:
+  1. **4 chapters** (instead of 6) — enough for all acceptance metrics without exception
+  2. **GLM_THROTTLE_MS=20000** (20s) — proven successful in T6-live/G13 closure run
+  3. **Resume the existing live book** (cmunhqzw50000n2bv8f73swc8, state=AUTHORING) from the first un-authored chapter — the resume itself is a complementary measurement for the architectural claim (proves BookForge supports resume from saved DB state)
+  4. **Decision point during run**: if 429 rate limit recurs specifically during authoring → bump throttle to 25-30s for the remaining stages only (documented measurement decision, NOT silence — D20.1 pattern)
+
+- **Rationale**:
+  - "خادم إنتاجي" path is outside the agent's authority (affects timeline) — DEFER
+  - 20s throttle is the proven-successful value (G13/T6-live) — safer than 5s default
+  - Resume capability validates the architecture's state-machine design (DB as single source of truth per §0 rule 4)
+  - 4 chapters is the minimum that exercises all P10 metrics (text + audio + WER + cost + wall time)
+
+- **Execution protocol (per partner, "المثبت — للتذكير الصارم")**:
+  - setsid + logs/ + short-session polling — mمنوع انتظار حي
+  - Audio outputs: file per segment (resume without re-rendering on reset)
+  - Each stage ends with disk trace (state + partial measurement) — G1-STATE pattern proven
+
+- **Mandatory measurements on completion (all live, per partner)**:
+  - m4b complete with real chapter markers + LUFS measured + podcast episode
+  - WER per segment + top-3 weak segments processed (QA bypass)
+  - Full CostEntry: cost/minute audio + simplification cost after batches (D26 missing number from P9 — measured here) + total wall time from brief to m4b (first real promotional number)
+  - English reference chapter: same audio metrics (baseline reference for the difference)
+  - Resume impact: how many chapters resumed from saved state (one line in the report)
+
+- **Acceptance (P10 final, live only — as declared without modification)**:
+  - Arabic book: text + audio from same run
+  - English reference chapter
+  - All measurement metrics above documented in envelope + type-clean + no regression
+  - P10 final report → partner approval → P11 by partner command
+
+- **Date**: 2026-09-30
+- **Reference**: existing live book `cmunhqzw50000n2bv8f73swc8` (state=AUTHORING, in prisma/dev.db) — first un-authored chapter is the resume point
