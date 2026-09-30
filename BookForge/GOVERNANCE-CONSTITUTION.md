@@ -37,7 +37,7 @@
 | G11 🧪 Fidelity thresholds | OPEN | P9-T3 (30-phrase sample) |
 | G12 📑 Slides in v1.5 | OPEN | P13 |
 | **G13 🚦 Live Gate** | **CLOSED ✅** | zai mode → DONE, $0.0402, 19820/20204 tok |
-| G14 🎬 shotcraft-cinematic | OPEN | P13-T5 (half-day spike) |
+| **G14 🎬 shotcraft-cinematic** | **HALF-RESOLVED ✅ (D20.1 4th state)** | D38-addendum: licenses ✓ (shotcraft Apache-2.0 + Remotion Free + Motion Canvas MIT). CPU measurement deferred to production server (owner authority). |
 
 ---
 
