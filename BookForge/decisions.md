@@ -755,3 +755,15 @@ Running Remotion/Chromium in sandbox would replay the G7 torch-timeout scenario 
 
 - **Date**: 2026-09-30 (RT-3-live FAIL → D40)
 - **Reference**: `live-evidence/RT-MATRIX.json` — RT-3 row (v2 update pending)
+
+---
+
+## D41 — Live Issue #21: redirect /book-forge → /book-forge/studio
+
+- **Discovered**: Live Demo Session — owner opened /book-forge (old P6 page) instead of /book-forge/studio (new P16.6 page). Two routes with two different UIs under the same app = trap for every new visitor.
+
+- **Decision**: Redirect `/book-forge` → `/book-forge/studio` via `redirect()` from `next/navigation`.
+
+- **Verification**: curl 307→200, agent-browser lands on welcome screen with "ما الذي تريد كتابته اليوم؟"
+
+- **Date**: 2026-10-01
