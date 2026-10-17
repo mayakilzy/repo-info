@@ -1,0 +1,118 @@
+{
+  "project": "STR Platform v1.0",
+  "generated_utc_date": "2026-10-17",
+  "scope": "documentation repository only",
+  "file_count_without_manifest": 22,
+  "files": [
+    {
+      "path": "SyrianTechRenaissance/Platform/01-STR-Platform-Product-Spec.md",
+      "bytes": 12861,
+      "sha256": "ec2e42c6e5cae0130284c53d65f8399df81c6677b93d480175dabbba4071b1d0"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/02-STR-Platform-Architecture.md",
+      "bytes": 7995,
+      "sha256": "672e9ff6d6d103906043735747552ed37633ff794390c0eb3578be71db09fe24"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/03-Data-and-Permissions.md",
+      "bytes": 5728,
+      "sha256": "78da7806944bd7f870900d61b0c5eb070b5215b26642a53fa58668141ed841f4"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/04-Integrations-Contracts.md",
+      "bytes": 4459,
+      "sha256": "2f153163c5d2fb9060b141c4fe74ffa7566d1be05f5b155ddf42bca461f0aef9"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/05-UX-and-Acceptance.md",
+      "bytes": 4244,
+      "sha256": "17249f31a5aded687a4f7ba4b7d32d5ea28ebf3a2f970eac6c0824e7d9d0c5e9"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/06-Engineering-Playbook.md",
+      "bytes": 3408,
+      "sha256": "8c8bdd40df64951c3a5c6de2e75bbb9ea03b281fa361f356aada865baf48ffb9"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/07-Decision-Register.md",
+      "bytes": 2708,
+      "sha256": "63afb2dd85ffad2f59567625615e4eb23397b98cfc7986b86a6df2297e452932"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/08-Upload-and-Review-Instructions.md",
+      "bytes": 2011,
+      "sha256": "f41848993f2bd8726f50e8a279a26a3ea75b67992c0ab6043a213f1df431a2b4"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/README.md",
+      "bytes": 2775,
+      "sha256": "fa294b343c451b401c8cc4646e5e1e5366fe9a27740ad342a460c17580de25e5"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/contracts/provider-example.json",
+      "bytes": 550,
+      "sha256": "7a1ec18688de39636788cae8731192acebcb373cf3de580b05ead4e011e2210c"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/contracts/schemas/application-test-input.json",
+      "bytes": 280,
+      "sha256": "fa7ebf02e50f3a81bb1f021693c34e429990dc7e06f7c3982978c90bfc5662f3"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/contracts/schemas/application-test-output.json",
+      "bytes": 370,
+      "sha256": "a79c79cfa4bbdfe02ba618a0bbe1d84bd87c69465b88b688bd007a0af5aa5c16"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/missions/G01-Foundation-and-Architecture-Fitness.md",
+      "bytes": 2084,
+      "sha256": "026e6d58ec64877ca26662c75fcf64965b0a692c6992d8d2fd825bd82ba54100"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/missions/G02-Identity,-Profiles-and-Roles.md",
+      "bytes": 1969,
+      "sha256": "d96f23fa5bd5573317f5b9520387ec06de9d146065bfb9da490a4b5bb1e0824e"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/missions/G03-Project-Proposals-and-Team-Governance.md",
+      "bytes": 2094,
+      "sha256": "0680a6dfcf4fd4edbfae5f2cee28feda4acc2c3346c893a98863bab8ad67d85e"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/missions/G04-Talent-and-Opportunity-Workflows.md",
+      "bytes": 1782,
+      "sha256": "33f64ed5ce4777c7e2c5fce2134c098a8208bbd9e1c93b60618e960c8e2924d0"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/missions/G05-Project-Execution-and-Deliverables.md",
+      "bytes": 1816,
+      "sha256": "5f6c26cf35f80ab80d089328741b53e8eaf428e45cd694f9701377242e534d88"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/missions/G06-Institutional-Functions-and-Governance.md",
+      "bytes": 1978,
+      "sha256": "8f4d0946a523307cd1298a6d71b26fde56968bc711d5fa83098ab70f5617acff"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/missions/G07-Integration-Core-Functional-Vertical-Slice.md",
+      "bytes": 2028,
+      "sha256": "0f8fa79ef46e8b5e53a58c71fe8ba3f803d7151eb22f710588341e01df33c746"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/missions/G08-UI-UX-and-Localization-Completion.md",
+      "bytes": 1850,
+      "sha256": "f29d50022a379634dd60965a49f9ee256fa282bf88087837fc9020be959f70ce"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/missions/G09-Full-Security-and-Browser-Verification.md",
+      "bytes": 1976,
+      "sha256": "f5f8347a786fa7cb60499ed4581d662f717a917c068c766a34eeaf6245674ccf"
+    },
+    {
+      "path": "SyrianTechRenaissance/Platform/missions/G10-Deployment-and-Operational-Handoff.md",
+      "bytes": 2030,
+      "sha256": "e4961db44852500fb155cbf622dbf2628abf41f8e1564e7cdb0b55d4a9293332"
+    }
+  ]
+}

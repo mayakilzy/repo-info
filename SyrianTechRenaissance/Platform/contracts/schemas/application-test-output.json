@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "summary",
+    "outcome"
+  ],
+  "properties": {
+    "summary": {
+      "type": "string"
+    },
+    "outcome": {
+      "enum": [
+        "passed",
+        "failed"
+      ]
+    },
+    "evidenceRef": {
+      "type": "string"
+    }
+  }
+}
