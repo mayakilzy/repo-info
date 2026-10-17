@@ -1,0 +1,1 @@
+Official institutional platform for Syrian Tech Renaissance (STR) — connecting talent, teams, opportunities, projects, and partnerships for sustainable technology-driven development.
