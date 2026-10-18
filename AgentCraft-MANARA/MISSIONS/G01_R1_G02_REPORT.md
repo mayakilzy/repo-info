@@ -115,7 +115,7 @@ Returns:
 ### Acceptance evidence: BEFORE vs AFTER
 
 Run `python3 scripts/g01r1_acceptance_evidence.py` for the full report.
-Summary across 6 benchmark queries:
+Summary across 7 benchmark queries:
 
 | Query | BEFORE precision | AFTER precision | BEFORE recall | AFTER recall |
 |-------|-----------------|-----------------|---------------|--------------|
@@ -127,6 +127,13 @@ Summary across 6 benchmark queries:
 | Patents (ar) | 0.333 | 0.333 | 1.000 | 1.000 |
 | Academic papers (en) | 0.250 | **0.750** | 1.000 | **1.000** |
 | **Average** | **0.524** | **0.869** | **0.952** | **1.000** |
+
+> **Note (added per owner review 2026-10-19)**: This benchmark is an
+> *initial* measurement, not a general accuracy guarantee. The 7 queries
+> cover domains already known to the seed catalog; future evaluation
+> should include adversarial queries the decomposer has not seen during
+> archetype design. The benchmark numbers above represent a baseline for
+> regression detection, not a production-grade precision claim.
 
 The prosthetics query (the owner's main concern) went from precision 0.333
 to **1.000** — meaning every returned engine is now relevant. Recall
@@ -251,6 +258,18 @@ tests/test_foundry_live.py::TestFoundrySandboxLive::test_approval_fails_without_
 - `openalex_id`: `https://openalex.org/W2741809807`
 - `duration_ms`: ~500ms
 - Polite-pool `mailto` parameter sent
+
+> **Note (added per owner review 2026-10-19)**: Only the single-work GET
+> call has been verified end-to-end against the live OpenAlex API. The
+> search (`/works?search=...`) call is implemented and unit-tested with
+> a parsed-response fixture, but live verification of search was blocked
+> by OpenAlex's shared-IP daily budget exhaustion (HTTP 429). Live search
+> verification is deferred until either an OpenAlex API key is configured
+> or the shared IP budget resets at midnight UTC. The single-work GET
+> proves MANARA can make real permitted calls with full SSRF protection
+> and provenance — but it does NOT constitute a verified search
+> capability. G03 will revisit live search verification if API access
+> is granted.
 
 **Full sandbox pipeline** (`test_approval_after_successful_sandbox`):
 1. Seed 8 capability cards
