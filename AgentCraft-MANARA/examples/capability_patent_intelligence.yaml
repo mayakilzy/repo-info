@@ -1,0 +1,33 @@
+# Documentation example, not an installed/approved engine.
+schema_version: 1
+id: search.patent-innovation
+kind: search-engine
+version: 0.1.0
+status: example-only
+display_name: Patent Innovation Search
+long_description: >
+  Retrieves date-bounded patent family metadata, classifications, assignees,
+  claims and selected relevant filings for evidence-led technology monitoring.
+  A patent filing does not validate scientific efficacy or commercial deployment.
+domains: [industry, batteries, medicine, agriculture, robotics, construction]
+tags: [patents, patent-family, ip-intelligence, early-indicator]
+keywords_en: [patent, patent family, innovation trajectory, assignee, filing date]
+keywords_ar: [براءات, براءة اختراع, اتجاه الابتكار, صاحب البراءة, تاريخ الإيداع]
+positive_examples:
+  - "Identify patent families about sodium-ion battery manufacturing"
+  - "Compare neural prosthetics patent activity by year"
+  - "Trace desalination membrane innovations across assignees"
+  - "Find filings related to precision irrigation robots"
+  - "Compare construction material inventions in two countries"
+negative_examples:
+  - "Prove a medical implant is safe based only on patent filing"
+  - "Declare patented prototype commercially shipped"
+  - "Measure independent inventions by raw application count without grouping families"
+search_purposes: [discovery, technology-signals, historical-trend]
+data_types: [patent-metadata, patent-family]
+connector_ids: []  # Explicitly unknown until vetted integration.
+output_contract: normalized-patent-evidence-v1
+source_license: review-required
+commercial_rights: unknown
+quality_requirements: [provider-provenance, timestamp, family-dedup, claims-not-proof]
+relationships: {complements: [search.academic-papers], replaces: []}

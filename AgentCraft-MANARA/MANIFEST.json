@@ -1,0 +1,167 @@
+{
+  "version": "1.0",
+  "generated_utc": "2026-10-18",
+  "file_count_excluding_manifest": 32,
+  "files": [
+    {
+      "path": "00_PRODUCT/01_CHARTER.md",
+      "size_bytes": 3423,
+      "sha256": "655ac81a869245243f68900d1f56cff13f9eb48708f9e60e2ce2a0a3ccb7dce0"
+    },
+    {
+      "path": "00_PRODUCT/02_USER_JOURNEYS.md",
+      "size_bytes": 3901,
+      "sha256": "055648524b2949570bd56af1f697e78d419351d26a4088fd7e4f540f75015cea"
+    },
+    {
+      "path": "01_ARCHITECTURE/01_MASTER.md",
+      "size_bytes": 3493,
+      "sha256": "c39345d14e6af228d6fea26f0b86b69892f2ae469b97e49ada4adf244dcf7844"
+    },
+    {
+      "path": "01_ARCHITECTURE/02_CONTRACTS.md",
+      "size_bytes": 3404,
+      "sha256": "f3ec38cbad27f1278cf09248df40dbae377bedbf7707f788258d385cabcf787f"
+    },
+    {
+      "path": "02_SEARCH/01_FOUNDRY.md",
+      "size_bytes": 3786,
+      "sha256": "42b8af26cf4890f107316e41510304f990ad0aeb9ef2243eee2507a9e0af91b5"
+    },
+    {
+      "path": "02_SEARCH/02_REGISTRY.md",
+      "size_bytes": 2190,
+      "sha256": "52efd2f3501fad731c70cba48172b5a3e35113ba77d03dd228e56b9400f2fcd7"
+    },
+    {
+      "path": "02_SEARCH/03_CATALOG_SEED.md",
+      "size_bytes": 2173,
+      "sha256": "e31e7eeb7b77e031bb2a1707f844c125c8b8fb751025da2cef794a8c7069a7a2"
+    },
+    {
+      "path": "03_INTELLIGENCE/01_KNOWLEDGE_MEMORY.md",
+      "size_bytes": 3639,
+      "sha256": "54389939771fe3227d13f2cb29ffd27a87224dc4154534f18d5cc721cb55c708"
+    },
+    {
+      "path": "03_INTELLIGENCE/02_FORECASTING.md",
+      "size_bytes": 2988,
+      "sha256": "aa61dd08075b06ee9b0de286ea7dbb545a19674eddca37a4f46d78076dfb75db"
+    },
+    {
+      "path": "03_INTELLIGENCE/03_AGENT_AND_MOLD_LIFECYCLE.md",
+      "size_bytes": 2578,
+      "sha256": "0a6b3bb6ad1608f987b766cc25e2d2966ff857a610451d1c636cf85a3c5ebaf7"
+    },
+    {
+      "path": "03_INTELLIGENCE/04_INVESTIGATION_PIPELINE.md",
+      "size_bytes": 1811,
+      "sha256": "e1d87dc337a5e4df1f9f72175a0e0d7c7aef167c5d97e24874adc1768775802a"
+    },
+    {
+      "path": "04_OUTPUTS/01_PUBLISHING.md",
+      "size_bytes": 2608,
+      "sha256": "3a12a5a8ce89c4ba4f7b73ee3aaffb2d57f0ad76d686090d7aa4a2da6005cc6c"
+    },
+    {
+      "path": "05_ACCEPTANCE/01_GATES_AND_PILOTS.md",
+      "size_bytes": 3254,
+      "sha256": "19e2290fa939812de6b84e7141dd21820a0ef869b756a2616e44c090ef9641c4"
+    },
+    {
+      "path": "05_ACCEPTANCE/02_MISSION_REPORT_TEMPLATE.md",
+      "size_bytes": 1106,
+      "sha256": "35a78cd9d1eb3bc3d5d3c037e002cb444d774e3523984b00eb2f5b202b400d37"
+    },
+    {
+      "path": "HANDOFF_UPLOAD_GUIDE.md",
+      "size_bytes": 1655,
+      "sha256": "2304bbe856be65afd44734d6ea208f0e5504fa39370f4dd7054700c59266baf9"
+    },
+    {
+      "path": "MISSIONS/G00.md",
+      "size_bytes": 1899,
+      "sha256": "3898fc53752f55c96033c9095465406dfb3b78d502ac298a1c9644f157eee7e7"
+    },
+    {
+      "path": "MISSIONS/G01.md",
+      "size_bytes": 1912,
+      "sha256": "f461c2ac0df366e176f62d5a93d46347be9e7ae1eee7d61362fd8ddea13433e3"
+    },
+    {
+      "path": "MISSIONS/G02.md",
+      "size_bytes": 1927,
+      "sha256": "aa67c34f9960f481a579e2a229af7430c42bca57115f69d3702ff4ce8427da10"
+    },
+    {
+      "path": "MISSIONS/G03.md",
+      "size_bytes": 1887,
+      "sha256": "dec34b5c7304bf6b539026bac103da54a5f1af453abda3af06b64b57216bafad"
+    },
+    {
+      "path": "MISSIONS/G04.md",
+      "size_bytes": 1881,
+      "sha256": "8a6aafb35b9e7356c00bacdc6a236f34f8b432ef813d9ab7678e666f6a33df17"
+    },
+    {
+      "path": "MISSIONS/G05.md",
+      "size_bytes": 1877,
+      "sha256": "0f545539fc371a7d0421cafc1ce904cb99668ad5c13c209e0b0ee7579bed41f9"
+    },
+    {
+      "path": "MISSIONS/G06.md",
+      "size_bytes": 1836,
+      "sha256": "fb9397b377150cbc86c7d959c2d8ea461a19ebd89ce61c18212b2f5599868eff"
+    },
+    {
+      "path": "MISSIONS/G07.md",
+      "size_bytes": 1864,
+      "sha256": "6cb4cfa45d1154b1206b6b289580f26138550e9c834ce973eb3d126568918f90"
+    },
+    {
+      "path": "MISSIONS/G08.md",
+      "size_bytes": 1868,
+      "sha256": "e975c553e3388d9d5125ab61a63284a7098ec64fbc14360d5cb1b061ac5a4dc0"
+    },
+    {
+      "path": "MISSIONS/G09.md",
+      "size_bytes": 1877,
+      "sha256": "6b2b1324a36fad21323393fb041c14178f80b0df665760a7b9b1192c2dee543c"
+    },
+    {
+      "path": "MISSIONS/INDEX.md",
+      "size_bytes": 769,
+      "sha256": "f4fc29f2d13907bfd21dca37748df8743d3ca5cb881e878ba07b3e5cc3153b77"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 2753,
+      "sha256": "0c85c28a1b820d1354492cf0c85fe3c8dcceb6c4b47586f1ff6345943ed20298"
+    },
+    {
+      "path": "ROADMAP.md",
+      "size_bytes": 2342,
+      "sha256": "926c8be488f61811b992ec939474e5499a72e7bc226b3a9c8b891cf9c41250e7"
+    },
+    {
+      "path": "SECURITY/ACCESS_POLICY.md",
+      "size_bytes": 3190,
+      "sha256": "51718d5716b468a23a15d5187c29bcafae0a2fa62b4feeb1321ec67a174554ba"
+    },
+    {
+      "path": "START-HERE.md",
+      "size_bytes": 5663,
+      "sha256": "6c37a88bd32b59cab30ddbc19bffa81d351e37e04cade49494eed1832cb0c3c6"
+    },
+    {
+      "path": "examples/capability_patent_intelligence.yaml",
+      "size_bytes": 1817,
+      "sha256": "4345f5d36a6e52ec3abf7e9a0d80963ae5a9bc9f48d7719409f832d1ed92e0e8"
+    },
+    {
+      "path": "examples/unknown_domain_request.json",
+      "size_bytes": 766,
+      "sha256": "c3db624d91da0b2ecd5be0645a7cb713edcb99f4c631e54cb8e107f848f4043b"
+    }
+  ]
+}

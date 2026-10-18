@@ -1,0 +1,26 @@
+{
+  "investigation_request": {
+    "topic": "Future of waste recycling technologies",
+    "horizon_end": "2035-12-31",
+    "geography": "global",
+    "language": "ar",
+    "deliverables": [
+      "evidence_dossier",
+      "scenario_report"
+    ]
+  },
+  "expected_route": {
+    "mold_registry_result": "missing_if_not_registered",
+    "capability_coverage": "discover_real_registry_state",
+    "missing_source_workflow": "foundry_candidate_and_sandbox",
+    "mold_type": "temporary",
+    "forecast_outcome": "quantified_if_validated_else_conditional_scenario",
+    "persist": [
+      "approved_reusable_engines",
+      "mold_recipe",
+      "dated_evidence",
+      "agent_recipe_if_used"
+    ]
+  },
+  "note": "EXAMPLE input/contract only, no API execution evidence"
+}
