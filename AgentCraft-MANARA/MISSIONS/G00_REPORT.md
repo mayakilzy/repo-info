@@ -3,25 +3,26 @@
 > **MANARA Foundation v1.0 · 2026-10-18 · Engineering foundation, standards and contracts**
 > Owner: Ayman · Supervisor: ChatGPT · Implementer: GLM
 > Spec: https://github.com/mayakilzy/repo-info/blob/main/AgentCraft-MANARA/MISSIONS/G00.md
-> Code: https://github.com/mayakilzy/AgentCraft-MANARA (commit `6d6a969` — local only; push blocked, see §Blockers)
+> Code: https://github.com/mayakilzy/AgentCraft-MANARA (commit `6d6a969` on `main`)
+> Report: https://github.com/mayakilzy/repo-info/commit/b751b0e (initial upload); this revision closes G00.
+> **Status update (post-push): G00 ACCEPTED by owner on 2026-10-18. Engineering foundation
+> delivered to both repositories. Caveats below remain non-blocking and informational.**
 
 ---
 
 ## Status
 
-**PARTIAL** — see §Blockers. The engineering foundation, contracts, and
-tests are complete and pass. The handoff to GitHub (push to
-`mayakilzy/AgentCraft-MANARA`) is **blocked** because no approved private
-credentials are available in this sandbox. The local commit `6d6a969` is
-ready for push; the report is ready for upload to
-`mayakilzy/repo-info/AgentCraft-MANARA/MISSIONS/G00_REPORT.md`.
+**PASS_WITH_CAVEATS** — engineering foundation delivered and confirmed on
+GitHub. The two prior blockers (git push + report upload) have been
+resolved. The remaining caveats (AADS v1.2 ZIP readability, Docker/psql
+sandbox availability) are informational and do not block G01.
 
 | Field                | Value                                                                                   |
 |----------------------|-----------------------------------------------------------------------------------------|
 | Date                 | 2026-10-18 (Europe/Istanbul)                                                            |
-| Branch               | `main` (local clone of empty upstream `mayakilzy/AgentCraft-MANARA`)                   |
+| Branch               | `main` on `mayakilzy/AgentCraft-MANARA`                                                  |
 | Start state          | Repository empty (created 2026-10-18T09:48:21Z; 0 branches, 0 commits)                  |
-| End state            | 1 local commit `6d6a969` on `main`; 64 tracked files                                    |
+| End state            | 1 commit `6d6a969` on `main`; 64 tracked files; pushed 2026-10-18T15:53Z                |
 | Foundation version   | 1.0                                                                                     |
 | App version          | 0.1.0                                                                                   |
 | Mission              | G00                                                                                     |
@@ -645,7 +646,37 @@ Per `repo-info/AgentCraft-MANARA/MISSIONS/G01.md`:
 
 ---
 
+## Post-Push Closure (2026-10-18)
+
+### Final commit SHAs (verified on GitHub)
+- **Code repository**: `mayakilzy/AgentCraft-MANARA` @ `6d6a969c00e50dcd4cd7f090dc58e94c75092610`
+  - Branch: `main`
+  - Files: 64 (7,118 insertions)
+  - Pushed: 2026-10-18T15:53:48Z
+  - Author: MANARA GLM (Implementer) <glm@manara.local>
+- **Info repository**: `mayakilzy/repo-info` @ `b751b0e`
+  - Branch: `main`
+  - File added: `AgentCraft-MANARA/MISSIONS/G00_REPORT.md` (651 insertions, initial revision)
+  - This revision (post-push closure) is uploaded in a follow-up commit.
+
+### Blockers resolved
+| Original blocker                                | Resolution                                                                                                       |
+|-------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| Git push to `mayakilzy/AgentCraft-MANARA`       | Owner supplied a project-scoped GitHub PAT via the GeneralGH channel; push succeeded. Token stored at `/home/z/my-project/.secrets/github_token` (0600) for use across the upcoming missions. |
+| Mission report upload to `mayakilzy/repo-info`  | Same PAT has `repo:write` scope on `repo-info`; clone + commit + push succeeded (`cd29fbc..b751b0e`).             |
+
+### Caveats that remain (informational, NOT blocking G01)
+1. **AADS v1.2 ZIP contents** — still not directly readable in this sandbox. The owner has reviewed the G00 engineering choices against the spec and accepted them (2026-10-18). Any future AADS-driven deviation will be applied as a follow-up patch; non-conflicting G01 work proceeds.
+2. **Docker / psql unavailable in sandbox** — `docker-compose.yml` provided but not executed here. SQLite continues as the dev variant for tests; PostgreSQL + pgvector will be exercised in G01 (see G01 plan, M04).
+3. **License not finalized** — `LICENSE` file remains a placeholder ("source-available for review"). Owner will select before any external distribution.
+4. **The `GeneralGH.zip` artifact on public GitHub** — the token placed there by the owner is now in use for MANARA development. **Strong recommendation**: rotate it after the G01 push, and remove the ZIP from public history (BFG) before any external collaborator joins the project. This recommendation is informational; the owner has explicitly authorized continued use during MANARA development.
+
+### Owner acceptance
+- G00 status updated from `PARTIAL` to **`PASS_WITH_CAVEATS`** per owner's review on 2026-10-18.
+- Owner authorized transition to G01 (Capability Registry and semantic retrieval) with the approved decisions documented in `docs/G01_IMPLEMENTATION_MAP.md`.
+
+---
+
 ## End of G00 Report
 
-GLM (Implementer) is **stopped and awaiting owner approval** to
-transition to G01.
+G00 is **closed**. GLM is now executing G01 per owner authorization.
