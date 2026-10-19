@@ -288,3 +288,55 @@ Stage Summary (auditing + fixes; documentation pending):
 - All 320 tests pass
 - Audit reports (regenerated below) + 8 documentation files: NEXT PHASE
 
+
+---
+Task ID: BACKEND-VERIFICATION-01 (FINAL DELIVERY)
+Agent: GLM (Implementer)
+Task: Push final code + documentation, record SHAs, stop for owner review.
+
+Work Log:
+- Committed backend code changes:
+  Commit 91f29093519bf586e5d7eab253b35b57753dbdd4
+  Subject: "BACKEND-VERIFICATION-01: 6 confirmed-defect fixes + 36 new tests"
+  Pushed to mayakilzy/AgentCraft-MANARA main.
+- Committed documentation:
+  Commit c2aa2583bfde19e660c919737c88098aff53f314
+  Subject: "BACKEND-VERIFICATION-01: 8 documentation files + final master report"
+  Pushed to mayakilzy/repo-info main.
+- 9 documentation files in AgentCraft-MANARA/BACKEND_VERIFICATION_01/:
+  1. BACKEND_ARCHITECTURE.md (1822 lines)
+  2. FUNCTIONAL_CAPABILITY_CATALOG.md (639 lines)
+  3. API_REFERENCE.md (2221 lines)
+  4. INVESTIGATION_LIFECYCLE.md (1361 lines)
+  5. INTEGRATION_TEST_REPORT.md (1103 lines)
+  6. SECURITY_RELIABILITY_REPORT.md (1164 lines)
+  7. KNOWN_GAPS_AND_LIMITATIONS.md (1223 lines)
+  8. UI_FUNCTIONAL_HANDOFF.md (1364 lines)
+  9. FINAL_MASTER_REPORT.md (this run's master summary)
+  Total: ~10,897 lines of documentation.
+- Recovery note: bash tool crash in prior session corrupted local workspace
+  to G00 state. Recovered via:
+  * git fetch + reset --hard origin/main on app repo (baseline ce55baa)
+  * Re-installed Python deps (SQLAlchemy, alembic, torch, transformers, etc.)
+  * Restored MiniLM model cache from /tmp/my-project/.models
+  * Restored complete worklog history from /tmp/my-project/worklog.md
+  * Re-applied 6 corrective fixes via persisted idempotent script
+    /home/z/my-project/scripts/apply_verification_fixes.py
+  * Re-added 36 new tests (26 regression + 10 lifecycle)
+  No data was permanently lost.
+
+Stage Summary:
+- Code repository: mayakilzy/AgentCraft-MANARA HEAD = 91f2909 (main)
+  Baseline ce55baa → Final 91f2909
+- Specs repository: mayakilzy/repo-info HEAD = c2aa258 (main)
+  Baseline 5653bd2 → Final c2aa258
+- 320 tests pass (315 + 5 skip live); 36 NEW tests added; 6 defects fixed.
+- Backend NOT declared Fully Verified (Level 1 only; Levels 2-4 NOT TESTED):
+  * Level 1 (synthetic data): DONE — 10-step lifecycle acceptance test
+  * Level 2 (saved real data): NOT DONE — needs OpenAlex fixtures
+  * Level 3 (live data acquisition): NOT DONE — needs RUN_LIVE_TESTS=1
+  * Level 4 (live LLM): NOT DONE — needs MANARA_ZAI_API_KEY
+- 6 confirmed defects fixed: F1-F6 (see FINAL_MASTER_REPORT.md §6)
+- 30 known gaps documented (3 CRITICAL, 9 HIGH, 13 MEDIUM, 5 LOW)
+- 8 documentation files + final master report in repo-info
+- GLM is STOPPED. Awaiting owner's final review before any UI work begins.
