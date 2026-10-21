@@ -1,0 +1,179 @@
+{
+  "mission": "MANARA-UI-02-LUCIDE-RECOVERY-01",
+  "phase": "browser_journey",
+  "timestamp_utc": "2026-10-21T21:57:06.061278+00:00",
+  "backend_url": "http://127.0.0.1:8000",
+  "vite_url": "http://127.0.0.1:5173",
+  "research_query": "Compare clinical outcomes of robotic versus manual prosthetic alignment in patients aged 60+ with osteoarthritis, focusing on long-term functional recovery metrics",
+  "screenshots_taken": [
+    {
+      "file": "01_home_en_desktop.png",
+      "label": "Home page (English, desktop 1440x900)",
+      "step": 1,
+      "asserted_components": [
+        "status online",
+        "hero headline",
+        "research query textarea"
+      ]
+    },
+    {
+      "file": "02_home_after_compose_en_desktop.png",
+      "label": "Home after compose (English, desktop)",
+      "step": 3,
+      "asserted_components": [
+        "compose result card",
+        "Open Workspace button"
+      ]
+    },
+    {
+      "file": "03_workspace_en_desktop.png",
+      "label": "Investigation Workspace (English, desktop 1440x900)",
+      "step": 4,
+      "asserted_components": [
+        "Workflow States heading",
+        "13-state stepper",
+        "audit table",
+        "knowledge graph"
+      ]
+    },
+    {
+      "file": "04_memory_en_desktop.png",
+      "label": "Memory Explorer (English, desktop 1440x900)",
+      "step": 5,
+      "asserted_components": [
+        "Memory Explorer heading",
+        "evidence list",
+        "claim list"
+      ]
+    },
+    {
+      "file": "05_memory_ar_desktop.png",
+      "label": "Memory Explorer (Arabic RTL, desktop 1440x900)",
+      "step": 6,
+      "asserted_components": [
+        "RTL direction",
+        "Arabic UI text"
+      ]
+    },
+    {
+      "file": "06_memory_en_mobile.png",
+      "label": "Memory Explorer (English, mobile 375x812)",
+      "step": 7,
+      "asserted_components": [
+        "hamburger menu",
+        "responsive layout"
+      ]
+    },
+    {
+      "file": "07_mobile_nav_drawer.png",
+      "label": "Mobile nav drawer open (English, mobile 375x812)",
+      "step": 7,
+      "asserted_components": [
+        "nav drawer",
+        "all 9 page links"
+      ]
+    },
+    {
+      "file": "08_workspace_full_en_desktop.png",
+      "label": "Investigation Workspace full view (English, desktop 1440x900)",
+      "step": 8,
+      "asserted_components": [
+        "Workflow States heading",
+        "13-state stepper",
+        "audit table",
+        "knowledge graph"
+      ]
+    }
+  ],
+  "assertions": [
+    {
+      "name": "home_status_online",
+      "passed": true,
+      "reason": "Status indicator shows 'online' on Home page",
+      "evidence": ""
+    },
+    {
+      "name": "home_hero_visible",
+      "passed": true,
+      "reason": "Hero headline 'discover' visible on Home",
+      "evidence": ""
+    },
+    {
+      "name": "query_typed",
+      "passed": true,
+      "reason": "Research query entered (163 chars)",
+      "evidence": ""
+    },
+    {
+      "name": "compose_http_200",
+      "passed": true,
+      "reason": "POST /mold-factory/compose returned 200, investigation_id=inv-bbdc48de398d77bc",
+      "evidence": ""
+    },
+    {
+      "name": "open_workspace_button_visible",
+      "passed": true,
+      "reason": "'Open Investigation Workspace' button visible after compose",
+      "evidence": ""
+    },
+    {
+      "name": "workspace_loaded",
+      "passed": true,
+      "reason": "Investigation Workspace page loaded with 'Workflow States' heading",
+      "evidence": ""
+    },
+    {
+      "name": "workflow_states_count",
+      "passed": true,
+      "reason": "Found 13 of 13 workflow states via span.font-mono matching: ['acquiring', 'archived', 'building_capabilities', 'coverage_checked', 'deliverable_ready', 'drafting', 'evidencing', 'forecasting_or_scenarios', 'mold_ready', 'normalizing', 'received', 'scoped', 'verification']",
+      "evidence": ""
+    },
+    {
+      "name": "knowledge_graph_or_list_present",
+      "passed": true,
+      "reason": "SVG elements: 41; graph/edges/relationships keyword present: True",
+      "evidence": ""
+    },
+    {
+      "name": "audit_table_present",
+      "passed": true,
+      "reason": "Transition History / audit / decision / timeline keyword present in workspace body: True",
+      "evidence": ""
+    },
+    {
+      "name": "memory_loaded",
+      "passed": true,
+      "reason": "Memory Explorer page loaded (heading in main content)",
+      "evidence": ""
+    },
+    {
+      "name": "bitemporal_replay_ui_present",
+      "passed": true,
+      "reason": "Replay/cutoff keyword present on Memory page: True",
+      "evidence": ""
+    },
+    {
+      "name": "arabic_rtl_enabled",
+      "passed": true,
+      "reason": "document.documentElement.dir = 'rtl' after Arabic toggle",
+      "evidence": ""
+    },
+    {
+      "name": "mobile_hamburger_visible",
+      "passed": true,
+      "reason": "Hamburger menu button visible on mobile viewport: True",
+      "evidence": ""
+    },
+    {
+      "name": "no_uncaught_page_errors",
+      "passed": true,
+      "reason": "Uncaught page errors during journey: 0; first 3: []",
+      "evidence": ""
+    }
+  ],
+  "summary": {
+    "total": 14,
+    "passed": 14,
+    "failed": 0
+  }
+}
