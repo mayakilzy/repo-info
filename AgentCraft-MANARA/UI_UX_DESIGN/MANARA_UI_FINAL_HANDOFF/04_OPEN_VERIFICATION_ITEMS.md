@@ -1,196 +1,249 @@
-# MANARA — Open Verification Items
+# MANARA — Verification Items (All Closed — Owner Approved)
 
-> **Document type.** Items marked OPEN rather than guessed — requires owner decision before implementation.
-> **Date.** 2026-10-21.
+> **Document type.** Verification items — all 10 now CLOSED by owner approval.
+> **Original date.** 2026-10-21 (when items were first identified as OPEN).
+> **Closure date.** 2026-10-21 (owner approved all 10 decisions in mission `MANARA-UI-DESIGN-DECISIONS-CLOSURE-01`).
 > **Authorization.** DOCUMENTATION-ONLY. No frontend implementation.
 
 ---
 
 ## 1. Purpose
 
-This document lists every item that could not be resolved definitively from the approved visual assets + the backend code at SHA `6efac89`. Each item is marked **OPEN** and requires the owner's decision before frontend implementation begins.
+This document originally listed 10 items that could not be resolved definitively from the approved visual assets + the backend code. Each item was marked **OPEN** and required the owner's decision before frontend implementation.
 
-**Per the mission directive:** "Mark missing, ambiguous, or contradictory visual references as OPEN rather than guessing."
+**All 10 items are now CLOSED — OWNER APPROVED.** The owner's decisions are recorded below. The original identifiers (OPEN-01 through OPEN-10) are retained for traceability; the history is preserved.
 
----
-
-## 2. Open Items
-
-### OPEN-01 — Visual reference for Page 02 (Investigation Workspace) "Concept 02" vs the 7-state shortcut
-
-**Issue.** The approved visual (`02_Investigation/a_clean_modern_ui_ux_dashboard_screenshot_for_a_r.png`) shows a workflow stepper with 7 states. The backend FSM has 13 states. The reconciliation document says "workflow stepper must use 13 actual FSM states."
-
-**Question.** Does the owner want:
-- (a) The 13-state stepper rendered in the same visual style as Concept 02 (compact, possibly with sub-states grouped), OR
-- (b) A 7-state "high-level" stepper that maps to the 13 FSM states (with a "show details" expander), OR
-- (c) Something else?
-
-**Backend fact.** The 13 FSM states are: `received`, `scoped`, `coverage_checked`, `building_capabilities`, `mold_ready`, `acquiring`, `normalizing`, `evidencing`, `forecasting_or_scenarios`, `drafting`, `verification`, `deliverable_ready`, `archived`. These are non-negotiable — the UI must not invent or collapse states.
-
-**Recommendation.** Option (a): 13-state stepper in Concept 02 style, with the current state highlighted and sub-states visually grouped (e.g. `coverage_checked` + `building_capabilities` + `mold_ready` under a "Mold" group).
-
-**Status.** OPEN — owner decision required.
+**Per the mission directive:** "Mark missing, ambiguous, or contradictory visual references as OPEN rather than guessing." — This was done. The owner has now resolved every OPEN item. No guessing remains.
 
 ---
 
-### OPEN-02 — Knowledge Graph visualization depth (Page 02 + Page 03)
+## 2. Closed Items (OPEN-01 through OPEN-10)
 
-**Issue.** The approved visuals show knowledge graph visualizations with nodes and edges. The backend provides:
-- `GET /memory/investigations/{id}/edges` (R-01) — returns claim↔evidence edges.
-- `GET /registry/capabilities/{id}/relationships` — returns capability↔capability edges (per-capability, not system-wide).
+### OPEN-01 — Investigation Workflow — ✅ CLOSED — OWNER APPROVED
 
-**Question.** Does the owner want:
-- (a) A full interactive graph canvas (nodes draggable, zoomable, clickable), OR
-- (b) A simpler list/table view with optional graph visualization, OR
-- (c) A hybrid (graph for small datasets, list fallback for large)?
+**Original issue.** The approved visual shows a 7-state workflow stepper. The backend FSM has 13 states.
 
-**Backend fact.** There is NO system-wide graph query endpoint. The UI must issue N calls (one per claim or one per capability) and merge client-side. For ≤200 items this is acceptable; for >500 it would be slow.
+**Owner decision.** APPROVED. Display all 13 real investigation FSM states using the approved Investigation Observatory Concept 02 visual style. States may be visually grouped for readability, but the interface must preserve each real state independently.
 
-**Recommendation.** Option (c): hybrid. Graph canvas for ≤50 nodes; accessible list fallback always available; "show graph" toggle.
+**Requirements (binding on implementation).**
+- Highlight the actual current state.
+- Expose all 13 states through expansion or detailed navigation.
+- Preserve transition blockers.
+- Do not invent intermediate states.
+- Support desktop, tablet, and mobile layouts.
 
-**Status.** OPEN — owner decision required.
+**Backend fact.** The 13 FSM states are: `received`, `scoped`, `coverage_checked`, `building_capabilities`, `mold_ready`, `acquiring`, `normalizing`, `evidencing`, `forecasting_or_scenarios`, `drafting`, `verification`, `deliverable_ready`, `archived`. These are non-negotiable.
 
----
+**Affected pages.** Page 02 (Investigation Workspace).
 
-### OPEN-03 — Studio/Observatory switch scope
-
-**Issue.** The design system mentions a "Studio/Observatory" mode switch. The approved visuals show light surfaces (Studio) and dark analytical surfaces (Observatory).
-
-**Question.** Does the owner want:
-- (a) A global toggle (whole app switches between light and dark), OR
-- (b) A per-page toggle (each page can be in Studio or Observatory mode independently), OR
-- (c) Automatic (certain pages/panels are always Observatory, others always Studio)?
-
-**Backend fact.** This is a frontend-only concern — no backend impact.
-
-**Recommendation.** Option (c): automatic. Investigation Workspace analytical panels, Memory Explorer graph, Foresight charts → Observatory (dark). Home, Capability Registry, Mold Factory library → Studio (light). Mold Factory blueprint panel is always dark-blue (per Concept 02).
-
-**Status.** OPEN — owner decision required.
+**Status.** ✅ **CLOSED — OWNER APPROVED.**
 
 ---
 
-### OPEN-04 — Role switcher behavior
+### OPEN-02 — Knowledge Graph — ✅ CLOSED — OWNER APPROVED
 
-**Issue.** The design system mentions a "role switcher" (Researcher / Investigation Manager / Factory Manager). The backend has NO authentication (G01) — every caller is `tenant_demo`.
+**Original issue.** The approved visuals show knowledge graph visualizations. The backend provides per-investigation edge reads + per-capability relationship reads, but no system-wide graph endpoint.
 
-**Question.** Does the owner want:
-- (a) A visual-only role switcher (changes which pages/actions are emphasized, but no real authorization), OR
-- (b) Remove the role switcher entirely (since there's no auth), OR
-- (c) Keep it as a "demo mode" label that explains the 3 roles?
+**Owner decision.** APPROVED. Implement a hybrid interactive graph experience.
 
-**Backend fact.** No auth. The role switcher is purely cosmetic. It MUST NOT be presented as a security boundary.
+**Requirements (binding on implementation).**
+- Real claim/evidence and capability relationships only.
+- Interactive graph with zoom, pan, node selection, and accessible detail inspection.
+- List/table representation must always remain available.
+- Progressive loading or suitable performance adaptations for larger datasets.
+- No fixed artificial limit of 50 nodes.
+- Preserve supports/refutes/qualifies distinctions.
+- Do not fabricate relationships or credibility scores.
 
-**Recommendation.** Option (c): keep as a "demo mode" explanatory label, not an interactive switcher. Show "Single-tenant demo mode" in the footer.
+**Backend fact.** `GET /memory/investigations/{id}/edges` (R-01) returns claim↔evidence edges. `GET /registry/capabilities/{id}/relationships` returns capability↔capability edges (per-capability). No system-wide graph endpoint.
 
-**Status.** OPEN — owner decision required.
+**Affected pages.** Page 02 (Investigation Workspace), Page 03 (Memory Explorer), Page 04 (Capability Registry).
+
+**Status.** ✅ **CLOSED — OWNER APPROVED.**
 
 ---
 
-### OPEN-05 — Mobile navigation pattern
+### OPEN-03 — Studio / Observatory — ✅ CLOSED — OWNER APPROVED
 
-**Issue.** The approved visuals show mobile layouts, but the navigation pattern is ambiguous.
+**Original issue.** The design system mentions a "Studio/Observatory" mode switch. The scope was ambiguous (global toggle vs per-page vs automatic).
 
-**Question.** Does the owner want:
-- (a) A hamburger menu that opens a drawer with the 9 pages, OR
-- (b) A bottom navigation bar with the top 4-5 pages + "more" menu, OR
-- (c) A tab bar?
+**Owner decision.** APPROVED. Use Modern Knowledge Studio as the default visual language. Use dark Intelligence Observatory surfaces selectively for analytical components.
+
+**Requirements (binding on implementation).**
+- Default: Modern Knowledge Studio (light).
+- Observatory (dark) surfaces applied selectively to: investigation graphs, evidence relationships, foresight charts.
+- Preserve the dark-blue Mold Blueprint panel from Mold Factory Concept 02.
+- Do not introduce a global dark-mode toggle as a required feature.
+
+**Backend fact.** Frontend-only concern — no backend impact.
+
+**Affected pages.** All pages (cross-cutting).
+
+**Status.** ✅ **CLOSED — OWNER APPROVED.**
+
+---
+
+### OPEN-04 — Role Switcher — ✅ CLOSED — OWNER APPROVED
+
+**Original issue.** The design system mentions a "role switcher" (Researcher / Investigation Manager / Factory Manager). The backend has NO authentication (G01).
+
+**Owner decision.** APPROVED. Remove the interactive role switcher.
+
+**Requirements (binding on implementation).**
+- Remove the interactive role switcher entirely.
+- Display a clear, unobtrusive single-tenant demo-mode explanation where appropriate.
+- Do not imply actual permissions or role-based security.
+
+**Backend fact.** No auth. Every caller is `tenant_demo`. The role switcher was purely cosmetic.
+
+**Affected pages.** All pages (the role switcher was in the header).
+
+**Status.** ✅ **CLOSED — OWNER APPROVED.**
+
+---
+
+### OPEN-05 — Mobile Navigation — ✅ CLOSED — OWNER APPROVED
+
+**Original issue.** The mobile navigation pattern was ambiguous (hamburger drawer vs bottom bar vs tab bar).
+
+**Owner decision.** APPROVED. Use a hamburger-triggered navigation drawer for mobile.
+
+**Requirements (binding on implementation).**
+- All nine major pages remain accessible.
+- Accessible focus management and keyboard operation.
+- Proper RTL mirroring.
+- Clear active-page indication.
+- No mandatory bottom navigation bar.
+- Desktop retains the approved collapsible sidebar.
 
 **Backend fact.** Frontend-only concern.
 
-**Recommendation.** Option (a): hamburger menu + drawer. The 9 pages are too many for a bottom bar; the drawer scales.
+**Affected pages.** All pages (mobile navigation).
 
-**Status.** OPEN — owner decision required.
+**Status.** ✅ **CLOSED — OWNER APPROVED.**
 
 ---
 
-### OPEN-06 — Arabic font licensing
+### OPEN-06 — Arabic Typography — ✅ CLOSED — OWNER APPROVED WITH TECHNICAL VERIFICATION
 
-**Issue.** The design system proposes "IBM Plex Sans Arabic" for Arabic UI text. The licensing + weight availability needs verification.
+**Original issue.** The design system proposes "IBM Plex Sans Arabic" for Arabic UI text. Licensing + weight availability + rendering needed verification.
 
-**Question.** Has the owner verified:
-- (a) IBM Plex Sans Arabic is available under a compatible license (SIL OFL 1.1)?
-- (b) The required weights (Regular, Medium, SemiBold) are available?
-- (c) The font renders correctly with the proposed layout?
+**Owner decision.** APPROVED WITH TECHNICAL VERIFICATION. Use IBM Plex Sans Arabic for Arabic interface typography.
+
+**Requirements (binding on implementation — verify before implementation).**
+- Compatible open-source license (IBM Plex Sans Arabic is SIL OFL 1.1).
+- Required font weights (Regular, Medium, SemiBold are available).
+- Correct Arabic shaping and rendering.
+- Browser and device compatibility.
+- Responsive behavior and accessibility.
+
+**Additional requirements.**
+- Do not include font binaries in documentation or handoff archives unnecessarily.
+- Any required substitution must be documented without changing the approved visual identity.
 
 **Backend fact.** Frontend-only concern.
 
-**Recommendation.** Verify (a), (b), (c) before implementation. IBM Plex Sans Arabic is indeed SIL OFL 1.1 licensed and has the required weights. The implementation team should confirm rendering on target browsers.
+**Affected pages.** All pages (Arabic RTL mode).
 
-**Status.** OPEN — owner verification required.
-
----
-
-### OPEN-07 — Polling intervals for long-running operations
-
-**Issue.** The design foundation specifies polling (no WebSocket). The exact intervals are not finalized.
-
-**Question.** Does the owner approve:
-- (a) Agent session: poll every 2 seconds. Workflow: poll every 5 seconds. (Per the foundation.)
-- (b) Different intervals?
-- (c) Exponential backoff?
-
-**Backend fact.** G16: SQLite "database is locked" under high concurrency. G14: no API rate limiting. The UI should debounce to avoid overwhelming the backend.
-
-**Recommendation.** Option (a) with a 5-minute timeout. If the operation is still running after 5 minutes, show "operation timed out" with a retry button.
-
-**Status.** OPEN — owner decision required.
+**Status.** ✅ **CLOSED — OWNER APPROVED WITH TECHNICAL VERIFICATION.**
 
 ---
 
-### OPEN-08 — Coverage Blocker Report visual treatment
+### OPEN-07 — Polling Strategy — ✅ CLOSED — OWNER APPROVED
 
-**Issue.** The reconciliation says `deliverable_type="coverage_blocker_report"` must be visually distinct from a research dossier. The approved Publishing visuals show a "Coverage Blocker Report" card but the exact treatment is ambiguous.
+**Original issue.** The design foundation specifies polling (no WebSocket). The exact intervals + backoff + timeout were not finalized.
 
-**Question.** Does the owner want:
-- (a) A completely different layout (red header, "COVERAGE BLOCKER" in title, gap list as body), OR
-- (b) Same layout as research dossier but with a red banner, OR
-- (c) A modal that explains the situation before showing the report?
+**Owner decision.** APPROVED. Initial polling intervals: agent sessions 2 seconds, investigation workflow 5 seconds.
+
+**Requirements (binding on implementation).**
+- Apply adaptive backoff when appropriate.
+- Stop polling upon terminal states.
+- Cancel polling when leaving the relevant view.
+- Avoid duplicate requests and concurrent polling storms.
+- Provide manual refresh and retry behavior.
+- After five minutes without a confirmed terminal result, indicate that automatic status monitoring has paused or timed out.
+- **Do not equate a polling timeout with failure of the underlying operation.**
+- Do not introduce unsupported WebSocket behavior.
+
+**Backend fact.** G16: SQLite "database is locked" under high concurrency. G14: no API rate limiting. G30: no WebSocket.
+
+**Affected pages.** Page 02 (Investigation Workspace — workflow polling), Page 07 (Agent Registry — session polling).
+
+**Status.** ✅ **CLOSED — OWNER APPROVED.**
+
+---
+
+### OPEN-08 — Coverage Blocker Report — ✅ CLOSED — OWNER APPROVED
+
+**Original issue.** `deliverable_type="coverage_blocker_report"` must be visually distinct from a research dossier. The exact visual treatment was ambiguous.
+
+**Owner decision.** APPROVED. Render `coverage_blocker_report` using a clearly distinct report layout.
+
+**Requirements (binding on implementation).**
+- Prominent coverage-blocker identification.
+- Explain that the output is not a completed evidence-backed research deliverable.
+- Show missing capabilities, sources, and unresolved research needs.
+- Preserve links to actual available evidence and gap records.
+- Do not show fabricated research conclusions.
+- Respect the backend `downloadable` field for download eligibility.
+- Maintain the overall MANARA visual identity.
 
 **Backend fact.** `deliverable_type` is returned by `GET /publishing/publications/{id}`. The `downloadable` field gates the download button.
 
-**Recommendation.** Option (a): completely different layout. The risk of mistaking a coverage blocker for a research deliverable is too high.
+**Affected pages.** Page 09 (Publishing Studio).
 
-**Status.** OPEN — owner decision required.
-
----
-
-### OPEN-09 — Audit log visualization
-
-**Issue.** The Memory Explorer shows an audit timeline. The backend returns `GET /memory/investigations/{id}/decisions` as an append-only list. The visualization style is ambiguous.
-
-**Question.** Does the owner want:
-- (a) A reverse-chronological list (newest first), one card per decision, OR
-- (b) A horizontal timeline with milestones, OR
-- (c) A filterable table (columns: time, type, actor, rationale)?
-
-**Backend fact.** The audit log can grow to hundreds of entries. No pagination (G15: `limit` + `offset` only).
-
-**Recommendation.** Option (c): filterable table with client-side pagination (50 per page).
-
-**Status.** OPEN — owner decision required.
+**Status.** ✅ **CLOSED — OWNER APPROVED.**
 
 ---
 
-### OPEN-10 — Bitemporal replay visualization
+### OPEN-09 — Audit Log — ✅ CLOSED — OWNER APPROVED
 
-**Issue.** `POST /memory/investigations/{id}/at-cutoff` returns evidence visible at a cutoff time. The visualization is ambiguous.
+**Original issue.** The Memory Explorer shows an audit timeline. The visualization style was ambiguous.
 
-**Question.** Does the owner want:
-- (a) A date picker + "replay" button that shows the evidence visible at that date, OR
-- (b) A scrubber (horizontal slider) over a timeline, OR
-- (c) A "time travel" mode that re-renders the entire UI as of a chosen date?
+**Owner decision.** APPROVED. Use a filterable audit table with chronological context.
 
-**Backend fact.** The endpoint returns a list of evidence items with `observed_at` + `ingested_at`. No streaming.
+**Requirements (binding on implementation).**
+- Date/time, decision type, actor, rationale, and related references.
+- Default newest-first ordering.
+- Detail inspection for individual decisions.
+- Client-side paging where the endpoint returns a bounded complete dataset.
+- Do not imply a complete history when only a subset has been fetched.
+- No invented audit entries or actors.
 
-**Recommendation.** Option (a): date picker + replay button. Simpler + less likely to confuse users who don't understand bitemporal semantics.
+**Backend fact.** `GET /memory/investigations/{id}/decisions` returns an append-only list with `limit` + `offset` (no cursor pagination — G15).
 
-**Status.** OPEN — owner decision required.
+**Affected pages.** Page 03 (Memory Explorer), Page 02 (Investigation Workspace audit panel).
+
+**Status.** ✅ **CLOSED — OWNER APPROVED.**
+
+---
+
+### OPEN-10 — Bitemporal Replay — ✅ CLOSED — OWNER APPROVED
+
+**Original issue.** `POST /memory/investigations/{id}/at-cutoff` returns evidence visible at a cutoff time. The visualization style was ambiguous.
+
+**Owner decision.** APPROVED. Use a date-and-time picker with an explicit Replay action.
+
+**Requirements (binding on implementation).**
+- Call the actual `POST /memory/investigations/{id}/at-cutoff` endpoint.
+- Show evidence visible at the selected cutoff.
+- Preserve the distinction between event, publication, and ingestion timestamps when available.
+- Explain the selected temporal perspective to the user.
+- Show clear empty, loading, and error states.
+- No simulated continuous time-travel mode.
+- No fabricated historical reconstruction.
+
+**Backend fact.** The endpoint is POST (confirmed in CLOSURE-01 reconciliation). It returns `visible_evidence_count` + `visible_evidence[]` with `observed_at` + `ingested_at`.
+
+**Affected pages.** Page 03 (Memory Explorer).
+
+**Status.** ✅ **CLOSED — OWNER APPROVED.**
 
 ---
 
 ## 3. Items NOT Open (Resolved by Backend Closure)
 
-The following items were OPEN in the original reconciliation (`MANARA_VISUAL_FUNCTIONAL_RECONCILIATION_v1.md` §5) but are now RESOLVED by CLOSURE-01 + CLOSURE-02:
+The following items were OPEN in the original reconciliation (`MANARA_VISUAL_FUNCTIONAL_RECONCILIATION_v1.md` §5) but were resolved by CLOSURE-01 + CLOSURE-02 (before this mission):
 
 | Original Item | Resolution |
 |---|---|
@@ -207,8 +260,23 @@ The following items were OPEN in the original reconciliation (`MANARA_VISUAL_FUN
 
 ---
 
-## 4. Owner Decision Required
+## 4. All Items Closed
 
-The 10 OPEN items above require the owner's decision before frontend implementation begins. GLM recommends the listed recommendation for each, but the owner may choose differently.
+**All 10 OPEN items (OPEN-01 through OPEN-10) are now CLOSED — OWNER APPROVED.**
 
-**These items do NOT block the documentation handoff.** They block the *implementation* handoff. The owner should resolve them in the implementation authorization mission.
+**All 10 backend-closure items (Q01 through Q10) were already RESOLVED.**
+
+**There are no remaining OPEN verification items.** The design is fully locked. The implementation handoff is ready (pending the owner's separate explicit authorization for frontend implementation).
+
+---
+
+## 5. Cross-Reference
+
+The owner-approved decisions are also recorded in:
+- `07_FINAL_OWNER_DECISIONS_AND_IMPLEMENTATION_GATE.md` — the consolidated document with all 10 decisions + the implementation gate.
+
+The decisions are reflected in:
+- `00_README_AND_APPROVAL_STATUS.md` — the approval status is updated.
+- `02_PAGE_TO_VISUAL_MAPPING.md` — the per-page mapping incorporates the decisions.
+- `03_IMPLEMENTATION_HANDOFF_SPECIFICATIONS.md` — the per-page specs incorporate the decisions.
+- `06_FINAL_DESIGN_LOCK_VERDICT.md` — the final verdict is updated.

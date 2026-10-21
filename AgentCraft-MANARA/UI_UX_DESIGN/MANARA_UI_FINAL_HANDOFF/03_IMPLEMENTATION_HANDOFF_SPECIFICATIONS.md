@@ -1,7 +1,7 @@
-# MANARA — Implementation Handoff Specifications
+# MANARA — Implementation Handoff Specifications (Updated)
 
 > **Document type.** Per-page implementation specifications: what to build, what to remove, what to mark as future.
-> **Date.** 2026-10-21.
+> **Date.** 2026-10-21 (original) → 2026-10-21 (updated — all 10 OPEN items CLOSED).
 > **Code baseline.** `6efac89bda807825f1cc29b44a59cbd11168fb69`.
 > **Authorization.** DOCUMENTATION-ONLY. No frontend implementation.
 
@@ -226,30 +226,76 @@ This document translates the approved visual assets + the backend API contracts 
 - Reduced motion support.
 - Skip-to-content link.
 
-### 4.4 Polling (no WebSocket)
+### 4.4 Polling (no WebSocket) — OPEN-07 CLOSED — OWNER APPROVED
+
+**Owner-approved polling strategy (OPEN-07):**
 
 - `GET /agents/sessions/{id}` every 2 seconds while `status="running"`.
 - `GET /mold-factory/investigations/{id}/workflow` every 5 seconds during transitions.
-- Stop polling when terminal state reached.
+- Apply adaptive backoff when appropriate.
+- Stop polling upon terminal states (`completed` / `failed` / `terminated` for sessions; `deliverable_ready` / `archived` for workflows).
+- Cancel polling when leaving the relevant view.
+- Avoid duplicate requests and concurrent polling storms.
+- Provide manual refresh and retry behavior.
+- **After 5 minutes without a confirmed terminal result**, indicate that automatic status monitoring has paused or timed out.
+- **Do NOT equate a polling timeout with failure of the underlying operation.** The operation may still be running on the backend.
+- Do not introduce unsupported WebSocket behavior (G30).
 - Debounce rapid clicks (G14: no API rate limiting; G16: SQLite "database is locked").
+
+### 4.5 Role switcher — OPEN-04 CLOSED — OWNER APPROVED
+
+**Owner-approved decision (OPEN-04): Remove the interactive role switcher entirely.**
+
+- Do NOT build an interactive role switcher (Researcher / Investigation Manager / Factory Manager).
+- Display a clear, unobtrusive "Single-tenant demo mode" explanation where appropriate (e.g. footer label).
+- Do NOT imply actual permissions or role-based security.
+- The backend has NO authentication (G01) — every caller is `tenant_demo`.
+
+### 4.6 Studio/Observatory theme — OPEN-03 CLOSED — OWNER APPROVED
+
+**Owner-approved decision (OPEN-03): Automatic theme selection, no global toggle.**
+
+- Default: Modern Knowledge Studio (light).
+- Observatory (dark) surfaces applied selectively to:
+  - Investigation graphs (Page 02).
+  - Evidence relationships (Page 03).
+  - Foresight charts (Page 08).
+- Preserve the dark-blue Mold Blueprint panel from Mold Factory Concept 02 (Page 06) — always dark.
+- Do NOT introduce a global dark-mode toggle as a required feature.
+- The sun/moon toggle shown in the Home mockup is REMOVED.
+
+### 4.7 Mobile navigation — OPEN-05 CLOSED — OWNER APPROVED
+
+**Owner-approved decision (OPEN-05): Hamburger-triggered navigation drawer for mobile.**
+
+- All nine major pages remain accessible via the drawer.
+- Accessible focus management and keyboard operation.
+- Proper RTL mirroring (drawer slides from right in Arabic mode).
+- Clear active-page indication.
+- No mandatory bottom navigation bar.
+- Desktop retains the approved collapsible sidebar.
 
 ---
 
-## 5. Elements to Remove (Consolidated X-Classification)
+## 5. Elements to Remove (Consolidated X-Classification — Updated)
 
 | Page | Element | Reason |
 |---|---|---|
+| All (header) | Interactive role switcher | OPEN-04 CLOSED — owner approved removal (no auth, G01) |
+| All (header) | Global dark-mode toggle (sun/moon) | OPEN-03 CLOSED — owner approved automatic theme (no global toggle) |
 | 01 Home | User profile avatar | No auth (G01) |
 | 01 Home | Global search bar (`Ctrl+K`) | No universal search endpoint |
 | 01 Home | Language selector with FR/DE/ES | Only EN + AR supported |
-| 01 Home | Sun/moon dark mode toggle | Not in scope (Studio/Observatory is per-page) |
+| 01 Home | Sun/moon dark mode toggle | OPEN-03 CLOSED — automatic theme, no global toggle |
 | 02 Workspace | Share button | No endpoint |
 | 02 Workspace | PDF export button | Not implemented |
 | 02 Workspace | Edit investigation question | No endpoint |
 | 02 Workspace | Pause workflow | No endpoint |
 | 02 Workspace | Fictitious progress percentages | Only derive from real records |
+| 02 Workspace | 7-state workflow shortcut | OPEN-01 CLOSED — must use 13 actual FSM states |
 | 03 Memory | Global knowledge explorer search | No endpoint |
 | 03 Memory | Confidence percentages (e.g. 92%) | No fabricated certainty |
+| 03 Memory | Fabricated graph nodes/edges | OPEN-02 CLOSED — real relationships only |
 | 04 Capabilities | Arbitrary PATCH edit | C-04: DELETE + re-POST only |
 | 04 Capabilities | "Use in agent" direct invocation | No endpoint |
 | 05 Foundry | Crossref/arXiv sandbox test button | 422 — no connector code |
@@ -267,6 +313,7 @@ This document translates the approved visual assets + the backend API contracts 
 | 09 Publishing | Share Link button | No endpoint |
 | 09 Publishing | Versions tab | No version history endpoint |
 | 09 Publishing | Online collaborative editor | Not implemented |
+| 09 Publishing | Coverage blocker as research dossier | OPEN-08 CLOSED — distinct layout required |
 
 ---
 

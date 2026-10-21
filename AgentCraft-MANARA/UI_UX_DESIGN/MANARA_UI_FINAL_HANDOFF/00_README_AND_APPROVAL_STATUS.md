@@ -1,11 +1,11 @@
-# MANARA — UI Final Handoff: README & Approval Status
+# MANARA — UI Final Handoff: README & Approval Status (Updated)
 
-> **Mission ID.** `MANARA-UI-FINAL-DESIGN-LOCK-01`
+> **Mission ID.** `MANARA-UI-FINAL-DESIGN-LOCK-01` (original) + `MANARA-UI-DESIGN-DECISIONS-CLOSURE-01` (this update).
 > **Document type.** Final visual asset manifest + implementation handoff specifications.
 > **Author.** GLM (Implementer).
 > **Owner.** Ayman (Project Owner).
 > **Design Supervisor.** ChatGPT.
-> **Date.** 2026-10-21.
+> **Date.** 2026-10-21 (original) → 2026-10-21 (updated — all 10 OPEN items CLOSED).
 > **Authorization.** DOCUMENTATION-ONLY. No frontend implementation.
 
 ---
@@ -24,9 +24,10 @@ This directory (`MANARA_UI_FINAL_HANDOFF/`) is the **final design handoff packag
 | 2 | `01_VISUAL_ASSET_MANIFEST_FINAL.md` | Authoritative manifest of all 22 approved visual assets with SHA-256, classifications, and VLM-verified descriptions. |
 | 3 | `02_PAGE_TO_VISUAL_MAPPING.md` | Maps each of the 9 MANARA pages to its approved visual reference(s) + implementation notes. |
 | 4 | `03_IMPLEMENTATION_HANDOFF_SPECIFICATIONS.md` | Per-page implementation specifications: what to build, what to remove, what to mark as future. |
-| 5 | `04_OPEN_VERIFICATION_ITEMS.md` | Items marked OPEN rather than guessed — requires owner decision before implementation. |
+| 5 | `04_OPEN_VERIFICATION_ITEMS.md` | All 10 items now CLOSED — OWNER APPROVED (history preserved). |
 | 6 | `05_REPOSITORY_BOUNDARY_VERIFICATION.md` | Git remote + repository identity verification (mandatory boundary check). |
-| 7 | `06_FINAL_DESIGN_LOCK_VERDICT.md` | Final verdict: is the design ready for implementation? |
+| 7 | `06_FINAL_DESIGN_LOCK_VERDICT.md` | Final verdict: design lock complete — implementation unauthorized (pending separate authorization). |
+| 8 | `07_FINAL_OWNER_DECISIONS_AND_IMPLEMENTATION_GATE.md` | Consolidated document: all 10 owner-approved decisions + implementation gate. |
 
 ### 1.2 Source material
 
@@ -50,37 +51,39 @@ This package was prepared by inspecting:
 
 ---
 
-## 2. Approval Status
+## 2. Approval Status (Updated — All 10 OPEN Items CLOSED)
 
 ### 2.1 What is approved
 
 | Item | Approval status | Source |
 |---|---|---|
 | 9-page UI design (page map) | APPROVED | `MANARA_UI_UX_DESIGN_FOUNDATION.md` + owner sign-off |
-| Modern Knowledge Studio (light) + Intelligence Observatory (dark) theme | APPROVED | Owner sign-off |
+| Modern Knowledge Studio (light default) + Intelligence Observatory (dark analytical surfaces) theme | APPROVED | Owner sign-off + OPEN-03 CLOSED |
 | Original lighthouse identity | APPROVED (preserve) | Owner sign-off |
 | Mold Factory Concept 02 (dark-blue blueprint) | APPROVED (owner prefers) | Owner sign-off |
 | Publishing Concept 02 + Reader Concept 01 | APPROVED | Owner sign-off |
 | English default LTR, Arabic optional RTL | APPROVED (supersedes foundation) | Owner sign-off |
 | 22 visual assets (SHA-256 verified) | APPROVED (per classifications) | `VISUAL_ASSET_MANIFEST.json` |
 | Backend contracts (73 endpoints, 412 tests, migration 0008) | APPROVED (CLOSURE-01 + CLOSURE-02) | `6efac89` commit |
+| **10 owner-approved design decisions (OPEN-01 through OPEN-10)** | **ALL CLOSED — OWNER APPROVED** | Mission `MANARA-UI-DESIGN-DECISIONS-CLOSURE-01` |
 
-### 2.2 What is NOT approved (requires owner decision)
+### 2.2 What is NOT approved (requires owner action)
 
 | Item | Status | Decision needed |
 |---|---|---|
-| Frontend implementation | UNAUTHORIZED | Separate explicit owner authorization |
-| Open verification items (see `04_OPEN_VERIFICATION_ITEMS.md`) | OPEN | Owner decision on each |
+| Frontend implementation | UNAUTHORIZED | Separate explicit owner authorization (the only remaining gate) |
 | FUTURE_DESIGN elements (e.g. Source Connector Framework) | DEFERRED | Separate backend mission |
-| Elements marked X (Remove) in the reconciliation | REMOVE | Owner confirmation before implementation |
+| Elements marked X (Remove) in the reconciliation | REMOVE (confirmed) | None — owner confirmed removal in OPEN-04 + OPEN-03 |
 
-### 2.3 Implementation gate
+### 2.3 Implementation gate (Updated)
 
 **No React implementation, no GLM engineering assignment until the owner:**
 
-1. Approves this final handoff package in its entirety.
-2. Resolves the OPEN items in `04_OPEN_VERIFICATION_ITEMS.md`.
-3. Issues a new mission explicitly authorizing frontend implementation.
+1. ✅ ~~Approves this final handoff package~~ — DONE.
+2. ✅ ~~Resolves the OPEN items in `04_OPEN_VERIFICATION_ITEMS.md`~~ — DONE (all 10 CLOSED — OWNER APPROVED).
+3. 🛑 Issues a new mission explicitly authorizing frontend implementation — **PENDING**.
+
+**The design lock is complete. The only remaining gate is the owner's separate explicit authorization for frontend implementation.**
 
 ---
 

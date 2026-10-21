@@ -1,7 +1,7 @@
-# MANARA — Page to Visual Mapping
+# MANARA — Page to Visual Mapping (Updated)
 
 > **Document type.** Maps each of the 9 MANARA pages to its approved visual reference(s) + implementation notes.
-> **Date.** 2026-10-21.
+> **Date.** 2026-10-21 (original) → 2026-10-21 (updated — all 10 OPEN items CLOSED).
 > **Code baseline.** `6efac89bda807825f1cc29b44a59cbd11168fb69`.
 
 ---
@@ -390,3 +390,24 @@ Every page must handle these states (from `MANARA_COMPONENT_API_BINDING_CLOSURE_
 | Leakage | `leakage_detected=true` | Prominent banner + leaked evidence IDs |
 | Rights uncleared | `rights_status="unknown"/"restricted"` | Mark affected scenes |
 | Investigation ready/archived | Workflow state | Distinct complete/archive treatment |
+
+---
+
+## 13. Owner-Approved Design Decisions Applied (OPEN-01 through OPEN-10 CLOSED)
+
+All 10 OPEN items are now CLOSED — OWNER APPROVED. The decisions that affect this page-to-visual mapping are:
+
+| Decision | Affected pages | Applied change |
+|---|---|---|
+| **OPEN-01**: 13-state workflow stepper | Page 02 | Must display all 13 actual FSM states (not the 7-state shortcut). States may be visually grouped but each state must be independently preserved. Highlight current state; preserve blockers. |
+| **OPEN-02**: Hybrid Knowledge Graph | Pages 02, 03, 04 | Interactive graph (zoom, pan, node selection, accessible detail) + always-available list/table fallback. Real relationships only — no fabricated nodes/edges or credibility scores. Progressive loading for larger datasets. |
+| **OPEN-03**: Automatic Studio/Observatory | All pages | Studio (light) default. Observatory (dark) for: investigation graphs (P02), evidence relationships (P03), foresight charts (P08). Mold Blueprint panel (P06) always dark-blue. No global dark-mode toggle. |
+| **OPEN-04**: Remove role switcher | All pages (header) | Interactive role switcher REMOVED. Show "Single-tenant demo mode" footer label. Do not imply permissions. |
+| **OPEN-05**: Hamburger drawer for mobile | All pages (navigation) | Hamburger-triggered drawer for mobile. All 9 pages accessible. RTL mirroring. Desktop retains collapsible sidebar. |
+| **OPEN-06**: IBM Plex Sans Arabic | All pages (Arabic RTL) | Arabic UI typography = IBM Plex Sans Arabic (SIL OFL 1.1). Verify licensing + weights + rendering before implementation. |
+| **OPEN-07**: Polling strategy | Pages 02, 07 | Agent sessions: 2s. Workflow: 5s. Adaptive backoff. Stop on terminal state. Cancel when leaving view. 5-min timeout (not = failure). No WebSocket. |
+| **OPEN-08**: Coverage Blocker distinct layout | Page 09 | `coverage_blocker_report` = clearly distinct report layout. Prominent identification. Not a research deliverable. Show missing capabilities/sources/needs. Respect `downloadable` field. |
+| **OPEN-09**: Filterable audit table | Pages 02, 03 | Audit log = filterable table (date/time, type, actor, rationale, references). Newest-first. Client-side paging. No invented entries. |
+| **OPEN-10**: Bitemporal replay date-time picker | Page 03 | Date-time picker + explicit Replay button. Calls `POST /memory/investigations/{id}/at-cutoff`. Show evidence at selected cutoff. Preserve event/publication/ingestion timestamp distinctions. No continuous time-travel mode. |
+
+**These decisions are binding on the implementation.** The implementation team must follow them exactly. No reinterpretation is authorized.
