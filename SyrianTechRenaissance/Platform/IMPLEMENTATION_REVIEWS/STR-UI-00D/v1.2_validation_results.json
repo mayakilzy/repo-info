@@ -1,0 +1,266 @@
+[
+  {
+    "name": "01-desktop-ar-rtl",
+    "viewport": [
+      1536,
+      1024
+    ],
+    "action": "keep",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "ar",
+    "dir_after": "rtl",
+    "scroll_width": 1536,
+    "client_width": 1536,
+    "scroll_height": 1139,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": [],
+    "dom_check": {
+      "skills_lessons_count": 2,
+      "skills_lessons_titles": [
+        "مقدمة في الذكاء الاصطناعي التطبيقي",
+        "بناء تطبيقات حديثة باستخدام Next.js"
+      ],
+      "skills_levels_count": 3,
+      "featured_exists": true,
+      "featured_visible_height": 303,
+      "featured_projects_count": 3,
+      "featured_project_titles": [
+        "منصة التعليم المفتوح",
+        "نظام إدارة العيادات",
+        "خريطة الخدمات في سوريا"
+      ],
+      "engineers_exists": true,
+      "engineers_visible_height": 303,
+      "engineers_count": 3,
+      "activity_exists": true,
+      "activity_visible_height": 303,
+      "activity_items_count": 4,
+      "lower_grid_offsetTop": 774,
+      "doc_scrollHeight": 1139,
+      "big_svgs_count": 0,
+      "big_svgs": []
+    }
+  },
+  {
+    "name": "02-desktop-en-ltr",
+    "viewport": [
+      1536,
+      1024
+    ],
+    "action": "toggle",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "en",
+    "dir_after": "ltr",
+    "scroll_width": 1536,
+    "client_width": 1536,
+    "scroll_height": 1139,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": [],
+    "dom_check": {
+      "skills_lessons_count": 2,
+      "skills_lessons_titles": [
+        "Intro to Applied AI",
+        "Building Modern Apps with Next.js"
+      ],
+      "skills_levels_count": 3,
+      "featured_exists": true,
+      "featured_visible_height": 303,
+      "featured_projects_count": 3,
+      "featured_project_titles": [
+        "Open Education Platform",
+        "Clinic Management System",
+        "Syria Services Map"
+      ],
+      "engineers_exists": true,
+      "engineers_visible_height": 303,
+      "engineers_count": 3,
+      "activity_exists": true,
+      "activity_visible_height": 303,
+      "activity_items_count": 4,
+      "lower_grid_offsetTop": 774,
+      "doc_scrollHeight": 1139,
+      "big_svgs_count": 0,
+      "big_svgs": []
+    }
+  },
+  {
+    "name": "03-tablet-ar-rtl",
+    "viewport": [
+      768,
+      1024
+    ],
+    "action": "keep",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "ar",
+    "dir_after": "rtl",
+    "scroll_width": 768,
+    "client_width": 768,
+    "scroll_height": 2073,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": [],
+    "dom_check": {
+      "skills_lessons_count": 2,
+      "skills_lessons_titles": [
+        "مقدمة في الذكاء الاصطناعي التطبيقي",
+        "بناء تطبيقات حديثة باستخدام Next.js"
+      ],
+      "skills_levels_count": 3,
+      "featured_exists": true,
+      "featured_visible_height": 249,
+      "featured_projects_count": 3,
+      "featured_project_titles": [
+        "منصة التعليم المفتوح",
+        "نظام إدارة العيادات",
+        "خريطة الخدمات في سوريا"
+      ],
+      "engineers_exists": true,
+      "engineers_visible_height": 303,
+      "engineers_count": 3,
+      "activity_exists": true,
+      "activity_visible_height": 287,
+      "activity_items_count": 4,
+      "lower_grid_offsetTop": 1147,
+      "doc_scrollHeight": 2073,
+      "big_svgs_count": 0,
+      "big_svgs": []
+    }
+  },
+  {
+    "name": "04-tablet-en-ltr",
+    "viewport": [
+      768,
+      1024
+    ],
+    "action": "toggle",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "en",
+    "dir_after": "ltr",
+    "scroll_width": 768,
+    "client_width": 768,
+    "scroll_height": 2077,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": [],
+    "dom_check": {
+      "skills_lessons_count": 2,
+      "skills_lessons_titles": [
+        "Intro to Applied AI",
+        "Building Modern Apps with Next.js"
+      ],
+      "skills_levels_count": 3,
+      "featured_exists": true,
+      "featured_visible_height": 265,
+      "featured_projects_count": 3,
+      "featured_project_titles": [
+        "Open Education Platform",
+        "Clinic Management System",
+        "Syria Services Map"
+      ],
+      "engineers_exists": true,
+      "engineers_visible_height": 303,
+      "engineers_count": 3,
+      "activity_exists": true,
+      "activity_visible_height": 287,
+      "activity_items_count": 4,
+      "lower_grid_offsetTop": 1135,
+      "doc_scrollHeight": 2077,
+      "big_svgs_count": 0,
+      "big_svgs": []
+    }
+  },
+  {
+    "name": "05-mobile-ar-rtl",
+    "viewport": [
+      375,
+      667
+    ],
+    "action": "keep",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "ar",
+    "dir_after": "rtl",
+    "scroll_width": 375,
+    "client_width": 375,
+    "scroll_height": 2450,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": [],
+    "dom_check": {
+      "skills_lessons_count": 2,
+      "skills_lessons_titles": [
+        "مقدمة في الذكاء الاصطناعي التطبيقي",
+        "بناء تطبيقات حديثة باستخدام Next.js"
+      ],
+      "skills_levels_count": 3,
+      "featured_exists": true,
+      "featured_visible_height": 265,
+      "featured_projects_count": 3,
+      "featured_project_titles": [
+        "منصة التعليم المفتوح",
+        "نظام إدارة العيادات",
+        "خريطة الخدمات في سوريا"
+      ],
+      "engineers_exists": true,
+      "engineers_visible_height": 303,
+      "engineers_count": 3,
+      "activity_exists": true,
+      "activity_visible_height": 287,
+      "activity_items_count": 4,
+      "lower_grid_offsetTop": 1508,
+      "doc_scrollHeight": 2450,
+      "big_svgs_count": 0,
+      "big_svgs": []
+    }
+  },
+  {
+    "name": "06-mobile-en-ltr",
+    "viewport": [
+      375,
+      667
+    ],
+    "action": "toggle",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "en",
+    "dir_after": "ltr",
+    "scroll_width": 375,
+    "client_width": 375,
+    "scroll_height": 2500,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": [],
+    "dom_check": {
+      "skills_lessons_count": 2,
+      "skills_lessons_titles": [
+        "Intro to Applied AI",
+        "Building Modern Apps with Next.js"
+      ],
+      "skills_levels_count": 3,
+      "featured_exists": true,
+      "featured_visible_height": 286,
+      "featured_projects_count": 3,
+      "featured_project_titles": [
+        "Open Education Platform",
+        "Clinic Management System",
+        "Syria Services Map"
+      ],
+      "engineers_exists": true,
+      "engineers_visible_height": 303,
+      "engineers_count": 3,
+      "activity_exists": true,
+      "activity_visible_height": 287,
+      "activity_items_count": 4,
+      "lower_grid_offsetTop": 1538,
+      "doc_scrollHeight": 2500,
+      "big_svgs_count": 0,
+      "big_svgs": []
+    }
+  }
+]
