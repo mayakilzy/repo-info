@@ -1,0 +1,63 @@
+{
+  "project": "SyrianTechRenaissance",
+  "page": "PAGE_01_HOME",
+  "version": "1.0-draft",
+  "status": "GATE_B_PENDING",
+  "approved_image": "assets/approved-reference.png",
+  "viewport_of_source": [
+    1536,
+    1024
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "2dd9df008ad44367f1a9bc63e323279187107312e1cdafbe6bee731009b3783e",
+      "bytes": 2289
+    },
+    {
+      "path": "assets/approved-reference.png",
+      "sha256": "1066016010130adccf1338a7bac46ef5754891901f3ef88d80e3979355b1a276",
+      "bytes": 2010840
+    },
+    {
+      "path": "assets/heritage.webp",
+      "sha256": "ef2f832a23e7f90d6238a507a0b5867777c843a069187158f380740d91532784",
+      "bytes": 12266
+    },
+    {
+      "path": "assets/hero-scene.webp",
+      "sha256": "ccc2f1b7509e678c91ac28e4e661991f537978a100d8a70c9c9b224831d309ba",
+      "bytes": 32320
+    },
+    {
+      "path": "assets/project-city.webp",
+      "sha256": "f6c45f43339c7610b1f1d92298c4973f886286ad69e4f010d6d1166c5477a0ad",
+      "bytes": 8376
+    },
+    {
+      "path": "assets/project-education.webp",
+      "sha256": "3e039f6d37227ae388ff0ba7aaba7933a80e907858c5bf06b2d69a047effebd7",
+      "bytes": 8670
+    },
+    {
+      "path": "assets/project-health.webp",
+      "sha256": "bce56b5f095fba5f9b99382890fccd69019f55b182103330a87d5046311addaa",
+      "bytes": 7670
+    },
+    {
+      "path": "index.html",
+      "sha256": "bef09883444584a2d43e71417ce263cefeb2ed0c94d48d6710c9a7c4ea42f548",
+      "bytes": 10792
+    },
+    {
+      "path": "script.js",
+      "sha256": "5adf8d3345c1ef986fd884cd929a491fd0a07fa5b1dfed4b967630556bfc8a42",
+      "bytes": 1282
+    },
+    {
+      "path": "styles.css",
+      "sha256": "206c86d5247cbc55f1d0e7a605a775beff5b3adc6268bc0f7a6d241c1e632535",
+      "bytes": 14448
+    }
+  ]
+}
