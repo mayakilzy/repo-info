@@ -1,0 +1,48 @@
+{
+  "approved_vs_v1_1": {
+    "diff_pct": 85.423,
+    "diff_pixels": 1343591,
+    "total_pixels": 1572864,
+    "ssim": 0.393,
+    "mae_rgb": [
+      42.341,
+      40.312,
+      47.448
+    ],
+    "luminance_a": 50.16,
+    "luminance_b": 41.78,
+    "side_by_side": "comparison-approved-vs-v11.png",
+    "diff_image": "diff-approved-vs-v11.png"
+  },
+  "approved_vs_v1_0": {
+    "diff_pct": 84.047,
+    "diff_pixels": 1321948,
+    "total_pixels": 1572864,
+    "ssim": 0.3556,
+    "mae_rgb": [
+      44.92,
+      45.364,
+      54.87
+    ],
+    "luminance_a": 50.16,
+    "luminance_b": 47.08,
+    "side_by_side": "comparison-approved-vs-v10.png",
+    "diff_image": "diff-approved-vs-v10.png"
+  },
+  "v1_0_vs_v1_1": {
+    "diff_pct": 48.59,
+    "diff_pixels": 764260,
+    "total_pixels": 1572864,
+    "ssim": 0.5709,
+    "mae_rgb": [
+      30.615,
+      28.533,
+      30.936
+    ],
+    "luminance_a": 47.08,
+    "luminance_b": 41.78,
+    "side_by_side": "comparison-v10-vs-v11.png",
+    "diff_image": "diff-v10-vs-v11.png"
+  },
+  "triple_comparison": "comparison-triple.png"
+}
