@@ -1,0 +1,110 @@
+[
+  {
+    "name": "01-desktop-ar-rtl",
+    "viewport": [
+      1536,
+      1024
+    ],
+    "action": "keep",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "ar",
+    "dir_after": "rtl",
+    "scroll_width": 1536,
+    "client_width": 1536,
+    "scroll_height": 2433,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": []
+  },
+  {
+    "name": "02-desktop-en-ltr",
+    "viewport": [
+      1536,
+      1024
+    ],
+    "action": "toggle",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "en",
+    "dir_after": "ltr",
+    "scroll_width": 1536,
+    "client_width": 1536,
+    "scroll_height": 2433,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": []
+  },
+  {
+    "name": "03-tablet-ar-rtl",
+    "viewport": [
+      768,
+      1024
+    ],
+    "action": "keep",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "ar",
+    "dir_after": "rtl",
+    "scroll_width": 768,
+    "client_width": 768,
+    "scroll_height": 5038,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": []
+  },
+  {
+    "name": "04-tablet-en-ltr",
+    "viewport": [
+      768,
+      1024
+    ],
+    "action": "toggle",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "en",
+    "dir_after": "ltr",
+    "scroll_width": 768,
+    "client_width": 768,
+    "scroll_height": 5042,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": []
+  },
+  {
+    "name": "05-mobile-ar-rtl",
+    "viewport": [
+      375,
+      667
+    ],
+    "action": "keep",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "ar",
+    "dir_after": "rtl",
+    "scroll_width": 375,
+    "client_width": 375,
+    "scroll_height": 3808,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": []
+  },
+  {
+    "name": "06-mobile-en-ltr",
+    "viewport": [
+      375,
+      667
+    ],
+    "action": "toggle",
+    "lang_before": "ar",
+    "dir_before": "rtl",
+    "lang_after": "en",
+    "dir_after": "ltr",
+    "scroll_width": 375,
+    "client_width": 375,
+    "scroll_height": 3859,
+    "has_horizontal_scroll": false,
+    "console_messages": [],
+    "page_errors": []
+  }
+]
