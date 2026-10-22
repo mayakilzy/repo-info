@@ -1,0 +1,477 @@
+{
+  "fonts_loaded": [
+    {
+      "family": "IBM Plex Mono",
+      "weight": "400",
+      "style": "normal"
+    },
+    {
+      "family": "IBM Plex Sans Arabic",
+      "weight": "400",
+      "style": "normal"
+    },
+    {
+      "family": "IBM Plex Sans Arabic",
+      "weight": "400",
+      "style": "normal"
+    },
+    {
+      "family": "IBM Plex Sans Arabic",
+      "weight": "500",
+      "style": "normal"
+    },
+    {
+      "family": "IBM Plex Sans Arabic",
+      "weight": "500",
+      "style": "normal"
+    },
+    {
+      "family": "IBM Plex Sans Arabic",
+      "weight": "600",
+      "style": "normal"
+    },
+    {
+      "family": "IBM Plex Sans Arabic",
+      "weight": "600",
+      "style": "normal"
+    },
+    {
+      "family": "IBM Plex Sans Arabic",
+      "weight": "700",
+      "style": "normal"
+    },
+    {
+      "family": "IBM Plex Sans Arabic",
+      "weight": "700",
+      "style": "normal"
+    },
+    {
+      "family": "Inter",
+      "weight": "400",
+      "style": "normal"
+    },
+    {
+      "family": "Inter",
+      "weight": "500",
+      "style": "normal"
+    },
+    {
+      "family": "Inter",
+      "weight": "600",
+      "style": "normal"
+    },
+    {
+      "family": "Inter",
+      "weight": "700",
+      "style": "normal"
+    },
+    {
+      "family": "Source Serif 4",
+      "weight": "400",
+      "style": "normal"
+    },
+    {
+      "family": "Source Serif 4",
+      "weight": "600",
+      "style": "normal"
+    }
+  ],
+  "dir": "rtl",
+  "lang": "ar",
+  "regions": {
+    "html": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1536,
+        "h": 1068.734375
+      },
+      "innerText": "منارة\nمصنع الذكاء التكيفي\nالاستكشاف\nالرئيسية\nابدأ تحقيقاً جديداً\nمساحة التحقيق\nم"
+    },
+    "body": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1536,
+        "h": 1068.734375
+      },
+      "innerText": "منارة\nمصنع الذكاء التكيفي\nالاستكشاف\nالرئيسية\nابدأ تحقيقاً جديداً\nمساحة التحقيق\nم"
+    },
+    "#hero-title": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "62.976px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "right",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 601,
+        "y": 147.9375,
+        "w": 630,
+        "h": 132.21875
+      },
+      "innerText": "ماذا تريد أن\nتكتشف اليوم؟"
+    },
+    ".manara-hero-title": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "62.976px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "right",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 601,
+        "y": 147.9375,
+        "w": 630,
+        "h": 132.21875
+      },
+      "innerText": "ماذا تريد أن\nتكتشف اليوم؟"
+    },
+    ".manara-hero": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 0,
+        "y": 64,
+        "w": 1276,
+        "h": 972.734375
+      },
+      "innerText": "و ر ش ة ا ل ذ ك ا ء ا ل ع ل م ي\n\nماذا تريد أن\nتكتشف اليوم؟\n\nحوِّل سؤالك البحثي إ"
+    },
+    ".manara-hero-art": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 484.890625,
+        "y": 64,
+        "w": 791.109375,
+        "h": 530
+      },
+      "innerText": ""
+    },
+    ".manara-hero-copy": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "right",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 576,
+        "y": 64,
+        "w": 700,
+        "h": 281.875
+      },
+      "innerText": "و ر ش ة ا ل ذ ك ا ء ا ل ع ل م ي\n\nماذا تريد أن\nتكتشف اليوم؟\n\nحوِّل سؤالك البحثي إ"
+    },
+    ".manara-question-card": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 531,
+        "y": 375.875,
+        "w": 710,
+        "h": 194.171875
+      },
+      "innerText": "سؤال البحث\nمثال: ما مستقبل الأطراف الاصطناعية الذكية خلال العقد القادم؟\n0 / 1000"
+    },
+    ".manara-question-input": {
+      "display": "inline-block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 546,
+        "y": 390.875,
+        "w": 680,
+        "h": 65.28125
+      },
+      "innerText": ""
+    },
+    ".manara-below": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 0,
+        "y": 570.046875,
+        "w": 1276,
+        "h": 465.6875
+      },
+      "innerText": "كيف يعمل منارة\n\nمن سؤالك إلى معرفة موثوقة عبر عملية بحث شفافة.\n\nتعلَّم المزيد عن"
+    },
+    ".manara-steps": {
+      "display": "grid",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 30,
+        "y": 652.84375,
+        "w": 1208,
+        "h": 126
+      },
+      "innerText": "1\nحلِّل السؤال\n\nحدِّد الاحتياجات المعرفية وحلِّل مشكلة البحث مباشرةً من سؤالك.\n\n"
+    },
+    ".manara-step": {
+      "display": "flex",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 862,
+        "y": 652.84375,
+        "w": 376,
+        "h": 126
+      },
+      "innerText": "1\nحلِّل السؤال\n\nحدِّد الاحتياجات المعرفية وحلِّل مشكلة البحث مباشرةً من سؤالك."
+    },
+    ".manara-step-arrow": {
+      "display": "flex",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "center",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 832,
+        "y": 705.84375,
+        "w": 20,
+        "h": 20
+      },
+      "innerText": ""
+    },
+    ".manara-bottom-grid": {
+      "display": "grid",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 30,
+        "y": 799.84375,
+        "w": 1208,
+        "h": 209.890625
+      },
+      "innerText": "عملية بحث\nأكثر شفافية\n\nانظر كيف يجمع منارة المصادر والأدلة والتحليل لتقديم رؤى م"
+    },
+    ".manara-mountain-card": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 754.8125,
+        "y": 799.84375,
+        "w": 483.1875,
+        "h": 209.890625
+      },
+      "innerText": "عملية بحث\nأكثر شفافية\n\nانظر كيف يجمع منارة المصادر والأدلة والتحليل لتقديم رؤى م"
+    },
+    ".manara-capabilities": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 30,
+        "y": 799.84375,
+        "w": 704.8125,
+        "h": 209.890625
+      },
+      "innerText": "استكشف قدرات منارة\n\nتجاوز البحث الواحد. اكتشف الطرق المختلفة للعمل مع المعرفة.\n\n"
+    },
+    "aside": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 1276,
+        "y": 0,
+        "w": 260,
+        "h": 1068.734375
+      },
+      "innerText": "منارة\nمصنع الذكاء التكيفي\nالاستكشاف\nالرئيسية\nابدأ تحقيقاً جديداً\nمساحة التحقيق\nم"
+    },
+    "header": {
+      "display": "flex",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "start",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 1276,
+        "h": 64
+      },
+      "innerText": "ابحث في التحقيقات أو المصادر أو الموضوعات...\nCtrl + K\nمتصل\nEN\nAR"
+    },
+    ".topbar": "NOT FOUND",
+    ".sidebar": "NOT FOUND",
+    ".manara-primary-btn": {
+      "display": "flex",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "center",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 552,
+        "y": 463.953125,
+        "w": 108,
+        "h": 44.59375
+      },
+      "innerText": "ابدأ التحقيق"
+    },
+    ".manara-eyebrow": {
+      "display": "flex",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "9px",
+      "fontWeight": "700",
+      "fontStyle": "normal",
+      "letterSpacing": "2px",
+      "textAlign": "right",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 601,
+        "y": 113,
+        "w": 630,
+        "h": 13.9375
+      },
+      "innerText": "و ر ش ة ا ل ذ ك ا ء ا ل ع ل م ي"
+    },
+    ".manara-hero-description": {
+      "display": "block",
+      "direction": "rtl",
+      "fontFamily": "\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex Sans Arabic\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "fontStyle": "normal",
+      "letterSpacing": "normal",
+      "textAlign": "right",
+      "writingMode": "horizontal-tb",
+      "rect": {
+        "x": 691,
+        "y": 299.15625,
+        "w": 540,
+        "h": 46.71875
+      },
+      "innerText": "حوِّل سؤالك البحثي إلى تحقيق منهجي يستكشف المصادر، يجمع الأدلة، ويكشف ما يمكن إث"
+    }
+  },
+  "overflow": {
+    "viewport": {
+      "w": 1536,
+      "h": 1024
+    },
+    "document": {
+      "w": 1536,
+      "h": 1069
+    },
+    "horizontal_overflow_px": 0,
+    "vertical_overflow_px": 45,
+    "elements_exceeding_viewport": []
+  },
+  "console_errors": []
+}

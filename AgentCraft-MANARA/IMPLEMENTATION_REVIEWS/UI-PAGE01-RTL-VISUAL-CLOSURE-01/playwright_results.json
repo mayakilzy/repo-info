@@ -1,0 +1,135 @@
+{
+  "mission": "MANARA-UI-PAGE01-RTL-VISUAL-CLOSURE-01",
+  "timestamp_utc": "2026-10-22T01:39:18",
+  "total": 21,
+  "passed": 19,
+  "failed": 2,
+  "assertions": [
+    {
+      "name": "en_dir_ltr",
+      "passed": true,
+      "reason": "dir='ltr'",
+      "evidence": ""
+    },
+    {
+      "name": "en_lang_en",
+      "passed": true,
+      "reason": "lang='en'",
+      "evidence": ""
+    },
+    {
+      "name": "en_hero_title_uses_source_serif",
+      "passed": true,
+      "reason": "fontFamily=\"Source Serif 4\", Georgia, serif, Georgia, serif",
+      "evidence": ""
+    },
+    {
+      "name": "en_desktop_no_horizontal_overflow",
+      "passed": true,
+      "reason": "H overflow=0px",
+      "evidence": ""
+    },
+    {
+      "name": "ar_dir_rtl",
+      "passed": true,
+      "reason": "dir='rtl'",
+      "evidence": ""
+    },
+    {
+      "name": "ar_lang_ar",
+      "passed": true,
+      "reason": "lang='ar'",
+      "evidence": ""
+    },
+    {
+      "name": "ar_hero_title_uses_ibm_plex_arabic",
+      "passed": true,
+      "reason": "fontFamily=\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex San",
+      "evidence": ""
+    },
+    {
+      "name": "ar_sidebar_on_right",
+      "passed": true,
+      "reason": "sidebar.x=1276 (should be >1000 in 1536px viewport)",
+      "evidence": ""
+    },
+    {
+      "name": "ar_desktop_no_horizontal_overflow",
+      "passed": true,
+      "reason": "H overflow=0px",
+      "evidence": ""
+    },
+    {
+      "name": "ar_headline_has_arabic_text",
+      "passed": true,
+      "reason": "text='ماذا تريد أن\\nتكتشف اليوم؟'",
+      "evidence": ""
+    },
+    {
+      "name": "en_mobile_hamburger_visible",
+      "passed": true,
+      "reason": "menu button visible: True",
+      "evidence": ""
+    },
+    {
+      "name": "en_mobile_no_horizontal_overflow",
+      "passed": true,
+      "reason": "H overflow=0px",
+      "evidence": ""
+    },
+    {
+      "name": "ar_mobile_dir_rtl",
+      "passed": true,
+      "reason": "",
+      "evidence": ""
+    },
+    {
+      "name": "ar_mobile_no_horizontal_overflow",
+      "passed": true,
+      "reason": "H overflow=0px",
+      "evidence": ""
+    },
+    {
+      "name": "ar_tablet_dir_rtl",
+      "passed": true,
+      "reason": "",
+      "evidence": ""
+    },
+    {
+      "name": "ar_tablet_no_horizontal_overflow",
+      "passed": true,
+      "reason": "H overflow=4px (tolerance 4px)",
+      "evidence": ""
+    },
+    {
+      "name": "ar_compose_http_200",
+      "passed": false,
+      "reason": "compose returned HTTP 422",
+      "evidence": ""
+    },
+    {
+      "name": "en_compose_http_200",
+      "passed": true,
+      "reason": "inv_id=inv-6290b7a4801e3e6e",
+      "evidence": ""
+    },
+    {
+      "name": "en_open_workspace_button_visible",
+      "passed": true,
+      "reason": "",
+      "evidence": ""
+    },
+    {
+      "name": "en_compose_result_card_visible",
+      "passed": true,
+      "reason": "",
+      "evidence": ""
+    },
+    {
+      "name": "en_error_state_visible",
+      "passed": false,
+      "reason": "",
+      "evidence": ""
+    }
+  ]
+}
