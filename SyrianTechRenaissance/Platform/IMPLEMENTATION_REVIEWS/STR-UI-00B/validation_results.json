@@ -1,0 +1,116 @@
+[
+  {
+    "name": "01-desktop-ar-rtl",
+    "viewport": [
+      1536,
+      1024
+    ],
+    "action": "keep",
+    "html_lang_before": "ar",
+    "html_dir_before": "rtl",
+    "html_lang_after": "ar",
+    "html_dir_after": "rtl",
+    "has_horizontal_scroll": false,
+    "scroll_width": 1536,
+    "client_width": 1536,
+    "scroll_height": 1160,
+    "console_messages": [],
+    "page_errors": [],
+    "screenshot_path": "screenshots/01-desktop-ar-rtl.png"
+  },
+  {
+    "name": "02-desktop-en-ltr",
+    "viewport": [
+      1536,
+      1024
+    ],
+    "action": "toggle",
+    "html_lang_before": "ar",
+    "html_dir_before": "rtl",
+    "html_lang_after": "en",
+    "html_dir_after": "ltr",
+    "has_horizontal_scroll": false,
+    "scroll_width": 1536,
+    "client_width": 1536,
+    "scroll_height": 1160,
+    "console_messages": [],
+    "page_errors": [],
+    "screenshot_path": "screenshots/02-desktop-en-ltr.png"
+  },
+  {
+    "name": "03-tablet-ar-rtl",
+    "viewport": [
+      768,
+      1024
+    ],
+    "action": "keep",
+    "html_lang_before": "ar",
+    "html_dir_before": "rtl",
+    "html_lang_after": "ar",
+    "html_dir_after": "rtl",
+    "has_horizontal_scroll": false,
+    "scroll_width": 768,
+    "client_width": 768,
+    "scroll_height": 2129,
+    "console_messages": [],
+    "page_errors": [],
+    "screenshot_path": "screenshots/03-tablet-ar-rtl.png"
+  },
+  {
+    "name": "04-tablet-en-ltr",
+    "viewport": [
+      768,
+      1024
+    ],
+    "action": "toggle",
+    "html_lang_before": "ar",
+    "html_dir_before": "rtl",
+    "html_lang_after": "en",
+    "html_dir_after": "ltr",
+    "has_horizontal_scroll": false,
+    "scroll_width": 768,
+    "client_width": 768,
+    "scroll_height": 2129,
+    "console_messages": [],
+    "page_errors": [],
+    "screenshot_path": "screenshots/04-tablet-en-ltr.png"
+  },
+  {
+    "name": "05-mobile-ar-rtl",
+    "viewport": [
+      375,
+      667
+    ],
+    "action": "keep",
+    "html_lang_before": "ar",
+    "html_dir_before": "rtl",
+    "html_lang_after": "ar",
+    "html_dir_after": "rtl",
+    "has_horizontal_scroll": false,
+    "scroll_width": 375,
+    "client_width": 375,
+    "scroll_height": 2546,
+    "console_messages": [],
+    "page_errors": [],
+    "screenshot_path": "screenshots/05-mobile-ar-rtl.png"
+  },
+  {
+    "name": "06-mobile-en-ltr",
+    "viewport": [
+      375,
+      667
+    ],
+    "action": "toggle",
+    "html_lang_before": "ar",
+    "html_dir_before": "rtl",
+    "html_lang_after": "en",
+    "html_dir_after": "ltr",
+    "has_horizontal_scroll": true,
+    "scroll_width": 437,
+    "client_width": 375,
+    "scroll_height": 2557,
+    "console_messages": [],
+    "page_errors": [],
+    "screenshot_path": "screenshots/06-mobile-en-ltr.png"
+  }
+]
