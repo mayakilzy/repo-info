@@ -27,13 +27,14 @@ The platform is engineering-ready for UI/UX work (G11-01), with the
 following caveats:
 
 1. **FOLLOW-UP-1** (service-layer account-status checks in other
-   modules) should be addressed before production launch. It is NOT
-   a UI blocker.
-2. The 7 NOT_TESTED items (S3, SMTP, OAuth, Redis rate limiter, worker
-   crash-during-execution, backup/restore, migration rollback) are
-   staging-deployment or production-launch blockers, NOT UI blockers.
-3. MASTER must explicitly approve the G11-00 results before G11-01
-   begins.
+   modules) was **CLOSED in G11-00A** — see the G11-00A reconciliation
+   report below. All 6 modules (teams, projects, organizations,
+   moderation, admin, integrations) now have the active-user check.
+2. The remaining NOT_TESTED items (S3, SMTP, OAuth, Redis rate limiter,
+   worker crash-during-execution, backup/restore, migration rollback)
+   are staging-deployment or production-launch blockers, NOT UI blockers.
+3. MASTER must explicitly approve the G11-00 + G11-00A results before
+   G11-01 begins.
 
 ---
 
@@ -43,9 +44,9 @@ following caveats:
 MISSION: STR-G11-00
 BASE_SHA: 635abbae2dd88ca8e27e2582d079b1de6c541e13
 FINAL_CODE_SHA: e8386fa25598470dfaf8f3a4dc548492cb41b44b
-FINAL_DOCS_SHA: (to be filled after docs PR is created)
+FINAL_DOCS_SHA: a14e02b865fb71c55ed12c4e82a22648aaa17d29
 CODE_PR: https://github.com/mayakilzy/SyrianTechRenaissance-Platform/pull/7
-DOCS_PR: (to be filled after docs PR is created)
+DOCS_PR: https://github.com/mayakilzy/repo-info/pull/1
 TESTS_EXECUTED: 332 (vitest) + typecheck + lint + build
 TESTS_PASSED: 332 (vitest) + typecheck PASS + lint PASS + build PASS
 TESTS_FAILED: 0
@@ -54,17 +55,27 @@ NEW_REGRESSION_TESTS: 7 (in src/modules/__tests__/g11-00-adversarial-security.te
 CRITICAL_FINDINGS: 1 (DEFECT 1 — suspended user can create proposals) — FIXED
 HIGH_FINDINGS: 1 (DEFECT 2 — suspended user can act as reviewer/steward) — FIXED
 FIXES_COMPLETED: 2 (DEFECT 1 + DEFECT 2)
-UNRESOLVED_GAPS: 5 follow-up items (FOLLOW-UP 1-5, none block UI)
+UNRESOLVED_GAPS: 4 follow-up items (FOLLOW-UP 2-5; FOLLOW-UP-1 closed by G11-00A)
 DATABASE_INTEGRITY: PASS (no defects found; optimistic locks verified by 2 new race tests)
 SECURITY_VALIDATION: PASS (2 defects found + fixed + regression tests; existing G09 coverage is strong)
-WORKER_RECOVERY: PASS (no defects found; existing G09 + G10-01V coverage is strong; mid-execution crash NOT_TESTED but staging-safe)
+WORKER_RECOVERY: PARTIAL (existing coverage strong for lease/restart scenarios; mid-execution crash NOT_TESTED — staging-safe with mock adapter, production blocker when real adapters wired)
 PERFORMANCE_VALIDATION: PARTIAL (code-review level only; no production-rate load testing)
-DOCKER_VALIDATION: PASS (carried from G10-03 staging validation CI; G11-00 fix does not affect Docker config)
+DOCKER_VALIDATION: PASS (CI #23 SUCCESS on PR #7 — Docker Production Build)
 BACKUP_RESTORE_VALIDATION: NOT_TESTED (procedure documented; requires real server)
-E2E_VALIDATION: PASS (carried from G10-04A CI #274; G11-00 fix is service-layer, no UI changes)
-CI_STATUS: PENDING (PR #7 CI will run on push; expected to pass since fix is service-layer)
+E2E_VALIDATION: PASS (CI #278 SUCCESS on PR #7 — Playwright E2E RTL+LTR)
+CI_STATUS: SUCCESS (4/4 PR-triggered workflows PASS on e8386fa)
+  - STR Platform CI #278: SUCCESS
+    Typecheck/Lint/Unit: SUCCESS
+    Playwright E2E RTL+LTR: SUCCESS
+    URL: https://github.com/mayakilzy/SyrianTechRenaissance-Platform/actions/runs/39561363398
+  - STR Platform — Docker Production Build #23: SUCCESS
+    URL: https://github.com/mayakilzy/SyrianTechRenaissance-Platform/actions/runs/39558831912
+  - STR Platform — G10-02 Runtime Integration #12: SUCCESS
+    URL: https://github.com/mayakilzy/SyrianTechRenaissance-Platform/actions/runs/39558831910
+  - STR Platform — G10-03 Staging Compose Validation #8: SUCCESS
+    URL: https://github.com/mayakilzy/SyrianTechRenaissance-Platform/actions/runs/39558831908
 OVERALL_GATE: PASS
-SAFE_TO_BEGIN_UI_IMPLEMENTATION: YES (subject to MASTER approval)
+SAFE_TO_BEGIN_UI_IMPLEMENTATION: YES (subject to MASTER approval + G11-00A closure)
 MASTER_APPROVAL_REQUIRED: YES
 ```
 
