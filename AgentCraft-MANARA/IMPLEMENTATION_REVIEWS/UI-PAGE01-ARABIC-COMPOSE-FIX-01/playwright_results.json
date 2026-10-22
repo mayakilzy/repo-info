@@ -1,0 +1,219 @@
+{
+  "mission": "MANARA-UI-PAGE01-ARABIC-COMPOSE-FIX-01",
+  "timestamp_utc": "2026-10-22T03:10:32.201314+00:00",
+  "total": 30,
+  "passed": 30,
+  "failed": 0,
+  "assertions": [
+    {
+      "name": "en_dir_ltr",
+      "passed": true,
+      "reason": "dir='ltr'",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:24.927031+00:00"
+    },
+    {
+      "name": "en_lang_en",
+      "passed": true,
+      "reason": "lang='en'",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:24.927079+00:00"
+    },
+    {
+      "name": "en_hero_title_uses_source_serif",
+      "passed": true,
+      "reason": "fontFamily=\"Source Serif 4\", Georgia, serif, Georgia, serif",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:24.928977+00:00"
+    },
+    {
+      "name": "en_desktop_no_horizontal_overflow",
+      "passed": true,
+      "reason": "H overflow=0px",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:24.930674+00:00"
+    },
+    {
+      "name": "ar_dir_rtl",
+      "passed": true,
+      "reason": "dir='rtl'",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:29.824386+00:00"
+    },
+    {
+      "name": "ar_lang_ar",
+      "passed": true,
+      "reason": "lang='ar'",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:29.824433+00:00"
+    },
+    {
+      "name": "ar_hero_title_uses_ibm_plex_arabic",
+      "passed": true,
+      "reason": "fontFamily=\"IBM Plex Sans Arabic\", system-ui, sans-serif, \"IBM Plex San",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:29.826344+00:00"
+    },
+    {
+      "name": "ar_sidebar_on_right",
+      "passed": true,
+      "reason": "sidebar.x=1276 (should be >1000 in 1536px viewport)",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:29.827826+00:00"
+    },
+    {
+      "name": "ar_desktop_no_horizontal_overflow",
+      "passed": true,
+      "reason": "H overflow=0px",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:29.829060+00:00"
+    },
+    {
+      "name": "ar_headline_has_arabic_text",
+      "passed": true,
+      "reason": "text='ماذا تريد أن\\nتكتشف اليوم؟'",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:29.830399+00:00"
+    },
+    {
+      "name": "en_mobile_hamburger_visible",
+      "passed": true,
+      "reason": "menu button visible: True",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:33.547029+00:00"
+    },
+    {
+      "name": "en_mobile_no_horizontal_overflow",
+      "passed": true,
+      "reason": "H overflow=0px",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:33.549361+00:00"
+    },
+    {
+      "name": "ar_mobile_dir_rtl",
+      "passed": true,
+      "reason": "",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:37.731443+00:00"
+    },
+    {
+      "name": "ar_mobile_no_horizontal_overflow",
+      "passed": true,
+      "reason": "H overflow=0px",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:37.733981+00:00"
+    },
+    {
+      "name": "ar_tablet_dir_rtl",
+      "passed": true,
+      "reason": "",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:41.781071+00:00"
+    },
+    {
+      "name": "ar_tablet_no_horizontal_overflow",
+      "passed": true,
+      "reason": "H overflow=4px (tolerance 4px)",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:41.782836+00:00"
+    },
+    {
+      "name": "ar_input_accepts_arabic_text",
+      "passed": true,
+      "reason": "input length=123",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:09:45.103309+00:00"
+    },
+    {
+      "name": "ar_compose_http_200",
+      "passed": true,
+      "reason": "HTTP 200",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:01.286801+00:00"
+    },
+    {
+      "name": "ar_compose_returns_investigation_id",
+      "passed": true,
+      "reason": "inv_id=inv-2918468bc043a8d1",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:01.303195+00:00"
+    },
+    {
+      "name": "ar_compose_returns_valid_mold_id",
+      "passed": true,
+      "reason": "mold_id=mold.qa3fb23a1-1792638601-9789bf99",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:01.303393+00:00"
+    },
+    {
+      "name": "ar_compose_preserves_arabic_query",
+      "passed": true,
+      "reason": "query preserved: True",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:01.303403+00:00"
+    },
+    {
+      "name": "ar_open_workspace_button_visible",
+      "passed": true,
+      "reason": "Open Workspace button visible (English fallback)",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:16.313040+00:00"
+    },
+    {
+      "name": "ar_populated_no_horizontal_overflow",
+      "passed": true,
+      "reason": "H overflow=0px",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:17.816896+00:00"
+    },
+    {
+      "name": "en_compose_http_200",
+      "passed": true,
+      "reason": "HTTP 200",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:20.875800+00:00"
+    },
+    {
+      "name": "en_compose_returns_investigation_id",
+      "passed": true,
+      "reason": "inv_id=inv-99de757153043419",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:20.894613+00:00"
+    },
+    {
+      "name": "en_compose_returns_valid_mold_id",
+      "passed": true,
+      "reason": "mold_id=mold.compare-1792638620-6875f13a",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:20.894652+00:00"
+    },
+    {
+      "name": "en_open_workspace_button_visible",
+      "passed": true,
+      "reason": "",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:20.936998+00:00"
+    },
+    {
+      "name": "en_compose_result_card_visible",
+      "passed": true,
+      "reason": "",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:20.998259+00:00"
+    },
+    {
+      "name": "en_error_state_alert_role_visible",
+      "passed": true,
+      "reason": "role=\"alert\" element visible: True",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:26.830055+00:00"
+    },
+    {
+      "name": "en_error_state_has_aria_label",
+      "passed": true,
+      "reason": "aria-label=\"Something went wrong\"",
+      "evidence": "",
+      "timestamp": "2026-10-22T03:10:26.884769+00:00"
+    }
+  ]
+}
