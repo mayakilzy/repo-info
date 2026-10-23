@@ -1,0 +1,128 @@
+[
+  {
+    "name": "01-desktop-ar-rtl",
+    "viewport": [
+      1536,
+      1024
+    ],
+    "locale": "ar",
+    "sidebar_position": {
+      "sidebar_left": 1320,
+      "sidebar_right": 1536,
+      "sidebar_width": 216,
+      "viewport_width": 1536,
+      "sidebar_side": "RIGHT"
+    },
+    "scroll_width": 1536,
+    "client_width": 1536,
+    "has_horizontal_scroll": false,
+    "big_svgs_count": 0,
+    "console_messages": 4,
+    "page_errors": 0
+  },
+  {
+    "name": "02-desktop-en-ltr",
+    "viewport": [
+      1536,
+      1024
+    ],
+    "locale": "en",
+    "sidebar_position": {
+      "sidebar_left": 0,
+      "sidebar_right": 216,
+      "sidebar_width": 216,
+      "viewport_width": 1536,
+      "sidebar_side": "LEFT"
+    },
+    "scroll_width": 1536,
+    "client_width": 1536,
+    "has_horizontal_scroll": false,
+    "big_svgs_count": 0,
+    "console_messages": 2,
+    "page_errors": 0
+  },
+  {
+    "name": "03-tablet-ar-rtl",
+    "viewport": [
+      768,
+      1024
+    ],
+    "locale": "ar",
+    "sidebar_position": {
+      "sidebar_left": 578,
+      "sidebar_right": 768,
+      "sidebar_width": 190,
+      "viewport_width": 768,
+      "sidebar_side": "RIGHT"
+    },
+    "scroll_width": 768,
+    "client_width": 768,
+    "has_horizontal_scroll": false,
+    "big_svgs_count": 0,
+    "console_messages": 2,
+    "page_errors": 0
+  },
+  {
+    "name": "04-tablet-en-ltr",
+    "viewport": [
+      768,
+      1024
+    ],
+    "locale": "en",
+    "sidebar_position": {
+      "sidebar_left": 0,
+      "sidebar_right": 190,
+      "sidebar_width": 190,
+      "viewport_width": 768,
+      "sidebar_side": "LEFT"
+    },
+    "scroll_width": 903,
+    "client_width": 768,
+    "has_horizontal_scroll": true,
+    "big_svgs_count": 0,
+    "console_messages": 2,
+    "page_errors": 0
+  },
+  {
+    "name": "05-mobile-ar-rtl",
+    "viewport": [
+      375,
+      667
+    ],
+    "locale": "ar",
+    "sidebar_position": {
+      "sidebar_left": 400,
+      "sidebar_right": 645,
+      "sidebar_width": 245,
+      "viewport_width": 375,
+      "sidebar_side": "OFFSCREEN"
+    },
+    "scroll_width": 375,
+    "client_width": 375,
+    "has_horizontal_scroll": false,
+    "big_svgs_count": 0,
+    "console_messages": 2,
+    "page_errors": 0
+  },
+  {
+    "name": "06-mobile-en-ltr",
+    "viewport": [
+      375,
+      667
+    ],
+    "locale": "en",
+    "sidebar_position": {
+      "sidebar_left": -269,
+      "sidebar_right": -24,
+      "sidebar_width": 245,
+      "viewport_width": 375,
+      "sidebar_side": "OFFSCREEN"
+    },
+    "scroll_width": 375,
+    "client_width": 375,
+    "has_horizontal_scroll": false,
+    "big_svgs_count": 0,
+    "console_messages": 2,
+    "page_errors": 0
+  }
+]
