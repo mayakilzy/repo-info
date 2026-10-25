@@ -1,0 +1,242 @@
+[
+  {
+    "case": "01-desktop-ar-rtl",
+    "viewport": [
+      1536,
+      1024
+    ],
+    "locale": "ar",
+    "url": "http://localhost:3000",
+    "html_lang": "ar",
+    "html_dir": "rtl",
+    "str_home_present": true,
+    "scrollWidth": 1536,
+    "clientWidth": 1536,
+    "horizontal_overflow_px": 0,
+    "sidebar_left": 1338,
+    "sidebar_right": 1536,
+    "sidebar_width": 198,
+    "big_svgs_count": 0,
+    "lessons_count": 2,
+    "lower_grid_offsetTop": 774,
+    "featured_projects_count": 0,
+    "stat_values": [
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014"
+    ],
+    "console_msgs_count": 10,
+    "page_errors_count": 0,
+    "console_msgs": [
+      "[info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+      "[log] [HMR] connected",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:129:133\n\n  126 //   - `ProjectProposal` has no `tags` field \u2014 featured project tags will be\n  127 //     empty (truthful: no tag schema exists yet).\n  128 const [activeMembersCount, activeProjectsCount, contributionsThisMonthCount, publishedOpportunitiesResult] = await Promise.all([\n\u2192 129     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:134:136\n\n  131         status: \"ACTIVE\"\n  132     }\n  133 }).catch(()=>0),\n\u2192 134 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:139:150\n\n  136         status: \"ACTIVE\"\n  137     }\n  138 }).catch(()=>0),\n\u2192 139 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`."
+    ],
+    "page_errors": [],
+    "screenshot": "/home/z/my-project/_integration/playwright-shots/01-desktop-ar-rtl.png"
+  },
+  {
+    "case": "02-desktop-en-ltr",
+    "viewport": [
+      1536,
+      1024
+    ],
+    "locale": "en",
+    "url": "http://localhost:3000/en",
+    "html_lang": "en",
+    "html_dir": "ltr",
+    "str_home_present": true,
+    "scrollWidth": 1536,
+    "clientWidth": 1536,
+    "horizontal_overflow_px": 0,
+    "sidebar_left": 0,
+    "sidebar_right": 198,
+    "sidebar_width": 198,
+    "big_svgs_count": 0,
+    "lessons_count": 2,
+    "lower_grid_offsetTop": 774,
+    "featured_projects_count": 0,
+    "stat_values": [
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014"
+    ],
+    "console_msgs_count": 8,
+    "page_errors_count": 0,
+    "console_msgs": [
+      "[info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+      "[log] [HMR] connected",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:129:133\n\n  126 //   - `ProjectProposal` has no `tags` field \u2014 featured project tags will be\n  127 //     empty (truthful: no tag schema exists yet).\n  128 const [activeMembersCount, activeProjectsCount, contributionsThisMonthCount, publishedOpportunitiesResult] = await Promise.all([\n\u2192 129     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:134:136\n\n  131         status: \"ACTIVE\"\n  132     }\n  133 }).catch(()=>0),\n\u2192 134 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:139:150\n\n  136         status: \"ACTIVE\"\n  137     }\n  138 }).catch(()=>0),\n\u2192 139 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`."
+    ],
+    "page_errors": [],
+    "screenshot": "/home/z/my-project/_integration/playwright-shots/02-desktop-en-ltr.png"
+  },
+  {
+    "case": "03-tablet-ar-rtl",
+    "viewport": [
+      768,
+      1024
+    ],
+    "locale": "ar",
+    "url": "http://localhost:3000",
+    "html_lang": "ar",
+    "html_dir": "rtl",
+    "str_home_present": true,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "horizontal_overflow_px": 0,
+    "sidebar_left": 704,
+    "sidebar_right": 768,
+    "sidebar_width": 64,
+    "big_svgs_count": 0,
+    "lessons_count": 2,
+    "lower_grid_offsetTop": 1147,
+    "featured_projects_count": 0,
+    "stat_values": [
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014"
+    ],
+    "console_msgs_count": 8,
+    "page_errors_count": 0,
+    "console_msgs": [
+      "[info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+      "[log] [HMR] connected",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:129:133\n\n  126 //   - `ProjectProposal` has no `tags` field \u2014 featured project tags will be\n  127 //     empty (truthful: no tag schema exists yet).\n  128 const [activeMembersCount, activeProjectsCount, contributionsThisMonthCount, publishedOpportunitiesResult] = await Promise.all([\n\u2192 129     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:134:136\n\n  131         status: \"ACTIVE\"\n  132     }\n  133 }).catch(()=>0),\n\u2192 134 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:139:150\n\n  136         status: \"ACTIVE\"\n  137     }\n  138 }).catch(()=>0),\n\u2192 139 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`."
+    ],
+    "page_errors": [],
+    "screenshot": "/home/z/my-project/_integration/playwright-shots/03-tablet-ar-rtl.png"
+  },
+  {
+    "case": "04-tablet-en-ltr",
+    "viewport": [
+      768,
+      1024
+    ],
+    "locale": "en",
+    "url": "http://localhost:3000/en",
+    "html_lang": "en",
+    "html_dir": "ltr",
+    "str_home_present": true,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "horizontal_overflow_px": 0,
+    "sidebar_left": 0,
+    "sidebar_right": 64,
+    "sidebar_width": 64,
+    "big_svgs_count": 0,
+    "lessons_count": 2,
+    "lower_grid_offsetTop": 1135,
+    "featured_projects_count": 0,
+    "stat_values": [
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014"
+    ],
+    "console_msgs_count": 8,
+    "page_errors_count": 0,
+    "console_msgs": [
+      "[info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+      "[log] [HMR] connected",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:129:133\n\n  126 //   - `ProjectProposal` has no `tags` field \u2014 featured project tags will be\n  127 //     empty (truthful: no tag schema exists yet).\n  128 const [activeMembersCount, activeProjectsCount, contributionsThisMonthCount, publishedOpportunitiesResult] = await Promise.all([\n\u2192 129     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:134:136\n\n  131         status: \"ACTIVE\"\n  132     }\n  133 }).catch(()=>0),\n\u2192 134 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:139:150\n\n  136         status: \"ACTIVE\"\n  137     }\n  138 }).catch(()=>0),\n\u2192 139 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`."
+    ],
+    "page_errors": [],
+    "screenshot": "/home/z/my-project/_integration/playwright-shots/04-tablet-en-ltr.png"
+  },
+  {
+    "case": "05-mobile-ar-rtl",
+    "viewport": [
+      375,
+      667
+    ],
+    "locale": "ar",
+    "url": "http://localhost:3000",
+    "html_lang": "ar",
+    "html_dir": "rtl",
+    "str_home_present": true,
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "horizontal_overflow_px": 0,
+    "sidebar_left": null,
+    "sidebar_right": null,
+    "sidebar_width": null,
+    "big_svgs_count": 0,
+    "lessons_count": 2,
+    "lower_grid_offsetTop": 1573,
+    "featured_projects_count": 0,
+    "stat_values": [
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014"
+    ],
+    "console_msgs_count": 8,
+    "page_errors_count": 0,
+    "console_msgs": [
+      "[info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+      "[log] [HMR] connected",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:129:133\n\n  126 //   - `ProjectProposal` has no `tags` field \u2014 featured project tags will be\n  127 //     empty (truthful: no tag schema exists yet).\n  128 const [activeMembersCount, activeProjectsCount, contributionsThisMonthCount, publishedOpportunitiesResult] = await Promise.all([\n\u2192 129     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:134:136\n\n  131         status: \"ACTIVE\"\n  132     }\n  133 }).catch(()=>0),\n\u2192 134 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:139:150\n\n  136         status: \"ACTIVE\"\n  137     }\n  138 }).catch(()=>0),\n\u2192 139 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`."
+    ],
+    "page_errors": [],
+    "screenshot": "/home/z/my-project/_integration/playwright-shots/05-mobile-ar-rtl.png"
+  },
+  {
+    "case": "06-mobile-en-ltr",
+    "viewport": [
+      375,
+      667
+    ],
+    "locale": "en",
+    "url": "http://localhost:3000/en",
+    "html_lang": "en",
+    "html_dir": "ltr",
+    "str_home_present": true,
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "horizontal_overflow_px": 0,
+    "sidebar_left": null,
+    "sidebar_right": null,
+    "sidebar_width": null,
+    "big_svgs_count": 0,
+    "lessons_count": 2,
+    "lower_grid_offsetTop": 1601,
+    "featured_projects_count": 0,
+    "stat_values": [
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014",
+      "\u2014"
+    ],
+    "console_msgs_count": 8,
+    "page_errors_count": 0,
+    "console_msgs": [
+      "[info] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+      "[log] [HMR] connected",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:129:133\n\n  126 //   - `ProjectProposal` has no `tags` field \u2014 featured project tags will be\n  127 //     empty (truthful: no tag schema exists yet).\n  128 const [activeMembersCount, activeProjectsCount, contributionsThisMonthCount, publishedOpportunitiesResult] = await Promise.all([\n\u2192 129     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].user.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:134:136\n\n  131         status: \"ACTIVE\"\n  132     }\n  133 }).catch(()=>0),\n\u2192 134 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].project.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.",
+      "[log] %c%s%c prisma:error background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   \nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count()` invocation in\n/home/z/my-project/_app_clone/.next/dev/server/chunks/ssr/[root-of-the-server]__0v6dywssp4sqi._.js:139:150\n\n  136         status: \"ACTIVE\"\n  137     }\n  138 }).catch(()=>0),\n\u2192 139 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"db\"].contributionReference.count(\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`."
+    ],
+    "page_errors": [],
+    "screenshot": "/home/z/my-project/_integration/playwright-shots/06-mobile-en-ltr.png"
+  }
+]
