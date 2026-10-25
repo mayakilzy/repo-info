@@ -1,0 +1,18 @@
+{
+  "approved_path": "extracted/STR_UI_01_HOME_REFERENCE_v1/assets/approved-reference.png",
+  "rendered_path": "screenshots/01-desktop-ar-rtl-viewport.png",
+  "viewport": [
+    1536,
+    1024
+  ],
+  "total_pixels": 1572864,
+  "different_pixels": 1321961,
+  "different_pct": 84.048,
+  "mae_per_channel_rgb": [
+    44.922,
+    45.367,
+    54.873
+  ],
+  "side_by_side_image": "comparison-side-by-side-desktop-ar.png",
+  "diff_image": "comparison-diff-desktop-ar.png"
+}
