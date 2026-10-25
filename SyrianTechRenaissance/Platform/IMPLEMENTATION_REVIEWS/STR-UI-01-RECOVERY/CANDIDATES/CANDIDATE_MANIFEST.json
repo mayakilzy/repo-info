@@ -1,0 +1,49 @@
+{
+  "mission": "STR-UI-01-RECOVERY",
+  "purpose": "Provide candidate styles.css + script.js + index.html triples for matching against MASTER's partial recovery package contents",
+  "candidates": [
+    {
+      "label": "v1.0",
+      "origin_path": "SyrianTechRenaissance/Platform/IMPLEMENTATION_REVIEWS/STR-G11-00/STR_UI_01_HOME_REFERENCE_v1.zip",
+      "origin_branch": "main",
+      "origin_repo": "mayakilzy/repo-info",
+      "package_sha256": "0717bdd7127535bcfdec78a5c935913ae7284a002a170d9afdb491a9dd9526d6",
+      "package_bytes": 1987745,
+      "files": {
+        "index.html":  {"sha256": "bef09883444584a2d43e71417ce263cefeb2ed0c94d48d6710c9a7c4ea42f548", "bytes": 10792},
+        "styles.css":  {"sha256": "206c86d5247cbc55f1d0e7a605a775beff5b3adc6268bc0f7a6d241c1e632535", "bytes": 14448},
+        "script.js":   {"sha256": "5adf8d3345c1ef986fd884cd929a491fd0a07fa5b1dfed4b967630556bfc8a42", "bytes": 1282}
+      },
+      "visual_fidelity": "Dark futuristic dashboard, RTL Arabic default, EN toggle, sidebar+topbar+stats+feature-grid+lower-grid+footer. Authored from approved-reference.png (1536x1024)."
+    },
+    {
+      "label": "v1.1",
+      "origin_path": "SyrianTechRenaissance/Platform/UI_UX_DESIGN/IMPLEMENTATION_READY/PAGE_01_HOME/STR_UI_01_HOME_REFERENCE_v1.1.zip",
+      "origin_branch": "feat/str-ui-00c-refinement",
+      "origin_repo": "mayakilzy/repo-info",
+      "package_sha256": "659f463f99731b2ca546e71e1ac1f4fbe9b06f0b28458fc1f1fa7a20eb2447b2",
+      "package_bytes": 2003489,
+      "files": {
+        "index.html":  {"sha256": "24131e166bb220e8d9fb2563f585d2a3c62c6dd8604c22da32aedb67ea594064", "bytes": 29684},
+        "styles.css":  {"sha256": "5f329fce80318086fe7391c9a1cbd80fb3a9ecdfe26cc733296b1d44e33bab4f", "bytes": 23883},
+        "script.js":   {"sha256": "3e1dc0f73e24a10ad28751556379f09477020dd7aedd7bde610335f982db2cfe", "bytes": 2665}
+      },
+      "visual_fidelity": "Refined v1.0: Tajawal typography (VLM-verified 95%), inline SVG icons (Lucide-compatible), complete static localization (~55 strings), mobile EN-LTR overflow FIXED (62px -> 0). Introduced D1-D4 SVG sizing regression (oversized SVGs pushed lower sections off-screen)."
+    },
+    {
+      "label": "v1.2",
+      "origin_path": "SyrianTechRenaissance/Platform/UI_UX_DESIGN/IMPLEMENTATION_READY/PAGE_01_HOME/STR_UI_01_HOME_REFERENCE_v1.2.zip",
+      "origin_branch": "feat/str-ui-00d-regression-recovery",
+      "origin_repo": "mayakilzy/repo-info",
+      "package_sha256": "58835abdb30ce0c2b33f858faf88c57279092fb1180da69dc7a0e423660b641a",
+      "package_bytes": 2006484,
+      "files": {
+        "index.html":  {"sha256": "24131e166bb220e8d9fb2563f585d2a3c62c6dd8604c22da32aedb67ea594064", "bytes": 29684},
+        "styles.css":  {"sha256": "c9db5d50b923516bbee97ebc1f22d97f14107a6354e345ac050825144f1f3449", "bytes": 25286},
+        "script.js":   {"sha256": "3e1dc0f73e24a10ad28751556379f09477020dd7aedd7bde610335f982db2cfe", "bytes": 2665}
+      },
+      "visual_fidelity": "v1.1 + 16 CSS lines added (D1-D4 root cause fix). All v1.1 gains preserved. VLM verdict 9/10 'successful fix of the v1.1 breakdown'. Recommended as Gate B candidate per STR-UI-00D."
+    }
+  ],
+  "note": "MATCHING PROCEDURE: compute SHA-256 of MASTER's partial recovery's index.html; if it equals any candidate's index.html SHA above, the matching styles.css + script.js are the original recovered source. If no SHA matches, MASTER must share the partial recovery's index.html with GLM for line-by-line structural comparison."
+}
