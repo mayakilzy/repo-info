@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#060d1b">
+<title data-ar="Syrian Tech Renaissance — مرجع بصري" data-en="Syrian Tech Renaissance — Visual Reference">Syrian Tech Renaissance — مرجع بصري</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- R1 typography: Tajawal (Arabic) + IBM Plex Sans (Latin). Loaded via Google Fonts CDN.
+     Both are SIL Open Font License 1.1 — freely redistributable. -->
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- R6: demo banner with translated text -->
+<div class="demo-banner" role="note">
+  <span data-ar="نموذج تصميم مرجعي — البيانات والأزرار للعرض فقط وليست خدمات حية"
+        data-en="Visual reference draft — demo data only, not live services">نموذج تصميم مرجعي — البيانات والأزرار للعرض فقط وليست خدمات حية</span>
+  <button id="toggleLang" type="button" aria-label="Switch language">EN / AR</button>
+</div>
+
+<div class="app-shell">
+<header class="topbar">
+ <a class="brand" href="#home" aria-label="Syrian Tech Renaissance">
+   <span class="brand-mark"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2l2.4 6.6L21 9.2l-5.4 4.3 1.9 7L12 16.6 6.5 20.5l1.9-7L3 9.2l6.6-.6L12 2z" fill="currentColor"/></svg><strong>STR</strong></span>
+   <span class="brand-text"><span class="brand-name">Syrian Tech Renaissance</span><small data-ar="نهضة سوريا التقنية" data-en="Syria's Tech Renaissance">نهضة سوريا التقنية</small></span>
+ </a>
+ <div class="search">
+   <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+   <span data-ar="ابحث عن مشاريع، مهندسين، تقنيات، أو أفكار..."
+         data-en="Search projects, engineers, technologies or ideas...">ابحث عن مشاريع، مهندسين، تقنيات، أو أفكار...</span>
+   <kbd>⌘ K</kbd>
+ </div>
+ <div class="header-tools">
+   <span class="notification" aria-label="Demo notifications">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16v-5a6 6 0 10-12 0v5l-2 3h16l-2-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 21a2 2 0 004 0" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+     <b>3</b>
+   </span>
+   <span class="avatar" aria-hidden="true">م</span>
+   <span class="profile">
+     <span data-ar="حساب تجريبي" data-en="Demo account">حساب تجريبي</span>
+     <small data-ar="واجهة عرض" data-en="Demo UI">واجهة عرض</small>
+   </span>
+ </div>
+</header>
+
+<aside class="sidebar">
+ <nav aria-label="Main navigation" class="main-nav">
+  <a class="active" href="#home"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg><em data-ar="الرئيسية" data-en="Home">الرئيسية</em></a>
+  <a href="#projects"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="10" width="18" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="16" width="18" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg><em data-ar="المشاريع" data-en="Projects">المشاريع</em></a>
+  <a href="#community"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 19c0-3 2.5-5 6-5s6 2 6 5M14 19c0-2 1.5-3.5 4-3.5s4 1.5 4 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><em data-ar="المجتمع" data-en="Community">المجتمع</em></a>
+  <a href="#engineers"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3l3 3M3 21l3.5-1 10-10-3-3-10 10L3 21z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg><em data-ar="المهندسون" data-en="Engineers">المهندسون</em></a>
+  <a href="#opportunities"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v4H5zM5 11h14v4H5zM5 17h14v4H5z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="7" r="1" fill="currentColor"/></svg><em data-ar="فرص المساهمة" data-en="Contribute">فرص المساهمة</em></a>
+  <a href="#learning"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9zM6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg><em data-ar="التعلم والموارد" data-en="Learning">التعلم والموارد</em></a>
+  <a href="#assistant"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="5" cy="18" r="1.5" fill="currentColor"/><circle cx="19" cy="18" r="1.5" fill="currentColor"/></svg><em data-ar="الذكاء الاصطناعي" data-en="AI Assistant">الذكاء الاصطناعي</em></a>
+  <a href="#events"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><em data-ar="الفعاليات" data-en="Events">الفعاليات</em></a>
+  <a href="#activity"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><em data-ar="الرسائل" data-en="Messages">الرسائل</em></a>
+ </nav>
+ <div class="sidebar-title">
+   <span data-ar="مساحات العمل" data-en="Workspaces">مساحات العمل</span>
+   <span aria-hidden="true">＋</span>
+ </div>
+ <nav class="work-nav">
+   <a href="#workspace"><span class="dot dot-violet"></span><span data-ar="منصتي الشخصية" data-en="My workspace">منصتي الشخصية</span></a>
+   <a href="#workspace"><span class="dot dot-blue"></span><span data-ar="مشاريعي المنضم إليها" data-en="Joined projects">مشاريعي المنضم إليها</span></a>
+   <a href="#workspace"><span class="dot dot-green"></span><span data-ar="المشاريع المقترحة" data-en="Proposed">المشاريع المقترحة</span></a>
+   <a href="#workspace"><span class="dot dot-orange"></span><span data-ar="المفضلة" data-en="Favorites">المفضلة</span></a>
+ </nav>
+ <div class="heritage-card">
+   <h3 data-ar="معاً نبني مستقبل سوريا التقني" data-en="Together we build Syria's tech future">معاً نبني<br>مستقبل سوريا التقني</h3>
+   <span data-ar="تعرّف على المبادرة ←" data-en="Learn about the initiative ←">تعرّف على المبادرة ←</span>
+ </div>
+</aside>
+
+<main id="home">
+ <section class="hero" aria-labelledby="hero-title">
+   <div class="hero-copy">
+     <p class="eyebrow" data-ar="SYRIAN TECH RENAISSANCE · DIGITAL FUTURE"
+        data-en="SYRIAN TECH RENAISSANCE · DIGITAL FUTURE">SYRIAN TECH RENAISSANCE · DIGITAL FUTURE</p>
+     <h1 id="hero-title"
+         data-ar="سوريا تبني مستقبلها بالعقول والتقنية"
+         data-en="Building Syria's future with minds and technology">سوريا تبني مستقبلها<br>بالعقول والتقنية</h1>
+     <p data-ar="منصة تجمع المهندسين والمبدعين لبناء مشاريع تقنية حقيقية تخدم سوريا ومنطقتها"
+        data-en="A platform connecting engineers and innovators to build meaningful technology projects">منصة تجمع المهندسين والمبدعين لبناء مشاريع تقنية حقيقية تخدم سوريا ومنطقتها</p>
+     <div class="hero-actions">
+       <a href="#projects" class="btn primary">
+         <span data-ar="استكشف المشاريع" data-en="Explore projects">استكشف المشاريع</span>
+         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+       </a>
+       <a href="#community" class="btn outline">
+         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 19c0-3 2.5-5 6-5s6 2 6 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+         <span data-ar="انضم إلى المجتمع" data-en="Join the community">انضم إلى المجتمع</span>
+       </a>
+     </div>
+   </div>
+   <div class="hero-art" aria-hidden="true">
+     <div class="hologram">
+       <b>AI</b>
+       <span data-ar="أفكار" data-en="Ideas">أفكار</span>
+       <span data-ar="حلول" data-en="Solutions">حلول</span>
+       <span data-ar="أثر" data-en="Impact">أثر</span>
+       <div class="network" aria-hidden="true">✧ ── ◇ ── ✧</div>
+     </div>
+     <div class="holo-label">
+       <span><svg class="ico-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg><span data-ar="ابنِ" data-en="Build">ابنِ</span></span>
+       <span><svg class="ico-sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span data-ar="تعاون" data-en="Collaborate">تعاون</span></span>
+       <span><svg class="ico-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span data-ar="تعلّم" data-en="Learn">تعلّم</span></span>
+       <span><svg class="ico-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-ar="انمَ" data-en="Grow">انمَ</span></span>
+     </div>
+   </div>
+   <div class="hero-quote">
+     <span data-ar="التقنية لا تغير العالم وحدها، بل الناس الذين يستخدمونها من أجل هدف أكبر."
+           data-en="Technology alone does not change the world — the people who use it for a greater purpose do.">التقنية لا تغير العالم وحدها<br>بل الناس الذين يستخدمونها<br>من أجل هدف أكبر.</span>
+   </div>
+ </section>
+
+ <section class="stats" aria-label="Demo statistics">
+   <div class="stat">
+     <i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></i>
+     <div><strong>1,250+</strong><span data-ar="مهندس ومهندسة" data-en="Engineers">مهندس ومهندسة</span></div>
+   </div>
+   <div class="stat">
+     <i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="10" width="18" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="16" width="18" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg></i>
+     <div><strong>85</strong><span data-ar="مشروعاً نشطاً" data-en="Active projects">مشروعاً نشطاً</span></div>
+   </div>
+   <div class="stat">
+     <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+     <div><strong>320</strong><span data-ar="مساهمة هذا الشهر" data-en="Contributions this month">مساهمة هذا الشهر</span></div>
+   </div>
+   <div class="stat">
+     <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v4H5zM5 11h14v4H5zM5 17h14v4H5z" fill="none" stroke="currentColor" stroke-width="2"/></svg></i>
+     <div><strong>48</strong><span data-ar="فرصة متاحة" data-en="Open opportunities">فرصة متاحة</span></div>
+   </div>
+   <div class="stat">
+     <i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></i>
+     <div><strong>12</strong><span data-ar="فعالية قادمة" data-en="Upcoming events">فعالية قادمة</span></div>
+   </div>
+ </section>
+
+ <section class="feature-grid">
+  <article class="panel ai-panel" id="assistant">
+    <div class="feature-heading">
+      <div class="glow-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div>
+        <h2 data-ar="ابدأ بمساعدة الذكاء الاصطناعي" data-en="Start with AI assistance">ابدأ بمساعدة الذكاء الاصطناعي</h2>
+        <p data-ar="حوّل فكرتك إلى مشروع تقني باستخدام مساعدنا الذكي" data-en="Turn your idea into a technical project using our AI assistant">حوّل فكرتك إلى مشروع تقني باستخدام مساعدنا الذكي</p>
+      </div>
+    </div>
+    <div class="fake-input">
+      <span data-ar="صف فكرتك أو سؤالك التقني ..." data-en="Describe your idea or technical question...">صف فكرتك أو سؤالك التقني ...</span>
+      <button type="button" aria-label="Demo only" disabled>
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="chips">
+      <span data-ar="تحليل فكرة مشروع" data-en="Project idea analysis">تحليل فكرة مشروع</span>
+      <span data-ar="مقترح تقني" data-en="Tech suggestion">مقترح تقني</span>
+      <span data-ar="خطة تنفيذ" data-en="Execution plan">خطة تنفيذ</span>
+      <span data-ar="أسئلة تقنية" data-en="Tech questions">أسئلة تقنية</span>
+      <span data-ar="تصميم معماري" data-en="Architecture design">تصميم معماري</span>
+      <span data-ar="مراجعة كود" data-en="Code review">مراجعة كود</span>
+    </div>
+  </article>
+
+  <article class="panel explore-panel" id="projects">
+    <div class="feature-heading">
+      <div class="glow-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div>
+        <h2 data-ar="ابحث عن مشروع يناسبك" data-en="Find a project for you">ابحث عن مشروع يناسبك</h2>
+        <p data-ar="استكشف مشاريع حقيقية في مجالات متعددة وانضم إلى الفرق التي تصنع الفرق" data-en="Explore real projects across fields and join teams making a difference">استكشف مشاريع حقيقية في مجالات متعددة وانضم إلى الفرق التي تصنع الفرق</p>
+      </div>
+    </div>
+    <div class="category-grid">
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg><small data-ar="الذكاء الاصطناعي" data-en="AI">الذكاء الاصطناعي</small></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8h18" stroke="currentColor" stroke-width="2"/></svg><small data-ar="الويب والتطبيقات" data-en="Web & apps">الويب والتطبيقات</small></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16M8 16V9M12 16V6M16 16v-4M20 16v-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><small data-ar="البيانات والتحليلات" data-en="Data & analytics">البيانات والتحليلات</small></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><small data-ar="البنية التحتية" data-en="Infrastructure">البنية التحتية</small></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9zM6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><small data-ar="التعليم التقني" data-en="Tech education">التعليم التقني</small></div>
+      <div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="currentColor"/><circle cx="5" cy="5" r="1.5" fill="currentColor"/><circle cx="19" cy="5" r="1.5" fill="currentColor"/><circle cx="5" cy="19" r="1.5" fill="currentColor"/><circle cx="19" cy="19" r="1.5" fill="currentColor"/></svg><small data-ar="المزيد" data-en="More">المزيد</small></div>
+    </div>
+    <a href="#featured" class="btn primary small">
+      <span data-ar="عرض جميع المشاريع" data-en="View all projects">عرض جميع المشاريع</span>
+      <svg class="ico-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </article>
+
+  <article class="panel learning-panel" id="learning">
+    <div class="feature-heading">
+      <div class="glow-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5L2 9zM6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div>
+        <h2 data-ar="طوّر مهاراتك" data-en="Develop your skills">طوّر مهاراتك</h2>
+        <p data-ar="تعلم من أفضل المهندسين والخبراء عبر مساقات ومحتوى عملي" data-en="Learn from top engineers through courses and practical content">تعلم من أفضل المهندسين والخبراء عبر مساقات ومحتوى عملي</p>
+      </div>
+    </div>
+    <div class="levels">
+      <span data-ar="مبتدئ" data-en="Beginner">مبتدئ</span>
+      <span data-ar="متوسط" data-en="Intermediate">متوسط</span>
+      <span data-ar="متقدم" data-en="Advanced">متقدم</span>
+    </div>
+    <div class="lesson">
+      <span class="lesson-thumb">AI</span>
+      <div>
+        <strong data-ar="مقدمة في الذكاء الاصطناعي التطبيقي" data-en="Intro to Applied AI">مقدمة في الذكاء الاصطناعي التطبيقي</strong>
+        <small data-ar="دروس ومسار تعليمي تجريبي" data-en="Demo lessons and learning path">دروس ومسار تعليمي تجريبي</small>
+      </div>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="lesson">
+      <span class="lesson-thumb blue">&lt;/&gt;</span>
+      <div>
+        <strong data-ar="بناء تطبيقات حديثة باستخدام Next.js" data-en="Building Modern Apps with Next.js">بناء تطبيقات حديثة باستخدام Next.js</strong>
+        <small data-ar="محتوى تعليمي تجريبي" data-en="Demo educational content">محتوى تعليمي تجريبي</small>
+      </div>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </article>
+ </section>
+
+ <section class="lower-grid">
+   <article class="panel featured" id="featured">
+     <div class="section-heading">
+       <h2><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg> <span data-ar="المشاريع المميزة" data-en="Featured projects">المشاريع المميزة</span></h2>
+       <a href="#projects"><span data-ar="عرض الكل" data-en="View all">عرض الكل</span> <svg class="ico-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+     </div>
+     <div class="projects">
+       <div class="project">
+         <div class="project-img education"><span data-ar="مفتوح للمساهمة" data-en="Open to contribute">مفتوح للمساهمة</span></div>
+         <h3 data-ar="منصة التعليم المفتوح" data-en="Open Education Platform">منصة التعليم المفتوح</h3>
+         <p data-ar="مبادرة تعليمية تقنية — بيانات عرض" data-en="Educational tech initiative — demo data">مبادرة تعليمية تقنية — بيانات عرض</p>
+         <div class="tags"><span>Next.js</span><span>AI</span><span>Education</span></div>
+         <div class="progress"><b style="width:85%"></b></div>
+       </div>
+       <div class="project">
+         <div class="project-img health"><span data-ar="يبحث عن فريق" data-en="Seeking team">يبحث عن فريق</span></div>
+         <h3 data-ar="نظام إدارة العيادات" data-en="Clinic Management System">نظام إدارة العيادات</h3>
+         <p data-ar="أدوات رقمية للخدمات الصحية — عرض" data-en="Digital tools for healthcare services — demo">أدوات رقمية للخدمات الصحية — عرض</p>
+         <div class="tags"><span>React</span><span>Node.js</span><span>Data</span></div>
+         <div class="progress"><b style="width:60%"></b></div>
+       </div>
+       <div class="project">
+         <div class="project-img city"><span data-ar="تحت التطوير" data-en="In development">تحت التطوير</span></div>
+         <h3 data-ar="خريطة الخدمات في سوريا" data-en="Syria Services Map">خريطة الخدمات في سوريا</h3>
+         <p data-ar="عرض بيانات المدن والخدمات — عرض" data-en="City and services data display — demo">عرض بيانات المدن والخدمات — عرض</p>
+         <div class="tags"><span>Next.js</span><span>Mapbox</span><span>Civic Tech</span></div>
+         <div class="progress"><b style="width:40%"></b></div>
+       </div>
+     </div>
+   </article>
+
+   <article class="panel engineers" id="engineers">
+     <div class="section-heading">
+       <h2 data-ar="المهندسون المميزون" data-en="Featured engineers">المهندسون المميزون</h2>
+       <a href="#community"><span data-ar="عرض الكل" data-en="View all">عرض الكل</span></a>
+     </div>
+     <div class="person">
+       <span class="person-avatar">ل</span>
+       <div>
+         <strong data-ar="ملف مهندس تجريبي" data-en="Demo engineer profile">ملف مهندس تجريبي</strong>
+         <small data-ar="تطوير واجهات أمامية" data-en="Frontend development">تطوير واجهات أمامية</small>
+         <span class="tags"><span>React</span><span>UI/UX</span></span>
+       </div>
+       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+     </div>
+     <div class="person">
+       <span class="person-avatar green">ي</span>
+       <div>
+         <strong data-ar="ملف مساهم تجريبي" data-en="Demo contributor profile">ملف مساهم تجريبي</strong>
+         <small data-ar="هندسة بيانات" data-en="Data engineering">هندسة بيانات</small>
+         <span class="tags"><span>Python</span><span>PostgreSQL</span></span>
+       </div>
+       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+     </div>
+     <div class="person">
+       <span class="person-avatar violet">د</span>
+       <div>
+         <strong data-ar="ملف مصمم تجريبي" data-en="Demo designer profile">ملف مصمم تجريبي</strong>
+         <small data-ar="تصميم تجربة المستخدم" data-en="User experience design">تصميم تجربة المستخدم</small>
+         <span class="tags"><span>Figma</span><span>Product</span></span>
+       </div>
+       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+     </div>
+   </article>
+
+   <article class="panel activity" id="activity">
+     <div class="section-heading">
+       <h2 data-ar="النشاط الأخير" data-en="Recent activity">النشاط الأخير</h2>
+       <a href="#activity"><span data-ar="عرض الكل" data-en="View all">عرض الكل</span></a>
+     </div>
+     <div class="activity-item">
+       <span class="act-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+       <p><span data-ar="انضم مساهم جديد إلى مشروع تقني" data-en="A new contributor joined a tech project">انضم مساهم جديد إلى مشروع تقني</span><small data-ar="نشاط توضيحي · ليس حياً" data-en="Demo activity · not live">نشاط توضيحي · ليس حياً</small></p>
+     </div>
+     <div class="activity-item">
+       <span class="act-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="10" width="18" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+       <p><span data-ar="أضيفت ملاحظة إلى مساحة العمل" data-en="A note was added to the workspace">أضيفت ملاحظة إلى مساحة العمل</span><small data-ar="نشاط توضيحي · ليس حياً" data-en="Demo activity · not live">نشاط توضيحي · ليس حياً</small></p>
+     </div>
+     <div class="activity-item">
+       <span class="act-icon violet"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="currentColor"/><circle cx="5" cy="5" r="1.5" fill="currentColor"/><circle cx="19" cy="5" r="1.5" fill="currentColor"/></svg></span>
+       <p><span data-ar="تحديث على مشروع مفتوح" data-en="Update on an open project">تحديث على مشروع مفتوح</span><small data-ar="نشاط توضيحي · ليس حياً" data-en="Demo activity · not live">نشاط توضيحي · ليس حياً</small></p>
+     </div>
+     <div class="activity-item">
+       <span class="act-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v4H5zM5 11h14v4H5zM5 17h14v4H5z" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+       <p><span data-ar="إعلان عن فرصة مساهمة جديدة" data-en="New contribution opportunity posted">إعلان عن فرصة مساهمة جديدة</span><small data-ar="نشاط توضيحي · ليس حياً" data-en="Demo activity · not live">نشاط توضيحي · ليس حياً</small></p>
+     </div>
+   </article>
+ </section>
+
+ <footer>
+   <span data-ar="STR · مرجع بصري مستقل v1.1 · ليس منتجاً حياً" data-en="STR · Standalone visual reference v1.1 · Not a live product">STR · مرجع بصري مستقل v1.1 · ليس منتجاً حياً</span>
+ </footer>
+</main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
