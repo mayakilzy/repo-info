@@ -6,11 +6,27 @@
 
 ---
 
+## Classification System
+
+This document uses three classifications throughout:
+
+- **Extracted Source Value** — Verbatim value from an approved page source archive. Factual observation, not a recommendation.
+- **Proposed Canonical Token** — Recommended value for designing future STR pages. Not founder-approved until MASTER explicitly approves.
+- **Founder-Approved Token** — Value explicitly approved by MASTER for future use.
+
+No token in this document currently carries "Founder-Approved" status unless individually approved by MASTER.
+
+## Pages Freeze Declaration
+
+> Pages 02–05 remain visually approved and unchanged. Canonical token proposals apply to future pages only. No retroactive CSS normalization. No alteration of approved source ZIP archives. No application code changes.
+
+---
+
 ## 1. Color Palette
 
 ### Shared Colors (used across all 4 pages)
 
-| Token | Values | Usage |
+| Token | Extracted Values | Usage |
 |---|---|---|
 | Primary Blue | `#087dff` / `#0878ff` / `#086eff` / `#0867c9` | Buttons, active nav, progress bars |
 | Cyan Accent | `#14bfff` / `#16c7ff` / `#09c4ff` / `#08c8ff` | Stat icons, glow borders, holographic elements |
@@ -24,7 +40,7 @@
 | Danger Red | `#ed315f` / `#f60058` / `#f8005b` | Notification badge |
 | Success Green | `#00b86c` / `#00e77a` / `#169966` | Verified badge, availability dot, green tags |
 
-**Note:** Each page uses slightly different hex values for the same semantic token. These are **not conflicts** — they are natural variation from hand-authored CSS across 4 separate design files. The canonical values (first in each list) should be used for new pages.
+**Note:** Each page uses slightly different hex values for the same semantic token. These are **extracted source values** showing natural variation from hand-authored CSS across 4 separate design files. The first value in each list is the **proposed canonical** value for new pages, based on Page 02 (the first approved page). This is a design standardization proposal, not a majority rule.
 
 ### Page-Specific Colors
 
@@ -46,13 +62,17 @@
 
 ## 2. Typography
 
-| Token | Value | Usage |
+| Token | Extracted Value | Usage |
 |---|---|---|
 | Arabic font | **Cairo** (weights: 400, 500, 600, 700, 800, 900) | All Arabic text |
 | English font | **IBM Plex Sans** (weights: 400, 500, 600, 700) | All English text |
 | Logo font | IBM Plex Sans 900 | STR brand logo (always Latin, even in Arabic) |
 | Body font size | 12px | Default body text across all pages |
 | Mono font | IBM Plex Mono (implied) | Keyboard shortcuts, code |
+
+### Typography Accessibility Note
+
+> The extracted 12px body font size is an observation from the approved source files, **not a mandatory font size for all future content**. Typography must remain readable and accessible across desktop and mobile. The 12px value must not be imposed universally on headings, paragraphs, forms, or other components.
 
 ### Page-Specific Heading Sizes
 
@@ -98,7 +118,7 @@
 | 04 Job Opportunities | 740px, 1050px, 1440px, 380px |
 | 05 Profile | 700px, 950px, 1320px |
 
-**Canonical breakpoints for new pages:** 720px (mobile), 1050px (tablet), 1350px (desktop)
+**Proposed canonical breakpoints for new pages:** 720px (mobile), 1050px (tablet), 1350px (desktop) — based on frequency across pages, not founder approval.
 
 ---
 
@@ -106,7 +126,7 @@
 
 ### Shared Gradient Patterns
 
-| Pattern | CSS Value (canonical) | Usage |
+| Pattern | CSS Value (proposed canonical) | Usage |
 |---|---|---|
 | Primary button | `linear-gradient(105deg, #00b6ff, #0766ff 60%, #ad00fa)` | Create/Post/Primary buttons |
 | Active nav link | `linear-gradient(95deg, #08b9ff, #0054ff)` | Active sidebar nav link |
@@ -161,13 +181,13 @@
 
 ---
 
-## 9. Canonical Token Summary for New Pages
+## 9. Proposed Canonical Token Summary for New Pages
 
-For the next UI pages, use these canonical values:
+> The following values are **proposed canonical tokens** for designing future STR pages. They are NOT founder-approved unless MASTER explicitly approves them. They are extracted from the approved source archives and recommended for design consistency.
 
 ```css
 :root {
-  /* Colors */
+  /* Colors — proposed canonical (first value from each extracted range) */
   --str-bg: #031124;
   --str-panel: #061b34;
   --str-text: #f4f7ff;
@@ -180,23 +200,23 @@ For the next UI pages, use these canonical values:
   --str-danger: #ed315f;
   --str-success: #00b86c;
 
-  /* Layout */
-  --str-sidebar: 180px;
-  --str-topbar: 70px;
+  /* Layout — proposed canonical (design standardization, not majority) */
+  --str-sidebar: 180px;  /* from Page 02, the first approved page */
+  --str-topbar: 70px;     /* from Pages 02/03 (2-2 tie with 55px; 70px proposed as standard) */
   --str-mobile-sidebar: 245px;
 
-  /* Breakpoints */
+  /* Breakpoints — proposed canonical */
   --str-bp-mobile: 720px;
   --str-bp-tablet: 1050px;
   --str-bp-desktop: 1350px;
 
-  /* Radius */
+  /* Radius — proposed canonical */
   --str-radius-sm: 6px;
   --str-radius-md: 9px;
   --str-radius-lg: 12px;
   --str-radius-pill: 20px;
 
-  /* Fonts */
+  /* Fonts — extracted from all 4 pages */
   --str-font-ar: 'Cairo', sans-serif;
   --str-font-en: 'IBM Plex Sans', sans-serif;
 }
@@ -206,4 +226,5 @@ For the next UI pages, use these canonical values:
 
 *Extracted by: GLM Engineering Agent*  
 *Date: 2026-10-23*  
-*All values traced to approved source CSS with provenance records.*
+*All values traced to approved source CSS with provenance records.*  
+*Corrections applied: STR-DS-01A (2026-10-25) per MASTER directive.*
