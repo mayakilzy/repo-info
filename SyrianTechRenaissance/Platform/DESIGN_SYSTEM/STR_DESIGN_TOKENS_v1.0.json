@@ -1,0 +1,694 @@
+{
+  "meta": {
+    "version": "1.0",
+    "date": "2026-10-23",
+    "source_pages": [
+      "Page 02 Dashboard",
+      "Page 03 My Projects",
+      "Page 04 Job Opportunities",
+      "Page 05 Professional Profile"
+    ],
+    "source_files": [
+      "STR_PAGE02_DASHBOARD_SOURCE.zip/styles.css",
+      "STR_PAGE03_MY_PROJECTS_SOURCE.zip/styles.css",
+      "STR_PAGE04_JOB_OPPORTUNITIES_SOURCE.zip/styles.css",
+      "STR_PAGE05_PROFESSIONAL_PROFILE_SOURCE.zip/styles.css"
+    ],
+    "standing_rule": "MASTER designs and approves. GLM integrates and connects functionality.",
+    "notes": "All values extracted verbatim from the approved source CSS. Conflicts documented separately. Shared tokens represent values used across 3+ pages. Page-specific tokens are used on a single page.",
+    "classification_system": {
+      "extracted_source_value": "Verbatim value from an approved page source archive. Factual observation, not a recommendation.",
+      "proposed_canonical_token": "Recommended value for designing future STR pages. Not founder-approved until MASTER explicitly approves.",
+      "founder_approved_token": "Value explicitly approved by MASTER for future use. No token currently carries this status unless individually approved."
+    },
+    "pages_freeze": "Pages 02-05 remain visually approved and unchanged. Canonical token proposals apply to future pages only. No retroactive CSS normalization. No alteration of approved source ZIP archives. No application code changes."
+  },
+  "colors": {
+    "shared": {
+      "primary_blue": {
+        "values": [
+          "#087dff",
+          "#0878ff",
+          "#086eff",
+          "#0867c9"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Primary action buttons, links, active nav, progress bars",
+        "provenance": [
+          "Page 02: :root --blue, .btn.primary gradient",
+          "Page 03: :root --blue, .nav-link.active gradient",
+          "Page 04: :root --blue, .gradient-btn gradient",
+          "Page 05: .gradient-button border, hero-actions"
+        ]
+      },
+      "cyan_accent": {
+        "values": [
+          "#14bfff",
+          "#16c7ff",
+          "#09c4ff",
+          "#08c8ff"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Stat icons, holographic elements, glowing borders, accent text",
+        "provenance": [
+          "Page 02: :root --cyan",
+          "Page 03: :root --cyan",
+          "Page 04: :root --cyan",
+          "Page 05: :root --cyan"
+        ]
+      },
+      "purple_accent": {
+        "values": [
+          "#953cff",
+          "#a400ff",
+          "#ac08f7",
+          "#b800ef"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Gradient endpoints, violet badges, decorative elements",
+        "provenance": [
+          "Page 02: :root --purple",
+          "Page 03: :root --purple",
+          "Page 04: :root --purple",
+          "Page 05: .gradient-button gradient end"
+        ]
+      },
+      "background_deep_navy": {
+        "values": [
+          "#030b19",
+          "#031327",
+          "#031124"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Body background, page-level background",
+        "provenance": [
+          "Page 02: :root --bg, body",
+          "Page 03: :root --bg, body",
+          "Page 04: :root --navy, body",
+          "Page 05: .shell (from body replacement)"
+        ]
+      },
+      "panel_dark_navy": {
+        "values": [
+          "#061b34",
+          "#061e37",
+          "#051c34",
+          "#041d38"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Card/panel backgrounds, stat cards, sidebar gradient starts",
+        "provenance": [
+          "Page 02: :root --panel",
+          "Page 03: :root --panel",
+          "Page 04: :root --panel",
+          "Page 05: :root --panel"
+        ]
+      },
+      "text_primary": {
+        "values": [
+          "#f4f7ff",
+          "#eff8ff",
+          "#f5faff"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Primary text color, headings, body text",
+        "provenance": [
+          "Page 02: :root --text",
+          "Page 03: :root --text",
+          "Page 04: :root --ink",
+          "Page 05: body color"
+        ]
+      },
+      "text_muted": {
+        "values": [
+          "#a7bfde",
+          "#99b8d7",
+          "#a5c4e1"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Secondary text, descriptions, small labels",
+        "provenance": [
+          "Page 02: :root --muted",
+          "Page 03: :root --muted",
+          "Page 04: :root --muted",
+          "Page 05: body small text"
+        ]
+      },
+      "border_navy": {
+        "values": [
+          "#0b3157",
+          "#123d61",
+          "#10426a",
+          "#0c3b66"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Panel borders, card borders, divider lines",
+        "provenance": [
+          "Page 02: :root --stroke",
+          "Page 03: :root --line",
+          "Page 04: :root --border",
+          "Page 05: :root --line"
+        ]
+      },
+      "gold_star": {
+        "values": [
+          "#ffcc3b",
+          "#ffcd33",
+          "#ffdc4b",
+          "#ffe233",
+          "#ffc72e"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "STR logo star, brand mark accent, promo star",
+        "provenance": [
+          "Page 02: .brand-symbol color",
+          "Page 03: .logo i color",
+          "Page 04: .logo .star color",
+          "Page 05: .star color"
+        ]
+      },
+      "danger_red": {
+        "values": [
+          "#ed315f",
+          "#f60058",
+          "#f8005b",
+          "#f60058"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Notification badge, error states",
+        "provenance": [
+          "Page 02: .notification b background",
+          "Page 03: .bell em background",
+          "Page 04: .bell em background",
+          "Page 05: .bell i background"
+        ]
+      },
+      "success_green": {
+        "values": [
+          "#00b86c",
+          "#00e77a",
+          "#169966",
+          "#009f89"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Verified badge, availability dot, green tags, success states",
+        "provenance": [
+          "Page 02: stat-icon green variant",
+          "Page 03: .type-badge green",
+          "Page 04: .stat:nth-child(2) icon green",
+          "Page 05: .availability-dot background, .verified background"
+        ]
+      }
+    },
+    "page_specific": {
+      "page02": {
+        "panel2": "#06172c",
+        "stat_icon_bg_cyan": "#065e71",
+        "stat_icon_bg_amber": "#574024",
+        "stat_icon_bg_purple": "#44227b",
+        "stat_icon_bg_gold": "#69501c"
+      },
+      "page03": {
+        "panel2": "#092b4b",
+        "stat_icon_bg_blue": "#003c9d",
+        "stat_icon_bg_teal": "#004d46",
+        "stat_icon_bg_purple": "#481585",
+        "stat_icon_bg_amber": "#5a4109",
+        "stat_icon_bg_pink": "#64144e"
+      },
+      "page04": {
+        "panel2": "#082847",
+        "badge_freelance_bg": "#4a166f",
+        "badge_collaborative_bg": "#694700",
+        "badge_volunteer_bg": "#701a50"
+      },
+      "page05": {
+        "panel2": "#082847 (inherited from shell)",
+        "avatar_border": "#4dcaff",
+        "avatar_shadow": "#0887ff"
+      }
+    }
+  },
+  "typography": {
+    "shared": {
+      "arabic_font": {
+        "value": "Cairo",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "provenance": [
+          "All 4 pages: body font-family Cairo"
+        ],
+        "weights": "400;500;600;700;800;900",
+        "fallback": "Arial, sans-serif"
+      },
+      "english_font": {
+        "value": "IBM Plex Sans",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "provenance": [
+          "All 4 pages: html[lang=en] body font-family"
+        ],
+        "weights": "400;500;600;700",
+        "fallback": "Arial, sans-serif"
+      },
+      "body_font_size": {
+        "value": "12px",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "provenance": [
+          "All 4 pages: body font-size"
+        ],
+        "accessibility_note": "The extracted 12px body font size is an observation from the approved source files, NOT a mandatory font size for all future content. Typography must remain readable and accessible across desktop and mobile. This value must not be imposed universally on headings, paragraphs, forms, or other components."
+      },
+      "logo_font": {
+        "value": "IBM Plex Sans, font-weight 900",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "provenance": [
+          "All 4 pages: .logo/.brand-mark/.brand-symbol font"
+        ],
+        "note": "Logo uses Latin font even in Arabic (LTR direction)"
+      }
+    },
+    "page_specific": {
+      "page02": {
+        "h1_size": "clamp(27px,3.2vw,46px)",
+        "h2_size": "clamp(15px,1.6vw,23px)"
+      },
+      "page03": {
+        "h1_size": "40px",
+        "h2_size": "19px"
+      },
+      "page04": {
+        "h1_size": "37px",
+        "h2_size": "19px"
+      },
+      "page05": {
+        "h1_size": "23px",
+        "h2_size": "15px"
+      }
+    }
+  },
+  "layout": {
+    "shared": {
+      "sidebar_position": {
+        "value": "position: fixed; inset-inline-start: 0",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "CSS logical property for automatic RTL/LTR sidebar placement",
+        "rtl_behavior": "Sidebar on RIGHT in Arabic RTL",
+        "ltr_behavior": "Sidebar on LEFT in English LTR",
+        "provenance": [
+          "All 4 pages: .sidebar position rule"
+        ]
+      },
+      "main_content_offset": {
+        "value": "margin-inline-start: var(--sidebar-width)",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Main content offset from sidebar using logical property",
+        "provenance": [
+          "All 4 pages: .main margin-inline-start"
+        ]
+      },
+      "topbar_position": {
+        "value": "position: sticky; top: 0; z-index: 20-30",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "provenance": [
+          "All 4 pages: .topbar position rule"
+        ]
+      },
+      "mobile_sidebar_transform_rtl": {
+        "value": "transform: translateX(110%)",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Hide sidebar off-screen right in RTL mobile",
+        "provenance": [
+          "All 4 pages: @media mobile .sidebar transform"
+        ]
+      },
+      "mobile_sidebar_transform_ltr": {
+        "value": "transform: translateX(-110%)",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Hide sidebar off-screen left in LTR mobile",
+        "provenance": [
+          "All 4 pages: @media mobile html[dir=ltr] .sidebar transform"
+        ]
+      },
+      "mobile_menu_open_transform": {
+        "value": "transform: translateX(0)",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Show sidebar when menu is open",
+        "provenance": [
+          "All 4 pages: body/shell.menu-open .sidebar transform"
+        ]
+      }
+    },
+    "page_specific": {
+      "sidebar_width": {
+        "page02": "180px",
+        "page03": "216px",
+        "page04": "174px",
+        "page05": "174px",
+        "note": "EXTRACTED CONFLICT: pages use different sidebar widths. 174px appears on Pages 04 and 05; 180px on Page 02; 216px on Page 03. 180px is proposed as canonical for new pages based on the first approved page (Page 02), NOT as a statistical majority. MASTER approval required."
+      },
+      "topbar_height": {
+        "page02": "70px",
+        "page03": "70px",
+        "page04": "55px",
+        "page05": "55px",
+        "note": "EXTRACTED CONFLICT: 2-2 tie (Pages 02/03 use 70px; Pages 04/05 use 55px). 70px is proposed as canonical for new pages as a design standardization decision, NOT as a majority result. MASTER approval required."
+      }
+    }
+  },
+  "responsive": {
+    "shared": {
+      "mobile_breakpoint_range": {
+        "values": [
+          "720px",
+          "740px",
+          "700px"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "note": "Pages 02/03 use 720px, Page 04 uses 740px, Page 05 uses 700px — minor conflict"
+      },
+      "mobile_sidebar_width": {
+        "values": [
+          "245px",
+          "225px",
+          "240px"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "note": "Slight variation in mobile sidebar width across pages"
+      }
+    },
+    "page_specific": {
+      "page02": {
+        "breakpoints": [
+          "720px",
+          "1020px",
+          "1250px"
+        ]
+      },
+      "page03": {
+        "breakpoints": [
+          "720px",
+          "1050px",
+          "1350px",
+          "385px"
+        ]
+      },
+      "page04": {
+        "breakpoints": [
+          "740px",
+          "1050px",
+          "1440px",
+          "380px"
+        ]
+      },
+      "page05": {
+        "breakpoints": [
+          "700px",
+          "950px",
+          "1320px"
+        ]
+      }
+    }
+  },
+  "effects": {
+    "shared": {
+      "primary_button_gradient": {
+        "pattern": "linear-gradient(105deg-110deg, #00a4ff-#00b6ff, #074bff-#0b69ff 55-60%, #a000fa-#ad00fa-#b800ef)",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Primary action buttons (Create, Post, etc.)",
+        "provenance": [
+          "Page 02: .btn.primary",
+          "Page 03: .primary-button",
+          "Page 04: .gradient-btn",
+          "Page 05: .gradient-button"
+        ]
+      },
+      "nav_link_active_gradient": {
+        "pattern": "linear-gradient(90deg-95deg, #00a4ff-#0459ec-#08b9ff, #0054ff-#035aff-#117dff)",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Active sidebar navigation link",
+        "provenance": [
+          "All 4 pages: .nav-link.active background"
+        ]
+      },
+      "panel_gradient": {
+        "pattern": "linear-gradient(125deg-155deg, #07233e-#072540-#062747, #05182b-#061a30-#02182f 76-82%)",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Panel/card backgrounds",
+        "provenance": [
+          "All 4 pages: .panel background"
+        ]
+      },
+      "sidebar_gradient": {
+        "pattern": "linear-gradient(180deg, #04172d-#06172c-#061d38, #001124-#020d20-#001124 60-75%)",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Sidebar background gradient",
+        "provenance": [
+          "All 4 pages: .sidebar background"
+        ]
+      },
+      "glow_shadow_pattern": {
+        "pattern": "0 0 13-20px rgba(0,100-255,0.3-0.7)",
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Glow effects on icons, buttons, active states",
+        "provenance": [
+          "All 4 pages: .nav-link.active, .glow-icon, .stat-icon box-shadow"
+        ]
+      },
+      "backdrop_blur": {
+        "values": [
+          "blur(3px)",
+          "blur(5px)",
+          "blur(14px)",
+          "blur(18px)"
+        ],
+        "pages": [
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "usage": "Glass/holographic panel backdrop blur",
+        "note": "Varying blur values across pages — see conflicts"
+      }
+    },
+    "page_specific": {
+      "page02": {
+        "hero_overlay": "scaleX(-1) for LTR"
+      },
+      "page03": {
+        "hero_overlay": "background-position: 100% 58% for LTR"
+      },
+      "page04": {
+        "hero_overlay": "background-position: 58% 50% for LTR"
+      },
+      "page05": {
+        "hero_overlay": "scaleX(-1) for LTR"
+      }
+    }
+  },
+  "borders": {
+    "shared": {
+      "border_radius_small": {
+        "value": "5-6px",
+        "usage": "Small buttons, chips"
+      },
+      "border_radius_medium": {
+        "value": "7-10px",
+        "usage": "Buttons, inputs, cards"
+      },
+      "border_radius_large": {
+        "value": "11-12px",
+        "usage": "Panels, hero, stats"
+      },
+      "border_radius_pill": {
+        "value": "20-22px",
+        "usage": "Pills, tags"
+      },
+      "border_radius_circle": {
+        "value": "50%",
+        "usage": "Avatars, progress rings"
+      }
+    }
+  },
+  "focus": {
+    "shared": {
+      "outline_color": {
+        "values": [
+          "#58d8ff",
+          "#4ad8ff",
+          "#6be5ff",
+          "#49dfff"
+        ],
+        "usage": "Focus outline color"
+      },
+      "outline_width": {
+        "value": "2px",
+        "usage": "Focus outline width"
+      },
+      "outline_offset": {
+        "value": "2-3px",
+        "usage": "Focus outline offset"
+      }
+    }
+  },
+  "rtl_ltr": {
+    "shared": {
+      "html_dir_attr": {
+        "ar": "rtl",
+        "en": "ltr",
+        "provenance": "All 4 pages: <html dir> attribute"
+      },
+      "css_logical_properties": {
+        "inset_inline_start": "Used for sidebar positioning (auto RTL/LTR)",
+        "margin_inline_start": "Used for main content offset (auto RTL/LTR)",
+        "border_inline_end": "Used for sidebar border (auto RTL/LTR)",
+        "provenance": "All 4 pages use CSS logical properties"
+      },
+      "font_switching": {
+        "ar": "Cairo, sans-serif",
+        "en": "IBM Plex Sans, sans-serif",
+        "trigger": "html[dir=rtl] body / html[lang=en] body / body[data-lang=en]",
+        "provenance": "All 4 pages implement font switching"
+      }
+    }
+  }
+}
